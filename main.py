@@ -1,38 +1,61 @@
-import json
 import requests
 import re
+import os
 
+# Cấu hình file
+SOURCE_FILE = "sources.txt"
 OUTPUT_FILE = "playlist.m3u"
 
 def merge_m3u():
     channels_content = ""
     epg_urls = set()
     
+    # Kiểm tra file nguồn tồn tại không
+    if not os.path.exists(SOURCE_FILE):
+        print(f"Không tìm thấy file {SOURCE_FILE}")
+        return
+
     try:
-        with open('sources.json', 'r', encoding='utf-8') as f:
-            sources = json.load(f)
+        # Đọc file text từng dòng
+        with open(SOURCE_FILE, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
             
-        for source in sources:
-            source_name = source.get('name', 'Other') # Tên Source (ví dụ: FPT, Viettel)
-            url = source.get('url')
+        for line in lines:
+            line = line.strip()
+            # Bỏ qua dòng trống hoặc comment
+            if not line or line.startswith("#"):
+                continue
+                
+            # Tách Tên và URL (Hỗ trợ cả dấu phẩy và dấu gạch đứng)
+            if "," in line:
+                parts = line.split(",", 1)
+            elif "|" in line:
+                parts = line.split("|", 1)
+            else:
+                print(f"Bỏ qua dòng sai định dạng: {line}")
+                continue
+                
+            source_name = parts[0].strip()
+            url = parts[1].strip()
             
-            if not url: continue
+            if not url.startswith("http"):
+                continue
 
             try:
-                print(f"Dang tai: {source_name}")
+                print(f"Dang tai: {source_name} ...")
                 response = requests.get(url, timeout=15)
                 
                 if response.status_code == 200:
                     content = response.text
-                    lines = content.splitlines()
+                    file_lines = content.splitlines()
                     
-                    for line in lines:
-                        line = line.strip()
-                        if not line: continue
+                    for f_line in file_lines:
+                        f_line = f_line.strip()
+                        if not f_line: continue
                         
-                        # 1. LẤY EPG (Giữ nguyên logic cũ)
-                        if line.startswith("#EXTM3U"):
-                            tvg_match = re.search(r'(?:x-tvg-url|url-tvg)="([^"]*)"', line, re.IGNORECASE)
+                        # 1. LẤY EPG
+                        if f_line.startswith("#EXTM3U"):
+                            tvg_match = re.search(r'(?:x-tvg-url|url-tvg)="([^"]*)"', f_line, re.IGNORECASE)
                             if tvg_match:
                                 found_urls = tvg_match.group(1).split(',')
                                 for epg in found_urls:
@@ -40,49 +63,41 @@ def merge_m3u():
                                         epg_urls.add(epg.strip())
                             continue
                         
-                        # 2. XỬ LÝ THÔNG TIN KÊNH
-                        if line.startswith("#EXTINF"):
-                            # --- LOGIC MỚI: GROUP IN GROUP ---
+                        # 2. XỬ LÝ KÊNH VÀ GROUP
+                        if f_line.startswith("#EXTINF"):
+                            # Lấy group gốc
+                            original_group = "Ungrouped"
+                            grp_match = re.search(r'group-title="([^"]*)"', f_line)
+                            if grp_match:
+                                original_group = grp_match.group(1)
                             
-                            # B1: Tìm xem group gốc tên là gì
-                            original_group = "No Group" # Mặc định nếu ko có
-                            match = re.search(r'group-title="([^"]*)"', line)
-                            if match:
-                                original_group = match.group(1)
+                            # Tạo group mới: TÊN NGUỒN | GROUP GỐC
+                            new_group = f"{source_name} | {original_group}"
                             
-                            # B2: Tạo tên group mới theo dạng: "SOURCE | GROUP CŨ"
-                            # Bạn có thể đổi dấu "|" thành "-" hoặc ">>" tùy thích
-                            new_group_full = f"{source_name} | {original_group}"
-                            
-                            # B3: Thay thế vào dòng lệnh
-                            if 'group-title="' in line:
-                                # Nếu đã có group-title, thay nội dung bên trong
-                                line = re.sub(r'group-title="[^"]*"', f'group-title="{new_group_full}"', line)
+                            # Thay thế hoặc thêm group-title
+                            if 'group-title="' in f_line:
+                                f_line = re.sub(r'group-title="[^"]*"', f'group-title="{new_group}"', f_line)
                             else:
-                                # Nếu chưa có, chèn thêm vào
-                                comma_index = line.find(',')
+                                comma_index = f_line.find(',')
                                 if comma_index != -1:
-                                    line = line[:comma_index] + f' group-title="{new_group_full}"' + line[comma_index:]
+                                    f_line = f_line[:comma_index] + f' group-title="{new_group}"' + f_line[comma_index:]
                                 else:
-                                    line = line + f' group-title="{new_group_full}"'
+                                    f_line = f_line + f' group-title="{new_group}"'
                             
-                            channels_content += line + "\n"
-                            
-                            # Luôn cập nhật #EXTGRP để tương thích tốt nhất
-                            channels_content += f"#EXTGRP:{new_group_full}\n"
+                            channels_content += f_line + "\n"
+                            # Thêm #EXTGRP để chắc chắn app nhận diện
+                            channels_content += f"#EXTGRP:{new_group}\n"
                         
-                        elif line.startswith("#EXTGRP"):
-                            # Bỏ qua dòng EXTGRP cũ vì mình đã tự tạo dòng mới ở trên
+                        elif f_line.startswith("#EXTGRP"):
                             continue
                         else:
-                            channels_content += line + "\n"
-                            
+                            channels_content += f_line + "\n"
                 else:
-                    print(f"Lỗi tải {url}: {response.status_code}")
+                    print(f" -> Lỗi tải: {response.status_code}")
             except Exception as e:
-                print(f"Lỗi kết nối {url}: {e}")
+                print(f" -> Lỗi kết nối: {e}")
 
-        # 3. GHI FILE
+        # 3. GHI FILE KẾT QUẢ
         header = "#EXTM3U"
         if epg_urls:
             combined_epg = ",".join(epg_urls)
@@ -93,10 +108,10 @@ def merge_m3u():
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             f.write(final_content)
             
-        print(f"Đã gộp thành công! (Chế độ Group in Group)")
+        print("Đã gộp file thành công!")
         
     except Exception as e:
-        print(f"Có lỗi xảy ra: {e}")
+        print(f"Có lỗi hệ thống: {e}")
 
 if __name__ == "__main__":
     merge_m3u()
