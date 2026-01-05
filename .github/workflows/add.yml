@@ -23,6 +23,9 @@ jobs:
         with:
           python-version: '3.9'
 
+      - name: Install dependencies
+        run: pip install requests
+
       - name: Run Bulk Add Script
         env:
           INPUT_DATA: ${{ inputs.source_list }}
