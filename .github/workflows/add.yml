@@ -1,0 +1,39 @@
+name: Bulk Import Sources
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_list:
+        description: 'Dán danh sách vào đây. Định dạng: "Tên | URL" (Mỗi nguồn 1 dòng)'
+        required: true
+        type: string # GitHub hiện tại hiển thị string input dạng text box
+
+permissions:
+  contents: write
+
+jobs:
+  bulk-import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Run Bulk Add Script
+        env:
+          INPUT_DATA: ${{ inputs.source_list }}
+        run: python bulk_add.py
+
+      - name: Run Merge Script
+        # Sau khi thêm xong thì chạy gộp file luôn
+        run: python main.py
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Bulk add new sources"
+          file_pattern: "*.json *.m3u"
