@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Kênh Thể Thao",
+    "url": "https://example.com/sports.m3u"
+  },
+  {
+    "name": "Kênh Phim",
+    "url": "https://example.com/movies.m3u"
+  },
+  {
+    "name": "Server VIP",
+    "url": "https://raw.githubusercontent.com/user/repo/main/vip.m3u"
+  }
+]
