@@ -6,11 +6,13 @@ import re
 OUTPUT_FILE = "playlist.m3u"
 
 def merge_m3u():
-    # Mở đầu file m3u
-    merged_content = "#EXTM3U\n"
+    # Biến lưu trữ nội dung các kênh
+    channels_content = ""
+    # Biến lưu trữ danh sách các link EPG (dùng set để tránh trùng lặp)
+    epg_urls = set()
     
     try:
-        # Đọc danh sách nguồn từ file json mới
+        # Đọc danh sách nguồn từ file json
         with open('sources.json', 'r', encoding='utf-8') as f:
             sources = json.load(f)
             
@@ -21,7 +23,7 @@ def merge_m3u():
             if not url: continue
 
             try:
-                print(f"Dang tai: {group_name} - {url}")
+                print(f"Dang tai: {group_name}")
                 response = requests.get(url, timeout=15)
                 
                 if response.status_code == 200:
@@ -32,54 +34,62 @@ def merge_m3u():
                         line = line.strip()
                         if not line: continue
                         
-                        # Bỏ qua dòng header file #EXTM3U để tránh lặp
+                        # 1. XỬ LÝ HEADER ĐỂ LẤY EPG
                         if line.startswith("#EXTM3U"):
-                            continue
-                            
-                        # Xử lý dòng thông tin kênh #EXTINF
+                            # Tìm kiếm x-tvg-url hoặc url-tvg
+                            # Regex này tìm nội dung trong ngoặc kép sau x-tvg-url=
+                            tvg_match = re.search(r'(?:x-tvg-url|url-tvg)="([^"]*)"', line, re.IGNORECASE)
+                            if tvg_match:
+                                # Nếu trong 1 file có nhiều link EPG cách nhau bằng dấu phẩy, tách ra
+                                found_urls = tvg_match.group(1).split(',')
+                                for epg in found_urls:
+                                    if epg.strip():
+                                        epg_urls.add(epg.strip())
+                            continue # Đã lấy xong EPG, bỏ qua dòng này
+                        
+                        # 2. XỬ LÝ THÔNG TIN KÊNH
                         if line.startswith("#EXTINF"):
-                            # Cách 1: Nếu đã có group-title, thay thế nó
+                            # Logic đổi tên Group như cũ
                             if 'group-title="' in line:
                                 line = re.sub(r'group-title="[^"]*"', f'group-title="{group_name}"', line)
-                            # Cách 2: Nếu chưa có, chèn thêm vào sau #EXTINF:-1
                             else:
-                                # Tìm vị trí dấu phẩy đầu tiên (ngăn cách info và tên kênh)
                                 comma_index = line.find(',')
                                 if comma_index != -1:
-                                    # Chèn group-title trước dấu phẩy
                                     line = line[:comma_index] + f' group-title="{group_name}"' + line[comma_index:]
                                 else:
-                                    # Trường hợp format lạ, cứ nối vào đuôi
                                     line = line + f' group-title="{group_name}"'
                             
-                            merged_content += line + "\n"
-                            
-                            # Thêm dòng #EXTGRP (hỗ trợ Kodi/TiviMate tốt hơn)
-                            merged_content += f"#EXTGRP:{group_name}\n"
+                            channels_content += line + "\n"
+                            channels_content += f"#EXTGRP:{group_name}\n"
                         
-                        # Bỏ qua dòng #EXTGRP cũ của file gốc (vì mình đã tạo cái mới ở trên)
                         elif line.startswith("#EXTGRP"):
                             continue
-                            
-                        # Đây là dòng link stream hoặc các metadata khác
                         else:
-                            merged_content += line + "\n"
+                            # Link stream hoặc metadata khác
+                            channels_content += line + "\n"
                             
                 else:
-                    print(f"Lỗi khi tải {url}: Status {response.status_code}")
+                    print(f"Lỗi tải {url}: {response.status_code}")
             except Exception as e:
-                print(f"Lỗi kết nối tới {url}: {e}")
-                
-        # Ghi ra file kết quả
-        with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-            f.write(merged_content)
-            
-        print("Đã gộp và phân nhóm file thành công!")
+                print(f"Lỗi kết nối {url}: {e}")
+
+        # 3. TẠO HEADER TỔNG HỢP
+        header = "#EXTM3U"
+        if epg_urls:
+            # Nối các link EPG lại bằng dấu phẩy
+            combined_epg = ",".join(epg_urls)
+            header += f' x-tvg-url="{combined_epg}"'
         
-    except FileNotFoundError:
-        print("Không tìm thấy file sources.json")
-    except json.JSONDecodeError:
-        print("Lỗi định dạng file sources.json")
+        final_content = header + "\n" + channels_content
+
+        # Ghi ra file
+        with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+            f.write(final_content)
+            
+        print(f"Đã gộp thành công! Tổng hợp {len(epg_urls)} nguồn EPG.")
+        
+    except Exception as e:
+        print(f"Có lỗi xảy ra: {e}")
 
 if __name__ == "__main__":
     merge_m3u()
