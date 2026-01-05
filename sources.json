@@ -1,14 +1,14 @@
 [
   {
-    "name": "Kênh Thể Thao",
-    "url": "https://example.com/sports.m3u"
+    "name": "DAKLAKIPTV",
+    "url": "https://github.com/luongtamlong/DAKLAK_RADIO/raw/refs/heads/main/DAKLAKIPTV"
   },
   {
-    "name": "Kênh Phim",
-    "url": "https://example.com/movies.m3u"
+    "name": "DAKLAKIPTV_BASIC",
+    "url": "https://github.com/luongtamlong/DAKLAK_RADIO/raw/refs/heads/main/DAKLAKIPTV_BASIC"
   },
   {
-    "name": "Server VIP",
-    "url": "https://raw.githubusercontent.com/user/repo/main/vip.m3u"
+    "name": "DAKLAKIPTV_RadioQuocTe",
+    "url": "https://github.com/luongtamlong/DAKLAK_RADIO/raw/refs/heads/main/RadioQuocTe.m3u"
   }
 ]
