@@ -6,5 +6,9 @@
   {
     "name": "DAKLAKIPTV_RadioQuocTe",
     "url": "https://github.com/luongtamlong/DAKLAK_RADIO/raw/refs/heads/main/RadioQuocTe.m3u"
+  },
+  {
+    "name": "DAKLAKIPTV_RadioVietNam",
+    "url": "https://github.com/luongtamlong/DAKLAK_RADIO/raw/refs/heads/main/RadioVietNam.m3u"
   }
 ]
