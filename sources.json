@@ -10,5 +10,9 @@
   {
     "name": "DAKLAKIPTV_RadioVietNam",
     "url": "https://github.com/luongtamlong/DAKLAK_RADIO/raw/refs/heads/main/RadioVietNam.m3u"
+  },
+  {
+    "name": "vmttv",
+    "url": "https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/vmttv"
   }
 ]
