@@ -6,3 +6,4 @@ sunshinetv,https://raw.githubusercontent.com/Hannstcott/SunshineTr/refs/heads/ma
 coban66,https://263.org.vn/coban66
 vietngatv,https://vietngatv.short.gy/vietngatv
 synthetic_iptv,https://github.com/hung319/cloudstream-ext/raw/refs/heads/iptv/playlist.m3u8
+HaNoilPTV,https://hanoiiptv.short.gy/HaNoiIPTV
