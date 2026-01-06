@@ -1,6 +1,7 @@
 import requests
 import re
 import os
+import html  # Thêm thư viện này để xử lý HTML entities
 
 # Cấu hình file
 SOURCE_FILE = "sources.txt"
@@ -10,43 +11,54 @@ def merge_m3u():
     channels_content = ""
     epg_urls = set()
     
-    # Kiểm tra file nguồn tồn tại không
+    skip_channel = False
+    
     if not os.path.exists(SOURCE_FILE):
         print(f"Không tìm thấy file {SOURCE_FILE}")
         return
 
     try:
-        # Đọc file text từng dòng
         with open(SOURCE_FILE, 'r', encoding='utf-8') as f:
             lines = f.readlines()
             
         for line in lines:
             line = line.strip()
-            # Bỏ qua dòng trống hoặc comment
-            if not line or line.startswith("#"):
-                continue
+            if not line or line.startswith("#"): continue
                 
-            # Tách Tên và URL (Hỗ trợ cả dấu phẩy và dấu gạch đứng)
             if "," in line:
                 parts = line.split(",", 1)
             elif "|" in line:
                 parts = line.split("|", 1)
             else:
-                print(f"Bỏ qua dòng sai định dạng: {line}")
                 continue
                 
             source_name = parts[0].strip()
             url = parts[1].strip()
             
-            if not url.startswith("http"):
-                continue
+            if not url.startswith("http"): continue
 
             try:
                 print(f"Dang tai: {source_name} ...")
-                response = requests.get(url, timeout=15)
+                # Thêm User-Agent để tránh bị chặn bởi một số trang web
+                headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+                response = requests.get(url, headers=headers, timeout=15)
                 
                 if response.status_code == 200:
                     content = response.text
+                    
+                    # --- BƯỚC XỬ LÝ HTML TỰ ĐỘNG (MỚI) ---
+                    # Nếu nội dung chứa thẻ HTML cơ bản, tiến hành làm sạch
+                    if "<html" in content.lower() or "<body" in content.lower() or "<br" in content.lower():
+                        print(f"  -> Phát hiện HTML, đang làm sạch...")
+                        # Thay thế <br>, </p>, </div> thành xuống dòng
+                        content = re.sub(r'<(br|p|div)\s*/?>', '\n', content, flags=re.IGNORECASE)
+                        content = re.sub(r'</(p|div)>', '\n', content, flags=re.IGNORECASE)
+                        # Xóa tất cả thẻ HTML còn lại
+                        content = re.sub(r'<[^>]+>', '', content)
+                        # Giải mã ký tự đặc biệt (&amp; -> &)
+                        content = html.unescape(content)
+                    # -------------------------------------
+
                     file_lines = content.splitlines()
                     
                     for f_line in file_lines:
@@ -63,18 +75,24 @@ def merge_m3u():
                                         epg_urls.add(epg.strip())
                             continue
                         
-                        # 2. XỬ LÝ KÊNH VÀ GROUP
+                        # 2. XỬ LÝ #EXTINF
                         if f_line.startswith("#EXTINF"):
-                            # Lấy group gốc
+                            skip_channel = False
+                            channel_name = f_line.split(',')[-1].strip()
+                            
+                            # Bộ lọc rác
+                            if re.search(r'[-=_*.]{3,}', channel_name) or len(channel_name) < 2:
+                                skip_channel = True 
+                                continue
+                            
+                            # Xử lý Group
                             original_group = "Ungrouped"
                             grp_match = re.search(r'group-title="([^"]*)"', f_line)
                             if grp_match:
                                 original_group = grp_match.group(1)
                             
-                            # Tạo group mới: TÊN NGUỒN | GROUP GỐC
                             new_group = f"{source_name} | {original_group}"
                             
-                            # Thay thế hoặc thêm group-title
                             if 'group-title="' in f_line:
                                 f_line = re.sub(r'group-title="[^"]*"', f'group-title="{new_group}"', f_line)
                             else:
@@ -85,19 +103,24 @@ def merge_m3u():
                                     f_line = f_line + f' group-title="{new_group}"'
                             
                             channels_content += f_line + "\n"
-                            # Thêm #EXTGRP để chắc chắn app nhận diện
                             channels_content += f"#EXTGRP:{new_group}\n"
                         
                         elif f_line.startswith("#EXTGRP"):
                             continue
-                        else:
-                            channels_content += f_line + "\n"
+                        
+                        # 3. XỬ LÝ LINK
+                        elif not f_line.startswith("#"):
+                            if skip_channel: continue
+                            # Chỉ lấy dòng nào thực sự là link (có http hoặc rtmp)
+                            if f_line.startswith("http") or f_line.startswith("rtmp"):
+                                channels_content += f_line + "\n"
+                        
                 else:
                     print(f" -> Lỗi tải: {response.status_code}")
             except Exception as e:
                 print(f" -> Lỗi kết nối: {e}")
 
-        # 3. GHI FILE KẾT QUẢ
+        # GHI FILE
         header = "#EXTM3U"
         if epg_urls:
             combined_epg = ",".join(epg_urls)
@@ -108,7 +131,7 @@ def merge_m3u():
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             f.write(final_content)
             
-        print("Đã gộp file thành công!")
+        print("✅ Đã gộp file, làm sạch HTML và lọc rác thành công!")
         
     except Exception as e:
         print(f"Có lỗi hệ thống: {e}")
