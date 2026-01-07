@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="https://epg.pw/xmltv/epg_MY.xml,https://lichphatsong.site/schedule/epg.xml,https://epg.pw/xmltv/epg_AU.xml,https://epg.catvod.com/epg.xml,https://vnepg.site/epg.xml.gz,http://gg.gg/coodertvepg,https://epg.pw/xmltv/epg_HK.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://live.fanmingming.com/e.xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://live.qphim.xyz/epg.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://epg.aptv.app/pp.xml.gz,https://tvbvn.quanlehong539.workers.dev/xml,https://vnepg.site/epg.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,http://epg.51zmt.top:8000/e.xml,https://epg.946985.xyz/t.xml.gz,https://raw.githubusercontent.com/AqFad2811/epg/main/singapore.xml,https://iptvx.one/epg/epg.xml.gz,https://epg.pw/xmltv/epg_ID.xml,https://epg.pw/xmltv/epg_FR.xml,http://gg.gg/epgbeartv,http://gg.gg/fptepg,http://trada.info/epg.xml,http://lichphatsong.xyz/schedule/epg.xml,http://gg.gg/epgmytv,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,http://megavie.live/schedule/epg.xml,http://gg.gg/guidevn"
+#EXTM3U x-tvg-url="https://epg.pw/xmltv/epg_MY.xml,https://epg.946985.xyz/t.xml.gz,http://gg.gg/guidevn,http://gg.gg/epgmytv,https://live.fanmingming.com/e.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://lichphatsong.site/schedule/epg.xml,http://gg.gg/coodertvepg,http://gg.gg/fptepg,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://epg.pw/xmltv/epg_AU.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/singapore.xml,http://lichphatsong.xyz/schedule/epg.xml,https://epg.pw/xmltv/epg_FR.xml,http://trada.info/epg.xml,https://live.qphim.xyz/epg.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,http://megavie.live/schedule/epg.xml,https://epg.aptv.app/pp.xml.gz,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://vnepg.site/epg.xml,https://tvbvn.quanlehong539.workers.dev/xml,https://vnepg.site/epg.xml.gz,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://iptvx.one/epg/epg.xml.gz,http://epg.51zmt.top:8000/e.xml,https://epg.pw/xmltv/epg_ID.xml,https://epg.catvod.com/epg.xml,https://epg.pw/xmltv/epg_HK.xml,http://gg.gg/epgbeartv"
 #EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}",VTV1
 #EXTGRP:DAKLAKIPTV | VTV
 https://live.fptplay53.net/fnxch2/vtv1hd_abr.smil/chunklist.m3u8
@@ -7574,6 +7574,36 @@ https://dknttpxmr0dwf.cloudfront.net/index_57.m3u8
 #EXTINF:-1 group-title="coban66 | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/ciTJrnl.png",ZOOMOO HD
 #EXTGRP:coban66 | KÊNH THIẾU NHI
 http://cdn4.skygo.mn/live/disk1/Zoomoo/HLSv3-FTA/Zoomoo.m3u8
+#EXTINF:-1 tvg-id="boxmovie1" group-title="coban66 | KÊNH BOX" group-logo="https://i.postimg.cc/Dyt4xBHD/BOX.png" tvg-logo="https://i.imgur.com/leWw1zz.png",Box Movie 1
+#EXTGRP:coban66 | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT678_BoxMovie1
+#EXTINF:-1 tvg-id="boxhits" group-title="coban66 | KÊNH BOX" tvg-logo="https://i.imgur.com/kL9ubfw.png",Box Hits
+#EXTGRP:coban66 | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT456_BoxHit
+#EXTINF:-1 tvg-id="hollywoodclassics" group-title="coban66 | KÊNH BOX" tvg-logo="https://i.imgur.com/2EDOvcL.png",Hollywood Classics
+#EXTGRP:coban66 | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT678_HW
+#EXTINF:-1 tvg-id="inthebox" group-title="coban66 | KÊNH BOX" tvg-logo="https://i.imgur.com/C4bG0Md.png",In The Box
+#EXTGRP:coban66 | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT567_InTheBox
+#EXTINF:-1 tvg-id="drfithd" group-title="coban66 | KÊNH BOX" tvg-logo="https://i.imgur.com/1D37LIf.png",Dr.Fit
+#EXTGRP:coban66 | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT456_DrFit
+#EXTINF:-1 tvg-id="happykids" group-title="coban66 | KÊNH BOX" tvg-logo="https://i.imgur.com/KbZPtgB.png",Happy Kids
+#EXTGRP:coban66 | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT567_HappyKid
+#EXTINF:-1 tvg-id="musicbox" group-title="coban66 | KÊNH BOX" tvg-logo="https://i.imgur.com/kPJktTH.png",Music Box
+#EXTGRP:coban66 | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT567_MusicBox
+#EXTINF:-1 tvg-id="planetearthhd" group-title="coban66 | KÊNH BOX" tvg-logo="https://i.imgur.com/GKOac3p.png",Planet Earth
+#EXTGRP:coban66 | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT345_PlanetEarth
+#EXTINF:-1 tvg-id="woman" group-title="coban66 | KÊNH BOX" tvg-logo="https://i.imgur.com/s8nALCG.png",Woman
+#EXTGRP:coban66 | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT789_Women
+#EXTINF:-1 tvg-id="man" group-title="coban66 | KÊNH BOX" tvg-logo="https://i.imgur.com/eojhBXT.png",Man
+#EXTGRP:coban66 | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT456_MAN
 #EXTINF:-1 tvg-id="pervy-kanal-csi" group-title="coban66 | KÊNH THIẾT YẾU" tvg-logo="https://i.imgur.com/hV4VIs2.png",Первый канал Азия
 #EXTGRP:coban66 | KÊNH THIẾT YẾU
 http://188.225.31.197/bpk-tv/000001227/tve/index.m3u8
@@ -9095,6 +9125,36 @@ https://dknttpxmr0dwf.cloudfront.net/index_57.m3u8
 #EXTINF:-1 group-title="vietngatv | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/ciTJrnl.png",ZOOMOO HD
 #EXTGRP:vietngatv | KÊNH THIẾU NHI
 http://cdn4.skygo.mn/live/disk1/Zoomoo/HLSv3-FTA/Zoomoo.m3u8
+#EXTINF:-1 tvg-id="boxmovie1" group-title="vietngatv | KÊNH BOX" group-logo="https://i.postimg.cc/Dyt4xBHD/BOX.png" tvg-logo="https://i.imgur.com/leWw1zz.png",Box Movie 1
+#EXTGRP:vietngatv | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT678_BoxMovie1
+#EXTINF:-1 tvg-id="boxhits" group-title="vietngatv | KÊNH BOX" tvg-logo="https://i.imgur.com/kL9ubfw.png",Box Hits
+#EXTGRP:vietngatv | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT456_BoxHit
+#EXTINF:-1 tvg-id="hollywoodclassics" group-title="vietngatv | KÊNH BOX" tvg-logo="https://i.imgur.com/2EDOvcL.png",Hollywood Classics
+#EXTGRP:vietngatv | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT678_HW
+#EXTINF:-1 tvg-id="inthebox" group-title="vietngatv | KÊNH BOX" tvg-logo="https://i.imgur.com/C4bG0Md.png",In The Box
+#EXTGRP:vietngatv | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT567_InTheBox
+#EXTINF:-1 tvg-id="drfithd" group-title="vietngatv | KÊNH BOX" tvg-logo="https://i.imgur.com/1D37LIf.png",Dr.Fit
+#EXTGRP:vietngatv | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT456_DrFit
+#EXTINF:-1 tvg-id="happykids" group-title="vietngatv | KÊNH BOX" tvg-logo="https://i.imgur.com/KbZPtgB.png",Happy Kids
+#EXTGRP:vietngatv | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT567_HappyKid
+#EXTINF:-1 tvg-id="musicbox" group-title="vietngatv | KÊNH BOX" tvg-logo="https://i.imgur.com/kPJktTH.png",Music Box
+#EXTGRP:vietngatv | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT567_MusicBox
+#EXTINF:-1 tvg-id="planetearthhd" group-title="vietngatv | KÊNH BOX" tvg-logo="https://i.imgur.com/GKOac3p.png",Planet Earth
+#EXTGRP:vietngatv | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT345_PlanetEarth
+#EXTINF:-1 tvg-id="woman" group-title="vietngatv | KÊNH BOX" tvg-logo="https://i.imgur.com/s8nALCG.png",Woman
+#EXTGRP:vietngatv | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT789_Women
+#EXTINF:-1 tvg-id="man" group-title="vietngatv | KÊNH BOX" tvg-logo="https://i.imgur.com/eojhBXT.png",Man
+#EXTGRP:vietngatv | KÊNH BOX
+https://toiyeuvietnam.dpdns.org/Start/VMT456_MAN
 #EXTINF:-1 tvg-id="pervy-kanal-csi" group-title="vietngatv | KÊNH THIẾT YẾU" tvg-logo="https://i.imgur.com/hV4VIs2.png",Первый канал Азия
 #EXTGRP:vietngatv | KÊNH THIẾT YẾU
 http://188.225.31.197/bpk-tv/000001227/tve/index.m3u8
