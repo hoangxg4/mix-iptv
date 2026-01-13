@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="http://gg.gg/fptepg,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,http://trada.info/epg.xml,http://gg.gg/coodertvepg,https://iptvx.one/epg/epg.xml.gz,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://epg.pw/xmltv/epg_FR.xml,http://epg.51zmt.top:8000/e.xml,https://epg.catvod.com/epg.xml,http://lichphatsong.xyz/schedule/epg.xml,https://epg.pw/xmltv/epg_AU.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,http://gg.gg/epgmytv,https://lichphatsong.site/schedule/epg.xml,https://epg.pw/xmltv/epg_MY.xml,https://vnepg.site/epg.xml,https://epg.aptv.app/pp.xml.gz,https://vnepg.site/epg.xml.gz,https://epg.pw/xmltv/epg_HK.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://raw.githubusercontent.com/AqFad2811/epg/main/singapore.xml,https://epg.pw/xmltv/epg_ID.xml,http://gg.gg/guidevn,https://epg.946985.xyz/t.xml.gz,http://gg.gg/epgbeartv,https://tvbvn.quanlehong539.workers.dev/xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://live.fanmingming.com/e.xml,http://megavie.live/schedule/epg.xml,https://live.qphim.xyz/epg.xml"
+#EXTM3U x-tvg-url="https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://epg.pw/xmltv/epg_AU.xml,http://gg.gg/fptepg,https://epg.pw/xmltv/epg_ID.xml,http://gg.gg/coodertvepg,https://live.fanmingming.com/e.xml,https://vnepg.site/epg.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://live.qphim.xyz/epg.xml,https://epg.pw/xmltv/epg_MY.xml,http://gg.gg/epgbeartv,http://megavie.live/schedule/epg.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/singapore.xml,https://epg.aptv.app/pp.xml.gz,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://epg.pw/xmltv/epg_HK.xml,https://epg.catvod.com/epg.xml,https://iptvx.one/epg/epg.xml.gz,https://epg.pw/xmltv/epg_FR.xml,https://vnepg.site/epg.xml.gz,http://trada.info/epg.xml,http://gg.gg/guidevn,http://gg.gg/epgmytv,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,http://epg.51zmt.top:8000/e.xml,https://lichphatsong.site/schedule/epg.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://epg.946985.xyz/t.xml.gz,https://tvbvn.quanlehong539.workers.dev/xml,http://lichphatsong.xyz/schedule/epg.xml"
 #EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}",VTV1
 #EXTGRP:DAKLAKIPTV | VTV
 https://live.fptplay53.net/fnxch2/vtv1hd_abr.smil/chunklist.m3u8
@@ -5237,6 +5237,18 @@ https://1.org.vn/oni1/?/index.m3u8
 #EXTINF:-1 tvg-id="oni2" group-title="vmttv | ONNA Network" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni2.png", ONi2
 #EXTGRP:vmttv | ONNA Network
 https://d.org.vn/oni2-mbnlife/?/index.m3u8
+#EXTINF:-1 tvg-id="oni3" group-title="vmttv | ONNA Network" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni3.png", ONi3
+#EXTGRP:vmttv | ONNA Network
+https://1.org.vn/oni3/?/index.m3u8
+#EXTINF:-1 tvg-id="oni4" group-title="vmttv | ONNA Network" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni4.png", ONi4
+#EXTGRP:vmttv | ONNA Network
+https://1.org.vn/oni4/?/index.m3u8
+#EXTINF:-1 tvg-id="oni6" group-title="vmttv | ONNA Network" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni6.png", ONi6
+#EXTGRP:vmttv | ONNA Network
+https://1.org.vn/oni6/?/index.m3u8
+#EXTINF:-1 tvg-id="oni7" group-title="vmttv | ONNA Network" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni7.png", ONi7
+#EXTGRP:vmttv | ONNA Network
+https://1.org.vn/oni7/?/index.m3u8
 #EXTINF:-1 group-title="vmttv | THỂ THAO QUỐC TẾ" tvg-id="skyf1" tvg-logo="https://r2.thesportsdb.com/images/media/channel/logo/p5csyn1620551587.png",Sky Sport F1
 #EXTGRP:vmttv | THỂ THAO QUỐC TẾ
 http://2.magmas5.com:8000/live/XXXR3str3amLine/200conxxxxQ41/218103.ts
@@ -5381,8 +5393,11 @@ https://vip.opstream90.com/20251129/18758_e33bdf72/3000k/hls/mixed.m3u8
 #EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo="https://images.fptplay53.net/media/OTT/VOD/2025/12/26/trai-tim-que-quat-fpt-play-1766744170691_Landscape.jpg", Trái Tim Què Quặt
 #EXTGRP:vmttv | LIVE EVENTS 🔴
 https://s6.kkphimplayer6.com/20251228/0HQf0tP2/3500kb/hls/index.m3u8
-#EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo=
+#EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo="https://images.fptplay53.net/media/OTT/VOD/2025/12/30/lam-giau-voi-ma-cuoc-chien-hot-xoan-fpt-play-1767066672824_Landscape.jpg
 #EXTGRP:vmttv | LIVE EVENTS 🔴
+#EXTINF:-1 group-title="vmttv | Livestream" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/01/12/talk-slider_1768217913925.jpg", Thể Thao 16
+#EXTGRP:vmttv | Livestream
+https://live.fptplay53.net/fnxch1/thethao16_mx.smil/chunklist_b6000000.m3u8
 #EXTINF:-1 tvg-id="vtv1hd" group-title="vmttv | VTV" tvg-logo="https://i.ytimg.com/vi/dGohEWXz7Sk/maxresdefault.jpg" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}, VTV1
 #EXTGRP:vmttv | VTV
 https://freem3u.xyz/api/live/play.m3u8?vid=2
@@ -7010,7 +7025,10 @@ https://freem3u.xyz/api/live/play.m3u8?vid=176
 #EXTINF:-1 tvg-id="onstyle" group-title="coban66 | KÊNH VTVcab" tvg-logo="https://i.imgur.com/6LQ0Z1O.png",ON Style TV
 #EXTGRP:coban66 | KÊNH VTVcab
 https://freem3u.xyz/api/live/play.m3u8?vid=184
-#EXTINF:-1 tvg-id="onmusic group-title="coban66 | KÊNH VTVcab" tvg-logo="https://i.imgur.com/45BXPY3.png",ON Music
+#EXTINF:-1 group-title="coban66 | KÊNH BÁN HÀNG" group-logo="https://i.imgur.com/SjCGeDj.png" tvg-logo="https://i.imgur.com/g6it2z6.png",ON HOMESHOPPING
+#EXTGRP:coban66 | KÊNH BÁN HÀNG
+https://liveh34.vtvprime.vn/hls/SCTV10/01.m3u8
+#EXTINF:-1 tvg-id="onmusic" group-title="coban66 | KÊNH VTVcab" tvg-logo="https://i.imgur.com/45BXPY3.png",ON Music
 #EXTGRP:coban66 | KÊNH VTVcab
 https://freem3u.xyz/api/live/play.m3u8?vid=185
 #EXTINF:-1 tvg-id="ontrendingtv" group-title="coban66 | KÊNH VTVcab" tvg-logo="https://i.imgur.com/hHYzxmS.png",ON Trending TV
@@ -7039,7 +7057,7 @@ https://liveh12.vtvprime.vn/hls/SCTV1/03.m3u8
 https://liveh12.vtvprime.vn/hls/SCTV2/03.m3u8
 #EXTINF:-1 tvg-id="sctv3hd" group-title="coban66 | KÊNH SCTV - TH CÁP Saigontourist" tvg-logo="https://i.imgur.com/7LYilMt.png",SCTV3 - SEE TV HD
 #EXTGRP:coban66 | KÊNH SCTV - TH CÁP Saigontourist
-https://liveh34.vtvprime.vn/hls/SCTV3/03.m3u8
+https://liveh34.vtvprime.vn/hls/SCTV3/01.m3u8
 #EXTINF:-1 tvg-id="sctv4hd" group-title="coban66 | KÊNH SCTV - TH CÁP Saigontourist" tvg-logo="https://i.imgur.com/1RDaToZ.png",SCTV4 - LET'S VIỆT HD
 #EXTGRP:coban66 | KÊNH SCTV - TH CÁP Saigontourist
 https://liveh12.vtvprime.vn/hls/SCTV4/03.m3u8
@@ -7052,12 +7070,12 @@ https://liveh34.vtvprime.vn/hls/SCTV7/03.m3u8
 #EXTINF:-1 tvg-id="sctv8hd" group-title="coban66 | KÊNH SCTV - TH CÁP Saigontourist" tvg-logo="https://i.imgur.com/BQIrc6A.png",SCTV8 - VITV HD
 #EXTGRP:coban66 | KÊNH SCTV - TH CÁP Saigontourist
 https://liveh34.vtvprime.vn/hls/SCTV8/03.m3u8
-#EXTINF:-1 group-title="coban66 | KÊNH BÁN HÀNG" group-logo="https://i.imgur.com/SjCGeDj.png" tvg-logo="https://i.postimg.cc/Dy7yrQ6T/Happymall.png",SCTV10 - Happy Mall
-#EXTGRP:coban66 | KÊNH BÁN HÀNG
-https://liveh34.vtvprime.vn/hls/SCTV10/03.m3u8
+#EXTINF:-1 tvg-id="sctv9hd" group-title="coban66 | KÊNH SCTV - TH CÁP Saigontourist" tvg-logo="https://i.imgur.com/OJMbhow.png",SCTV9
+#EXTGRP:coban66 | KÊNH SCTV - TH CÁP Saigontourist
+http://akasaijr.myftp.org:21585/sctv9/index.m3u8
 #EXTINF:-1 tvg-id="sctv11hd" group-title="coban66 | KÊNH SCTV - TH CÁP Saigontourist" tvg-logo="https://i.imgur.com/kPOmK1f.png",SCTV11 HD
 #EXTGRP:coban66 | KÊNH SCTV - TH CÁP Saigontourist
-https://liveh34.vtvprime.vn/hls/SCTV11/03.m3u8
+https://liveh34.vtvprime.vn/hls/SCTV11/01.m3u8
 #EXTINF:-1 tvg-id="sctv12hd" group-title="coban66 | KÊNH SCTV - TH CÁP Saigontourist" tvg-logo="https://i.imgur.com/5nrSZd8.png",SCTV12 HD
 #EXTGRP:coban66 | KÊNH SCTV - TH CÁP Saigontourist
 https://liveh34.vtvprime.vn/hls/SCTV12/03.m3u8
@@ -7069,7 +7087,7 @@ https://liveh34.vtvprime.vn/hls/SCTV13/03.m3u8
 https://liveh34.vtvprime.vn/hls/SCTV14/03.m3u8
 #EXTINF:-1 tvg-id="sctv16hd" group-title="coban66 | KÊNH SCTV - TH CÁP Saigontourist" tvg-logo="https://i.imgur.com/ldCYtvt.png", SCTV16 - PHIM NƯỚC NGOÀI ĐẶC SẮC HD
 #EXTGRP:coban66 | KÊNH SCTV - TH CÁP Saigontourist
-https://liveh34.vtvprime.vn/hls/SCTV16/03.m3u8
+https://liveh34.vtvprime.vn/hls/SCTV16/04.m3u8
 #EXTINF:-1 tvg-id="sctv18hd" group-title="coban66 | KÊNH SCTV - TH CÁP Saigontourist" tvg-logo="https://i.imgur.com/FfUSlgI.png",SCTV18 HD
 #EXTGRP:coban66 | KÊNH SCTV - TH CÁP Saigontourist
 https://liveh34.vtvprime.vn/hls/SCTV18/03.m3u8
@@ -7213,7 +7231,7 @@ https://cdn.drt.vn/live/285a27750861b964c27af22091662a74f2f/playlist.m3u8
 https://live.fptplay53.net/epzsd1/gialai01_hls.smil/chunklist_b2500000.m3u8
 #EXTINF:-1 tvg-id="hatinh" group-title="coban66 | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG" tvg-logo="https://i.imgur.com/sESKlNO.png",BHT TV - HÀ TĨNH HD
 #EXTGRP:coban66 | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG
-https://wse.hatinhtv.net/live/httv1/playlist.m3u8
+https://live.fptplay53.net/fnxsd1/hatinh_hls.smil/chunklist_b2500000.m3u8
 #EXTINF:-1 tvg-id="hue" group-title="coban66 | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG" tvg-logo="https://i.imgur.com/bVWyWC7.png",HueTV - TP. HUẾ HD
 #EXTGRP:coban66 | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG
 https://live.huetv.com.vn/TRT-Online/playlist.m3u8
@@ -7333,7 +7351,7 @@ https://live.fptplay53.net/fnxhd2/afchd_vhls.smil/chunklist_b5000000.m3u8
 https://live.fptplay53.net/fnxhd2/arirang_hls.smil/chunklist_b2500000.m3u8
 #EXTINF:-1 tvg-id="axnhd" group-title="coban66 | KÊNH GIẢI TRÍ" group-logo="https://i.imgur.com/b4yTXUS.png" tvg-logo="https://i.imgur.com/Rwm7Lod.png",AXN HD
 #EXTGRP:coban66 | KÊNH GIẢI TRÍ
-http://khaitv.giize.com:8090/225.1.4.9:30120
+http://akasaijr.myftp.org:21585/axn/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.imgur.com/sSnrg7o.png" group-title="coban66 | KÊNH THIẾT YẾU",BTV National
 #EXTGRP:coban66 | KÊNH THIẾT YẾU
 http://103.230.105.252:1935/live/btv/manifest.m3u8
@@ -7459,7 +7477,7 @@ http://49.0.64.96:8007/GOLF
 https://freem3u.xyz/api/live/play.m3u8?vid=9856
 #EXTINF:-1 tvg-id="hbohd" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/7nIUtCU.png",HBO
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
-http://khaitv.giize.com:8090/225.1.4.90:30120
+http://akasaijr.myftp.org:21585/hbo/index.m3u8
 #EXTINF:-1 tvg-id="hgtv" tvg-logo="https://i.imgur.com/BwBr0ib.png" group-title="coban66 | KÊNH ĐẶC SẮC",HGTV
 #EXTGRP:coban66 | KÊNH ĐẶC SẮC
 https://liveh34.vtvprime.vn/hls/HGTV/03.m3u8
@@ -7574,6 +7592,9 @@ https://dknttpxmr0dwf.cloudfront.net/index_57.m3u8
 #EXTINF:-1 group-title="coban66 | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/ciTJrnl.png",ZOOMOO HD
 #EXTGRP:coban66 | KÊNH THIẾU NHI
 http://cdn4.skygo.mn/live/disk1/Zoomoo/HLSv3-FTA/Zoomoo.m3u8
+#EXTINF:-1 tvg-name="嵊州新闻综合" tvg-logo="" group-title="coban66 | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG",嵊州新闻综合
+#EXTGRP:coban66 | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG
+http://l.cztvcloud.com/channels/lantian/SXshengzhou1/720p.m3u8
 #EXTINF:-1 tvg-id="boxmovie1" group-title="coban66 | KÊNH BOX" group-logo="https://i.postimg.cc/Dyt4xBHD/BOX.png" tvg-logo="https://i.imgur.com/leWw1zz.png",Box Movie 1
 #EXTGRP:coban66 | KÊNH BOX
 https://toiyeuvietnam.dpdns.org/Start/VMT678_BoxMovie1
@@ -8570,7 +8591,10 @@ https://freem3u.xyz/api/live/play.m3u8?vid=176
 #EXTINF:-1 tvg-id="onstyle" group-title="vietngatv | KÊNH VTVcab" tvg-logo="https://i.imgur.com/6LQ0Z1O.png",ON Style TV
 #EXTGRP:vietngatv | KÊNH VTVcab
 https://freem3u.xyz/api/live/play.m3u8?vid=184
-#EXTINF:-1 tvg-id="onmusic group-title="vietngatv | KÊNH VTVcab" tvg-logo="https://i.imgur.com/45BXPY3.png",ON Music
+#EXTINF:-1 group-title="vietngatv | KÊNH BÁN HÀNG" group-logo="https://i.imgur.com/SjCGeDj.png" tvg-logo="https://i.imgur.com/g6it2z6.png",ON HOMESHOPPING
+#EXTGRP:vietngatv | KÊNH BÁN HÀNG
+https://liveh34.vtvprime.vn/hls/SCTV10/01.m3u8
+#EXTINF:-1 tvg-id="onmusic" group-title="vietngatv | KÊNH VTVcab" tvg-logo="https://i.imgur.com/45BXPY3.png",ON Music
 #EXTGRP:vietngatv | KÊNH VTVcab
 https://freem3u.xyz/api/live/play.m3u8?vid=185
 #EXTINF:-1 tvg-id="ontrendingtv" group-title="vietngatv | KÊNH VTVcab" tvg-logo="https://i.imgur.com/hHYzxmS.png",ON Trending TV
@@ -8599,7 +8623,7 @@ https://liveh12.vtvprime.vn/hls/SCTV1/03.m3u8
 https://liveh12.vtvprime.vn/hls/SCTV2/03.m3u8
 #EXTINF:-1 tvg-id="sctv3hd" group-title="vietngatv | KÊNH SCTV - TH CÁP Saigontourist" tvg-logo="https://i.imgur.com/7LYilMt.png",SCTV3 - SEE TV HD
 #EXTGRP:vietngatv | KÊNH SCTV - TH CÁP Saigontourist
-https://liveh34.vtvprime.vn/hls/SCTV3/03.m3u8
+https://liveh34.vtvprime.vn/hls/SCTV3/01.m3u8
 #EXTINF:-1 tvg-id="sctv4hd" group-title="vietngatv | KÊNH SCTV - TH CÁP Saigontourist" tvg-logo="https://i.imgur.com/1RDaToZ.png",SCTV4 - LET'S VIỆT HD
 #EXTGRP:vietngatv | KÊNH SCTV - TH CÁP Saigontourist
 https://liveh12.vtvprime.vn/hls/SCTV4/03.m3u8
@@ -8612,12 +8636,12 @@ https://liveh34.vtvprime.vn/hls/SCTV7/03.m3u8
 #EXTINF:-1 tvg-id="sctv8hd" group-title="vietngatv | KÊNH SCTV - TH CÁP Saigontourist" tvg-logo="https://i.imgur.com/BQIrc6A.png",SCTV8 - VITV HD
 #EXTGRP:vietngatv | KÊNH SCTV - TH CÁP Saigontourist
 https://liveh34.vtvprime.vn/hls/SCTV8/03.m3u8
-#EXTINF:-1 group-title="vietngatv | KÊNH BÁN HÀNG" group-logo="https://i.imgur.com/SjCGeDj.png" tvg-logo="https://i.postimg.cc/Dy7yrQ6T/Happymall.png",SCTV10 - Happy Mall
-#EXTGRP:vietngatv | KÊNH BÁN HÀNG
-https://liveh34.vtvprime.vn/hls/SCTV10/03.m3u8
+#EXTINF:-1 tvg-id="sctv9hd" group-title="vietngatv | KÊNH SCTV - TH CÁP Saigontourist" tvg-logo="https://i.imgur.com/OJMbhow.png",SCTV9
+#EXTGRP:vietngatv | KÊNH SCTV - TH CÁP Saigontourist
+http://akasaijr.myftp.org:21585/sctv9/index.m3u8
 #EXTINF:-1 tvg-id="sctv11hd" group-title="vietngatv | KÊNH SCTV - TH CÁP Saigontourist" tvg-logo="https://i.imgur.com/kPOmK1f.png",SCTV11 HD
 #EXTGRP:vietngatv | KÊNH SCTV - TH CÁP Saigontourist
-https://liveh34.vtvprime.vn/hls/SCTV11/03.m3u8
+https://liveh34.vtvprime.vn/hls/SCTV11/01.m3u8
 #EXTINF:-1 tvg-id="sctv12hd" group-title="vietngatv | KÊNH SCTV - TH CÁP Saigontourist" tvg-logo="https://i.imgur.com/5nrSZd8.png",SCTV12 HD
 #EXTGRP:vietngatv | KÊNH SCTV - TH CÁP Saigontourist
 https://liveh34.vtvprime.vn/hls/SCTV12/03.m3u8
@@ -8629,7 +8653,7 @@ https://liveh34.vtvprime.vn/hls/SCTV13/03.m3u8
 https://liveh34.vtvprime.vn/hls/SCTV14/03.m3u8
 #EXTINF:-1 tvg-id="sctv16hd" group-title="vietngatv | KÊNH SCTV - TH CÁP Saigontourist" tvg-logo="https://i.imgur.com/ldCYtvt.png", SCTV16 - PHIM NƯỚC NGOÀI ĐẶC SẮC HD
 #EXTGRP:vietngatv | KÊNH SCTV - TH CÁP Saigontourist
-https://liveh34.vtvprime.vn/hls/SCTV16/03.m3u8
+https://liveh34.vtvprime.vn/hls/SCTV16/04.m3u8
 #EXTINF:-1 tvg-id="sctv18hd" group-title="vietngatv | KÊNH SCTV - TH CÁP Saigontourist" tvg-logo="https://i.imgur.com/FfUSlgI.png",SCTV18 HD
 #EXTGRP:vietngatv | KÊNH SCTV - TH CÁP Saigontourist
 https://liveh34.vtvprime.vn/hls/SCTV18/03.m3u8
@@ -8773,7 +8797,7 @@ https://cdn.drt.vn/live/285a27750861b964c27af22091662a74f2f/playlist.m3u8
 https://live.fptplay53.net/epzsd1/gialai01_hls.smil/chunklist_b2500000.m3u8
 #EXTINF:-1 tvg-id="hatinh" group-title="vietngatv | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG" tvg-logo="https://i.imgur.com/sESKlNO.png",BHT TV - HÀ TĨNH HD
 #EXTGRP:vietngatv | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG
-https://wse.hatinhtv.net/live/httv1/playlist.m3u8
+https://live.fptplay53.net/fnxsd1/hatinh_hls.smil/chunklist_b2500000.m3u8
 #EXTINF:-1 tvg-id="hue" group-title="vietngatv | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG" tvg-logo="https://i.imgur.com/bVWyWC7.png",HueTV - TP. HUẾ HD
 #EXTGRP:vietngatv | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG
 https://live.huetv.com.vn/TRT-Online/playlist.m3u8
@@ -8893,7 +8917,7 @@ https://live.fptplay53.net/fnxhd2/afchd_vhls.smil/chunklist_b5000000.m3u8
 https://live.fptplay53.net/fnxhd2/arirang_hls.smil/chunklist_b2500000.m3u8
 #EXTINF:-1 tvg-id="axnhd" group-title="vietngatv | KÊNH GIẢI TRÍ" group-logo="https://i.imgur.com/b4yTXUS.png" tvg-logo="https://i.imgur.com/Rwm7Lod.png",AXN HD
 #EXTGRP:vietngatv | KÊNH GIẢI TRÍ
-http://khaitv.giize.com:8090/225.1.4.9:30120
+http://akasaijr.myftp.org:21585/axn/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.imgur.com/sSnrg7o.png" group-title="vietngatv | KÊNH THIẾT YẾU",BTV National
 #EXTGRP:vietngatv | KÊNH THIẾT YẾU
 http://103.230.105.252:1935/live/btv/manifest.m3u8
@@ -9019,7 +9043,7 @@ http://49.0.64.96:8007/GOLF
 https://freem3u.xyz/api/live/play.m3u8?vid=9856
 #EXTINF:-1 tvg-id="hbohd" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/7nIUtCU.png",HBO
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
-http://khaitv.giize.com:8090/225.1.4.90:30120
+http://akasaijr.myftp.org:21585/hbo/index.m3u8
 #EXTINF:-1 tvg-id="hgtv" tvg-logo="https://i.imgur.com/BwBr0ib.png" group-title="vietngatv | KÊNH ĐẶC SẮC",HGTV
 #EXTGRP:vietngatv | KÊNH ĐẶC SẮC
 https://liveh34.vtvprime.vn/hls/HGTV/03.m3u8
@@ -9134,6 +9158,9 @@ https://dknttpxmr0dwf.cloudfront.net/index_57.m3u8
 #EXTINF:-1 group-title="vietngatv | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/ciTJrnl.png",ZOOMOO HD
 #EXTGRP:vietngatv | KÊNH THIẾU NHI
 http://cdn4.skygo.mn/live/disk1/Zoomoo/HLSv3-FTA/Zoomoo.m3u8
+#EXTINF:-1 tvg-name="嵊州新闻综合" tvg-logo="" group-title="vietngatv | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG",嵊州新闻综合
+#EXTGRP:vietngatv | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG
+http://l.cztvcloud.com/channels/lantian/SXshengzhou1/720p.m3u8
 #EXTINF:-1 tvg-id="boxmovie1" group-title="vietngatv | KÊNH BOX" group-logo="https://i.postimg.cc/Dyt4xBHD/BOX.png" tvg-logo="https://i.imgur.com/leWw1zz.png",Box Movie 1
 #EXTGRP:vietngatv | KÊNH BOX
 https://toiyeuvietnam.dpdns.org/Start/VMT678_BoxMovie1
