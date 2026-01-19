@@ -7,4 +7,5 @@ coban66,https://263.org.vn/coban66
 vietngatv,https://vietngatv.short.gy/vietngatv
 HaNoilPTV,https://hanoiiptv.short.gy/HaNoiIPTV
 quidntv,https://bit.ly/quidntv
+hainghiatv,https://rutgon.hainghia.net/tv
 synthetic_iptv,https://github.com/hung319/cloudstream-ext/raw/refs/heads/iptv/playlist.m3u8
