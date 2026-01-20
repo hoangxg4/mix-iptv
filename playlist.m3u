@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="https://epg.pw/xmltv/epg_ID.xml,http://megavie.live/schedule/epg.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/singapore.xml,http://gg.gg/coodertvepg,http://lichphatsong.xyz/schedule/epg.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://epg.pw/xmltv/epg_MY.xml,https://lichphatsong.site/schedule/epg.xml,http://trada.info/epg.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,http://gg.gg/epgbeartv,https://iptvx.one/epg/epg.xml.gz,http://epg.51zmt.top:8000/e.xml,https://epg.pw/xmltv/epg_FR.xml,https://epg.946985.xyz/t.xml.gz,https://epg.pw/xmltv/epg_HK.xml,https://vnepg.site/epg.xml.gz,https://tvbvn.quanlehong539.workers.dev/xml,http://gg.gg/epgmytv,http://gg.gg/fptepg,https://epg.pw/xmltv/epg_AU.xml,http://gg.gg/guidevn,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://epg.catvod.com/epg.xml,https://epg.aptv.app/pp.xml.gz,https://xem.dramahay.xyz/epg.xml,https://live.fanmingming.com/e.xml,https://vnepg.site/epg.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml"
+#EXTM3U x-tvg-url="https://tvbvn.quanlehong539.workers.dev/xml,http://gg.gg/epgbeartv,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://lichphatsong.site/schedule/epg.xml,https://vnepg.site/epg.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://epg.catvod.com/epg.xml,https://epg.pw/xmltv/epg_FR.xml,https://epg.pw/xmltv/epg_HK.xml,http://megavie.live/schedule/epg.xml,http://trada.info/epg.xml,https://vnepg.site/epg.xml.gz,http://gg.gg/guidevn,https://epg.aptv.app/pp.xml.gz,http://gg.gg/coodertvepg,https://raw.githubusercontent.com/AqFad2811/epg/main/singapore.xml,http://epg.51zmt.top:8000/e.xml,http://lichphatsong.xyz/schedule/epg.xml,https://live.fanmingming.com/e.xml,http://gg.gg/fptepg,https://epg.pw/xmltv/epg_ID.xml,https://epg.pw/xmltv/epg_AU.xml,http://gg.gg/epgmytv,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://xem.dramahay.xyz/epg.xml,https://iptvx.one/epg/epg.xml.gz,https://epg.pw/xmltv/epg_MY.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://epg.946985.xyz/t.xml.gz,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz"
 #EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}",VTV1
 #EXTGRP:DAKLAKIPTV | VTV
 https://live-a.fptplay53.net/live/media/VTV1HD/live_hls_avc/index.m3u8
@@ -5288,7 +5288,7 @@ http://2.magmas5.com:8000/live/XXXR3str3amLine/200conxxxxQ41/218103.ts
 http://2.magmas5.com:8000/live/XXXR3str3amLine/200conxxxxQ41/145813.ts
 #EXTINF:-1 group-title="vmttv | THỂ THAO QUỐC TẾ" tvg-id="skytennis" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Sky_Sport_Tennis.svg/1200px-Sky_Sport_Tennis.svg.png",Sky Sport Tennis
 #EXTGRP:vmttv | THỂ THAO QUỐC TẾ
-http://lemon.catchmeifyo.com:8000/live/4914756410/8072556864/157768.ts
+http://maho2025.xyz:80/play/live.php?mac=00:1A:79:39:e7:c6&stream=41037&extension=ts
 #EXTINF:-1 group-title="vmttv | THỂ THAO QUỐC TẾ" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/1a/Canal%2B_Sport_2015.png",Canal+ Sport
 #EXTGRP:vmttv | THỂ THAO QUỐC TẾ
 http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1184930&extension=ts&play_token=fHBckk00nW
@@ -5297,16 +5297,16 @@ http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1184930&exten
 http://2.magmas5.com:8000/live/XXXR3str3amLine/200conxxxxQ41/134129.ts
 #EXTINF:-1 group-title="vmttv | THỂ THAO QUỐC TẾ" tvg-id="tnt2" tvg-logo="https://media.info/l/o/1/1540.1690027877.png",TNT Sports 2 4Mbps for 4G
 #EXTGRP:vmttv | THỂ THAO QUỐC TẾ
-http://lemon.catchmeifyo.com:8000/live/4914756410/8072556864/157969.ts
+http://maho2025.xyz:80/play/live.php?mac=00:1A:79:39:e7:c6&stream=658435&extension=ts
 #EXTINF:-1 group-title="vmttv | THỂ THAO QUỐC TẾ" tvg-id="tnt3" tvg-logo="https://media.info/l/o/5/5712.1690027954.png",TNT Sports 3 4Mbps for 4G
 #EXTGRP:vmttv | THỂ THAO QUỐC TẾ
-http://lemon.catchmeifyo.com:8000/live/4914756410/8072556864/157972.ts
+http://maho2025.xyz:80/play/live.php?mac=00:1A:79:39:e7:c6&stream=658436&extension=ts
 #EXTINF:-1 group-title="vmttv | THỂ THAO QUỐC TẾ" tvg-id="tnt4" tvg-logo="https://media.info/l/o/1/1491.1690027975.png",TNT Sports 4 4Mbps for 4G
 #EXTGRP:vmttv | THỂ THAO QUỐC TẾ
-http://lemon.catchmeifyo.com:8000/live/4914756410/8072556864/157975.ts
+http://maho2025.xyz:80/play/live.php?mac=00:1A:79:39:e7:c6&stream=658433&extension=ts
 #EXTINF:-1 group-title="vmttv | THỂ THAO QUỐC TẾ" tvg-id="tnt5" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/tntsport5.png",TNT Sports 5 4Mbps for 4G
 #EXTGRP:vmttv | THỂ THAO QUỐC TẾ
-http://lemon.catchmeifyo.com:8000/live/4914756410/8072556864/157977.ts
+https://starshare.cx:443/live/P4B9TB9xR8/humongous2tonight/186631.ts
 #EXTINF:-1 group-title="vmttv | ⚽| Thể thao quốc tế" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/eb/Canal%2BFoot.png", Canal+ Foot
 #EXTGRP:vmttv | ⚽| Thể thao quốc tế
 http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1071923&extension=ts&play_token=vcQAIeKouv
@@ -5684,7 +5684,7 @@ https://1.org.vn/dnrtv3
 https://freem3u.xyz/api/live/play.m3u8?vid=33
 #EXTINF:-1 tvg-id="hanoi2" group-title="vmttv | Địa phương" tvg-logo="https://img-zlr1.tv360.vn/image1/2024/10/07/16/1728293033798/d23973063be9_640_360.png", Hà Nội 2 HD - Đài Hà Nội
 #EXTGRP:vmttv | Địa phương
-https://toiyeuvietnam.dpdns.org/CoBan/ha-noi-2/TuyetDoiKhongKinhDoanh.m3u8
+https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/ha-noi-2/KenhCoBan.m3u8
 #EXTINF:-1 tvg-id="hanoi2" group-title="vmttv | Địa phương" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/hanoi2uhd.png", Hà Nội 2 UHD - Đài Hà Nội
 #EXTGRP:vmttv | Địa phương
 https://cloudstreamhntv.tek4tv.vn/events/HN2/playlist.m3u8
@@ -5811,7 +5811,7 @@ https://freem3u.xyz/api/live/play.m3u8?vid=69
 #EXTINF:-1 tvg-id="hitv" group-title="vmttv | Địa phương" tvg-logo="https://img-zlr1.tv360.vn/image1/2020_09_23/1600823412691/61627b84a612_640_360.png", HiTV
 #EXTGRP:vmttv | Địa phương
 https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/hitv/KenhCoBan.m3u8
-#EXTINF:-1 group-title="vmttv | Ungrouped"
+#EXTINF:-1 tvg-id group-title="vmttv | Ungrouped"
 #EXTGRP:vmttv | Ungrouped
 #EXTINF:-1 tvg-id="hbohd" group-title="vmttv | Quốc Tế" tvg-logo="https://i.pinimg.com/originals/8b/02/00/8b020050690f955ccb306cdf51324aea.png", HBO
 #EXTGRP:vmttv | Quốc Tế
@@ -11977,303 +11977,6 @@ https://7pal.short.gy/zigosfhd
 #EXTINF:-1 tvg-id="SkySp.PL.HD.uk" tvg-logo="https://i.imgur.com/CMChNM4.png" group-title="quidntv | Sports | EPL", Sky Sports PremierLeague FHD
 #EXTGRP:quidntv | Sports | EPL
 https://7pal.short.gy/ssportspl
-#EXTINF:0 tvg-id="vtv1hd" group-title="hainghiatv | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png",VTV1 HD
-#EXTGRP:hainghiatv | VTV
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.207:5000
-#EXTINF:0 tvg-id="vtv2hd" group-title="hainghiatv | VTV" tvg-logo="https://i.imgur.com/BVwi3K3.png",VTV2 HD
-#EXTGRP:hainghiatv | VTV
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.226:5000
-#EXTINF:0 tvg-id="vtv3hd" group-title="hainghiatv | VTV" tvg-logo="https://i.imgur.com/7rLCvgS.png",VTV3 HD
-#EXTGRP:hainghiatv | VTV
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.206:5000
-#EXTINF:0 tvg-id="vtv4hd" group-title="hainghiatv | VTV" tvg-logo="https://i.imgur.com/9zVTtsA.png",VTV4 HD
-#EXTGRP:hainghiatv | VTV
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.227:5000
-#EXTINF:0 tvg-id="vietnamtoday" group-title="hainghiatv | VTV" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/VTV_VietnamToday.png",Vietnam Today HD
-#EXTGRP:hainghiatv | VTV
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.95:5000
-#EXTINF:0 tvg-id="vtv5hd" group-title="hainghiatv | VTV" tvg-logo="https://i.imgur.com/7qPKNFU.png",VTV5 HD
-#EXTGRP:hainghiatv | VTV
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.209:5000
-#EXTINF:0 tvg-id="vtv5hdtnb" group-title="hainghiatv | VTV" tvg-logo="https://i.imgur.com/mIUWkDx.png",VTV5 Tây Nam Bộ HD
-#EXTGRP:hainghiatv | VTV
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.105:5000
-#EXTINF:0 tvg-id="vtv5hdtn" group-title="hainghiatv | VTV" tvg-logo="https://i.imgur.com/R8c2swd.png",VTV5 Tây Nguyên HD
-#EXTGRP:hainghiatv | VTV
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.106:5000
-#EXTINF:0 tvg-id="vtv7hd" group-title="hainghiatv | VTV" tvg-logo="https://i.imgur.com/AgamSNe.png",VTV7 HD
-#EXTGRP:hainghiatv | VTV
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.22:5000
-#EXTINF:0 tvg-id="vtv8hd" group-title="hainghiatv | VTV" tvg-logo="https://i.imgur.com/lpcltL9.png",VTV8 HD
-#EXTGRP:hainghiatv | VTV
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.50:5000
-#EXTINF:0 tvg-id="vtvcantho" group-title="hainghiatv | VTV" tvg-logo="https://i.imgur.com/HCpqatZ.png",VTV Cần Thơ HD
-#EXTGRP:hainghiatv | VTV
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.21:5000
-#EXTINF:0 tvg-id="antvhd" group-title="hainghiatv | Kênh TH Thiết yếu" tvg-logo="https://i.imgur.com/eGkFbAh.png",ANTV HD
-#EXTGRP:hainghiatv | Kênh TH Thiết yếu
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.104:5000
-#EXTINF:0 tvg-id="qpvnhd" group-title="hainghiatv | Kênh TH Thiết yếu" tvg-logo="https://i.imgur.com/UIGZw0y.png",QPVN HD
-#EXTGRP:hainghiatv | Kênh TH Thiết yếu
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.7:5000
-#EXTINF:0 tvg-id="antvhd" group-title="hainghiatv | Kênh TH Thiết yếu" tvg-logo="https://i.imgur.com/eGkFbAh.png",ANTV
-#EXTGRP:hainghiatv | Kênh TH Thiết yếu
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.24:5000
-#EXTINF:0 tvg-id="htv1" group-title="hainghiatv | HTV/HTVC" tvg-logo="https://i.imgur.com/oLm4dbV.png",HTV1 HD
-#EXTGRP:hainghiatv | HTV/HTVC
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.11:5000
-#EXTINF:0 tvg-id="htv2hd" group-title="hainghiatv | HTV/HTVC" tvg-logo="https://i.imgur.com/f3KlwDX.png",HTV2 Vie Channel HD
-#EXTGRP:hainghiatv | HTV/HTVC
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.75:5000
-#EXTINF:0 tvg-id="htv3" group-title="hainghiatv | HTV/HTVC" tvg-logo="https://i.imgur.com/2iE01Ca.png",HTV3 HD
-#EXTGRP:hainghiatv | HTV/HTVC
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.13:5000
-#EXTINF:0 tvg-id="htvkey" group-title="hainghiatv | HTV/HTVC" tvg-logo="https://i.imgur.com/wrH7U0X.png",HTV Keys HD
-#EXTGRP:hainghiatv | HTV/HTVC
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.18:5000
-#EXTINF:0 tvg-id="htv7hd" group-title="hainghiatv | HTV/HTVC" tvg-logo="https://i.imgur.com/RSlvzAs.png",HTV7 HD
-#EXTGRP:hainghiatv | HTV/HTVC
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.13:5000
-#EXTINF:0 tvg-id="htv9hd" group-title="hainghiatv | HTV/HTVC" tvg-logo="https://i.imgur.com/wdS7Cr9.png",HTV9 HD
-#EXTGRP:hainghiatv | HTV/HTVC
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.9:5000
-#EXTINF:0 tvg-id="htvthethaohd" group-title="hainghiatv | HTV/HTVC" tvg-logo="https://i.imgur.com/z7NOxJ3.png",HTV Thể Thao HD
-#EXTGRP:hainghiatv | HTV/HTVC
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.23:5000
-#EXTINF:0 tvg-id="htvccanhachd" group-title="hainghiatv | HTV/HTVC" tvg-logo="https://i.imgur.com/ZHVkEIC.png",HTVC Ca Nhạc HD
-#EXTGRP:hainghiatv | HTV/HTVC
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.115:5000
-#EXTINF:0 tvg-id="htvcdulichhd" group-title="hainghiatv | HTV/HTVC" tvg-logo="https://i.imgur.com/XxIO0E0.png",HTVC Du Lịch và Cuộc Sống HD
-#EXTGRP:hainghiatv | HTV/HTVC
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.73:5000
-#EXTINF:0 tvg-id="htvcgiadinhhd" group-title="hainghiatv | HTV/HTVC" tvg-logo="https://i.imgur.com/KxWRNH6.png",HTVC Gia Đình HD
-#EXTGRP:hainghiatv | HTV/HTVC
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.72:5000
-#EXTINF:0 tvg-id="htvcphunuhd" group-title="hainghiatv | HTV/HTVC" tvg-logo="https://i.imgur.com/MyyovVe.png",HTVC Phụ Nữ HD
-#EXTGRP:hainghiatv | HTV/HTVC
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.114:5000
-#EXTINF:0 tvg-id="htvcplushd" group-title="hainghiatv | HTV/HTVC" tvg-logo="https://i.imgur.com/SQ9cLJj.png",HTVC+ HD
-#EXTGRP:hainghiatv | HTV/HTVC
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.113:5000
-#EXTINF:0 tvg-id="htv1" group-title="hainghiatv | HTV/HTVC" tvg-logo="https://i.imgur.com/oLm4dbV.png",HTV1
-#EXTGRP:hainghiatv | HTV/HTVC
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.20:5000
-#EXTINF:0 tvg-id="youtv" group-title="hainghiatv | Other" tvg-logo="https://i.imgur.com/DlZYnPf.png",YouTV
-#EXTGRP:hainghiatv | Other
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.94:5000
-#EXTINF:0 tvg-id="dienbien" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/Rky1N5S.png",ĐTV HD | Điện Biên
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.119:5000
-#EXTINF:0 tvg-id="laichau" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/we3GCjr.png",LTV HD | Lai Châu
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.99:5000
-#EXTINF:0 tvg-id="laocai" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/QAVSUBu.png",THLC HD | Lào Cai
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.109:5000
-#EXTINF:0 tvg-id="sonla" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/QZT6GIh.png",STV HD | Sơn La
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.20:5000
-#EXTINF:0 tvg-id="tuyenquang" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/6RPgRE7.png",TTV HD | Tuyên Quang
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.45:5000
-#EXTINF:0 tvg-id="caobang" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/YCrYT2p.png",CRTV HD | Cao Bằng
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.87:5000
-#EXTINF:0 tvg-id="thainguyen" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/TN_ThaiNguyen.png",TN HD | Thái Nguyên
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.105:5000
-#EXTINF:0 tvg-id="langson" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/6FCXyrr.png",LSTV HD | Lạng Sơn
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.39:5000
-#EXTINF:0 tvg-id="phutho" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/5OZ2hAB.png",PTV HD | Phú Thọ
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.46:5000
-#EXTINF:0 tvg-id="hanoi1" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/mwCTDMj.png",H1 HD | Hà Nội
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.223:5000
-#EXTINF:0 tvg-id="hanoi2" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/HyiwlZV.png",H2 HD | Hà Nội
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.14:5000
-#EXTINF:0 tvg-id="hanoi2" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/H2_HanoiTV_UHD.png",H2 UHD | Hà Nội
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.8:5000
-#EXTINF:0 tvg-id="bacninh" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/BTV_BacNinh.png",BTV HD | Bắc Ninh
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.12:5000
-#EXTINF:0 tvg-id="quangninh1" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/sGcRJVP.png",QTV1 HD | Quảng Ninh
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.71:5000
-#EXTINF:0 tvg-id="quangninh3" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/4hadYbw.png",QTV3 HD | Quảng Ninh
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.66:5000
-#EXTINF:0 tvg-id="haiphong" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/StFk4PA.png",THP HD | Hải Phòng
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.66:5000
-#EXTINF:0 tvg-id="haiphongplus" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/s3yq8AW.png",THP+ HD | Hải Phòng
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.76:5000
-#EXTINF:0 tvg-id="haiphong3" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/THP3_HaiPhong.png",THP3 HD | Hải Phòng
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.31:5000
-#EXTINF:0 tvg-id="hungyen" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/deNnP9h.png",HY HD | Hưng Yên
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.35:5000
-#EXTINF:0 tvg-id="ninhbinh" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/XuYnZWe.png",NBTV HD | Ninh Bình
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.102:5000
-#EXTINF:0 tvg-id="thanhhoa" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/NlOwltd.png",TTV HD | Thanh Hóa
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.107:5000
-#EXTINF:0 tvg-id="nghean" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/5HEfwZz.png",NTV HD | Nghệ An
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.94:5000
-#EXTINF:0 tvg-id="hatinh" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/BHTTV_BaoHaTinhTV.png",BHTTV HD | TH Hà Tĩnh
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.88:5000
-#EXTINF:0 tvg-id="quangtri" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/QTTV_QuangTri.png",QTTV HD | Quảng Trị
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.70:5000
-#EXTINF:0 tvg-id="hue" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/q5MBibm.png",HUETV HD | Huế
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.5:5000
-#EXTINF:0 tvg-id="danang1" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/DNRT1_DaNang.png",ĐNRT1 HD | Đà Nẵng
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.93:5000
-#EXTINF:0 tvg-id="danang2" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/DNRT2_DaNang.png",ĐNRT2 HD | Đà Nẵng
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.111:5000
-#EXTINF:0 tvg-id="quangngai" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/QNgTV_QuangNgai.png",QNgTV HD | Quảng Ngãi
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.100:5000
-#EXTINF:0 tvg-id="gialai" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/GTV_GiaLai.png",GTV HD | Gia Lai
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.35:5000
-#EXTINF:0 tvg-id="daklak" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/H2LOZ2A.png",DRT HD | Đắk Lắk
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.56:5000
-#EXTINF:0 tvg-id="daklak" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/H2LOZ2A.png",DRT HD | Đắk Lắk
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.84:5000
-#EXTINF:0 tvg-id="khanhhoa" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/kPu3rSN.png",KTV HD | Khánh Hòa
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.2:5000
-#EXTINF:0 tvg-id="khanhhoa1" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/KTV1_KhanhHoa.png",KTV1 HD | Khánh Hòa
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.45:5000
-#EXTINF:0 tvg-id="lamdong1" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/LTV1_LamDong.png",LTV1 HD | Lâm Đồng
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.110:5000
-#EXTINF:0 tvg-id="lamdong2" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/LTV2_LamDong.png",LTV2 HD | Lâm Đồng
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.122:5000
-#EXTINF:0 tvg-id="lamdong3" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/LTV3_LamDong.png",LTV3 HD | Lâm Đồng
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.118:5000
-#EXTINF:0 tvg-id="dongnai1" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/DNNRTV1_DongNai.png",ĐNNRTV1 HD | Đồng Nai
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.96:5000
-#EXTINF:0 tvg-id="dongnai1" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/DNNRTV1_DongNai.png",ĐNNRTV1 HD | Đồng Nai
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.17:5000
-#EXTINF:0 tvg-id="dongnai2" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/DNNRTV2_DongNai.png",ĐNNRTV2 HD | Đồng Nai
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.75:5000
-#EXTINF:0 tvg-id="binhduong1" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/YPQCtHY.png",BTV1 HD | TP.HCM
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.15:5000
-#EXTINF:0 tvg-id="binhduong1" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/YPQCtHY.png",BTV1 HD | TP.HCM
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.16:5000
-#EXTINF:0 tvg-id="anvienhd" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/jeunb3Y.png",BTV9 B Channel HD
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.61:5000
-#EXTINF:0 tvg-id="vungtau" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/KX2RMXR.png",BRT HD | TP.HCM
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.92:5000
-#EXTINF:0 tvg-id="tayninh1" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/TTV1_TayNinh.png",TTV1 HD | Tây Ninh
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.86:5000
-#EXTINF:0 tvg-id="tayninh2" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/TTV2_TayNinh.png",TTV2 HD | Tây Ninh
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.69:5000
-#EXTINF:0 tvg-id="dongthap1" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/UfOw13y.png",THĐT1 HD | Đồng Tháp
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.97:5000
-#EXTINF:0 tvg-id="dongthap2" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/WXebESa.png",THĐT2 Miền Tây HD | Đồng Tháp
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.91:5000
-#EXTINF:0 tvg-id="vinhlong1hd" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/gvPtTR2.png",THVL1 HD | Vĩnh Long
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.99:5000
-#EXTINF:0 tvg-id="vinhlong2hd" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/wYadDFn.png",THVL2 HD | Vĩnh Long
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.100:5000
-#EXTINF:0 tvg-id="vinhlong3hd" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/B8S0dyG.png",THVL3 HD | Vĩnh Long
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.29:5000
-#EXTINF:0 tvg-id="vinhlong5hd" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/THVL5_VinhLong.png",THVL5 HD | Vĩnh Long
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.70:5000
-#EXTINF:0 tvg-id="angiang1" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/ATV1_AnGiang.png",ATV1 HD | An Giang
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.68:5000
-#EXTINF:0 tvg-id="angiang2" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/ATV2_AnGiang.png",ATV2 HD | An Giang
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.7:5000
-#EXTINF:0 tvg-id="camau" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://i.imgur.com/cYqXh3i.png",CTV HD | Cà Mau
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.19:5000
-#EXTINF:0 tvg-id="cantho1" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/CanTho1.png",Cần Thơ 1 HD
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.67:5000
-#EXTINF:0 tvg-id="cantho2" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/CanTho2.png",Cần Thơ 2 HD
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.121:5000
-#EXTINF:0 tvg-id="cantho3" group-title="hainghiatv | Địa phương (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/CanTho3.png",Cần Thơ 3 HD
-#EXTGRP:hainghiatv | Địa phương (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.90:5000
-#EXTINF:0 tvg-id="abcaustralia" group-title="hainghiatv | Quốc Tế (HD)" tvg-logo="https://i.imgur.com/UI80qhw.png",ABC Australia HD
-#EXTGRP:hainghiatv | Quốc Tế (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.78:5000
-#EXTINF:0 tvg-id="afnhd" group-title="hainghiatv | Quốc Tế (HD)" tvg-logo="https://i.imgur.com/KL9oaqc.png",Asian Food Network HD
-#EXTGRP:hainghiatv | Quốc Tế (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.164:5000
-#EXTINF:0 tvg-id="cna" group-title="hainghiatv | Quốc Tế (HD)" tvg-logo="https://i.imgur.com/RIQE8kA.png",CNA HD
-#EXTGRP:hainghiatv | Quốc Tế (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.81:5000
-#EXTINF:0 tvg-id="davinci" group-title="hainghiatv | Quốc Tế (HD)" tvg-logo="https://i.imgur.com/t9fzARL.png",Da Vinci HD
-#EXTGRP:hainghiatv | Quốc Tế (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.162:5000
-#EXTINF:0 tvg-id="dw" group-title="hainghiatv | Quốc Tế (HD)" tvg-logo="https://i.imgur.com/Ppi36a4.png",DW HD
-#EXTGRP:hainghiatv | Quốc Tế (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.80:5000
-#EXTINF:0 tvg-id="historyhd" group-title="hainghiatv | Quốc Tế (HD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/History.png",History HD
-#EXTGRP:hainghiatv | Quốc Tế (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.178:5000
-#EXTINF:0 tvg-id="kbsworld" group-title="hainghiatv | Quốc Tế (HD)" tvg-logo="https://i.imgur.com/vylHBC8.png",KBS World HD
-#EXTGRP:hainghiatv | Quốc Tế (HD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.116:5000
-#EXTINF:0 tvg-id="arirang" group-title="hainghiatv | Quốc Tế (SD)" tvg-logo="https://i.imgur.com/DZNTBjC.png",Arirang
-#EXTGRP:hainghiatv | Quốc Tế (SD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.18:5000
-#EXTINF:0 tvg-id="arirang" group-title="hainghiatv | Quốc Tế (SD)" tvg-logo="https://i.imgur.com/DZNTBjC.png",Arirang
-#EXTGRP:hainghiatv | Quốc Tế (SD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.57:5000
-#EXTINF:0 tvg-id="dw" group-title="hainghiatv | Quốc Tế (SD)" tvg-logo="https://i.imgur.com/Ppi36a4.png",DW
-#EXTGRP:hainghiatv | Quốc Tế (SD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.16:5000
-#EXTINF:0 tvg-id="france24eng" group-title="hainghiatv | Quốc Tế (SD)" tvg-logo="https://i.imgur.com/YF2zMTz.png",France 24 (English)
-#EXTGRP:hainghiatv | Quốc Tế (SD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.251.232:5000
-#EXTINF:0 tvg-id="nhkworld" group-title="hainghiatv | Quốc Tế (SD)" tvg-logo="https://i.imgur.com/Et3vExm.png",NHK World Japan
-#EXTGRP:hainghiatv | Quốc Tế (SD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.19:5000
-#EXTINF:0 tvg-id="tv5monde" group-title="hainghiatv | Quốc Tế (SD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/TV5_Monde_Asie.png",TV5 Monde Asie
-#EXTGRP:hainghiatv | Quốc Tế (SD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.17:5000
-#EXTINF:0 tvg-id="tv5monde" group-title="hainghiatv | Quốc Tế (SD)" tvg-logo="https://raw.githubusercontent.com/ntd249/logochannel/refs/heads/main/TV5_Monde_Asie.png",TV5 Monde Asie
-#EXTGRP:hainghiatv | Quốc Tế (SD)
-http://zzzzzzzzzzz.duckdns.org:8414/rtp/239.12.252.82:5000
 #EXTINF:-1 tvg-logo="https://freem3u.xyz/static/images/vtv/vtv1.png" group-title="synthetic_iptv | VTV1","VTV1 [Link 1]"
 #EXTGRP:synthetic_iptv | VTV1
 https://live.fptplay53.net/fnxhd1/vtv1hd_vhls.smil/chunklist.m3u8
