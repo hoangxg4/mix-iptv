@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="http://gg.gg/epgmytv,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://vnepg.site/epg.xml,http://gg.gg/guidevn,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://epg.pw/xmltv/epg_FR.xml,https://epg.aptv.app/pp.xml.gz,https://xem.dramahay.xyz/epg.xml,https://epg.pw/xmltv/epg_MY.xml,https://vnepg.site/epg.xml.gz,https://epg.catvod.com/epg.xml,https://iptvx.one/epg/epg.xml.gz,http://trada.info/epg.xml,https://epg.946985.xyz/t.xml.gz,http://epg.51zmt.top:8000/e.xml,http://megavie.live/schedule/epg.xml,https://tvbvn.quanlehong539.workers.dev/xml,https://live.fanmingming.com/e.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,http://gg.gg/coodertvepg,https://epg.pw/xmltv/epg_AU.xml,http://gg.gg/epgbeartv,https://lichphatsong.site/schedule/epg.xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://epg.pw/xmltv/epg_HK.xml,http://lichphatsong.xyz/schedule/epg.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/singapore.xml,https://epg.pw/xmltv/epg_ID.xml,http://gg.gg/fptepg"
+#EXTM3U x-tvg-url="https://epg.946985.xyz/t.xml.gz,https://vnepg.site/epg.xml.gz,http://gg.gg/epgmytv,http://gg.gg/fptepg,https://epg.aptv.app/pp.xml.gz,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://tvbvn.quanlehong539.workers.dev/xml,http://gg.gg/epgbeartv,https://vnepg.site/epg.xml,https://live.fanmingming.com/e.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/singapore.xml,http://megavie.live/schedule/epg.xml,https://xem.dramahay.xyz/epg.xml,https://epg.catvod.com/epg.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://epg.pw/xmltv/epg_FR.xml,https://epg.pw/xmltv/epg_ID.xml,https://iptvx.one/epg/epg.xml.gz,http://epg.51zmt.top:8000/e.xml,http://gg.gg/guidevn,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://epg.pw/xmltv/epg_MY.xml,http://trada.info/epg.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://epg.pw/xmltv/epg_AU.xml,http://gg.gg/coodertvepg,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,http://lichphatsong.xyz/schedule/epg.xml,https://lichphatsong.site/schedule/epg.xml,https://epg.pw/xmltv/epg_HK.xml"
 #EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}",VTV1
 #EXTGRP:DAKLAKIPTV | VTV
 https://live-a.fptplay53.net/live/media/VTV1HD/live_hls_avc/index.m3u8
@@ -5264,10 +5264,10 @@ http://live.qphim.xyz/live/kubolive/index.m3u8
 http://live.qphim.xyz/live/kubocast/index.m3u8
 #EXTINF:-1 tvg-id="sgnetwork" group-title="vmttv | SG Network" group-logo="https://devonlynino.github.io/assets/images/main.png" tvg-logo="https://devonlynino.github.io/assets/images/main.png",SG Network
 #EXTGRP:vmttv | SG Network
-https://infinity.sgchill.io.vn/v1/getstream/twitch.tv/devonlynino/index.m3u8
+https://sgchill.io.vn/v1/tw?id=devonlynino
 #EXTINF:-1 group-title="vmttv | NINO NETWORK" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/ninochannel1.jpg", Nino Channel
 #EXTGRP:vmttv | NINO NETWORK
-https://infinity.sgchill.io.vn/v1/getstream/twitch.tv/ninochannel12/index.m3u8
+https://sgchill.io.vn/v1/tw?id=ninochannel12
 #EXTINF:-1 group-title="vmttv | NINO NETWORK" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/ninochannel2.jpg", Nino Channel 2
 #EXTGRP:vmttv | NINO NETWORK
 http://live.qphim.xyz/hls_nonkey/ninochannel2/index.m3u8
@@ -5280,9 +5280,9 @@ https://live.qphim.xyz/live/atv/index.m3u8
 #EXTINF:-1 group-title="vmttv | Sự Kiện" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni1.png", ONi1
 #EXTGRP:vmttv | Sự Kiện
 https://1.org.vn/oni1/?/index.m3u8
-#EXTINF:-1 group-title="vmttv | Sự Kiện" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni2.png", Oni2
+#EXTINF:-1 group-title="vmttv | Sự Kiện" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni2.png", ONi2
 #EXTGRP:vmttv | Sự Kiện
-https://infinity.sgchill.io.vn/v1/getstream/twitch.tv/nnt1709/index.m3u8
+https://sgchill.io.vn/v1/tw?id=nnt1709
 #EXTINF:-1 group-title="vmttv | THỂ THAO QUỐC TẾ" tvg-id="skyf1" tvg-logo="https://r2.thesportsdb.com/images/media/channel/logo/p5csyn1620551587.png",Sky Sport F1
 #EXTGRP:vmttv | THỂ THAO QUỐC TẾ
 http://2.magmas5.com:8000/live/XXXR3str3amLine/200conxxxxQ41/218103.ts
@@ -5436,9 +5436,6 @@ https://s6.kkphimplayer6.com/20251228/0HQf0tP2/3500kb/hls/index.m3u8
 #EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo="https://images.fptplay53.net/media/OTT/VOD/2025/12/30/lam-giau-voi-ma-cuoc-chien-hot-xoan-fpt-play-1767066672824_Landscape.jpg", Làm Giàu Với Ma Phần 2: Cuộc Chiến Hột Xoàn
 #EXTGRP:vmttv | LIVE EVENTS 🔴
 https://vip.opstream90.com/20260102/21537_fe1af53e/3000k/hls/mixed.m3u8
-#EXTINF:-1 group-title="vmttv | Livestream" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/01/20/ban-ket-16-9-co-kenh_1768881034417.jpg", Thể Thao 15
-#EXTGRP:vmttv | Livestream
-https://live.fptplay53.net/fnxch1/thethao15_mx.smil/chunklist_b6000000.m3u8
 #EXTINF:-1 tvg-id="vtv1hd" group-title="vmttv | VTV" tvg-logo="https://i.ytimg.com/vi/dGohEWXz7Sk/maxresdefault.jpg" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}, VTV1
 #EXTGRP:vmttv | VTV
 https://freem3u.xyz/api/live/play.m3u8?vid=2
@@ -5817,7 +5814,7 @@ https://freem3u.xyz/api/live/play.m3u8?vid=69
 #EXTINF:-1 tvg-id="hitv" group-title="vmttv | Địa phương" tvg-logo="https://img-zlr1.tv360.vn/image1/2020_09_23/1600823412691/61627b84a612_640_360.png", HiTV
 #EXTGRP:vmttv | Địa phương
 https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/hitv/KenhCoBan.m3u8
-#EXTINF:-1 tvg-id=" group-title="vmttv | Ungrouped"
+#EXTINF:-1 tvg-id="youtv" group-title group-title="vmttv | Ungrouped"
 #EXTGRP:vmttv | Ungrouped
 #EXTINF:-1 tvg-id="hbohd" group-title="vmttv | Quốc Tế" tvg-logo="https://i.pinimg.com/originals/8b/02/00/8b020050690f955ccb306cdf51324aea.png", HBO
 #EXTGRP:vmttv | Quốc Tế
@@ -7268,7 +7265,7 @@ https://live.mediatech.vn/live/2859591eef2e92249b682db021f4247c364/chunklist.m3u
 https://live.mediatech.vn/live/285aaa79b4b265a457d81bb72bc32e2c114/playlist.m3u8
 #EXTINF:-1 tvg-id="quangngai2" group-title="coban66 | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG" tvg-logo="https://i.postimg.cc/0j90HbNC/QNg-TV2.png",QNgTV2 - TH. QUẢNG NGÃI 2 HD
 #EXTGRP:coban66 | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG
-http://khaitv.giize.com:8090/225.1.4.139:30120
+https://ace.hoiquan.click/module/IPTV/?id=quangngai2&accKenh=madam69
 #EXTINF:-1 tvg-id="quangtri" group-title="coban66 | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG" tvg-logo="https://i.imgur.com/6qOelwt.png",QTTV - TH. QUẢNG TRỊ HD
 #EXTGRP:coban66 | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG
 https://live.fptplay53.net/epzsd1/quangtri_hls.smil/chunklist_b2500000.m3u8
@@ -7343,7 +7340,7 @@ https://streaming.tuyenquangtv.vn/channel/tuyenquang/playlist.m3u8
 https://amg01117-amg01117c1-amgplt0165.playout.now3.amagi.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="abcaustralia" group-title="coban66 | KÊNH TỔNG HỢP" group-logo="https://i.postimg.cc/6QZ0H8MD/Tonghop.png" tvg-logo="https://i.imgur.com/UI80qhw.png",ABC AUSTRALIA
 #EXTGRP:coban66 | KÊNH TỔNG HỢP
-http://khaitv.giize.com:8090/225.1.4.19:30120
+https://ace.hoiquan.click/module/IPTV/?id=abcaustralia&accKenh=madam69
 #EXTINF:-1 tvg-id="ABCNews.au" group-title="coban66 | KÊNH TIN TỨC" group-logo="https://i.imgur.com/lTODs0q.png" tvg-logo="https://i.imgur.com/BrW7gk8.png",ABC NEWS
 #EXTGRP:coban66 | KÊNH TIN TỨC
 https://abc-news-dmd-streams-1.akamaized.net/out/v1/701126012d044971b3fa89406a440133/index.m3u8
@@ -7361,7 +7358,7 @@ https://live-hls-web-aje-gcp.thehlive.com/AJE/03.m3u8
 https://janya-digimix.akamaized.net/vglive-sk-438760/fareast/ngrp:angelfareast_all/playlist.m3u8
 #EXTINF:-1 tvg-id="animalhd" group-title="coban66 | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/BJVAUWg.png",ANIMAL PLANET
 #EXTGRP:coban66 | KÊNH ĐẶC SẮC
-http://khaitv.giize.com:8090/225.1.4.209:30120
+http://103.140.254.2:3500/live/567.m3u8
 #EXTINF:-1 tvg-id="ApsaraTV11.kh@SD" group-title="coban66 | KÊNH TỔNG HỢP" tvg-logo="https://i.imgur.com/9wJe71I.png",Apsara TV11
 #EXTGRP:coban66 | KÊNH TỔNG HỢP
 https://live.ams.com.kh/app/stream/playlist.m3u8
@@ -7373,8 +7370,8 @@ https://live.fptplay53.net/fnxhd2/afchd_vhls.smil/chunklist_b5000000.m3u8
 https://live.fptplay53.net/fnxhd2/arirang_hls.smil/chunklist_b2500000.m3u8
 #EXTINF:-1 tvg-id="axnhd" group-title="coban66 | KÊNH GIẢI TRÍ" group-logo="https://i.imgur.com/b4yTXUS.png" tvg-logo="https://i.imgur.com/Rwm7Lod.png",AXN HD
 #EXTGRP:coban66 | KÊNH GIẢI TRÍ
-http://akasaijr.myftp.org:21585/axn/index.m3u8
-#EXTINF:-1 tvg-logo="https://i.imgur.com/sSnrg7o.png" group-title="coban66 | KÊNH THIẾT YẾU",BTV National
+https://ace.hoiquan.click/module/IPTV/?id=axn&accKenh=madam69
+#EXTINF:-1 tvg-logo="https://i.imgur.com/sSnrg7o.png" group-title="coban66 | KÊNH THIẾT YẾU",BTV World
 #EXTGRP:coban66 | KÊNH THIẾT YẾU
 http://103.230.105.252:1935/live/btv/manifest.m3u8
 #EXTINF:-1 group-title="coban66 | KÊNH PHIM TRUYỆN" group-logo="https://i.imgur.com/tdozyTU.png" tvg-logo="https://i.imgur.com/M9kMFJl.png",B4U MOVIES
@@ -7404,12 +7401,12 @@ http://cdn4.skygo.mn/live/disk1/Cartoon_Network/HLSv3-FTA/Cartoon_Network.m3u8
 #EXTINF:-1 tvg-id="boomerang" group-title="coban66 | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/6vYWCD0.png",CARTOONITO HD
 #EXTGRP:coban66 | KÊNH THIẾU NHI
 http://cdn4.skygo.mn/live/disk1/Boomerang/HLSv3-FTA/Boomerang.m3u8
-#EXTINF:-1 tvg-id="cinemaworld" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/vFVxJx4.png",Cinema World
-#EXTGRP:coban66 | KÊNH PHIM TRUYỆN
-http://khaitv.giize.com:8090/225.1.1.142:30120
 #EXTINF:-1 tvg-id="cinemaxhd" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/NzROY7r.png",Cinemax
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
-http://khaitv.giize.com:8090/225.1.2.86:30120
+https://ace.hoiquan.click/module/IPTV/?id=cinemax&accKenh=madam69
+#EXTINF:-1 tvg-id="cinemaworld" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/vFVxJx4.png",Cinema World
+#EXTGRP:coban66 | KÊNH PHIM TRUYỆN
+https://ace.hoiquan.click/module/IPTV/?id=cinemaworld&accKenh=madam69
 #EXTINF:-1 tvg-id="CGNTVSouthKorea.kr" tvg-logo="https://i.imgur.com/zwZASOB.png" group-title="coban66 | KÊNH ĐẶC SẮC",CGN TV
 #EXTGRP:coban66 | KÊNH ĐẶC SẮC
 https://du35ivadp6cxj.cloudfront.net/out/v1/81781d23cbbf490990b2aa9181d4ce19/CGNWebLiveKR.m3u8
@@ -7430,7 +7427,10 @@ https://live.fptplay53.net/fnxsd1/cnbc_hls.smil/chunklist_b2500000.m3u8
 https://live.fptplay53.net/fnxhd2/newsasia_hls.smil/chunklist_b2500000.m3u8
 #EXTINF:-1 tvg-id="cnn" group-title="coban66 | KÊNH TIN TỨC" tvg-logo="https://i.imgur.com/68hmRiM.png",CNN
 #EXTGRP:coban66 | KÊNH TIN TỨC
-http://cdn4.skygo.mn/live/disk1/CNNi/HLSv3-FTA/CNNi.m3u8
+http://125hvt.ddns.net:21585/cnn/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-name="Colors HD" group-title="coban66 | KÊNH GIẢI TRÍ" tvg-logo="https://i.imgur.com/M8uCJ0D.png",Colors HD
+#EXTGRP:coban66 | KÊNH GIẢI TRÍ
+http://217.20.112.199:8888/ColorsHD/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="cgtn" group-title="coban66 | KÊNH TIN TỨC" tvg-logo="https://i.imgur.com/QCSeNYK.png",CGTN
 #EXTGRP:coban66 | KÊNH TIN TỨC
 https://english-livebkali.cgtn.com/live/encgtn_0.m3u8
@@ -7463,7 +7463,7 @@ http://cdn4.skygo.mn/live/disk1/SoutheastAsia/HLSv3-FTA/SoutheastAsia.m3u8
 http://cdn4.skygo.mn/live/disk1/ScienceSoutheast/HLSv3-FTA/ScienceSoutheast.m3u8
 #EXTINF:-1 tvg-id="dreamworks" group-title="coban66 | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/XpvnFcp.png",DREAMWORKS HD
 #EXTGRP:coban66 | KÊNH THIẾU NHI
-http://khaitv.giize.com:8090/225.1.4.39:30120
+https://ace.hoiquan.click/module/IPTV/?id=dreamwork&accKenh=madam69
 #EXTINF:-1 tvg-id="DubaiTV.ae@SD" tvg-logo="https://i.imgur.com/UMmbyHv.png" group-title="coban66 | KÊNH TỔNG HỢP",Dubai TV
 #EXTGRP:coban66 | KÊNH TỔNG HỢP
 https://dmieigthvllta.cdn.mgmlcdn.com/dubaitvht/smil:dubaitv.stream.smil/chunklist.m3u8
@@ -7499,7 +7499,7 @@ http://49.0.64.96:8007/GOLF
 https://freem3u.xyz/api/live/play.m3u8?vid=9856
 #EXTINF:-1 tvg-id="hbohd" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/7nIUtCU.png",HBO
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
-http://akasaijr.myftp.org:21585/hbo/index.m3u8
+https://ace.hoiquan.click/module/IPTV/?id=hbo&accKenh=madam69
 #EXTINF:-1 tvg-id="hgtv" tvg-logo="https://i.imgur.com/BwBr0ib.png" group-title="coban66 | KÊNH ĐẶC SẮC",HGTV
 #EXTGRP:coban66 | KÊNH ĐẶC SẮC
 https://liveh34.vtvprime.vn/hls/HGTV/03.m3u8
@@ -7539,6 +7539,9 @@ https://seatv.netlinkbroadcaster.com/hls/test.m3u8
 #EXTINF:-1 tvg-id="SharjahTV.ae@SD" tvg-logo="https://i.imgur.com/Oz2bPOt.png" group-title="coban66 | KÊNH ĐẶC SẮC",Sharjah TV
 #EXTGRP:coban66 | KÊNH ĐẶC SẮC
 https://live.kwikmotion.com/smc1live/smc1tv.smil/playlist.m3u8
+#EXTINF:-1 tvg-name="SonySab" group-title="coban66 | KÊNH GIẢI TRÍ" tvg-logo="https://i.postimg.cc/yYmcX2Ds/Sony-SAB-HD.jpg",Sony Sab
+#EXTGRP:coban66 | KÊNH GIẢI TRÍ
+http://217.20.112.199:8888/sabtvhd/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="447000" group-title="coban66 | KÊNH TIN TỨC" tvg-logo="https://i.imgur.com/jP0rB8j.png",SKY NEWS
 #EXTGRP:coban66 | KÊNH TIN TỨC
 https://amg00663-skynews-skynewsau-samsungau-r7n40.amagi.tv/playlist720p.m3u8
@@ -7574,7 +7577,7 @@ https://viamotionhsi.netplus.ch/live/eds/rtpi/browser-HLS8/rtpi.m3u8
 https://globallive.tdm.com.mo/ch3/ch3.live/playlist.m3u8
 #EXTINF:-1 tvg-id="tlchd" group-title="coban66 | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/ZStxdQI.png",TLC
 #EXTGRP:coban66 | KÊNH ĐẶC SẮC
-http://khaitv.giize.com:8090/225.1.4.26:30120
+http://125hvt.ddns.net:21585/tlc/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="trace-sport-stars-ru" group-title="coban66 | KÊNH THỂ THAO" tvg-logo="https://i.imgur.com/FabFP5A.png",Trace Sport Stars
 #EXTGRP:coban66 | KÊNH THỂ THAO
 http://87.120.142.11:18000/Rossiya1
@@ -7647,18 +7650,18 @@ https://toiyeuvietnam.dpdns.org/Start/VMT789_Women
 #EXTINF:-1 tvg-id="man" group-title="coban66 | KÊNH BOX" tvg-logo="https://i.imgur.com/eojhBXT.png",Man
 #EXTGRP:coban66 | KÊNH BOX
 https://toiyeuvietnam.dpdns.org/Start/VMT456_MAN
-#EXTINF:-1 tvg-id="pervy-kanal-eu" group-title="coban66 | KÊNH THIẾT YẾU" tvg-logo="https://i.imgur.com/hV4VIs2.png",Первый канал. Всемирная сеть
+#EXTINF:-1 tvg-id="pervy-kanal-csi" group-title="coban66 | KÊNH THIẾT YẾU" tvg-logo="https://i.imgur.com/hV4VIs2.png",Первый канал. Всемирная сеть
 #EXTGRP:coban66 | KÊNH THIẾT YẾU
-http://cdn4.skygo.mn/live/disk1/ORt/HLSv3-FTA/ORt.m3u8
+http://188.225.31.197/bpk-tv/000001227/tve/index.m3u8
 #EXTINF:-1 tvg-id="rtr-planeta-azia" group-title="coban66 | KÊNH THIẾT YẾU" tvg-logo="https://i.imgur.com/f54OT4e.png",Россия РТР
 #EXTGRP:coban66 | KÊNH THIẾT YẾU
-https://streaming.televizor-24-tochka.ru/live/211-req_5k_v5.m3u8
+http://188.225.31.197/bpk-tv/000000812/tve/index.m3u8
 #EXTINF:-1 tvg-id="match-tv" group-title="coban66 | KÊNH THỂ THAO" tvg-logo="https://i.imgur.com/kFdooR4.png",Матч! ТВ
 #EXTGRP:coban66 | KÊNH THỂ THAO
 http://tv.tuva.ru/machtv/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="ntv-mir" group-title="coban66 | KÊNH THIẾT YẾU" tvg-logo="https://i.imgur.com/DtQX5P2.png",НТВ Мир
+#EXTINF:-1 tvg-id="ntv-pl4" group-title="coban66 | KÊNH THIẾT YẾU" tvg-logo="https://i.imgur.com/DtQX5P2.png",НТВ
 #EXTGRP:coban66 | KÊNH THIẾT YẾU
-http://109.248.236.51/ntv_mir/tracks-v1a1/mono.m3u8
+http://91.226.120.120/chid4/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="piaty-int" group-title="coban66 | KÊNH THIẾT YẾU" tvg-logo="https://i.imgur.com/Q2Q7Mgr.png",Пятый канал International
 #EXTGRP:coban66 | KÊNH THIẾT YẾU
 http://cdn4.skygo.mn/live/disk1/Channel_5/HLSv3-FTA/Channel_5.m3u8
@@ -7718,7 +7721,7 @@ http://tntm.mediacdn.ru/cdn/tntmusic/playlist_sdhigh.m3u8
 http://89.232.68.194:8080/2x2/tracks-v3a1/index.m3u8
 #EXTINF:-1 tvg-id="super" group-title="coban66 | KÊNH GIẢI TRÍ" tvg-logo="https://i.imgur.com/nsk8PpB.png",Суббота
 #EXTGRP:coban66 | KÊNH GIẢI TRÍ
-http://cdn-bal.srv4you.net/0367/mpegts
+http://195.26.83.96:7013/play/a00e
 #EXTINF:-1 tvg-id="yu-pl4" group-title="coban66 | KÊNH GIẢI TRÍ" tvg-logo="https://i.imgur.com/KDZvt0Q.png",Телеканал Ю
 #EXTGRP:coban66 | KÊNH GIẢI TRÍ
 http://91.226.120.120/chid137/tracks-v1a1/mono.m3u8
@@ -7842,7 +7845,7 @@ http://tele2dvrnat01-02.cdnvideo.ru:80/stream/NAT_EKB1/hls/1024x576@2024/playlis
 #EXTINF:-1 tvg-id="bridge-tv" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/qYObfrG.png",BRIDGE
 #EXTGRP:coban66 | KÊNH CA NHẠC
 http://195.26.83.96:7007/play/a00m
-#EXTINF:-1 tvg-id="bridge-tv-ruxit" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/sIW9oR4.png",BRIDGE Русский Хит
+#EXTINF:-1 tvg-id="bridge-tv-ruxit" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/f9xdIlN.png",BRIDGE Русский Хит
 #EXTGRP:coban66 | KÊNH CA NHẠC
 http://193.25.8.59:8000/rusong
 #EXTINF:-1 tvg-id="bridge-tv-shlager" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/a9DXkMN.png",BRIDGE Шлягер
@@ -7854,9 +7857,6 @@ http://ad-hls-europaplus-ref.cdnvideo.ru/europaplus/eurptv2_site.smil/playlist.m
 #EXTINF:-1 tvg-id="maydan" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/C8CCjZK.png",Maidan
 #EXTGRP:coban66 | KÊNH CA NHẠC
 http://live-maidantv.cdnvideo.ru/maidantv/maidantv.smil/playlist.m3u8
-#EXTINF:-1 tvg-id="mezzo-live-hd" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/H9ytKPN.png",Mezzo Live HD
-#EXTGRP:coban66 | KÊNH CA NHẠC
-http://46.53.208.5/live/871-req_5k_v5.m3u8
 #EXTINF:-1 tvg-id="onemuz" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/YdyFJrl.png",Первый Музыкальный
 #EXTGRP:coban66 | KÊNH CA NHẠC
 http://136.243.42.146/HLS/HD.m3u8
@@ -7893,9 +7893,6 @@ http://live-uvelirochka.cdnvideo.ru/uvelirochka/uvelirochka_720p3/playlist.m3u8
 #EXTINF:-1 tvg-id="ani" group-title="coban66 | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/i2AP0hp.png",Ani
 #EXTGRP:coban66 | KÊNH THIẾU NHI
 http://stv.mediacdn.ru/live/cdn/ani/playlist.m3u8
-#EXTINF:-1 tvg-id="fanhd" group-title="coban66 | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/mDeTbaF.png",Fan HD
-#EXTGRP:coban66 | KÊNH THIẾU NHI
-http://195.9.195.3:8080/hls/157239.m3u8
 #EXTINF:-1 tvg-id="ginger-hd" group-title="coban66 | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/K3PSHiT.png",Капитан Фантастика
 #EXTGRP:coban66 | KÊNH THIẾU NHI
 http://91.226.120.120/chid292/tracks-v1a1/mono.m3u8
@@ -7931,7 +7928,7 @@ http://tv.mediacdn.ru/live/solntse/playlist_3000k.m3u8
 http://46.53.208.5/live/1448-req_5k_v5.m3u8
 #EXTINF:-1 tvg-id="malysh" group-title="coban66 | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/c0zZUR1.png",Супергерои
 #EXTGRP:coban66 | KÊNH THIẾU NHI
-https://streamer3.connectto.com/374/mono.m3u8
+http://86.57.209.210/Malish/index.m3u8
 #EXTINF:-1 tvg-id="sony-turbo" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/Q4A6ci4.png",.black
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://46.53.208.5/live/3001-req_5k_v5.m3u8
@@ -7980,7 +7977,7 @@ https://stream.ads.ottera.tv/playlist.m3u8?network_id=4158
 #EXTINF:-1 tvg-id="start-world" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/TXtY5eM.png",Start World
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://109.248.236.51/start_world_hd/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="timeless-dizi" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/s3Sqd4L.png",Timeless Dizi Channel
+#EXTINF:-1 tvg-id="romance" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.postimg.cc/Kvy13vWy/Romance.png",Romance
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://193.25.8.59:8000/tlc
 #EXTINF:-1 tvg-id="vhs-ka" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/C2377w9.png",VHS-ка
@@ -8028,9 +8025,6 @@ http://vod.tuva.ru/eurokino/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="feniks-plus-kino" tvg-logo="https://i.imgur.com/S9OPMLE.png" group-title="coban66 | KÊNH PHIM TRUYỆN",Феникс+кино
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid70/tracks-v1a1/mono.m3u8
-#EXTINF:-1 group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-id="nashe-novoe-kino" tvg-logo="https://i.imgur.com/IOxIsPj.png",Наше новое кино
-#EXTGRP:coban66 | KÊNH PHIM TRUYỆN
-http://cdn-bal.srv4you.net/0289/mpegts
 #EXTINF:-1 group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-id="nst" tvg-logo="https://i.imgur.com/uv2yxa5.png",НСТ
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid118/tracks-v1a1/mono.m3u8
@@ -8046,12 +8040,6 @@ http://193.25.8.59:8000/fox
 #EXTINF:-1 tvg-id="kino-tv" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/sMpamNO.png",Кино ТВ
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://vod.tuva.ru/kinotv/tracks-v1a1/mono.m3u8
-#EXTINF:-1 group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-id="kinopokaz" tvg-logo="https://i.imgur.com/nNjMyAq.png",Кинопоказ
-#EXTGRP:coban66 | KÊNH PHIM TRUYỆN
-http://cdn-bal.srv4you.net/0375/mpegts
-#EXTINF:-1 group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-id="kinoseria" tvg-logo="https://i.imgur.com/iao7zLZ.png",Киносерия
-#EXTGRP:coban66 | KÊNH PHIM TRUYỆN
-http://cdn-bal.srv4you.net/0286/mpegts
 #EXTINF:-1 group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-id="kinosemiya" tvg-logo="https://i.imgur.com/4BF5VeK.png",Kиносемья
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://31.130.203.6:9398
@@ -8067,9 +8055,6 @@ http://91.226.120.120/chid73/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-logo="https://i.imgur.com/xDVcDOc.png" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-id="zee-tv",Индия
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid139/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-logo="https://i.imgur.com/LL8GyCh.png" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-id="indiyskoe-kino",Индийское кино
-#EXTGRP:coban66 | KÊNH PHIM TRUYỆN
-http://31.47.199.45:1402/indiskoekino/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.imgur.com/9GvuHQ5.png" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-id="illuzion-plus",Иллюзион+
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid71/tracks-v1a1/mono.m3u8
@@ -8079,15 +8064,9 @@ http://193.25.8.59:8000/tnv
 #EXTINF:-1 group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-id="mir-seriala" tvg-logo="https://i.imgur.com/uzj7wVp.png",Мир сериала
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://193.25.8.59:8000/mirseriala
-#EXTINF:-1 group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-id="muzhskoe-kino" tvg-logo="https://i.imgur.com/8RN3tQC.png",МУЖСКОЕ КИНО HD
-#EXTGRP:coban66 | KÊNH PHIM TRUYỆN
-http://cdn-bal.srv4you.net/0287/mpegts
 #EXTINF:-1 tvg-id="patriot" tvg-logo="https://i.postimg.cc/7Yhb1YPy/3F3F3F283F3F3F29.png" group-title="coban66 | KÊNH PHIM TRUYỆN",Патриот
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://catchup.videoline.ru/asvtv/playlist.m3u8
-#EXTINF:-1 tvg-id="premialnoe" tvg-logo="https://i.imgur.com/ck4aLBP.png" group-title="coban66 | KÊNH PHIM TRUYỆN",Премиальное
-#EXTGRP:coban66 | KÊNH PHIM TRUYỆN
-https://streamer3.connectto.com/373/mono.m3u8
 #EXTINF:-1 tvg-id="sovkino" tvg-logo="https://i.imgur.com/uqnTowX.png" group-title="coban66 | KÊNH PHIM TRUYỆN",Советское кино
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://31.130.203.6:8477
@@ -8154,9 +8133,6 @@ http://46.53.208.5/live/542-req_5k_v5.m3u8
 #EXTINF:-1 tvg-id="viasat-nature-history-hd" group-title="coban66 | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/9Weqdsk.png",viju+ Planet
 #EXTGRP:coban66 | KÊNH ĐẶC SẮC
 http://46.53.208.5/live/6006-req_5k_v5.m3u8
-#EXTINF:-1 tvg-id="arsenaltv" tvg-logo="https://i.imgur.com/DBpVeb0.png" group-title="coban66 | KÊNH ĐẶC SẮC",Арсенал HD
-#EXTGRP:coban66 | KÊNH ĐẶC SẮC
-http://cdn-bal.srv4you.net/0222/mpegts
 #EXTINF:-1 tvg-id="v-mire-zhivotnyx-hd" tvg-logo="https://i.imgur.com/6uotdVQ.png" group-title="coban66 | KÊNH ĐẶC SẮC",В Мире Животных HD
 #EXTGRP:coban66 | KÊNH ĐẶC SẮC
 http://91.226.120.120/chid209/tracks-v1a1/mono.m3u8
@@ -8175,9 +8151,6 @@ http://188.225.31.197/bpk-tv/000000588/tve/index.m3u8
 #EXTINF:-1 tvg-id="zvezda-plus" group-title="coban66 | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/NNmjD9Z.png",Звезда Плюс
 #EXTGRP:coban66 | KÊNH ĐẶC SẮC
 http://tvzvezda.bonus-tv.ru/cdn/zvezdaplus/playlist.m3u8
-#EXTINF:-1 tvg-id="zdorovoe-tv" group-title="coban66 | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/jedtE5l.png",Здоровое ТВ
-#EXTGRP:coban66 | KÊNH ĐẶC SẮC
-http://cdn-bal.srv4you.net/0422/mpegts
 #EXTINF:-1 tvg-id="zoopark" tvg-logo="https://i.imgur.com/IO5jegK.png" group-title="coban66 | KÊNH ĐẶC SẮC",Зоопарк
 #EXTGRP:coban66 | KÊNH ĐẶC SẮC
 http://46.53.208.5/live/996-req_5k_v5.m3u8
@@ -8253,9 +8226,6 @@ http://91.226.120.120/chid275/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="usadba" group-title="coban66 | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/mf13haG.png",Усадьба
 #EXTGRP:coban66 | KÊNH ĐẶC SẮC
 http://91.226.120.120/chid32/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="centralnoye-tv" group-title="coban66 | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/qdCs08A.png",ЦТВ
-#EXTGRP:coban66 | KÊNH ĐẶC SẮC
-http://cdn-bal.srv4you.net/0451/mpegts
 #EXTINF:-1 tvg-id="fashion-one" tvg-logo="https://i.imgur.com/ETmpllL.png" group-title="coban66 | KÊNH GIẢI TRÍ",Fashion&LifeStyle
 #EXTGRP:coban66 | KÊNH GIẢI TRÍ
 http://91.226.120.120/chid169/tracks-v1a1/mono.m3u8
@@ -8274,9 +8244,6 @@ https://live.zhanafm.kz:8181/memfs/fd715789-382f-4ec6-b4ba-d8e2fde59c7b.m3u8
 #EXTINF:-1 tvg-id="nadezhda" group-title="coban66 | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/NQD8Zer.png",Надежда
 #EXTGRP:coban66 | KÊNH ĐẶC SẮC
 http://live-tvhope.cdnvideo.ru/tvhope-pull/tvhope_1/playlist.m3u8
-#EXTINF:-1 tvg-id="nostalgia" tvg-logo="https://i.imgur.com/YBdBc0J.png" group-title="coban66 | KÊNH GIẢI TRÍ",НОСТАЛЬГИЯ
-#EXTGRP:coban66 | KÊNH GIẢI TRÍ
-http://cdn-bal.srv4you.net/0313/mpegts
 #EXTINF:-1 tvg-id="ntv-style" tvg-logo="https://i.imgur.com/rX6K6qT.png" group-title="coban66 | KÊNH GIẢI TRÍ",НТВ Стиль
 #EXTGRP:coban66 | KÊNH GIẢI TRÍ
 http://cdn.ntv.ru/th_style/tracks-v1a1/mono.m3u8
@@ -8810,7 +8777,7 @@ https://live.mediatech.vn/live/2859591eef2e92249b682db021f4247c364/chunklist.m3u
 https://live.mediatech.vn/live/285aaa79b4b265a457d81bb72bc32e2c114/playlist.m3u8
 #EXTINF:-1 tvg-id="quangngai2" group-title="vietngatv | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG" tvg-logo="https://i.postimg.cc/0j90HbNC/QNg-TV2.png",QNgTV2 - TH. QUẢNG NGÃI 2 HD
 #EXTGRP:vietngatv | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG
-http://khaitv.giize.com:8090/225.1.4.139:30120
+https://ace.hoiquan.click/module/IPTV/?id=quangngai2&accKenh=madam69
 #EXTINF:-1 tvg-id="quangtri" group-title="vietngatv | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG" tvg-logo="https://i.imgur.com/6qOelwt.png",QTTV - TH. QUẢNG TRỊ HD
 #EXTGRP:vietngatv | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG
 https://live.fptplay53.net/epzsd1/quangtri_hls.smil/chunklist_b2500000.m3u8
@@ -8885,7 +8852,7 @@ https://streaming.tuyenquangtv.vn/channel/tuyenquang/playlist.m3u8
 https://amg01117-amg01117c1-amgplt0165.playout.now3.amagi.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="abcaustralia" group-title="vietngatv | KÊNH TỔNG HỢP" group-logo="https://i.postimg.cc/6QZ0H8MD/Tonghop.png" tvg-logo="https://i.imgur.com/UI80qhw.png",ABC AUSTRALIA
 #EXTGRP:vietngatv | KÊNH TỔNG HỢP
-http://khaitv.giize.com:8090/225.1.4.19:30120
+https://ace.hoiquan.click/module/IPTV/?id=abcaustralia&accKenh=madam69
 #EXTINF:-1 tvg-id="ABCNews.au" group-title="vietngatv | KÊNH TIN TỨC" group-logo="https://i.imgur.com/lTODs0q.png" tvg-logo="https://i.imgur.com/BrW7gk8.png",ABC NEWS
 #EXTGRP:vietngatv | KÊNH TIN TỨC
 https://abc-news-dmd-streams-1.akamaized.net/out/v1/701126012d044971b3fa89406a440133/index.m3u8
@@ -8903,7 +8870,7 @@ https://live-hls-web-aje-gcp.thehlive.com/AJE/03.m3u8
 https://janya-digimix.akamaized.net/vglive-sk-438760/fareast/ngrp:angelfareast_all/playlist.m3u8
 #EXTINF:-1 tvg-id="animalhd" group-title="vietngatv | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/BJVAUWg.png",ANIMAL PLANET
 #EXTGRP:vietngatv | KÊNH ĐẶC SẮC
-http://khaitv.giize.com:8090/225.1.4.209:30120
+http://103.140.254.2:3500/live/567.m3u8
 #EXTINF:-1 tvg-id="ApsaraTV11.kh@SD" group-title="vietngatv | KÊNH TỔNG HỢP" tvg-logo="https://i.imgur.com/9wJe71I.png",Apsara TV11
 #EXTGRP:vietngatv | KÊNH TỔNG HỢP
 https://live.ams.com.kh/app/stream/playlist.m3u8
@@ -8915,8 +8882,8 @@ https://live.fptplay53.net/fnxhd2/afchd_vhls.smil/chunklist_b5000000.m3u8
 https://live.fptplay53.net/fnxhd2/arirang_hls.smil/chunklist_b2500000.m3u8
 #EXTINF:-1 tvg-id="axnhd" group-title="vietngatv | KÊNH GIẢI TRÍ" group-logo="https://i.imgur.com/b4yTXUS.png" tvg-logo="https://i.imgur.com/Rwm7Lod.png",AXN HD
 #EXTGRP:vietngatv | KÊNH GIẢI TRÍ
-http://akasaijr.myftp.org:21585/axn/index.m3u8
-#EXTINF:-1 tvg-logo="https://i.imgur.com/sSnrg7o.png" group-title="vietngatv | KÊNH THIẾT YẾU",BTV National
+https://ace.hoiquan.click/module/IPTV/?id=axn&accKenh=madam69
+#EXTINF:-1 tvg-logo="https://i.imgur.com/sSnrg7o.png" group-title="vietngatv | KÊNH THIẾT YẾU",BTV World
 #EXTGRP:vietngatv | KÊNH THIẾT YẾU
 http://103.230.105.252:1935/live/btv/manifest.m3u8
 #EXTINF:-1 group-title="vietngatv | KÊNH PHIM TRUYỆN" group-logo="https://i.imgur.com/tdozyTU.png" tvg-logo="https://i.imgur.com/M9kMFJl.png",B4U MOVIES
@@ -8946,12 +8913,12 @@ http://cdn4.skygo.mn/live/disk1/Cartoon_Network/HLSv3-FTA/Cartoon_Network.m3u8
 #EXTINF:-1 tvg-id="boomerang" group-title="vietngatv | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/6vYWCD0.png",CARTOONITO HD
 #EXTGRP:vietngatv | KÊNH THIẾU NHI
 http://cdn4.skygo.mn/live/disk1/Boomerang/HLSv3-FTA/Boomerang.m3u8
-#EXTINF:-1 tvg-id="cinemaworld" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/vFVxJx4.png",Cinema World
-#EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
-http://khaitv.giize.com:8090/225.1.1.142:30120
 #EXTINF:-1 tvg-id="cinemaxhd" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/NzROY7r.png",Cinemax
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
-http://khaitv.giize.com:8090/225.1.2.86:30120
+https://ace.hoiquan.click/module/IPTV/?id=cinemax&accKenh=madam69
+#EXTINF:-1 tvg-id="cinemaworld" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/vFVxJx4.png",Cinema World
+#EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
+https://ace.hoiquan.click/module/IPTV/?id=cinemaworld&accKenh=madam69
 #EXTINF:-1 tvg-id="CGNTVSouthKorea.kr" tvg-logo="https://i.imgur.com/zwZASOB.png" group-title="vietngatv | KÊNH ĐẶC SẮC",CGN TV
 #EXTGRP:vietngatv | KÊNH ĐẶC SẮC
 https://du35ivadp6cxj.cloudfront.net/out/v1/81781d23cbbf490990b2aa9181d4ce19/CGNWebLiveKR.m3u8
@@ -8972,7 +8939,10 @@ https://live.fptplay53.net/fnxsd1/cnbc_hls.smil/chunklist_b2500000.m3u8
 https://live.fptplay53.net/fnxhd2/newsasia_hls.smil/chunklist_b2500000.m3u8
 #EXTINF:-1 tvg-id="cnn" group-title="vietngatv | KÊNH TIN TỨC" tvg-logo="https://i.imgur.com/68hmRiM.png",CNN
 #EXTGRP:vietngatv | KÊNH TIN TỨC
-http://cdn4.skygo.mn/live/disk1/CNNi/HLSv3-FTA/CNNi.m3u8
+http://125hvt.ddns.net:21585/cnn/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-name="Colors HD" group-title="vietngatv | KÊNH GIẢI TRÍ" tvg-logo="https://i.imgur.com/M8uCJ0D.png",Colors HD
+#EXTGRP:vietngatv | KÊNH GIẢI TRÍ
+http://217.20.112.199:8888/ColorsHD/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="cgtn" group-title="vietngatv | KÊNH TIN TỨC" tvg-logo="https://i.imgur.com/QCSeNYK.png",CGTN
 #EXTGRP:vietngatv | KÊNH TIN TỨC
 https://english-livebkali.cgtn.com/live/encgtn_0.m3u8
@@ -9005,7 +8975,7 @@ http://cdn4.skygo.mn/live/disk1/SoutheastAsia/HLSv3-FTA/SoutheastAsia.m3u8
 http://cdn4.skygo.mn/live/disk1/ScienceSoutheast/HLSv3-FTA/ScienceSoutheast.m3u8
 #EXTINF:-1 tvg-id="dreamworks" group-title="vietngatv | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/XpvnFcp.png",DREAMWORKS HD
 #EXTGRP:vietngatv | KÊNH THIẾU NHI
-http://khaitv.giize.com:8090/225.1.4.39:30120
+https://ace.hoiquan.click/module/IPTV/?id=dreamwork&accKenh=madam69
 #EXTINF:-1 tvg-id="DubaiTV.ae@SD" tvg-logo="https://i.imgur.com/UMmbyHv.png" group-title="vietngatv | KÊNH TỔNG HỢP",Dubai TV
 #EXTGRP:vietngatv | KÊNH TỔNG HỢP
 https://dmieigthvllta.cdn.mgmlcdn.com/dubaitvht/smil:dubaitv.stream.smil/chunklist.m3u8
@@ -9041,7 +9011,7 @@ http://49.0.64.96:8007/GOLF
 https://freem3u.xyz/api/live/play.m3u8?vid=9856
 #EXTINF:-1 tvg-id="hbohd" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/7nIUtCU.png",HBO
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
-http://akasaijr.myftp.org:21585/hbo/index.m3u8
+https://ace.hoiquan.click/module/IPTV/?id=hbo&accKenh=madam69
 #EXTINF:-1 tvg-id="hgtv" tvg-logo="https://i.imgur.com/BwBr0ib.png" group-title="vietngatv | KÊNH ĐẶC SẮC",HGTV
 #EXTGRP:vietngatv | KÊNH ĐẶC SẮC
 https://liveh34.vtvprime.vn/hls/HGTV/03.m3u8
@@ -9081,6 +9051,9 @@ https://seatv.netlinkbroadcaster.com/hls/test.m3u8
 #EXTINF:-1 tvg-id="SharjahTV.ae@SD" tvg-logo="https://i.imgur.com/Oz2bPOt.png" group-title="vietngatv | KÊNH ĐẶC SẮC",Sharjah TV
 #EXTGRP:vietngatv | KÊNH ĐẶC SẮC
 https://live.kwikmotion.com/smc1live/smc1tv.smil/playlist.m3u8
+#EXTINF:-1 tvg-name="SonySab" group-title="vietngatv | KÊNH GIẢI TRÍ" tvg-logo="https://i.postimg.cc/yYmcX2Ds/Sony-SAB-HD.jpg",Sony Sab
+#EXTGRP:vietngatv | KÊNH GIẢI TRÍ
+http://217.20.112.199:8888/sabtvhd/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="447000" group-title="vietngatv | KÊNH TIN TỨC" tvg-logo="https://i.imgur.com/jP0rB8j.png",SKY NEWS
 #EXTGRP:vietngatv | KÊNH TIN TỨC
 https://amg00663-skynews-skynewsau-samsungau-r7n40.amagi.tv/playlist720p.m3u8
@@ -9116,7 +9089,7 @@ https://viamotionhsi.netplus.ch/live/eds/rtpi/browser-HLS8/rtpi.m3u8
 https://globallive.tdm.com.mo/ch3/ch3.live/playlist.m3u8
 #EXTINF:-1 tvg-id="tlchd" group-title="vietngatv | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/ZStxdQI.png",TLC
 #EXTGRP:vietngatv | KÊNH ĐẶC SẮC
-http://khaitv.giize.com:8090/225.1.4.26:30120
+http://125hvt.ddns.net:21585/tlc/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="trace-sport-stars-ru" group-title="vietngatv | KÊNH THỂ THAO" tvg-logo="https://i.imgur.com/FabFP5A.png",Trace Sport Stars
 #EXTGRP:vietngatv | KÊNH THỂ THAO
 http://87.120.142.11:18000/Rossiya1
@@ -9189,18 +9162,18 @@ https://toiyeuvietnam.dpdns.org/Start/VMT789_Women
 #EXTINF:-1 tvg-id="man" group-title="vietngatv | KÊNH BOX" tvg-logo="https://i.imgur.com/eojhBXT.png",Man
 #EXTGRP:vietngatv | KÊNH BOX
 https://toiyeuvietnam.dpdns.org/Start/VMT456_MAN
-#EXTINF:-1 tvg-id="pervy-kanal-eu" group-title="vietngatv | KÊNH THIẾT YẾU" tvg-logo="https://i.imgur.com/hV4VIs2.png",Первый канал. Всемирная сеть
+#EXTINF:-1 tvg-id="pervy-kanal-csi" group-title="vietngatv | KÊNH THIẾT YẾU" tvg-logo="https://i.imgur.com/hV4VIs2.png",Первый канал. Всемирная сеть
 #EXTGRP:vietngatv | KÊNH THIẾT YẾU
-http://cdn4.skygo.mn/live/disk1/ORt/HLSv3-FTA/ORt.m3u8
+http://188.225.31.197/bpk-tv/000001227/tve/index.m3u8
 #EXTINF:-1 tvg-id="rtr-planeta-azia" group-title="vietngatv | KÊNH THIẾT YẾU" tvg-logo="https://i.imgur.com/f54OT4e.png",Россия РТР
 #EXTGRP:vietngatv | KÊNH THIẾT YẾU
-https://streaming.televizor-24-tochka.ru/live/211-req_5k_v5.m3u8
+http://188.225.31.197/bpk-tv/000000812/tve/index.m3u8
 #EXTINF:-1 tvg-id="match-tv" group-title="vietngatv | KÊNH THỂ THAO" tvg-logo="https://i.imgur.com/kFdooR4.png",Матч! ТВ
 #EXTGRP:vietngatv | KÊNH THỂ THAO
 http://tv.tuva.ru/machtv/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="ntv-mir" group-title="vietngatv | KÊNH THIẾT YẾU" tvg-logo="https://i.imgur.com/DtQX5P2.png",НТВ Мир
+#EXTINF:-1 tvg-id="ntv-pl4" group-title="vietngatv | KÊNH THIẾT YẾU" tvg-logo="https://i.imgur.com/DtQX5P2.png",НТВ
 #EXTGRP:vietngatv | KÊNH THIẾT YẾU
-http://109.248.236.51/ntv_mir/tracks-v1a1/mono.m3u8
+http://91.226.120.120/chid4/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="piaty-int" group-title="vietngatv | KÊNH THIẾT YẾU" tvg-logo="https://i.imgur.com/Q2Q7Mgr.png",Пятый канал International
 #EXTGRP:vietngatv | KÊNH THIẾT YẾU
 http://cdn4.skygo.mn/live/disk1/Channel_5/HLSv3-FTA/Channel_5.m3u8
@@ -9260,7 +9233,7 @@ http://tntm.mediacdn.ru/cdn/tntmusic/playlist_sdhigh.m3u8
 http://89.232.68.194:8080/2x2/tracks-v3a1/index.m3u8
 #EXTINF:-1 tvg-id="super" group-title="vietngatv | KÊNH GIẢI TRÍ" tvg-logo="https://i.imgur.com/nsk8PpB.png",Суббота
 #EXTGRP:vietngatv | KÊNH GIẢI TRÍ
-http://cdn-bal.srv4you.net/0367/mpegts
+http://195.26.83.96:7013/play/a00e
 #EXTINF:-1 tvg-id="yu-pl4" group-title="vietngatv | KÊNH GIẢI TRÍ" tvg-logo="https://i.imgur.com/KDZvt0Q.png",Телеканал Ю
 #EXTGRP:vietngatv | KÊNH GIẢI TRÍ
 http://91.226.120.120/chid137/tracks-v1a1/mono.m3u8
@@ -9384,7 +9357,7 @@ http://tele2dvrnat01-02.cdnvideo.ru:80/stream/NAT_EKB1/hls/1024x576@2024/playlis
 #EXTINF:-1 tvg-id="bridge-tv" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/qYObfrG.png",BRIDGE
 #EXTGRP:vietngatv | KÊNH CA NHẠC
 http://195.26.83.96:7007/play/a00m
-#EXTINF:-1 tvg-id="bridge-tv-ruxit" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/sIW9oR4.png",BRIDGE Русский Хит
+#EXTINF:-1 tvg-id="bridge-tv-ruxit" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/f9xdIlN.png",BRIDGE Русский Хит
 #EXTGRP:vietngatv | KÊNH CA NHẠC
 http://193.25.8.59:8000/rusong
 #EXTINF:-1 tvg-id="bridge-tv-shlager" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/a9DXkMN.png",BRIDGE Шлягер
@@ -9396,9 +9369,6 @@ http://ad-hls-europaplus-ref.cdnvideo.ru/europaplus/eurptv2_site.smil/playlist.m
 #EXTINF:-1 tvg-id="maydan" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/C8CCjZK.png",Maidan
 #EXTGRP:vietngatv | KÊNH CA NHẠC
 http://live-maidantv.cdnvideo.ru/maidantv/maidantv.smil/playlist.m3u8
-#EXTINF:-1 tvg-id="mezzo-live-hd" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/H9ytKPN.png",Mezzo Live HD
-#EXTGRP:vietngatv | KÊNH CA NHẠC
-http://46.53.208.5/live/871-req_5k_v5.m3u8
 #EXTINF:-1 tvg-id="onemuz" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/YdyFJrl.png",Первый Музыкальный
 #EXTGRP:vietngatv | KÊNH CA NHẠC
 http://136.243.42.146/HLS/HD.m3u8
@@ -9435,9 +9405,6 @@ http://live-uvelirochka.cdnvideo.ru/uvelirochka/uvelirochka_720p3/playlist.m3u8
 #EXTINF:-1 tvg-id="ani" group-title="vietngatv | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/i2AP0hp.png",Ani
 #EXTGRP:vietngatv | KÊNH THIẾU NHI
 http://stv.mediacdn.ru/live/cdn/ani/playlist.m3u8
-#EXTINF:-1 tvg-id="fanhd" group-title="vietngatv | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/mDeTbaF.png",Fan HD
-#EXTGRP:vietngatv | KÊNH THIẾU NHI
-http://195.9.195.3:8080/hls/157239.m3u8
 #EXTINF:-1 tvg-id="ginger-hd" group-title="vietngatv | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/K3PSHiT.png",Капитан Фантастика
 #EXTGRP:vietngatv | KÊNH THIẾU NHI
 http://91.226.120.120/chid292/tracks-v1a1/mono.m3u8
@@ -9473,7 +9440,7 @@ http://tv.mediacdn.ru/live/solntse/playlist_3000k.m3u8
 http://46.53.208.5/live/1448-req_5k_v5.m3u8
 #EXTINF:-1 tvg-id="malysh" group-title="vietngatv | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/c0zZUR1.png",Супергерои
 #EXTGRP:vietngatv | KÊNH THIẾU NHI
-https://streamer3.connectto.com/374/mono.m3u8
+http://86.57.209.210/Malish/index.m3u8
 #EXTINF:-1 tvg-id="sony-turbo" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/Q4A6ci4.png",.black
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://46.53.208.5/live/3001-req_5k_v5.m3u8
@@ -9522,7 +9489,7 @@ https://stream.ads.ottera.tv/playlist.m3u8?network_id=4158
 #EXTINF:-1 tvg-id="start-world" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/TXtY5eM.png",Start World
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://109.248.236.51/start_world_hd/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="timeless-dizi" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/s3Sqd4L.png",Timeless Dizi Channel
+#EXTINF:-1 tvg-id="romance" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.postimg.cc/Kvy13vWy/Romance.png",Romance
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://193.25.8.59:8000/tlc
 #EXTINF:-1 tvg-id="vhs-ka" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/C2377w9.png",VHS-ка
@@ -9570,9 +9537,6 @@ http://vod.tuva.ru/eurokino/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="feniks-plus-kino" tvg-logo="https://i.imgur.com/S9OPMLE.png" group-title="vietngatv | KÊNH PHIM TRUYỆN",Феникс+кино
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid70/tracks-v1a1/mono.m3u8
-#EXTINF:-1 group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-id="nashe-novoe-kino" tvg-logo="https://i.imgur.com/IOxIsPj.png",Наше новое кино
-#EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
-http://cdn-bal.srv4you.net/0289/mpegts
 #EXTINF:-1 group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-id="nst" tvg-logo="https://i.imgur.com/uv2yxa5.png",НСТ
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid118/tracks-v1a1/mono.m3u8
@@ -9588,12 +9552,6 @@ http://193.25.8.59:8000/fox
 #EXTINF:-1 tvg-id="kino-tv" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/sMpamNO.png",Кино ТВ
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://vod.tuva.ru/kinotv/tracks-v1a1/mono.m3u8
-#EXTINF:-1 group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-id="kinopokaz" tvg-logo="https://i.imgur.com/nNjMyAq.png",Кинопоказ
-#EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
-http://cdn-bal.srv4you.net/0375/mpegts
-#EXTINF:-1 group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-id="kinoseria" tvg-logo="https://i.imgur.com/iao7zLZ.png",Киносерия
-#EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
-http://cdn-bal.srv4you.net/0286/mpegts
 #EXTINF:-1 group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-id="kinosemiya" tvg-logo="https://i.imgur.com/4BF5VeK.png",Kиносемья
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://31.130.203.6:9398
@@ -9609,9 +9567,6 @@ http://91.226.120.120/chid73/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-logo="https://i.imgur.com/xDVcDOc.png" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-id="zee-tv",Индия
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid139/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-logo="https://i.imgur.com/LL8GyCh.png" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-id="indiyskoe-kino",Индийское кино
-#EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
-http://31.47.199.45:1402/indiskoekino/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.imgur.com/9GvuHQ5.png" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-id="illuzion-plus",Иллюзион+
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid71/tracks-v1a1/mono.m3u8
@@ -9621,15 +9576,9 @@ http://193.25.8.59:8000/tnv
 #EXTINF:-1 group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-id="mir-seriala" tvg-logo="https://i.imgur.com/uzj7wVp.png",Мир сериала
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://193.25.8.59:8000/mirseriala
-#EXTINF:-1 group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-id="muzhskoe-kino" tvg-logo="https://i.imgur.com/8RN3tQC.png",МУЖСКОЕ КИНО HD
-#EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
-http://cdn-bal.srv4you.net/0287/mpegts
 #EXTINF:-1 tvg-id="patriot" tvg-logo="https://i.postimg.cc/7Yhb1YPy/3F3F3F283F3F3F29.png" group-title="vietngatv | KÊNH PHIM TRUYỆN",Патриот
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://catchup.videoline.ru/asvtv/playlist.m3u8
-#EXTINF:-1 tvg-id="premialnoe" tvg-logo="https://i.imgur.com/ck4aLBP.png" group-title="vietngatv | KÊNH PHIM TRUYỆN",Премиальное
-#EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
-https://streamer3.connectto.com/373/mono.m3u8
 #EXTINF:-1 tvg-id="sovkino" tvg-logo="https://i.imgur.com/uqnTowX.png" group-title="vietngatv | KÊNH PHIM TRUYỆN",Советское кино
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://31.130.203.6:8477
@@ -9696,9 +9645,6 @@ http://46.53.208.5/live/542-req_5k_v5.m3u8
 #EXTINF:-1 tvg-id="viasat-nature-history-hd" group-title="vietngatv | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/9Weqdsk.png",viju+ Planet
 #EXTGRP:vietngatv | KÊNH ĐẶC SẮC
 http://46.53.208.5/live/6006-req_5k_v5.m3u8
-#EXTINF:-1 tvg-id="arsenaltv" tvg-logo="https://i.imgur.com/DBpVeb0.png" group-title="vietngatv | KÊNH ĐẶC SẮC",Арсенал HD
-#EXTGRP:vietngatv | KÊNH ĐẶC SẮC
-http://cdn-bal.srv4you.net/0222/mpegts
 #EXTINF:-1 tvg-id="v-mire-zhivotnyx-hd" tvg-logo="https://i.imgur.com/6uotdVQ.png" group-title="vietngatv | KÊNH ĐẶC SẮC",В Мире Животных HD
 #EXTGRP:vietngatv | KÊNH ĐẶC SẮC
 http://91.226.120.120/chid209/tracks-v1a1/mono.m3u8
@@ -9717,9 +9663,6 @@ http://188.225.31.197/bpk-tv/000000588/tve/index.m3u8
 #EXTINF:-1 tvg-id="zvezda-plus" group-title="vietngatv | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/NNmjD9Z.png",Звезда Плюс
 #EXTGRP:vietngatv | KÊNH ĐẶC SẮC
 http://tvzvezda.bonus-tv.ru/cdn/zvezdaplus/playlist.m3u8
-#EXTINF:-1 tvg-id="zdorovoe-tv" group-title="vietngatv | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/jedtE5l.png",Здоровое ТВ
-#EXTGRP:vietngatv | KÊNH ĐẶC SẮC
-http://cdn-bal.srv4you.net/0422/mpegts
 #EXTINF:-1 tvg-id="zoopark" tvg-logo="https://i.imgur.com/IO5jegK.png" group-title="vietngatv | KÊNH ĐẶC SẮC",Зоопарк
 #EXTGRP:vietngatv | KÊNH ĐẶC SẮC
 http://46.53.208.5/live/996-req_5k_v5.m3u8
@@ -9795,9 +9738,6 @@ http://91.226.120.120/chid275/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="usadba" group-title="vietngatv | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/mf13haG.png",Усадьба
 #EXTGRP:vietngatv | KÊNH ĐẶC SẮC
 http://91.226.120.120/chid32/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="centralnoye-tv" group-title="vietngatv | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/qdCs08A.png",ЦТВ
-#EXTGRP:vietngatv | KÊNH ĐẶC SẮC
-http://cdn-bal.srv4you.net/0451/mpegts
 #EXTINF:-1 tvg-id="fashion-one" tvg-logo="https://i.imgur.com/ETmpllL.png" group-title="vietngatv | KÊNH GIẢI TRÍ",Fashion&LifeStyle
 #EXTGRP:vietngatv | KÊNH GIẢI TRÍ
 http://91.226.120.120/chid169/tracks-v1a1/mono.m3u8
@@ -9816,9 +9756,6 @@ https://live.zhanafm.kz:8181/memfs/fd715789-382f-4ec6-b4ba-d8e2fde59c7b.m3u8
 #EXTINF:-1 tvg-id="nadezhda" group-title="vietngatv | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/NQD8Zer.png",Надежда
 #EXTGRP:vietngatv | KÊNH ĐẶC SẮC
 http://live-tvhope.cdnvideo.ru/tvhope-pull/tvhope_1/playlist.m3u8
-#EXTINF:-1 tvg-id="nostalgia" tvg-logo="https://i.imgur.com/YBdBc0J.png" group-title="vietngatv | KÊNH GIẢI TRÍ",НОСТАЛЬГИЯ
-#EXTGRP:vietngatv | KÊNH GIẢI TRÍ
-http://cdn-bal.srv4you.net/0313/mpegts
 #EXTINF:-1 tvg-id="ntv-style" tvg-logo="https://i.imgur.com/rX6K6qT.png" group-title="vietngatv | KÊNH GIẢI TRÍ",НТВ Стиль
 #EXTGRP:vietngatv | KÊNH GIẢI TRÍ
 http://cdn.ntv.ru/th_style/tracks-v1a1/mono.m3u8
