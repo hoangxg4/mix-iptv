@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://epg.aptv.app/pp.xml.gz,https://vnepg.site/epg.xml.gz,http://gg.gg/epgmytv,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://live.fanmingming.com/e.xml,http://gg.gg/epgbeartv,http://epg.51zmt.top:8000/e.xml,https://epg.catvod.com/epg.xml,https://vnepg.site/epg.xml,https://hnlive.dramahay.xyz/epg.xml,http://megavie.live/schedule/epg.xml,https://iptvx.one/epg/epg.xml.gz,http://trada.info/epg.xml,https://epg.946985.xyz/t.xml.gz,http://lichphatsong.xyz/schedule/epg.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/singapore.xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://tvbvn.quanlehong539.workers.dev/xml,http://gg.gg/fptepg,https://epg.pw/xmltv/epg_MY.xml,https://epg.pw/xmltv/epg_ID.xml,http://gg.gg/guidevn,http://gg.gg/coodertvepg,https://epg.pw/xmltv/epg_AU.xml,https://epg.pw/xmltv/epg_FR.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://epg.pw/xmltv/epg_HK.xml,https://lichphatsong.site/schedule/epg.xml"
+#EXTM3U x-tvg-url="http://megavie.live/schedule/epg.xml,http://gg.gg/fptepg,https://epg.pw/xmltv/epg_HK.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,http://gg.gg/epgbeartv,http://gg.gg/guidevn,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://epg.catvod.com/epg.xml,https://live.fanmingming.com/e.xml,https://epg.pw/xmltv/epg_MY.xml,https://hnlive.dramahay.xyz/epg.xml,https://epg.pw/xmltv/epg_AU.xml,https://epg.946985.xyz/t.xml.gz,https://iptvx.one/epg/epg.xml.gz,https://epg.pw/xmltv/epg_FR.xml,https://epg.aptv.app/pp.xml.gz,http://epg.51zmt.top:8000/e.xml,http://gg.gg/coodertvepg,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,http://gg.gg/epgmytv,https://vnepg.site/epg.xml,http://trada.info/epg.xml,https://vnepg.site/epg.xml.gz,https://raw.githubusercontent.com/AqFad2811/epg/main/singapore.xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://lichphatsong.site/schedule/epg.xml,http://lichphatsong.xyz/schedule/epg.xml,https://epg.pw/xmltv/epg_ID.xml,https://tvbvn.quanlehong539.workers.dev/xml"
 #EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}",VTV1
 #EXTGRP:DAKLAKIPTV | VTV
 https://live-a.fptplay53.net/live/media/VTV1HD/live_hls_avc/index.m3u8
@@ -5282,7 +5282,7 @@ https://hnlive.dramahay.xyz/live/atv/index.m3u8
 https://1.org.vn/oni1/?/index.m3u8
 #EXTINF:-1 group-title="vmttv | Sự Kiện" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni2.png", ONi2
 #EXTGRP:vmttv | Sự Kiện
-https://d.org.vn/oni2-mbnlife/?/index.m3u8
+https://1.org.vn/oni2hd/?/index.m3u8
 #EXTINF:-1 group-title="vmttv | Sự Kiện" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni3.png", ONi3
 #EXTGRP:vmttv | Sự Kiện
 https://1.org.vn/oni3/?/index.m3u8
@@ -5469,8 +5469,8 @@ https://freem3u.xyz/api/live/play.m3u8?vid=9904
 #EXTINF:-1 group-title="vmttv | Sự Kiện TV360" tvg-logo="https://img-ali1.tv360.vn/image1/2025/11/27/14/1764229355411/83a9c979634e_180_180.png", TV360 Livestream
 #EXTGRP:vmttv | Sự Kiện TV360
 https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/tv360.live/KenhCoBan.m3u8
-#EXTINF:-1 group-title="
-#EXTGRP:vmttv | Ungrouped
+#EXTINF:-1 tvg-id="tv360phimviet" group-title="vmttv | Rạp Phim" tvg-logo=
+#EXTGRP:vmttv | Rạp Phim
 #EXTINF:-1 tvg-id="vtv1hd" group-title="vmttv | VTV" tvg-logo="https://i.ytimg.com/vi/dGohEWXz7Sk/maxresdefault.jpg" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}, VTV1
 #EXTGRP:vmttv | VTV
 https://freem3u.xyz/api/live/play.m3u8?vid=2
@@ -5479,7 +5479,7 @@ https://freem3u.xyz/api/live/play.m3u8?vid=2
 https://live.fptplay53.net/fnxch2/vtv2hd_abr.smil/chunklist.m3u8
 #EXTINF:-1 tvg-id="vtv3hd" group-title="vmttv | VTV" tvg-logo="https://i.ytimg.com/vi/4jr8Y13NSME/maxresdefault.jpg" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=211&time=${start}&offset=${duration}, VTV3
 #EXTGRP:vmttv | VTV
-https://liveh12.vtvprime.vn/hls/VTV3_HD/04.m3u8
+https://live-a.fptplay53.net/live/media/VTV3HD/live_hls_avc/index.m3u8
 #EXTINF:-1 tvg-id="vtv4hd" group-title="vmttv | VTV" tvg-logo="https://i.ytimg.com/vi/Opv4PmUyi8g/maxresdefault.jpg" catchup="append" catchup-days="2" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=378&time=${start}&offset=${duration}, VTV4
 #EXTGRP:vmttv | VTV
 https://live.fptplay53.net/fnxch2/vtv4hd_abr.smil/chunklist.m3u8
@@ -5488,7 +5488,7 @@ https://live.fptplay53.net/fnxch2/vtv4hd_abr.smil/chunklist.m3u8
 https://live.fptplay53.net/fnxhd1/vntoday_vhls.smil/chunklist_b5000000.m3u8
 #EXTINF:-1 tvg-id="vtv5hd" group-title="vmttv | VTV" tvg-logo="https://s12811.cdn.mytvnet.vn/vimages/b5/5c/cc/c2/22/29/b5cc2-pvtv5hd-channel-unkn.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=379&time=${start}&offset=${duration}, VTV5
 #EXTGRP:vmttv | VTV
-https://liveh12.vtvprime.vn/hls/VTV5_HD/04.m3u8
+https://live-a.fptplay53.net/live/media/VTV5HD/live_hls_avc/index.m3u8
 #EXTINF:-1 tvg-id="vtv5hdtnb" group-title="vmttv | VTV" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/maxresdefault.jpg" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=615&time=${start}&offset=${duration}, VTV5 Tây Nam Bộ
 #EXTGRP:vmttv | VTV
 https://live.fptplay53.net/fnxhd1/vtv5tnb_vhls.smil/chunklist_b5000000.m3u8
@@ -5503,10 +5503,10 @@ https://live.fptplay53.net/fnxhd1/vtvcantho_vhls.smil/chunklist_b5000000.m3u8
 https://live.fptplay53.net/fnxhd1/vtv7hd_vhls.smil/chunklist_b5000000.m3u8
 #EXTINF:-1 tvg-id="vtv8hd" group-title="vmttv | VTV" tvg-logo="https://i.ytimg.com/vi/UlvAQNOuZwo/hq720.jpg" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=380&time=${start}&offset=${duration}, VTV8
 #EXTGRP:vmttv | VTV
-https://liveh12.vtvprime.vn/hls/VTV8_HD/04.m3u8
+https://live.fptplay53.net/epzhd1/vtv8hd_vhls.smil/chunklist_b5000000.m3u8
 #EXTINF:-1 tvg-id="vtv9hd" group-title="vmttv | VTV" tvg-logo="https://i.ytimg.com/vi/APl10jiVAlQ/maxresdefault.jpg" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=381&time=${start}&offset=${duration}", VTV9
 #EXTGRP:vmttv | VTV
-https://liveh12.vtvprime.vn/hls/VTV9_HD/04.m3u8
+https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/vtv9-hd/KenhCoBan.m3u8
 #EXTINF:-1 tvg-id="onviegiaitri" group-title="vmttv | VTVcab" tvg-logo="https://i.ytimg.com/vi/fyT_xa-g-Pk/hq720.jpg", ON Vie Giải Trí
 #EXTGRP:vmttv | VTVcab
 https://freem3u.xyz/api/live/play.m3u8?vid=180
@@ -5614,7 +5614,7 @@ https://liveh34.vtvprime.vn/hls/SCTV22/04.m3u8
 https://liveh12.vtvprime.vn/hls/SCTVPHIM/03.m3u8
 #EXTINF:-1 tvg-id="boxmovie1" group-title="vmttv | 📦| In The Box" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3b/BOXMOVIE1.jpg", Box Movie 1
 #EXTGRP:vmttv | 📦| In The Box
-https://toiyeuvietnam.dpdns.org/Start/VMT678_BoxMovie1
+https://livevlisctcdnw.seenow.vn/mean/BM1/manifest.mpd
 #EXTINF:-1 tvg-id="hollywoodclassics" group-title="vmttv | 📦| In The Box" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/6/6b/HollywoodClassic.jpg", Hollywood Classics
 #EXTGRP:vmttv | 📦| In The Box
 https://toiyeuvietnam.dpdns.org/Start/VMT678_HW
@@ -11278,7 +11278,7 @@ https://freem3u.xyz/api/live/play.m3u8?vid=188
 #EXTGRP:quidntv | 💚| VTVcab ON
 #EXTINF:-1 tvg-id="vtvcab23hd" group-title="quidntv | 💚| VTVcab ON" tvg-logo="https://i.ibb.co/d767x9L/ONGolf.png", ON Golf
 #EXTGRP:quidntv | 💚| VTVcab ON
-https://toiyeuvietnam.dpdns.org/CoBan/vtvcab-23-golf-channel/TuyetDoiKhongKinhDoanh.m3u8
+https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/vtvcab-23-golf-channel/KenhCoBan.m3u8
 #EXTINF:-1 tvg-id="vtvcab25hd" group-title="quidntv | 💚| VTVcab ON" tvg-logo="https://i.ibb.co/q1WdMrb/thethaoviet-BEARTV.png", Thể Thao Việt
 #EXTGRP:quidntv | 💚| VTVcab ON
 #EXTINF:-1 tvg-id="vtvcab26hd" group-title="quidntv | 💚| VTVcab ON" tvg-logo="https://i.ibb.co/pJ15yrd/On-Sports-Eng.webp", ON SPORT ENG
@@ -11669,46 +11669,34 @@ https://liveh12.vtvprime.vn/hls/HUE/03.m3u8
 https://live.fptplay53.net/fnxsd1/tuyenquang_hls.smil/chunklist_b2500000.m3u8
 #EXTINF:-1 tvg-id="boxmovie1" group-title="quidntv | 🇧🌎🇽" tvg-logo="https://i.ibb.co/FDmymrV/Box-Movie1-BEARTV.png", Box Movie 1
 #EXTGRP:quidntv | 🇧🌎🇽
-https://toiyeuvietnam.dpdns.org/Start/VMT678_BoxMovie1
 #EXTINF:-1 tvg-id="hollywoodclassics" group-title="quidntv | 🇧🌎🇽" tvg-logo="https://i.ibb.co/G02ZkMd/Hollywood-Classics-BEARTV.png", Hollywood Classics
 #EXTGRP:quidntv | 🇧🌎🇽
-https://toiyeuvietnam.dpdns.org/Start/VMT678_HW
-#EXTINF:-1 tvg-id="inthebox" group-title="quidntv | 🇧🌎🇽" tvg-logo="https://i.ibb.co/C2yvjj1/inthebox-BEARTV.png", In The Box
-#EXTGRP:quidntv | 🇧🌎🇽
-https://toiyeuvietnam.dpdns.org/Start/VMT567_InTheBox
 #EXTINF:-1 tvg-id="boxhits" group-title="quidntv | 🇧🌎🇽" tvg-logo="https://i.ibb.co/XbkM9D2/Box-Hit-BEARTV.png", Box Hits
 #EXTGRP:quidntv | 🇧🌎🇽
-https://toiyeuvietnam.dpdns.org/Start/VMT456_BoxHit
 #EXTINF:-1 tvg-id="man" group-title="quidntv | 🇧🌎🇽" tvg-logo="https://i.ibb.co/HzMBHnp/man.png", Man
 #EXTGRP:quidntv | 🇧🌎🇽
-https://toiyeuvietnam.dpdns.org/Start/VMT456_MAN
 #EXTINF:-1 tvg-id="drfithd" group-title="quidntv | 🇧🌎🇽" tvg-logo="https://i.ibb.co/C0hPRy2/Dr-Fit-BEARTV.png", Dr.Fit
 #EXTGRP:quidntv | 🇧🌎🇽
-https://toiyeuvietnam.dpdns.org/Start/VMT456_DrFit
 #EXTINF:-1 tvg-id="happykids" group-title="quidntv | 🇧🌎🇽" tvg-logo="https://i.ibb.co/DYFXjGY/Happy-Kids-BEARTV.png", Happy Kids
 #EXTGRP:quidntv | 🇧🌎🇽
-https://toiyeuvietnam.dpdns.org/Start/VMT567_HappyKid
 #EXTINF:-1 tvg-id="musicbox" group-title="quidntv | 🇧🌎🇽" tvg-logo="https://i.ibb.co/Z17szpD/Box-Music-cc.webp", Music Box
 #EXTGRP:quidntv | 🇧🌎🇽
-https://toiyeuvietnam.dpdns.org/Start/VMT567_MusicBox
 #EXTINF:-1 tvg-id="planetearthhd" group-title="quidntv | 🇧🌎🇽" tvg-logo="https://i.ibb.co/BgmV1f8/Planet-earth-BEARTV.png", Planet Earth
 #EXTGRP:quidntv | 🇧🌎🇽
-https://toiyeuvietnam.dpdns.org/Start/VMT345_PlanetEarth
 #EXTINF:-1 tvg-id="woman" group-title="quidntv | 🇧🌎🇽" tvg-logo="https://img-zlr1.tv360.vn/image1/2020_09_23/1600822442611/f6b738c3d05a_640_360.png", Woman
 #EXTGRP:quidntv | 🇧🌎🇽
-https://toiyeuvietnam.dpdns.org/Start/VMT789_Women
 #EXTINF:-1 tvg-id="hbo" tvg-logo="https://i.ibb.co/FDRHKwf/hboasia.png" group-title="quidntv | 🇧🌎🇽",HBO (Asia)
 #EXTGRP:quidntv | 🇧🌎🇽
 https://s2129134.cdn.mytvnet.vn/pkg20/live_dzones/hbo.smil/manifest.mpd
 #EXTINF:-1 tvg-id="hbofamilyhd-asia" tvg-logo="https://i.ibb.co/P4xDJ6p/hbofamily.png" group-title="quidntv | 🇧🌎🇽",HBO Family (Asia)
 #EXTGRP:quidntv | 🇧🌎🇽
-http://filex.tv:8080//live/drzain/002808/302249.ts
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1776089&extension=ts&play_token=xf9Vl3Lrhl
 #EXTINF:-1 tvg-id="hbohitshd-asia" tvg-logo="https://i.ibb.co/MNRmzK6/hbo-hits.png" group-title="quidntv | 🇧🌎🇽",HBO Hits (Asia)
 #EXTGRP:quidntv | 🇧🌎🇽
-http://filex.tv:8080//live/drzain/002808/302250.ts
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1776088&extension=ts&play_token=DDOOCF3plZ
 #EXTINF:-1 tvg-id="hbosignaturehd-asia" tvg-logo="https://i.ibb.co/6wrq5Pr/hbosignature.png" group-title="quidntv | 🇧🌎🇽",HBO Signature (Asia)
 #EXTGRP:quidntv | 🇧🌎🇽
-http://filex.tv:8080//live/drzain/002808/302251.ts
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1776085&extension=ts&play_token=aEwVlYvLMR
 #EXTINF:-1 tvg-id="cinemaxhd" group-title="quidntv | 🇧🌎🇽" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/6/63/CINEMAX.jpg", Cinemax HD
 #EXTGRP:quidntv | 🇧🌎🇽
 https://s2129134.cdn.mytvnet.vn/pkg20/live_dzones/max.smil/manifest.mpd
@@ -11717,10 +11705,8 @@ https://s2129134.cdn.mytvnet.vn/pkg20/live_dzones/max.smil/manifest.mpd
 https://s2129134.cdn.mytvnet.vn/pkg20/live_dzones/cinemaworld.smil/manifest.mpd
 #EXTINF:-1 tvg-id="axnhd" group-title="quidntv | 🇧🌎🇽" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/AXN_logo_%282015%29.svg/640px-AXN_logo_%282015%29.svg.png" , AXN HD
 #EXTGRP:quidntv | 🇧🌎🇽
-https://ace.hoiquan.click/module/IPTV/?id=axn&accKenh=vuminhthanh1
 #EXTINF:-1 tvg-id="axnhd" group-title="quidntv | 🇧🌎🇽" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/AXN_logo_%282015%29.svg/640px-AXN_logo_%282015%29.svg.png", AXN HD (dự phòng)
 #EXTGRP:quidntv | 🇧🌎🇽
-http://akasaijr.myftp.org:21585/axn/index.m3u8
 #EXTINF:0 tvg-id="blueantent" group-title="quidntv | 🇧🌎🇽" tvg-logo="https://i.ibb.co/L5yHTzj/Rock-Entertainment.png" ,Rock Entertainment
 #EXTGRP:quidntv | 🇧🌎🇽
 http://ch-4k-top.org/play/live.php?mac=00:1A:79:7a:39:a6&stream=1776182&extension=ts&play_token=K4JiFEWv19
