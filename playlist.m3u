@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="http://gg.gg/fptepg,https://epg.pw/xmltv/epg_ID.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://lichphatsong.site/schedule/epg.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,http://gg.gg/coodertvepg,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://iptvx.one/epg/epg.xml.gz,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://epg.aptv.app/pp.xml.gz,https://epg.catvod.com/epg.xml,https://live.fanmingming.com/e.xml,https://vnepg.site/epg.xml,https://epg.946985.xyz/t.xml.gz,http://gg.gg/epgmytv,http://gg.gg/guidevn,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,http://lichphatsong.xyz/schedule/epg.xml,https://epg.pw/xmltv/epg_AU.xml,https://tvbvn.quanlehong539.workers.dev/xml,https://hnlive.dramahay.xyz/epg.xml,https://epg.pw/xmltv/epg_HK.xml,https://epg.pw/xmltv/epg_FR.xml,http://gg.gg/epgbeartv,https://vnepg.site/epg.xml.gz,https://raw.githubusercontent.com/AqFad2811/epg/main/singapore.xml,http://trada.info/epg.xml,http://megavie.live/schedule/epg.xml,http://epg.51zmt.top:8000/e.xml,https://epg.pw/xmltv/epg_MY.xml"
+#EXTM3U x-tvg-url="https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,http://trada.info/epg.xml,http://gg.gg/coodertvepg,https://lichphatsong.site/schedule/epg.xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://raw.githubusercontent.com/AqFad2811/epg/main/singapore.xml,https://epg.pw/xmltv/epg_AU.xml,https://vnepg.site/epg.xml,https://epg.pw/xmltv/epg_ID.xml,https://epg.pw/xmltv/epg_MY.xml,http://gg.gg/epgmytv,https://vnepg.site/epg.xml.gz,http://lichphatsong.xyz/schedule/epg.xml,https://iptvx.one/epg/epg.xml.gz,http://epg.51zmt.top:8000/e.xml,http://gg.gg/guidevn,http://gg.gg/fptepg,https://live.fanmingming.com/e.xml,https://epg.pw/xmltv/epg_HK.xml,https://epg.946985.xyz/t.xml.gz,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,http://megavie.live/schedule/epg.xml,https://epg.catvod.com/epg.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://tvbvn.quanlehong539.workers.dev/xml,https://hnlive.dramahay.xyz/epg.xml,http://gg.gg/epgbeartv,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://epg.aptv.app/pp.xml.gz,https://epg.pw/xmltv/epg_FR.xml"
 #EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}",VTV1
 #EXTGRP:DAKLAKIPTV | VTV
 https://live-a.fptplay53.net/live/media/VTV1HD/live_hls_avc/index.m3u8
@@ -5058,203 +5058,209 @@ https://stream.rcast.net/67902
 #EXTINF:-1 tvg-chno="291" tvg-id="no_epg"  tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4sD7pO03FxwiZCWjkhPwKOxTdE9TehxMX0Q&s" group-title="DAKLAKIPTV_RadioQuocTe | QUỐC TẾ" radio=true,Radio Liberdade Dili
 #EXTGRP:DAKLAKIPTV_RadioQuocTe | QUỐC TẾ
 https://streaming.kalohan.net/proxy/raliber?mp=/stream
-#EXTINF:-1 tvg-id="vov1" group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" group-logo="https://cdn.hqth.me/logo/category/radio.png" tvg-logo="https://cdn.hqth.me/logo/thumbs/239.png", VOV1
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
-https://media-audio.vov.vn/vov1vov5Vietnamese.sdp_aac/playlist.m3u8
-#EXTINF:-1 tvg-id="vov2" group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://cdn.hqth.me/logo/thumbs/240.png", VOV2
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
-https://media-audio.vov.vn/vov2.sdp_aac/playlist.m3u8
-#EXTINF:-1 tvg-id="vov3" group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://cdn.hqth.me/logo/thumbs/241.png", VOV3
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
-https://media-audio.vov.vn/vov3.sdp_aac/playlist.m3u8
-#EXTINF:-1 tvg-id="vov4tb" group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://cdn.hqth.me/logo/thumbs/242.png", VOV4 NORTHWEST
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
-http://media.kythuatvov.vn:1936/live/VOV4_TB.sdp/chunklist.m3u8
-#EXTINF:-1 tvg-id="vov4tb" group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://cdn.hqth.me/logo/thumbs/242.png", VOV4 NORTHEAST
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1  tvg-logo="https://i.imgur.com/fuuXXSo.png" radio="true" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",VOV1
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
+https://stream.vovmedia.vn/vov-1
+#EXTINF:-1  tvg-logo="https://i.imgur.com/GDmiZVe.png" radio="true" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",VOV2
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
+https://stream.vovmedia.vn/vov-2
+#EXTINF:-1  tvg-logo="https://i.imgur.com/p4JOiUC.png" radio="true" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",VOV3
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
+https://stream.vovmedia.vn/vov-3
+#EXTINF:-1  tvg-logo="https://i.imgur.com/ebnHXbS.png" radio="true" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",VOV4 TAY BAC
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
+https://stream.vovmedia.vn/vov4tb
+#EXTINF:-1  tvg-logo="https://i.imgur.com/u5T9wiD.png" radio="true" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",VOV4 DONG BAC
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://stream.vovmedia.vn/vov4db
-#EXTINF:-1 tvg-id="vov4tn" group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://cdn.hqth.me/logo/thumbs/242.png", VOV4 CENTRAL HIGHLANDS
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
-https://str.vov.gov.vn/vovlive/vov4.TayNguyen.sdp_aac/playlist.m3u8
-#EXTINF:-1 tvg-id="vov4scl" group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://cdn.hqth.me/logo/thumbs/242.png", VOV4 MEKONG
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
-http://media.kythuatvov.vn:1936/live/VOV4_CT.sdp/chunklist.m3u8
-#EXTINF:-1 tvg-id="vov4hcm" group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://cdn.hqth.me/logo/thumbs/242.png", VOV4 SAIGON
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
-http://media.kythuatvov.vn:1936/live/VOV4_HCM.sdp/chunklist.m3u8
-#EXTINF:-1 tvg-id="vov5" group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://cdn.hqth.me/logo/thumbs/243.png", VOV WORLD SERVICE
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
-https://media-audio.vov.vn/vov5.sdp_aac/playlist.m3u8
-#EXTINF:-1 tvg-id="vov247" group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://cdn.hqth.me/logo/thumbs/243.png", VOV ENGLISH SERVICE
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
-https://media-audio.vov.vn/vov247vov5English.sdp_aac/playlist.m3u8
-#EXTINF:-1 tvg-id="vovgthn" group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://cdn.hqth.me/logo/thumbs/244.png", 91FM HANOI
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
-https://play.vovgiaothong.vn/live/gthn/playlist.m3u8
-#EXTINF:-1 tvg-id="vovgthcm" group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://cdn.hqth.me/logo/thumbs/244.png", 91FM HCMC
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
-https://play.vovgiaothong.vn/live/gthcm/playlist.m3u8
-#EXTINF:-1 tvg-id="vovgtmekong" group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://cdn.hqth.me/logo/thumbs/245.png", MEKONG FM90
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
-https://play.vovgiaothong.vn/live/mekong/playlist.m3u8
-#EXTINF:-1 tvg-id="vovgtduyenhai" group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true tvg-logo="https://byvn.net/vovgtduyenhai", DUYEN HAI FM91.5
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
-https://play.vovgiaothong.vn/live/duyenhai2/playlist.m3u8
-#EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" group-logo="https://cdn.hqth.me/logo/category/radio.png" tvg-logo="https://images.fptplay53.net/media/channels/icon_channel_vtv1-hd_165657381026.png", VTV1 AUDIO
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1  tvg-logo="https://i.imgur.com/AvuIgG0.png" radio="true" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",VOV4 MIEN TRUNG
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
+https://stream.vovmedia.vn/vov4mt
+#EXTINF:-1  tvg-logo="https://i.imgur.com/6lFVwWD.png" radio="true" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",VOV4 TAY NGUYEN
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
+https://stream.vovmedia.vn/vov4tn
+#EXTINF:-1  tvg-logo="https://i.imgur.com/rpYoovn.png" radio="true" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",VOV4 HCMC
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
+https://stream.vovmedia.vn/vov4hcm
+#EXTINF:-1  tvg-logo="https://i.imgur.com/V1eCcOB.png" radio="true" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",VOV4 MEKONG
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
+https://stream.vovmedia.vn/vov4dbscl
+#EXTINF:-1  tvg-logo="https://i.imgur.com/1s4kWpx.png" radio="true" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",VOV5
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
+https://stream.vovmedia.vn/vov5
+#EXTINF:-1  tvg-logo="https://i.imgur.com/jjfSOYm.png" radio="true" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",VOV 24/7
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
+https://audio-lss.vov.vn/han/live/vov24_7/audio/manifest.m3u8
+#EXTINF:-1  tvg-logo="https://i.imgur.com/WthfvZR.png" radio="true" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",VOV6
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
+https://stream.vovmedia.vn/vov6
+#EXTINF:-1  tvg-logo="https://i.imgur.com/OIzhtBi.png" radio="true" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",VOV GT HANOI
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
+https://stream.vovmedia.vn/vovgt-hn
+#EXTINF:-1  tvg-logo="https://i.imgur.com/OIzhtBi.png" radio="true" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",VOV GT HCMC
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
+https://stream.vovmedia.vn/vovgt-hcm
+#EXTINF:-1 tvg-id="vovgtmekong" tvg-logo="https://cdn.hqth.me/logo/thumbs/245.png" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", VOV GT MEKONG
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
+https://stream.vovmedia.vn/vovmekong
+#EXTINF:-1 tvg-id="vovgtduyenhai" radio=true tvg-logo="https://byvn.net/vovgtduyenhai" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", VOV GT DUYEN HAI
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
+https://stream.vovmedia.vn/gtduyenhai
+#EXTINF:-1 tvg-id="vtv1hd" tvg-logo="https://images.fptplay53.net/media/channels/icon_channel_vtv1-hd_165657381026.png" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", VTV1 AUDIO
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://live.fptplay53.net/fnxch2/vtv1hd_abr.smil/chunklist.m3u8
-#EXTINF:-1 tvg-id="voh610" group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true tvg-logo="https://static.wikia.nocookie.net/logos/images/8/87/Logo_HTV RADIO_AM_610KHz_%28%C4%90%C3%A0i_ti%E1%BA%BFng_n%C3%B3i_nh%C3%A2n_d%C3%A2n_Th%C3%A0nh_ph%E1%BB%91_H%E1%BB%93_Ch%C3%AD_Minh%29.png/revision/latest/scale-to-width-down/200?cb=20230728072341&path-prefix=vi",HTV RADIO AM 610Khz
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-id="voh610" radio=true tvg-logo="https://static.wikia.nocookie.net/logos/images/8/87/Logo_HTV RADIO_AM_610KHz_%28%C4%90%C3%A0i_ti%E1%BA%BFng_n%C3%B3i_nh%C3%A2n_d%C3%A2n_Th%C3%A0nh_ph%E1%BB%91_H%E1%BB%93_Ch%C3%AD_Minh%29.png/revision/latest/scale-to-width-down/200?cb=20230728072341&path-prefix=vi" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",HTV RADIO AM 610Khz
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://strm.voh.com.vn/radio/channel2/playlist.m3u8
-#EXTINF:-1 tvg-id="voh999" group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpvOL70mH31XprwaoKqLHWhsLJD1oz7kkaQQ&s",HTV RADIO FM 99.9Mhz
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-id="voh999" radio=true tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpvOL70mH31XprwaoKqLHWhsLJD1oz7kkaQQ&s" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",HTV RADIO FM 99.9Mhz
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://strm.voh.com.vn/radio/channel3/playlist.m3u8
-#EXTINF:-1 tvg-id="voh956" group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true tvg-logo="https://static.wikia.nocookie.net/logos/images/4/49/Logo_HTV RADIO_FM_95%2C6_MHz_%28%C4%90%C3%A0i_ti%E1%BA%BFng_n%C3%B3i_nh%C3%A2n_d%C3%A2n_Th%C3%A0nh_ph%E1%BB%91_H%E1%BB%93_Ch%C3%AD_Minh%29.png/revision/latest?cb=20230728073622&path-prefix=vi",HTV RADIO FM 95.6Mhz
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-id="voh956" radio=true tvg-logo="https://static.wikia.nocookie.net/logos/images/4/49/Logo_HTV RADIO_FM_95%2C6_MHz_%28%C4%90%C3%A0i_ti%E1%BA%BFng_n%C3%B3i_nh%C3%A2n_d%C3%A2n_Th%C3%A0nh_ph%E1%BB%91_H%E1%BB%93_Ch%C3%AD_Minh%29.png/revision/latest?cb=20230728073622&path-prefix=vi" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",HTV RADIO FM 95.6Mhz
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://strm.voh.com.vn/radio/channel1/playlist.m3u8
-#EXTINF:-1 tvg-id="voh877" group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBTaAefBUzSTsL7Y6jjkcJAMzr8S8-lCxekg&s",HTV RADIO FM 87.7Mhz
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-id="voh877" radio=true tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBTaAefBUzSTsL7Y6jjkcJAMzr8S8-lCxekg&s" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",HTV RADIO FM 87.7Mhz
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://strm.voh.com.vn/radio/channel5/playlist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true tvg-logo="https://static.wikia.nocookie.net/logos/images/f/fd/Logo_VOH-M_FM_92-92%2C5_MHz_%28%C4%90%C3%A0i_Ti%E1%BA%BFng_n%C3%B3i_nh%C3%A2n_d%C3%A2n_TP.HCM%29.png/revision/latest/scale-to-width-down/200?cb=20251129151735&path-prefix=vi", HTV RADIO FM92.5MHz
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true tvg-logo="https://static.wikia.nocookie.net/logos/images/f/fd/Logo_VOH-M_FM_92-92%2C5_MHz_%28%C4%90%C3%A0i_Ti%E1%BA%BFng_n%C3%B3i_nh%C3%A2n_d%C3%A2n_TP.HCM%29.png/revision/latest/scale-to-width-down/200?cb=20251129151735&path-prefix=vi" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", HTV RADIO FM92.5MHz
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://strm.voh.com.vn/radio/channel6/playlist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://byvn.net/W0ms" radio=true,SON LA (FM96MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://byvn.net/W0ms" radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",SON LA (FM96MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://cdn.sonlatv.vn/live/28595222e707a364251b8724717894baa46/playlist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://yt3.googleusercontent.com/WhYhTigacYJ_uemuW4bQHXNUmmstC3_qaPzhLBipbJ7m9kDjUzpK-mHzagihCogE-g8eErWlJGc=s900-c-k-c0x00ffffff-no-rj" radio=true, LAO CAI FM
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://yt3.googleusercontent.com/WhYhTigacYJ_uemuW4bQHXNUmmstC3_qaPzhLBipbJ7m9kDjUzpK-mHzagihCogE-g8eErWlJGc=s900-c-k-c0x00ffffff-no-rj" radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", LAO CAI FM
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://bk.yenbaitv.org.vn/hls/audio/livestream.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT96-zuuFTogPk5nu4EprYtOCaCt5_JdpPNpe57O9RrvfV9eB7CUCejNFgn9E1s-EUPDgE&usqp=CAU" radio=true,TUYEN QUANG RADIO (FM95.6MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT96-zuuFTogPk5nu4EprYtOCaCt5_JdpPNpe57O9RrvfV9eB7CUCejNFgn9E1s-EUPDgE&usqp=CAU" radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",TUYEN QUANG RADIO (FM95.6MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://streaming.tuyenquangtv.vn/channel/tuyenquang_radio/chunks.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://thainguyentv.vn/stores/tpl_site_cfg_logo/2025/072025/01/08/logo-thainguyentvvn20250701080015.jpg?rt=20250701080015" radio=true,THAI NGUYEN (FM106.5MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://thainguyentv.vn/stores/tpl_site_cfg_logo/2025/072025/01/08/logo-thainguyentvvn20250701080015.jpg?rt=20250701080015" radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",THAI NGUYEN (FM106.5MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://radio.thainguyentv.vn/hls/livestream.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK39M54WqVK57t9MArYKg059HZ0RjmzUfOkw&s" radio=true,LANG SON (FM88.6MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK39M54WqVK57t9MArYKg059HZ0RjmzUfOkw&s" radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",LANG SON (FM88.6MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://media.bacgiangtv.vn/live/langsonradio_aac/playlist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUbi5zXmX6DH2SKCbSNiV4s4ZDS9G4G1HWcw&s" radio=true,BAC NINH (FM98.4MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUbi5zXmX6DH2SKCbSNiV4s4ZDS9G4G1HWcw&s" radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",BAC NINH (FM98.4MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://live.mediatech.vn/live/28584e20827396945f5a4fd57fadd4be21a/chunklist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,QNR1 (FM97.8MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",QNR1 (FM97.8MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://live.baoquangninh.vn/qtvlive/qnr1.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,QNR2 (FM94.7MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",QNR2 (FM94.7MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://live.baoquangninh.vn/qtvlive/qnr2.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2eADeW0yFwlpZZbFLiJ1ijGlmTJuKTMV_ow&s" radio=true,HANOI90 (KENH NAY BI NO BHXH)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2eADeW0yFwlpZZbFLiJ1ijGlmTJuKTMV_ow&s" radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",HANOI90 (KENH NAY BI NO BHXH)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 http://14.162.146.90:8000/HANOI90
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIO4WBIFqHCwb2YzHt3XmD6Yh7iFsOQsL7vA&s" radio=true,HANOI96 (KENH NAY BI NO BHXH)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIO4WBIFqHCwb2YzHt3XmD6Yh7iFsOQsL7vA&s" radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",HANOI96 (KENH NAY BI NO BHXH)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 http://222.252.21.96:8000/HANOI96
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://i.imgur.com/21VaHPT.png" radio=true,THP GENERAL SERVICE FM93.7
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://i.imgur.com/21VaHPT.png" radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",THP GENERAL SERVICE FM93.7
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://live.mediatech.vn/live/2853ef29ebf29c64155acb32d102dd69a4a/playlist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://i.imgur.com/pEFj2vE.png" radio=true,THP TRAFFIC SERVICE FM102.2
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://i.imgur.com/pEFj2vE.png" radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",THP TRAFFIC SERVICE FM102.2
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://live.mediatech.vn/live/285c1421f29d05045909836b37313898e2f/playlist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2CuZ6JFmn5rbE43t3RKgaL9yPVHziv9gzRg&s" radio=true,THP3 FM (FM104.5MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2CuZ6JFmn5rbE43t3RKgaL9yPVHziv9gzRg&s" radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",THP3 FM (FM104.5MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://live.haiduongtv.vn/live/2858f932f24fa494996afb93ae0a7896ef9/playlist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://yt3.googleusercontent.com/3FpAai8v4Ad25R_bqVLvcp2Urv5I8TTV5Vn8CBaGBDvI4HDU-QYgnpLkk9QH-D6WIkVeIIj58u0=s900-c-k-c0x00ffffff-no-rj" radio=true,HUNG YEN RADIO (FM92.7MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://yt3.googleusercontent.com/3FpAai8v4Ad25R_bqVLvcp2Urv5I8TTV5Vn8CBaGBDvI4HDU-QYgnpLkk9QH-D6WIkVeIIj58u0=s900-c-k-c0x00ffffff-no-rj" radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",HUNG YEN RADIO (FM92.7MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://live.mediatech.vn/live/285b6e443bc30734725a940da8b0629655b/playlist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,NINH BINH FM (FM98.1MHz) - T CHI DE Y DEN MOV
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",NINH BINH FM (FM98.1MHz) - T CHI DE Y DEN MOV
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://live.mediatech.vn/live/285391a08f01f83458793b293c5e9517265/playlist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,NGHE AN (FM99.6MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",NGHE AN (FM99.6MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://live.mediatech.vn/live/285bfb777e354ec43038aa68950adbac3a4/chunklist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,HA TINH (FM97.8MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",HA TINH (FM97.8MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://wse.hatinhtv.net/radio/voht/playlist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,QUANG TRI (FM92.5MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",QUANG TRI (FM92.5MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 http://quangtritv.vn/audios/audiovnpt2024.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,HUE (FM93MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",HUE (FM93MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://live.huetv.com.vn/Radio-online/playlist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,DANANG RADIO (AM 702kHz, FM 97.6, 98.5MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",DANANG RADIO (AM 702kHz, FM 97.6, 98.5MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://live.mediatech.vn/live/2858a998b1c7fbf4522accd5554588ceae3/chunklist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,PTQ RADIO QUANG NGAI (FM102.9MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",PTQ RADIO QUANG NGAI (FM102.9MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://stream.thingnet.vn/radio/quangngai_aac/playlist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,GIA LAI FM (FM 93.7MHz, 97MHz & FM99.9MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",GIA LAI FM (FM 93.7MHz, 97MHz & FM99.9MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 http://14.224.130.186:8000/binhdinh
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,KHANH HOA RADIO (FM106.5MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",KHANH HOA RADIO (FM106.5MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://tv.ktv.org.vn/hls/radio.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,DAK LAK FM (FM92.4MHz,94.7 & 96MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",DAK LAK FM (FM92.4MHz,94.7 & 96MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://cdn.drt.vn/live/285054c4567dea54b3fb14bfd60d61230b5/chunklist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,LAM DONG (FM97MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",LAM DONG (FM97MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 http://118.107.85.4:1935/radio/lamdong_aac/playlist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,DONG NAI RADIO (FM97.5MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",DONG NAI RADIO (FM97.5MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 http://118.107.85.5:1935/radio/dongnai_aac/playlist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,TAY NINH RADIO 1 (FM96.9MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",TAY NINH RADIO 1 (FM96.9MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://live.la34.com.vn/la34/radio-transmux.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,TAY NINH RADIO 2 (FM103.1MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",TAY NINH RADIO 2 (FM103.1MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 http://118.69.83.22:1935/radio11/tnradio/playlist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,DONG THAP RADIO (FM96.2 and 98.4MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",DONG THAP RADIO (FM96.2 and 98.4MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 http://123.25.238.45:1935/live/thtg/playlist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,THVL TRA VINH FEED (FM92.7MHz) (KHMER OPT-OUTS)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",THVL TRA VINH FEED (FM92.7MHz) (KHMER OPT-OUTS)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://60acee235f4d5.streamlock.net/THTVR/travinhradio/playlist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,THVL RADIO VINH LONG (FM90.2MHz, 92.7 and 97.9 MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",THVL RADIO VINH LONG (FM90.2MHz, 92.7 and 97.9 MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://radiovietnamonline.com/api/v3/radios/phatthanh/radio-vinhlong.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,CAN THO (FM97.3MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",CAN THO (FM97.3MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://live.canthotv.vn/live/radio/playlist.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,AN GIANG RADIO (FM 93.1 and 99.4MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",AN GIANG RADIO (FM 93.1 and 99.4MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://tv.angiangtv.vn/live/kgaudio/kgaudio.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" radio=true,CA MAU FM (FM94.6MHz)
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 radio=true group-title="DAKLAKIPTV_RadioVietNam | Ungrouped",CA MAU FM (FM94.6MHz)
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://tv.ctvcamau.vn/live/radio/radio.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/5/0/8/f/508fb88137284723e67c83b9c9fede28.jpg", ZingRadio 1 - Vpop
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/5/0/8/f/508fb88137284723e67c83b9c9fede28.jpg" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", ZingRadio 1 - Vpop
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://multi-playlist-zmp3.zmdcdn.me/odi6UBatld4/zhls/playback-realtime/6ddadf76e3330a6d5322/index.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://photo-zmp3.zmdcdn.me/avatars/7/7/8/d/778d152062edfbe0e4c4abf151858bf0.jpg", ZingRadio 2 - Chạm FM
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://photo-zmp3.zmdcdn.me/avatars/7/7/8/d/778d152062edfbe0e4c4abf151858bf0.jpg" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", ZingRadio 2 - Chạm FM
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://multi-playlist-zmp3.zmdcdn.me/eHjZAdAk-sk/zhls/playback-realtime/59a2ee0ed24b3b15625a/index.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/e/1/8/8/e1887a2c79f9d3d04984905cbf443a29.jpg", ZingRadio 3 - Kpop
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/e/1/8/8/e1887a2c79f9d3d04984905cbf443a29.jpg" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", ZingRadio 3 - Kpop
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://multi-playlist-zmp3.zmdcdn.me/rTbzjcKEO1A/zhls/playback-realtime/6600baac86e96fb736f8/index.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/3/1/0/d/310df4f53c1026d4cb2844dc96cc01d3.jpg", ZingRadio 4 - USUK
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/3/1/0/d/310df4f53c1026d4cb2844dc96cc01d3.jpg" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", ZingRadio 4 - USUK
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://multi-playlist-zmp3.zmdcdn.me/-XosZVJX9XA/zhls/playback-realtime/f49e38320477ed29b466/index.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/1/5/c/2/15c2abf5f4554b416384d4f675b2151e.jpg", ZingRadio 5 - CPop
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/1/5/c/2/15c2abf5f4554b416384d4f675b2151e.jpg" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", ZingRadio 5 - CPop
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://multi-playlist-zmp3.zmdcdn.me/_TAVBRh_ce4/zhls/playback-realtime/97b35e1f625a8b04d24b/index.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/a/6/f/4/a6f4712ca91e9cc15530960ab44611da.jpg", ZingRadio 6 - EDM
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/a/6/f/4/a6f4712ca91e9cc15530960ab44611da.jpg" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", ZingRadio 6 - EDM
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://multi-playlist-zmp3.zmdcdn.me/lupi_x8-Su4/zhls/playback-realtime/7386bb2a876f6e31377e/index.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/8/1/d/6/81d6bc7e9ced5d11d01f6da4b440f146.jpg", ZingRadio 7 - Acoustic
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/8/1/d/6/81d6bc7e9ced5d11d01f6da4b440f146.jpg" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", ZingRadio 7 - Acoustic
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://multi-playlist-zmp3.zmdcdn.me/AiekixzmitQ/zhls/playback-realtime/9b7b55d7699280ccd983/index.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/d/6/7/4/d6746d1bbff609111133449abb9e622b.jpg", ZingRadio 8 - Bolero
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/d/6/7/4/d6746d1bbff609111133449abb9e622b.jpg" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", ZingRadio 8 - Bolero
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://multi-playlist-zmp3.zmdcdn.me/ioZs7yhxUxk/zhls/playback-realtime/5bace800d4453d1b6454/index.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/0/c/2/e/0c2ee7cb5ef72b5db673341864312a2a.jpg", ZingRadio 9 - Rap Việt
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/0/c/2/e/0c2ee7cb5ef72b5db673341864312a2a.jpg" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", ZingRadio 9 - Rap Việt
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://multi-playlist-zmp3.zmdcdn.me/XHOosOJ-f8g/zhls/playback-realtime/cef1015d3d18d4468d09/index.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://photo-resize-zmp3.zmdcdn.me/w165_r1x1_jpeg/cover/9/5/5/b/955b98868b8b29e1e782fc0913d857d2.jpg", ZingRadio 10 - Indie
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://photo-resize-zmp3.zmdcdn.me/w165_r1x1_jpeg/cover/9/5/5/b/955b98868b8b29e1e782fc0913d857d2.jpg" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", ZingRadio 10 - Indie
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://multi-playlist-zmp3.zmdcdn.me/VV55kkJD6Qo/zhls/playback-realtime/eeff2a531616ff48a607/index.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://photo-resize-zmp3.zmdcdn.me/w165_r1x1_jpeg/cover/e/d/d/6/edd6b56e8f79898dd98acfcf55c5564a.jpg", ZingRadio 11 - Thiếu Nhi
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://photo-resize-zmp3.zmdcdn.me/w165_r1x1_jpeg/cover/e/d/d/6/edd6b56e8f79898dd98acfcf55c5564a.jpg" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", ZingRadio 11 - Thiếu Nhi
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://multi-playlist-zmp3.zmdcdn.me/UKk_cQEl314/zhls/playback-realtime/ef512afd16b8ffe6a6a9/index.m3u8
-#EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VIỆT NAM" tvg-logo="https://static2.mytuner.mobi/media/tvos_radios/svztgcvwrjew.png", Scientific Sounds Asia
-#EXTGRP:DAKLAKIPTV_RadioVietNam | VIỆT NAM
+#EXTINF:-1 tvg-logo="https://static2.mytuner.mobi/media/tvos_radios/svztgcvwrjew.png" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", Scientific Sounds Asia
+#EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 http://carol.epichosts.co.uk:8270/live.mp3
 #EXTINF:-1 tvg-id="kubolive" group-title="vmttv | Kubo Network" tvg-logo="https://ip1.qphim.xyz/image/kubolive-full.png" catchup-type="append" catchup-days="5" catchup-source="?t=${start}&d=${offset}", KuboLive #Server 1
 #EXTGRP:vmttv | Kubo Network
@@ -5292,12 +5298,8 @@ https://d.org.vn/oni2-mbnlife/?/index.m3u8
 #EXTINF:-1 group-title="vmttv | THỂ THAO QUỐC TẾ" tvg-id="skyf1" tvg-logo="https://r2.thesportsdb.com/images/media/channel/logo/p5csyn1620551587.png",Sky Sport F1
 #EXTGRP:vmttv | THỂ THAO QUỐC TẾ
 https://7pal.short.gy/ssportsf1
-#EXTINF:-1 group-title="vmttv | THỂ THAO QUỐC TẾ" tvg-id="skymix" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Sky_Sport_Mix_Logo_2022.svg/1200px-Sky_Sport_Mix_Logo_2022.svg.png",Sky Sport Mix
-#EXTGRP:vmttv | THỂ THAO QUỐC TẾ
-http://2.magmas5.com:8000/live/XXXR3str3amLine/200conxxxxQ41/145813.ts
 #EXTINF:-1 group-title="vmttv | THỂ THAO QUỐC TẾ" tvg-id="skytennis" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Sky_Sport_Tennis.svg/1200px-Sky_Sport_Tennis.svg.png",Sky Sport Tennis
 #EXTGRP:vmttv | THỂ THAO QUỐC TẾ
-http://maho2025.xyz:80/play/live.php?mac=00:1A:79:39:e7:c6&stream=41037&extension=ts
 #EXTINF:-1 group-title="vmttv | THỂ THAO QUỐC TẾ" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/1a/Canal%2B_Sport_2015.png",Canal+ Sport
 #EXTGRP:vmttv | THỂ THAO QUỐC TẾ
 http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1184930&extension=ts&play_token=fHBckk00nW
@@ -5484,11 +5486,11 @@ https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/tv360.live/KenhCoBan.m3u8
 #EXTINF:-1 tvg-id="tv360phimviet" group-title="vmttv | Rạp Phim" tvg-logo="https://img-ali1.tv360.vn/image1/2025/12/31/18/1767180734794/7cda83f18b5d_640_360.png", Phim Việt
 #EXTGRP:vmttv | Rạp Phim
 https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/phim-viet/KenhCoBan.m3u8
-#EXTINF:-1 tvg-id="tv360aumy" group-title="vmttv | Ungrouped"
+#EXTINF:-1 tvg-id="tv360aumy" group-title="
 #EXTGRP:vmttv | Ungrouped
-#EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/02/15/vod-ban-tin-the-thao-24-tet-2026-slider-thumb_1771120926142.jpg", Sự Kiện 1
+#EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/02/15/live-zuffa-boxing-1-slide-thumb_1771145346799.jpg", Sự Kiện 4
 #EXTGRP:vmttv | Sự Kiện FPT PLAY
-https://live.fptplay53.net/live/media/su-kien-01/hls_avc_v6/index.m3u8
+https://live.fptplay53.net/live/media/su-kien-04/hls_avc_v6/index.m3u8
 #EXTINF:-1 tvg-id="vtv1hd" group-title="vmttv | VTV" tvg-logo="https://i.ytimg.com/vi/dGohEWXz7Sk/maxresdefault.jpg" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}, VTV1
 #EXTGRP:vmttv | VTV
 https://freem3u.xyz/api/live/play.m3u8?vid=2
@@ -5600,10 +5602,10 @@ https://liveh34.vtvprime.vn/hls/SCTV10/index.m3u8
 #EXTINF:-1 tvg-id="sctv11hd" group-title="vmttv | SCTV" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/sctv11.png", SCTV11 HD
 #EXTGRP:vmttv | SCTV
 https://liveh34.vtvprime.vn/hls/SCTV11/03.m3u8
-#EXTINF:-1 tvg-id="sctv12hd" group-title="vmttv | SCTV" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/13/SCTV12.jpg", SCTV12 HD
+#EXTINF:-1 tvg-id="sctv12hd" group-title="vmttv | SCTV" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/sctv12.png", SCTV12 HD
 #EXTGRP:vmttv | SCTV
 https://liveh34.vtvprime.vn/hls/SCTV12/03.m3u8
-#EXTINF:-1 tvg-id="sctv13hd" group-title="vmttv | SCTV" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/74/SCTV13.jpg", SCTV13 HD
+#EXTINF:-1 tvg-id="sctv13hd" group-title="vmttv | SCTV" tvg-logo="", SCTV13 HD
 #EXTGRP:vmttv | SCTV
 https://liveh34.vtvprime.vn/hls/SCTV13/03.m3u8
 #EXTINF:-1 tvg-id="sctv14hd" group-title="vmttv | SCTV" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/e1/SCTV14.jpg", SCTV14 HD
@@ -5641,9 +5643,9 @@ https://livevlisctcdnw.seenow.vn/mean/HC/manifest.mpd
 https://livevlisctcdnw.seenow.vn/livesnv2/INTHEBOX/manifest.mpd
 #EXTINF:-1 tvg-id="boxhits" group-title="vmttv | 📦| In The Box" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/8/8a/BOXHITS.jpg", Box Hits
 #EXTGRP:vmttv | 📦| In The Box
+https://livevlisctcdnw.seenow.vn/mean/BOXHIT/manifest.mpd
 #EXTINF:-1 tvg-id="manhd" group-title="vmttv | 📦| In The Box" tvg-logo="https://img-zlr1.tv360.vn/image1/2021/08/02/18/1627902182400/125faee2618c_640_360.png", Man
 #EXTGRP:vmttv | 📦| In The Box
-https://toiyeuvietnam.dpdns.org/Start/VMT456_MAN
 #EXTINF:-1 tvg-id="musicbox" group-title="vmttv | 📦| In The Box" tvg-logo="https://img-zlr1.tv360.vn/image1/2023/07/20/10/1689822939536/68d521f6938e_640_360.png", Music Box
 #EXTGRP:vmttv | 📦| In The Box
 https://toiyeuvietnam.dpdns.org/Start/VMT567_MusicBox
