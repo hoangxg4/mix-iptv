@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="https://vnepg.site/epg.xml,http://epg.51zmt.top:8000/e.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://epg.pw/xmltv/epg_FR.xml,https://iptvx.one/epg/epg.xml.gz,https://live.fanmingming.com/e.xml,http://trada.info/epg.xml,https://epg.pw/xmltv/epg_ID.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://tvbvn.quanlehong539.workers.dev/xml,http://gg.gg/coodertvepg,http://gg.gg/fptepg,https://epg.aptv.app/pp.xml.gz,http://gg.gg/guidevn,http://gg.gg/epgmytv,https://raw.githubusercontent.com/AqFad2811/epg/main/singapore.xml,https://epg.pw/xmltv/epg_MY.xml,https://vnepg.site/epg.xml.gz,https://epg.946985.xyz/t.xml.gz,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://lichphatsong.site/schedule/epg.xml,https://hnlive.dramahay.xyz/epg.xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,http://lichphatsong.xyz/schedule/epg.xml,http://gg.gg/epgbeartv,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://epg.pw/xmltv/epg_AU.xml,https://epg.pw/xmltv/epg_HK.xml,https://epg.catvod.com/epg.xml,http://megavie.live/schedule/epg.xml"
+#EXTM3U x-tvg-url="http://gg.gg/fptepg,https://epg.pw/xmltv/epg_ID.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://lichphatsong.site/schedule/epg.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,http://gg.gg/coodertvepg,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://iptvx.one/epg/epg.xml.gz,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://epg.aptv.app/pp.xml.gz,https://epg.catvod.com/epg.xml,https://live.fanmingming.com/e.xml,https://vnepg.site/epg.xml,https://epg.946985.xyz/t.xml.gz,http://gg.gg/epgmytv,http://gg.gg/guidevn,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,http://lichphatsong.xyz/schedule/epg.xml,https://epg.pw/xmltv/epg_AU.xml,https://tvbvn.quanlehong539.workers.dev/xml,https://hnlive.dramahay.xyz/epg.xml,https://epg.pw/xmltv/epg_HK.xml,https://epg.pw/xmltv/epg_FR.xml,http://gg.gg/epgbeartv,https://vnepg.site/epg.xml.gz,https://raw.githubusercontent.com/AqFad2811/epg/main/singapore.xml,http://trada.info/epg.xml,http://megavie.live/schedule/epg.xml,http://epg.51zmt.top:8000/e.xml,https://epg.pw/xmltv/epg_MY.xml"
 #EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}",VTV1
 #EXTGRP:DAKLAKIPTV | VTV
 https://live-a.fptplay53.net/live/media/VTV1HD/live_hls_avc/index.m3u8
@@ -5286,11 +5286,12 @@ https://1.org.vn/oni2hd/?/index.m3u8
 #EXTINF:-1 group-title="vmttv | Sự Kiện" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni3.png", ONi3
 #EXTGRP:vmttv | Sự Kiện
 https://1.org.vn/oni3/?/index.m3u8
-#EXTINF:-1 group-title="vmttv | Sự Kiện" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni4.png", ONi4
+#EXTINF:-1 group-title="vmttv | Sự Kiện" tvg-logo="https://png.pngtree.com/png-vector/20221222/ourmid/pngtree-trendy-geometric-elements-with-upcoming-events-text-png-image_6533184.png", ONi4
 #EXTGRP:vmttv | Sự Kiện
 https://d.org.vn/oni2-mbnlife/?/index.m3u8
 #EXTINF:-1 group-title="vmttv | THỂ THAO QUỐC TẾ" tvg-id="skyf1" tvg-logo="https://r2.thesportsdb.com/images/media/channel/logo/p5csyn1620551587.png",Sky Sport F1
 #EXTGRP:vmttv | THỂ THAO QUỐC TẾ
+https://7pal.short.gy/ssportsf1
 #EXTINF:-1 group-title="vmttv | THỂ THAO QUỐC TẾ" tvg-id="skymix" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Sky_Sport_Mix_Logo_2022.svg/1200px-Sky_Sport_Mix_Logo_2022.svg.png",Sky Sport Mix
 #EXTGRP:vmttv | THỂ THAO QUỐC TẾ
 http://2.magmas5.com:8000/live/XXXR3str3amLine/200conxxxxQ41/145813.ts
@@ -5483,7 +5484,7 @@ https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/tv360.live/KenhCoBan.m3u8
 #EXTINF:-1 tvg-id="tv360phimviet" group-title="vmttv | Rạp Phim" tvg-logo="https://img-ali1.tv360.vn/image1/2025/12/31/18/1767180734794/7cda83f18b5d_640_360.png", Phim Việt
 #EXTGRP:vmttv | Rạp Phim
 https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/phim-viet/KenhCoBan.m3u8
-#EXTINF:-1 tvg-id= group-title="vmttv | Ungrouped"
+#EXTINF:-1 tvg-id="tv360aumy" group-title="vmttv | Ungrouped"
 #EXTGRP:vmttv | Ungrouped
 #EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/02/15/vod-ban-tin-the-thao-24-tet-2026-slider-thumb_1771120926142.jpg", Sự Kiện 1
 #EXTGRP:vmttv | Sự Kiện FPT PLAY
@@ -5596,7 +5597,7 @@ https://liveh34.vtvprime.vn/hls/SCTV8/03.m3u8
 #EXTINF:-1 tvg-id="sctv10hd" group-title="vmttv | SCTV" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/SCTV10.jpg", SCTV10
 #EXTGRP:vmttv | SCTV
 https://liveh34.vtvprime.vn/hls/SCTV10/index.m3u8
-#EXTINF:-1 tvg-id="sctv11hd" group-title="vmttv | SCTV" tvg-logo="", SCTV11 HD
+#EXTINF:-1 tvg-id="sctv11hd" group-title="vmttv | SCTV" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/sctv11.png", SCTV11 HD
 #EXTGRP:vmttv | SCTV
 https://liveh34.vtvprime.vn/hls/SCTV11/03.m3u8
 #EXTINF:-1 tvg-id="sctv12hd" group-title="vmttv | SCTV" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/13/SCTV12.jpg", SCTV12 HD
