@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://iptvx.one/epg/epg.xml.gz,https://epg.pw/xmltv/epg_MY.xml,https://epg.aptv.app/pp.xml.gz,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://epg.pw/xmltv/epg_HK.xml,https://vnepg.site/epg.xml.gz,http://megavie.live/schedule/epg.xml,https://vnepg.site/epg.xml,http://gg.gg/coodertvepg,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,http://gg.gg/epgmytv,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,http://trada.info/epg.xml,http://gg.gg/epgbeartv,https://epg.pw/xmltv/epg_AU.xml,http://epg.51zmt.top:8000/e.xml,https://tvbvn.quanlehong539.workers.dev/xml,https://epg.catvod.com/epg.xml,https://epg.946985.xyz/t.xml.gz,https://raw.githubusercontent.com/AqFad2811/epg/main/singapore.xml,https://epg.pw/xmltv/epg_FR.xml,http://gg.gg/fptepg,https://hnlive.dramahay.xyz/epg.xml,http://gg.gg/guidevn,https://live.fanmingming.com/e.xml,http://lichphatsong.xyz/schedule/epg.xml,https://epg.pw/xmltv/epg_ID.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://lichphatsong.site/schedule/epg.xml"
+#EXTM3U x-tvg-url="https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://hnlive.dramahay.xyz/epg.xml,https://epg.pw/xmltv/epg_AU.xml,https://live.fanmingming.com/e.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://epg.946985.xyz/t.xml.gz,https://epg.pw/xmltv/epg_FR.xml,http://trada.info/epg.xml,https://vnepg.site/epg.xml,https://iptvx.one/epg/epg.xml.gz,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://epg.pw/xmltv/epg_MY.xml,http://gg.gg/coodertvepg,http://gg.gg/fptepg,https://tvbvn.quanlehong539.workers.dev/xml,http://gg.gg/epgmytv,http://megavie.live/schedule/epg.xml,https://epg.pw/xmltv/epg_ID.xml,http://gg.gg/guidevn,http://gg.gg/epgbeartv,http://epg.51zmt.top:8000/e.xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://raw.githubusercontent.com/AqFad2811/epg/main/singapore.xml,https://lichphatsong.site/schedule/epg.xml,https://epg.pw/xmltv/epg_HK.xml,http://lichphatsong.xyz/schedule/epg.xml,https://epg.aptv.app/pp.xml.gz,https://epg.catvod.com/epg.xml,https://vnepg.site/epg.xml.gz"
 #EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}",VTV1
 #EXTGRP:DAKLAKIPTV | VTV
 https://live-a.fptplay53.net/live/media/VTV1HD/live_hls_avc/index.m3u8
@@ -5023,6 +5023,7 @@ https://7pal.short.gy/ssportstn
 http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1184930&extension=ts&play_token=fHBckk00nW
 #EXTINF:-1 group-title="vmttv | THỂ THAO QUỐC TẾ" tvg-id="tnt1" tvg-logo="https://media.info/l/o/1/1539.1690027797.png",TNT Sports 1 4Mbps for 4G
 #EXTGRP:vmttv | THỂ THAO QUỐC TẾ
+https://7pal.short.gy/tntspts1
 #EXTINF:-1 group-title="vmttv | THỂ THAO QUỐC TẾ" tvg-id="tnt2" tvg-logo="https://media.info/l/o/1/1540.1690027877.png",TNT Sports 2 4Mbps for 4G
 #EXTGRP:vmttv | THỂ THAO QUỐC TẾ
 http://maho2025.xyz:80/play/live.php?mac=00:1A:79:39:e7:c6&stream=658435&extension=ts
@@ -5178,6 +5179,7 @@ https://rumble.com/hls-vod/73k35o/playlist.m3u8
 https://rumble.com/hls-vod/73os1q/playlist.m3u8
 #EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo="https://images.fptplay53.net/media/OTT/VOD/2026/02/11/hung-long-phong-ba-4-fpt-play-1770804850859_Landscape.jpg", Hùng Long Phong Bá Phần 4 - Tập 4
 #EXTGRP:vmttv | LIVE EVENTS 🔴
+https://rumble.com/hls-vod/73s4u6/playlist.m3u8
 #EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo="https://images.fptplay53.net/media/OTT/VOD/2026/01/12/dua-con-cua-than-tuong-phan-3-fpt-play-1768204408459_Background_origin.jpg", Oshi No Ko Phần 3 - Tập 1
 #EXTGRP:vmttv | LIVE EVENTS 🔴
 https://rumble.com/hls-vod/72av32/playlist.m3u8
@@ -5208,8 +5210,11 @@ https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/tv360.live/KenhCoBan.m3u8
 #EXTINF:-1 tvg-id="tv360phimviet" group-title="vmttv | Rạp Phim" tvg-logo="https://img-ali1.tv360.vn/image1/2025/12/31/18/1767180734794/7cda83f18b5d_640_360.png", Phim Việt
 #EXTGRP:vmttv | Rạp Phim
 https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/phim-viet/KenhCoBan.m3u8
-#EXTINF:-1 tvg-id="tv360aumy" group-title="vmttv | Rạp Phim"
+#EXTINF:-1 tvg-id="tv360aumy" group-title="vmttv | Rạp Phim" tvg-logo
 #EXTGRP:vmttv | Rạp Phim
+#EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/02/18/live-kenya-open-2026---dp-world-tour-2026-slider-thumb_1771433350042.jpg", Sự Kiện 4
+#EXTGRP:vmttv | Sự Kiện FPT PLAY
+https://live.fptplay53.net/live/media/su-kien-04/hls_avc_v6/index.m3u8
 #EXTINF:-1 tvg-id="vtv1hd" group-title="vmttv | VTV" tvg-logo="https://i.ytimg.com/vi/dGohEWXz7Sk/maxresdefault.jpg" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}, VTV1
 #EXTGRP:vmttv | VTV
 https://freem3u.xyz/api/live/play.m3u8?vid=2
@@ -5327,7 +5332,7 @@ https://liveh34.vtvprime.vn/hls/SCTV12/03.m3u8
 #EXTINF:-1 tvg-id="sctv13hd" group-title="vmttv | SCTV" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/sctv13.png", SCTV13 HD
 #EXTGRP:vmttv | SCTV
 https://liveh34.vtvprime.vn/hls/SCTV13/03.m3u8
-#EXTINF:-1 tvg-id="sctv14hd" group-title="vmttv | SCTV" tvg-logo="", SCTV14 HD
+#EXTINF:-1 tvg-id="sctv14hd" group-title="vmttv | SCTV" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/sctv14.png", SCTV14 HD
 #EXTGRP:vmttv | SCTV
 https://liveh34.vtvprime.vn/hls/SCTV14/03.m3u8
 #EXTINF:-1 tvg-id="sctv16hd" group-title="vmttv | SCTV" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/sctv16.png", SCTV16 HD
@@ -5365,6 +5370,7 @@ https://livevlisctcdnw.seenow.vn/livesnv2/INTHEBOX/manifest.mpd
 https://livevlisctcdnw.seenow.vn/mean/BOXHIT/manifest.mpd
 #EXTINF:-1 tvg-id="manhd" group-title="vmttv | 📦| In The Box" tvg-logo="https://img-zlr1.tv360.vn/image1/2021/08/02/18/1627902182400/125faee2618c_640_360.png", Man
 #EXTGRP:vmttv | 📦| In The Box
+https://livevlisctcdnw.seenow.vn/livesnv2/MAN/manifest.mpd
 #EXTINF:-1 tvg-id="musicbox" group-title="vmttv | 📦| In The Box" tvg-logo="https://img-zlr1.tv360.vn/image1/2023/07/20/10/1689822939536/68d521f6938e_640_360.png", Music Box
 #EXTGRP:vmttv | 📦| In The Box
 https://toiyeuvietnam.dpdns.org/Start/VMT567_MusicBox
@@ -7486,6 +7492,9 @@ http://iptv46.mcx-ix.ru:8077/sts-love/index.m3u8
 #EXTINF:-1 tvg-id="yu-pl4" group-title="coban66 | KÊNH GIẢI TRÍ" tvg-logo="https://i.imgur.com/KDZvt0Q.png",Телеканал Ю
 #EXTGRP:coban66 | KÊNH GIẢI TRÍ
 http://91.226.120.120/chid137/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-id="super" group-title="coban66 | KÊNH GIẢI TRÍ" tvg-logo="https://i.imgur.com/nsk8PpB.png",СУББОТА
+#EXTGRP:coban66 | KÊNH GIẢI TRÍ
+http://iptv46.mcx-ix.ru:8077/super/index.m3u8
 #EXTINF:-1 tvg-id="perec-int" tvg-logo="https://i.imgur.com/On6ggLe.png" group-title="coban66 | KÊNH GIẢI TRÍ",Peretz International
 #EXTGRP:coban66 | KÊNH GIẢI TRÍ
 http://cdn4.skygo.mn/live/disk1/Che/HLSv3-FTA/Che.m3u8
@@ -7564,6 +7573,12 @@ http://hls-tvsoyuz.cdnvideo.ru/tvsoyuz/soyuz/playlist.m3u8
 #EXTINF:-1 tvg-id="sibir24" group-title="coban66 | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG" tvg-logo="https://i.imgur.com/WxU6QUB.png",Сибирь 24
 #EXTGRP:coban66 | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG
 http://vgtrkregion-reg.cdnvideo.ru/vgtrk/krasnoyarsk/sibir24-hd/index.m3u8
+#EXTINF:-1 tvg-id="lot-47" group-title="coban66 | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG" tvg-logo="https://i.imgur.com/d02uxkB.png",ЛЕНТВ 24 HD
+#EXTGRP:coban66 | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG
+http://iptv46.mcx-ix.ru:8077/lot/index.m3u8
+#EXTINF:-1 tvg-id="moskva-24" group-title="coban66 | KÊNH TIN TỨC" tvg-logo="https://epg.iptvx.one/picons/moskva-24.png",Москва 24
+#EXTGRP:coban66 | KÊNH TIN TỨC
+http://iptv46.mcx-ix.ru:8077/moskva_24/index.m3u8
 #EXTINF:-1 tvg-id="doverie" group-title="coban66 | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG" tvg-logo="https://i.imgur.com/QDqDQzt.png",Москва. Доверие
 #EXTGRP:coban66 | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG
 http://iptv46.mcx-ix.ru:8077/russia-today/index.m3u8
@@ -7609,15 +7624,33 @@ http://tele2dvrnat01-02.cdnvideo.ru:80/stream/NAT_EKB1/hls/1024x576@2024/playlis
 #EXTINF:-1 tvg-id="1hd" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/4Ww7CsR.png",1HD Music Television
 #EXTGRP:coban66 | KÊNH CA NHẠC
 http://188.225.31.197/bpk-tv/000001020/tve/index.m3u8
+#EXTINF:-1 tvg-id="aiva" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/Wt88mg6.png",AIVA HD
+#EXTGRP:coban66 | KÊNH CA NHẠC
+http://iptv46.mcx-ix.ru:8077/aiva_hd/index.m3u8
+#EXTINF:-1 tvg-id="bridge-tv" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/qYObfrG.png",BRIDGE
+#EXTGRP:coban66 | KÊNH CA NHẠC
+http://iptv46.mcx-ix.ru:8077/bridge-tv/video.m3u8
+#EXTINF:-1 tvg-id="bridge-tv-classic" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/JJTQq81.png",BRIDGE Classic
+#EXTGRP:coban66 | KÊNH CA NHẠC
+http://iptv46.mcx-ix.ru:8077/topsong/video.m3u8
+#EXTINF:-1 tvg-id="bridge-hd" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/EazL8w7.png",BRIDGE Deluxe
+#EXTGRP:coban66 | KÊNH CA NHẠC
+http://iptv46.mcx-ix.ru:8077/bridge_hd/video.m3u8
+#EXTINF:-1 tvg-id="bridge-tv-dance" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/sIW9oR4.png",BRIDGE HITS
+#EXTGRP:coban66 | KÊNH CA NHẠC
+http://iptv46.mcx-ix.ru:8077/dange/index.m3u8
 #EXTINF:-1 tvg-id="bridge-tv-ruxit" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/f9xdIlN.png",BRIDGE Русский Хит
 #EXTGRP:coban66 | KÊNH CA NHẠC
-http://193.25.8.59:8000/rusong
+http://iptv46.mcx-ix.ru:8077/rusong/video.m3u8
 #EXTINF:-1 tvg-id="bridge-tv-shlager" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/a9DXkMN.png",BRIDGE Шлягер
 #EXTGRP:coban66 | KÊNH CA NHẠC
 http://193.25.8.59:8000/mtv
 #EXTINF:-1 tvg-id="europa-plus-tv" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/GLc4qrc.png",Europa Plus TV
 #EXTGRP:coban66 | KÊNH CA NHẠC
 http://ad-hls-europaplus-ref.cdnvideo.ru/europaplus/eurptv2_site.smil/playlist.m3u8?zoid=srw2
+#EXTINF:-1 tvg-id="tnt-music" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://iptvx.one/picons/tnt-music.png",Fon Music
+#EXTGRP:coban66 | KÊNH CA NHẠC
+http://iptv46.mcx-ix.ru:8077/tnt_music/index.m3u8
 #EXTINF:-1 tvg-id="maydan" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/C8CCjZK.png",Maidan
 #EXTGRP:coban66 | KÊNH CA NHẠC
 http://live-maidantv.cdnvideo.ru/maidantv/maidantv.smil/playlist.m3u8
@@ -7627,6 +7660,9 @@ http://188.225.31.197/bpk-tv/000000030/tve/index.m3u8
 #EXTINF:-1 tvg-id="onemuz" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/YdyFJrl.png",Первый Музыкальный
 #EXTGRP:coban66 | KÊNH CA NHẠC
 http://136.243.42.146/HLS/HD.m3u8
+#EXTINF:-1 tvg-id="la-minor" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.postimg.cc/YSqP0VfR/3F3F3F-Live-29.png",Музыка Live
+#EXTGRP:coban66 | KÊNH CA NHẠC
+http://iptv46.mcx-ix.ru:8077/la-minor/index.m3u8
 #EXTINF:-1 tvg-id="muzyka-pervogo" group-title="coban66 | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/U0vKj3P.png",Музыка первого
 #EXTGRP:coban66 | KÊNH CA NHẠC
 http://188.225.31.197/bpk-tv/000000204/tve/index.m3u8
@@ -7656,7 +7692,7 @@ http://s1.tv-nano.com/Magnat_HD_5119705/video.m3u8
 http://live-uvelirochka.cdnvideo.ru/uvelirochka/uvelirochka_720p3/playlist.m3u8
 #EXTINF:-1 tvg-id="ani" group-title="coban66 | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/i2AP0hp.png",Ani
 #EXTGRP:coban66 | KÊNH THIẾU NHI
-http://185.46.16.239:8000/Ani
+http://iptv46.mcx-ix.ru:8077/ani/index.m3u8
 #EXTINF:-1 tvg-id="gulli-girl" group-title="coban66 | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/lbViDuC.png",Gulli Girl
 #EXTGRP:coban66 | KÊNH THIẾU NHI
 http://176.118.197.125/Gulli-Girl/index.m3u8
@@ -7680,7 +7716,7 @@ http://31.130.203.6:9781
 http://188.225.31.197/bpk-tv/000008003/tve/index.m3u8
 #EXTINF:-1 tvg-id="mama" group-title="coban66 | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/kmMIjjf.png",Мама
 #EXTGRP:coban66 | KÊNH THIẾU NHI
-http://178.218.204.217/1244/tracks-v1a1/mono.m3u8
+http://iptv46.mcx-ix.ru:8077/mama/index.m3u8
 #EXTINF:-1 tvg-id="mult" group-title="coban66 | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/xi351Fx.png",Мульт HD
 #EXTGRP:coban66 | KÊNH THIẾU NHI
 https://stream8.cinerama.uz/1246/tracks-v1a1/mono.m3u8
@@ -7696,12 +7732,18 @@ http://cdn4.skygo.mn/live/disk1/O_Int/HLSv3-FTA/O_Int.m3u8
 #EXTINF:-1 tvg-id="radost-moya" group-title="coban66 | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/B5FA62o.png",Радость Моя
 #EXTGRP:coban66 | KÊNH THIẾU NHI
 http://radm.mediacdn.ru/cdn/radost/playlist.m3u8
+#EXTINF:-1 tvg-id="ryzhy" group-title="coban66 | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/acrU2IE.png",РЫЖИЙ
+#EXTGRP:coban66 | KÊNH THIẾU NHI
+http://iptv46.mcx-ix.ru:8077/ryzhiy/index.m3u8
 #EXTINF:-1 tvg-id="solnce" group-title="coban66 | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/rec9akk.png",Солнце
 #EXTGRP:coban66 | KÊNH THIẾU NHI
 http://tv.mediacdn.ru/live/solntse/playlist_3000k.m3u8
+#EXTINF:-1 tvg-id="malysh" group-title="coban66 | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/c0zZUR1.png",Супергерои
+#EXTGRP:coban66 | KÊNH THIẾU NHI
+http://iptv46.mcx-ix.ru:8077/malish/index.m3u8
 #EXTINF:-1 tvg-id="sts-kids-hd" group-title="coban66 | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/o9kLpAL.png",СТС Kids International
 #EXTGRP:coban66 | KÊNH THIẾU NHI
-http://178.124.153.123:44400/stskids
+http://iptv46.mcx-ix.ru:8077/sts_kids/index.m3u8
 #EXTINF:-1 tvg-id="malysh" group-title="coban66 | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/c0zZUR1.png",СуперГерои
 #EXTGRP:coban66 | KÊNH THIẾU NHI
 http://109.94.1.3:8080/132/index.m3u8
@@ -7882,6 +7924,9 @@ http://31.130.203.6:8477
 #EXTINF:-1 tvg-id="sov-kinklass" tvg-logo="https://i.postimg.cc/D038FdBy/Soviet.png" group-title="coban66 | KÊNH PHIM TRUYỆN",Советская Киноклассика
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid276/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-id="russky-bestseller" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/w0ZE9QJ.png",Русский Бестселлер
+#EXTGRP:coban66 | KÊNH PHIM TRUYỆN
+http://iptv46.mcx-ix.ru:8077/rus-bestseller/index.m3u8
 #EXTINF:-1 tvg-id="russky-detektiv" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/H3qhN8S.png",Русский детектив
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid82/tracks-v1a1/mono.m3u8
@@ -7891,12 +7936,12 @@ http://91.226.120.120/chid81/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="russky-roman" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/cQN0P2B.png",Русский Роман
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://vod.tuva.ru/rusroman/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="teatr" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/nc2ijCH.png",Театр
-#EXTGRP:coban66 | KÊNH PHIM TRUYỆN
-http://193.25.8.59:8000/teatr
 #EXTINF:-1 tvg-id="tvxxi" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/YUVmPRa.png",ТВ 21
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid265/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-logo="https://i.imgur.com/NfnAiTR.png" tvg-id="365-dnej" group-title="coban66 | KÊNH ĐẶC SẮC",365 дней ТВ
+#EXTGRP:coban66 | KÊNH ĐẶC SẮC
+http://iptv46.mcx-ix.ru:8077/365_dnej/index.m3u8
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/Monoloshka/iptv/refs/heads/main/logo/mir-uvlecheniy.png" tvg-id="mir-uvlecheniy" group-title="coban66 | KÊNH ĐẶC SẮC",#Ктокуда
 #EXTGRP:coban66 | KÊNH ĐẶC SẮC
 http://188.225.31.197/bpk-tv/000001377/tve/index.m3u8
@@ -7912,9 +7957,9 @@ http://188.225.31.197/bpk-tv/000000332/tve/index.m3u8
 #EXTINF:-1 tvg-id="nano-tv" group-title="coban66 | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/dYj3XDa.png",NANO
 #EXTGRP:coban66 | KÊNH ĐẶC SẮC
 http://s1.tv-nano.com/Nano_rec/index.m3u8
-#EXTINF:-1 tvg-id="rtg-tv" group-title="coban66 | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/ZMKPAho.png",RTG HD
+#EXTINF:-1 tvg-id="rtg-tv" group-title="coban66 | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/ZMKPAho.png",RTG TV
 #EXTGRP:coban66 | KÊNH ĐẶC SẮC
-http://193.25.8.59:8000/rtg
+http://iptv46.mcx-ix.ru:8077/rtg/index.m3u8
 #EXTINF:-1 tvg-id="terra-ru" group-title="coban66 | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/ZxUjCpF.png",TERRA
 #EXTGRP:coban66 | KÊNH ĐẶC SẮC
 http://188.225.31.197/bpk-tv/000008142/tve/index.m3u8
@@ -8062,6 +8107,9 @@ http://188.225.31.197/bpk-tv/000008065/tve/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.imgur.com/KON0z08.png" tvg-id="zal-suda" group-title="coban66 | KÊNH GIẢI TRÍ",Зал суда
 #EXTGRP:coban66 | KÊNH GIẢI TRÍ
 http://188.225.31.197/bpk-tv/000006638/tve/index.m3u8
+#EXTINF:-1 tvg-logo="https://i.imgur.com/Vw3LFLX.png" tvg-id="kvn-tv" group-title="coban66 | KÊNH GIẢI TRÍ",КВН ТВ
+#EXTGRP:coban66 | KÊNH GIẢI TRÍ
+http://iptv46.mcx-ix.ru:8077/kvn_tv/index.m3u8
 #EXTINF:-1 tvg-id="lapki-live" group-title="coban66 | KÊNH ĐẶC SẮC" tvg-logo="https://i.postimg.cc/QCH9MXH5/3F3F2829.png",Лапки Live
 #EXTGRP:coban66 | KÊNH ĐẶC SẮC
 http://188.225.31.197/bpk-tv/000008551/tve/index.m3u8
@@ -8085,10 +8133,10 @@ http://cdn.ntv.ru/th_style/tracks-v1a1/mono.m3u8
 http://cdn3.skygo.mn/live/disk1/Pobeda/HLSv3-FTA/Pobeda.m3u8
 #EXTINF:-1 tvg-id="sarafan" tvg-logo="https://i.imgur.com/u4q1rMT.png" group-title="coban66 | KÊNH GIẢI TRÍ",Сарафан
 #EXTGRP:coban66 | KÊNH GIẢI TRÍ
-http://176.118.197.125/Sarafan/index.m3u8
-#EXTINF:-1 tvg-logo="https://i.imgur.com/nc2ijCH.png" group-title="coban66 | KÊNH GIẢI TRÍ" tvg-id="teatr",Театр
+http://iptv46.mcx-ix.ru:8077/sarafan/index.m3u8
+#EXTINF:-1 tvg-id="teatr" group-title="coban66 | KÊNH GIẢI TRÍ" tvg-logo="https://i.imgur.com/nc2ijCH.png",Театр
 #EXTGRP:coban66 | KÊNH GIẢI TRÍ
-http://193.25.8.59:8000/teatr
+http://iptv46.mcx-ix.ru:8077/strk_hd/index.m3u8
 #EXTINF:-1 tvg-id="telekafe" group-title="coban66 | KÊNH GIẢI TRÍ" tvg-logo="https://i.imgur.com/1H3h1HL.png",Телекафе
 #EXTGRP:coban66 | KÊNH GIẢI TRÍ
 http://cdn4.skygo.mn/live/disk1/Telecafe/HLSv3-FTA/Telecafe.m3u8
@@ -8163,7 +8211,7 @@ https://dash.antik.sk/live/test_fightbox_medium_atk/playlist.m3u8
 http://91.226.120.120/chid55/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="kxl-hd" group-title="coban66 | KÊNH THỂ THAO" tvg-logo="https://i.imgur.com/pwxT0ON.png",KHL Prime
 #EXTGRP:coban66 | KÊNH THỂ THAO
-http://193.25.8.59:8000/khl
+http://iptv46.mcx-ix.ru:8077/khl_hd/index.m3u8
 #EXTINF:-1 tvg-id="m1global" group-title="coban66 | KÊNH THỂ THAO" tvg-logo="https://i.imgur.com/QhdxNsB.png",MMA-TV.COM
 #EXTGRP:coban66 | KÊNH THỂ THAO
 http://vod.splay.uz/live_splay/original/MMA-TV.comHD/tracks-v1a1/mono.m3u8
@@ -8208,10 +8256,16 @@ http://91.226.120.120/chid56/tracks-v1a1/mono.m3u8
 http://cdn4.skygo.mn/live/disk1/Match_Planeta/HLSv3-FTA/Match_Planeta.m3u8
 #EXTINF:-1 tvg-id="match-premier" group-title="coban66 | KÊNH THỂ THAO" tvg-logo="https://i.imgur.com/GQPyHYK.png",Матч! Премьер
 #EXTGRP:coban66 | KÊNH THỂ THAO
-http://89.232.68.194:8080/matchpremier/tracks-v3a1/index.m3u8
+http://iptv46.mcx-ix.ru:8077/nash-football/index.m3u8
+#EXTINF:-1 tvg-id="russky-ekstrim" group-title="coban66 | KÊNH THỂ THAO" tvg-logo="https://i.imgur.com/hJK7mOW.png",Русский Экстрим
+#EXTGRP:coban66 | KÊNH THỂ THAO
+http://91.226.120.120/chid44/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="sportivny" group-title="coban66 | KÊNH THỂ THAO" tvg-logo="https://i.imgur.com/ujS6mMo.png",Спортивный
 #EXTGRP:coban66 | KÊNH THỂ THAO
 http://live-3.otcnet.ru/sportivny/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-id="start" group-title="coban66 | KÊNH THỂ THAO" tvg-logo="https://i.imgur.com/VBqVkno.png",СТАРТ HD
+#EXTGRP:coban66 | KÊNH THỂ THAO
+http://iptv46.mcx-ix.ru:8077/start_hd/index.m3u8
 #EXTINF:-1 tvg-id="tochka-otryva" group-title="coban66 | KÊNH THỂ THAO" tvg-logo="https://i.imgur.com/TZiBQDK.png",Точка Отрыва
 #EXTGRP:coban66 | KÊNH THỂ THAO
 http://188.225.31.197/bpk-tv/000003208/tve/index.m3u8
@@ -9082,6 +9136,9 @@ http://iptv46.mcx-ix.ru:8077/sts-love/index.m3u8
 #EXTINF:-1 tvg-id="yu-pl4" group-title="vietngatv | KÊNH GIẢI TRÍ" tvg-logo="https://i.imgur.com/KDZvt0Q.png",Телеканал Ю
 #EXTGRP:vietngatv | KÊNH GIẢI TRÍ
 http://91.226.120.120/chid137/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-id="super" group-title="vietngatv | KÊNH GIẢI TRÍ" tvg-logo="https://i.imgur.com/nsk8PpB.png",СУББОТА
+#EXTGRP:vietngatv | KÊNH GIẢI TRÍ
+http://iptv46.mcx-ix.ru:8077/super/index.m3u8
 #EXTINF:-1 tvg-id="perec-int" tvg-logo="https://i.imgur.com/On6ggLe.png" group-title="vietngatv | KÊNH GIẢI TRÍ",Peretz International
 #EXTGRP:vietngatv | KÊNH GIẢI TRÍ
 http://cdn4.skygo.mn/live/disk1/Che/HLSv3-FTA/Che.m3u8
@@ -9160,6 +9217,12 @@ http://hls-tvsoyuz.cdnvideo.ru/tvsoyuz/soyuz/playlist.m3u8
 #EXTINF:-1 tvg-id="sibir24" group-title="vietngatv | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG" tvg-logo="https://i.imgur.com/WxU6QUB.png",Сибирь 24
 #EXTGRP:vietngatv | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG
 http://vgtrkregion-reg.cdnvideo.ru/vgtrk/krasnoyarsk/sibir24-hd/index.m3u8
+#EXTINF:-1 tvg-id="lot-47" group-title="vietngatv | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG" tvg-logo="https://i.imgur.com/d02uxkB.png",ЛЕНТВ 24 HD
+#EXTGRP:vietngatv | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG
+http://iptv46.mcx-ix.ru:8077/lot/index.m3u8
+#EXTINF:-1 tvg-id="moskva-24" group-title="vietngatv | KÊNH TIN TỨC" tvg-logo="https://epg.iptvx.one/picons/moskva-24.png",Москва 24
+#EXTGRP:vietngatv | KÊNH TIN TỨC
+http://iptv46.mcx-ix.ru:8077/moskva_24/index.m3u8
 #EXTINF:-1 tvg-id="doverie" group-title="vietngatv | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG" tvg-logo="https://i.imgur.com/QDqDQzt.png",Москва. Доверие
 #EXTGRP:vietngatv | KÊNH TRONG NƯỚC & ĐỊA PHƯƠNG
 http://iptv46.mcx-ix.ru:8077/russia-today/index.m3u8
@@ -9205,15 +9268,33 @@ http://tele2dvrnat01-02.cdnvideo.ru:80/stream/NAT_EKB1/hls/1024x576@2024/playlis
 #EXTINF:-1 tvg-id="1hd" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/4Ww7CsR.png",1HD Music Television
 #EXTGRP:vietngatv | KÊNH CA NHẠC
 http://188.225.31.197/bpk-tv/000001020/tve/index.m3u8
+#EXTINF:-1 tvg-id="aiva" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/Wt88mg6.png",AIVA HD
+#EXTGRP:vietngatv | KÊNH CA NHẠC
+http://iptv46.mcx-ix.ru:8077/aiva_hd/index.m3u8
+#EXTINF:-1 tvg-id="bridge-tv" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/qYObfrG.png",BRIDGE
+#EXTGRP:vietngatv | KÊNH CA NHẠC
+http://iptv46.mcx-ix.ru:8077/bridge-tv/video.m3u8
+#EXTINF:-1 tvg-id="bridge-tv-classic" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/JJTQq81.png",BRIDGE Classic
+#EXTGRP:vietngatv | KÊNH CA NHẠC
+http://iptv46.mcx-ix.ru:8077/topsong/video.m3u8
+#EXTINF:-1 tvg-id="bridge-hd" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/EazL8w7.png",BRIDGE Deluxe
+#EXTGRP:vietngatv | KÊNH CA NHẠC
+http://iptv46.mcx-ix.ru:8077/bridge_hd/video.m3u8
+#EXTINF:-1 tvg-id="bridge-tv-dance" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/sIW9oR4.png",BRIDGE HITS
+#EXTGRP:vietngatv | KÊNH CA NHẠC
+http://iptv46.mcx-ix.ru:8077/dange/index.m3u8
 #EXTINF:-1 tvg-id="bridge-tv-ruxit" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/f9xdIlN.png",BRIDGE Русский Хит
 #EXTGRP:vietngatv | KÊNH CA NHẠC
-http://193.25.8.59:8000/rusong
+http://iptv46.mcx-ix.ru:8077/rusong/video.m3u8
 #EXTINF:-1 tvg-id="bridge-tv-shlager" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/a9DXkMN.png",BRIDGE Шлягер
 #EXTGRP:vietngatv | KÊNH CA NHẠC
 http://193.25.8.59:8000/mtv
 #EXTINF:-1 tvg-id="europa-plus-tv" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/GLc4qrc.png",Europa Plus TV
 #EXTGRP:vietngatv | KÊNH CA NHẠC
 http://ad-hls-europaplus-ref.cdnvideo.ru/europaplus/eurptv2_site.smil/playlist.m3u8?zoid=srw2
+#EXTINF:-1 tvg-id="tnt-music" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://iptvx.one/picons/tnt-music.png",Fon Music
+#EXTGRP:vietngatv | KÊNH CA NHẠC
+http://iptv46.mcx-ix.ru:8077/tnt_music/index.m3u8
 #EXTINF:-1 tvg-id="maydan" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/C8CCjZK.png",Maidan
 #EXTGRP:vietngatv | KÊNH CA NHẠC
 http://live-maidantv.cdnvideo.ru/maidantv/maidantv.smil/playlist.m3u8
@@ -9223,6 +9304,9 @@ http://188.225.31.197/bpk-tv/000000030/tve/index.m3u8
 #EXTINF:-1 tvg-id="onemuz" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/YdyFJrl.png",Первый Музыкальный
 #EXTGRP:vietngatv | KÊNH CA NHẠC
 http://136.243.42.146/HLS/HD.m3u8
+#EXTINF:-1 tvg-id="la-minor" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.postimg.cc/YSqP0VfR/3F3F3F-Live-29.png",Музыка Live
+#EXTGRP:vietngatv | KÊNH CA NHẠC
+http://iptv46.mcx-ix.ru:8077/la-minor/index.m3u8
 #EXTINF:-1 tvg-id="muzyka-pervogo" group-title="vietngatv | KÊNH CA NHẠC" tvg-logo="https://i.imgur.com/U0vKj3P.png",Музыка первого
 #EXTGRP:vietngatv | KÊNH CA NHẠC
 http://188.225.31.197/bpk-tv/000000204/tve/index.m3u8
@@ -9252,7 +9336,7 @@ http://s1.tv-nano.com/Magnat_HD_5119705/video.m3u8
 http://live-uvelirochka.cdnvideo.ru/uvelirochka/uvelirochka_720p3/playlist.m3u8
 #EXTINF:-1 tvg-id="ani" group-title="vietngatv | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/i2AP0hp.png",Ani
 #EXTGRP:vietngatv | KÊNH THIẾU NHI
-http://185.46.16.239:8000/Ani
+http://iptv46.mcx-ix.ru:8077/ani/index.m3u8
 #EXTINF:-1 tvg-id="gulli-girl" group-title="vietngatv | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/lbViDuC.png",Gulli Girl
 #EXTGRP:vietngatv | KÊNH THIẾU NHI
 http://176.118.197.125/Gulli-Girl/index.m3u8
@@ -9276,7 +9360,7 @@ http://31.130.203.6:9781
 http://188.225.31.197/bpk-tv/000008003/tve/index.m3u8
 #EXTINF:-1 tvg-id="mama" group-title="vietngatv | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/kmMIjjf.png",Мама
 #EXTGRP:vietngatv | KÊNH THIẾU NHI
-http://178.218.204.217/1244/tracks-v1a1/mono.m3u8
+http://iptv46.mcx-ix.ru:8077/mama/index.m3u8
 #EXTINF:-1 tvg-id="mult" group-title="vietngatv | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/xi351Fx.png",Мульт HD
 #EXTGRP:vietngatv | KÊNH THIẾU NHI
 https://stream8.cinerama.uz/1246/tracks-v1a1/mono.m3u8
@@ -9292,12 +9376,18 @@ http://cdn4.skygo.mn/live/disk1/O_Int/HLSv3-FTA/O_Int.m3u8
 #EXTINF:-1 tvg-id="radost-moya" group-title="vietngatv | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/B5FA62o.png",Радость Моя
 #EXTGRP:vietngatv | KÊNH THIẾU NHI
 http://radm.mediacdn.ru/cdn/radost/playlist.m3u8
+#EXTINF:-1 tvg-id="ryzhy" group-title="vietngatv | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/acrU2IE.png",РЫЖИЙ
+#EXTGRP:vietngatv | KÊNH THIẾU NHI
+http://iptv46.mcx-ix.ru:8077/ryzhiy/index.m3u8
 #EXTINF:-1 tvg-id="solnce" group-title="vietngatv | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/rec9akk.png",Солнце
 #EXTGRP:vietngatv | KÊNH THIẾU NHI
 http://tv.mediacdn.ru/live/solntse/playlist_3000k.m3u8
+#EXTINF:-1 tvg-id="malysh" group-title="vietngatv | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/c0zZUR1.png",Супергерои
+#EXTGRP:vietngatv | KÊNH THIẾU NHI
+http://iptv46.mcx-ix.ru:8077/malish/index.m3u8
 #EXTINF:-1 tvg-id="sts-kids-hd" group-title="vietngatv | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/o9kLpAL.png",СТС Kids International
 #EXTGRP:vietngatv | KÊNH THIẾU NHI
-http://178.124.153.123:44400/stskids
+http://iptv46.mcx-ix.ru:8077/sts_kids/index.m3u8
 #EXTINF:-1 tvg-id="malysh" group-title="vietngatv | KÊNH THIẾU NHI" tvg-logo="https://i.imgur.com/c0zZUR1.png",СуперГерои
 #EXTGRP:vietngatv | KÊNH THIẾU NHI
 http://109.94.1.3:8080/132/index.m3u8
@@ -9478,6 +9568,9 @@ http://31.130.203.6:8477
 #EXTINF:-1 tvg-id="sov-kinklass" tvg-logo="https://i.postimg.cc/D038FdBy/Soviet.png" group-title="vietngatv | KÊNH PHIM TRUYỆN",Советская Киноклассика
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid276/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-id="russky-bestseller" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/w0ZE9QJ.png",Русский Бестселлер
+#EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
+http://iptv46.mcx-ix.ru:8077/rus-bestseller/index.m3u8
 #EXTINF:-1 tvg-id="russky-detektiv" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/H3qhN8S.png",Русский детектив
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid82/tracks-v1a1/mono.m3u8
@@ -9487,12 +9580,12 @@ http://91.226.120.120/chid81/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="russky-roman" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/cQN0P2B.png",Русский Роман
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://vod.tuva.ru/rusroman/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="teatr" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/nc2ijCH.png",Театр
-#EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
-http://193.25.8.59:8000/teatr
 #EXTINF:-1 tvg-id="tvxxi" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/YUVmPRa.png",ТВ 21
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid265/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-logo="https://i.imgur.com/NfnAiTR.png" tvg-id="365-dnej" group-title="vietngatv | KÊNH ĐẶC SẮC",365 дней ТВ
+#EXTGRP:vietngatv | KÊNH ĐẶC SẮC
+http://iptv46.mcx-ix.ru:8077/365_dnej/index.m3u8
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/Monoloshka/iptv/refs/heads/main/logo/mir-uvlecheniy.png" tvg-id="mir-uvlecheniy" group-title="vietngatv | KÊNH ĐẶC SẮC",#Ктокуда
 #EXTGRP:vietngatv | KÊNH ĐẶC SẮC
 http://188.225.31.197/bpk-tv/000001377/tve/index.m3u8
@@ -9508,9 +9601,9 @@ http://188.225.31.197/bpk-tv/000000332/tve/index.m3u8
 #EXTINF:-1 tvg-id="nano-tv" group-title="vietngatv | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/dYj3XDa.png",NANO
 #EXTGRP:vietngatv | KÊNH ĐẶC SẮC
 http://s1.tv-nano.com/Nano_rec/index.m3u8
-#EXTINF:-1 tvg-id="rtg-tv" group-title="vietngatv | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/ZMKPAho.png",RTG HD
+#EXTINF:-1 tvg-id="rtg-tv" group-title="vietngatv | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/ZMKPAho.png",RTG TV
 #EXTGRP:vietngatv | KÊNH ĐẶC SẮC
-http://193.25.8.59:8000/rtg
+http://iptv46.mcx-ix.ru:8077/rtg/index.m3u8
 #EXTINF:-1 tvg-id="terra-ru" group-title="vietngatv | KÊNH ĐẶC SẮC" tvg-logo="https://i.imgur.com/ZxUjCpF.png",TERRA
 #EXTGRP:vietngatv | KÊNH ĐẶC SẮC
 http://188.225.31.197/bpk-tv/000008142/tve/index.m3u8
@@ -9658,6 +9751,9 @@ http://188.225.31.197/bpk-tv/000008065/tve/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.imgur.com/KON0z08.png" tvg-id="zal-suda" group-title="vietngatv | KÊNH GIẢI TRÍ",Зал суда
 #EXTGRP:vietngatv | KÊNH GIẢI TRÍ
 http://188.225.31.197/bpk-tv/000006638/tve/index.m3u8
+#EXTINF:-1 tvg-logo="https://i.imgur.com/Vw3LFLX.png" tvg-id="kvn-tv" group-title="vietngatv | KÊNH GIẢI TRÍ",КВН ТВ
+#EXTGRP:vietngatv | KÊNH GIẢI TRÍ
+http://iptv46.mcx-ix.ru:8077/kvn_tv/index.m3u8
 #EXTINF:-1 tvg-id="lapki-live" group-title="vietngatv | KÊNH ĐẶC SẮC" tvg-logo="https://i.postimg.cc/QCH9MXH5/3F3F2829.png",Лапки Live
 #EXTGRP:vietngatv | KÊNH ĐẶC SẮC
 http://188.225.31.197/bpk-tv/000008551/tve/index.m3u8
@@ -9681,10 +9777,10 @@ http://cdn.ntv.ru/th_style/tracks-v1a1/mono.m3u8
 http://cdn3.skygo.mn/live/disk1/Pobeda/HLSv3-FTA/Pobeda.m3u8
 #EXTINF:-1 tvg-id="sarafan" tvg-logo="https://i.imgur.com/u4q1rMT.png" group-title="vietngatv | KÊNH GIẢI TRÍ",Сарафан
 #EXTGRP:vietngatv | KÊNH GIẢI TRÍ
-http://176.118.197.125/Sarafan/index.m3u8
-#EXTINF:-1 tvg-logo="https://i.imgur.com/nc2ijCH.png" group-title="vietngatv | KÊNH GIẢI TRÍ" tvg-id="teatr",Театр
+http://iptv46.mcx-ix.ru:8077/sarafan/index.m3u8
+#EXTINF:-1 tvg-id="teatr" group-title="vietngatv | KÊNH GIẢI TRÍ" tvg-logo="https://i.imgur.com/nc2ijCH.png",Театр
 #EXTGRP:vietngatv | KÊNH GIẢI TRÍ
-http://193.25.8.59:8000/teatr
+http://iptv46.mcx-ix.ru:8077/strk_hd/index.m3u8
 #EXTINF:-1 tvg-id="telekafe" group-title="vietngatv | KÊNH GIẢI TRÍ" tvg-logo="https://i.imgur.com/1H3h1HL.png",Телекафе
 #EXTGRP:vietngatv | KÊNH GIẢI TRÍ
 http://cdn4.skygo.mn/live/disk1/Telecafe/HLSv3-FTA/Telecafe.m3u8
@@ -9759,7 +9855,7 @@ https://dash.antik.sk/live/test_fightbox_medium_atk/playlist.m3u8
 http://91.226.120.120/chid55/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="kxl-hd" group-title="vietngatv | KÊNH THỂ THAO" tvg-logo="https://i.imgur.com/pwxT0ON.png",KHL Prime
 #EXTGRP:vietngatv | KÊNH THỂ THAO
-http://193.25.8.59:8000/khl
+http://iptv46.mcx-ix.ru:8077/khl_hd/index.m3u8
 #EXTINF:-1 tvg-id="m1global" group-title="vietngatv | KÊNH THỂ THAO" tvg-logo="https://i.imgur.com/QhdxNsB.png",MMA-TV.COM
 #EXTGRP:vietngatv | KÊNH THỂ THAO
 http://vod.splay.uz/live_splay/original/MMA-TV.comHD/tracks-v1a1/mono.m3u8
@@ -9804,10 +9900,16 @@ http://91.226.120.120/chid56/tracks-v1a1/mono.m3u8
 http://cdn4.skygo.mn/live/disk1/Match_Planeta/HLSv3-FTA/Match_Planeta.m3u8
 #EXTINF:-1 tvg-id="match-premier" group-title="vietngatv | KÊNH THỂ THAO" tvg-logo="https://i.imgur.com/GQPyHYK.png",Матч! Премьер
 #EXTGRP:vietngatv | KÊNH THỂ THAO
-http://89.232.68.194:8080/matchpremier/tracks-v3a1/index.m3u8
+http://iptv46.mcx-ix.ru:8077/nash-football/index.m3u8
+#EXTINF:-1 tvg-id="russky-ekstrim" group-title="vietngatv | KÊNH THỂ THAO" tvg-logo="https://i.imgur.com/hJK7mOW.png",Русский Экстрим
+#EXTGRP:vietngatv | KÊNH THỂ THAO
+http://91.226.120.120/chid44/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="sportivny" group-title="vietngatv | KÊNH THỂ THAO" tvg-logo="https://i.imgur.com/ujS6mMo.png",Спортивный
 #EXTGRP:vietngatv | KÊNH THỂ THAO
 http://live-3.otcnet.ru/sportivny/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-id="start" group-title="vietngatv | KÊNH THỂ THAO" tvg-logo="https://i.imgur.com/VBqVkno.png",СТАРТ HD
+#EXTGRP:vietngatv | KÊNH THỂ THAO
+http://iptv46.mcx-ix.ru:8077/start_hd/index.m3u8
 #EXTINF:-1 tvg-id="tochka-otryva" group-title="vietngatv | KÊNH THỂ THAO" tvg-logo="https://i.imgur.com/TZiBQDK.png",Точка Отрыва
 #EXTGRP:vietngatv | KÊNH THỂ THAO
 http://188.225.31.197/bpk-tv/000003208/tve/index.m3u8
