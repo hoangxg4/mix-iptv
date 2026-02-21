@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="https://lichphatsong.site/schedule/epg.xml,https://epg.catvod.com/epg.xml,http://gg.gg/coodertvepg,https://epg.pw/xmltv/epg_HK.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,http://lichphatsong.xyz/schedule/epg.xml,http://gg.gg/epgbeartv,https://live.fanmingming.com/e.xml,https://epg.pw/xmltv/epg_MY.xml,http://gg.gg/fptepg,https://vnepg.site/epg.xml.gz,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,http://gg.gg/guidevn,https://tvbvn.quanlehong539.workers.dev/xml,http://gg.gg/epgmytv,https://epg.pw/xmltv/epg_ID.xml,https://epg.946985.xyz/t.xml.gz,https://epg.pw/xmltv/epg_FR.xml,https://epg.pw/xmltv/epg_AU.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,http://trada.info/epg.xml,http://megavie.live/schedule/epg.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/singapore.xml,http://epg.51zmt.top:8000/e.xml,https://epg.aptv.app/pp.xml.gz,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://vnepg.site/epg.xml,https://iptvx.one/epg/epg.xml.gz,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://hnlive.dramahay.xyz/epg.xml"
+#EXTM3U x-tvg-url="http://trada.info/epg.xml,https://epg.pw/xmltv/epg_MY.xml,https://lichphatsong.site/schedule/epg.xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://vnepg.site/epg.xml.gz,https://epg.pw/xmltv/epg_HK.xml,https://epg.pw/xmltv/epg_AU.xml,https://hnlive.dramahay.xyz/epg.xml,https://epg.pw/xmltv/epg_FR.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://iptvx.one/epg/epg.xml.gz,https://epg.946985.xyz/t.xml.gz,http://gg.gg/coodertvepg,http://megavie.live/schedule/epg.xml,https://epg.catvod.com/epg.xml,http://gg.gg/epgbeartv,https://epg.aptv.app/pp.xml.gz,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,http://gg.gg/guidevn,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://epg.pw/xmltv/epg_ID.xml,http://lichphatsong.xyz/schedule/epg.xml,https://tvbvn.quanlehong539.workers.dev/xml,http://gg.gg/fptepg,http://gg.gg/epgmytv,https://live.fanmingming.com/e.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://raw.githubusercontent.com/AqFad2811/epg/main/singapore.xml,https://vnepg.site/epg.xml,http://epg.51zmt.top:8000/e.xml"
 #EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}",VTV1
 #EXTGRP:DAKLAKIPTV | VTV
 https://live-a.fptplay53.net/live/media/VTV1HD/live_hls_avc/index.m3u8
@@ -4813,16 +4813,16 @@ https://audio-lss.vov.vn/han/live/vov24_7/audio/manifest.m3u8
 https://stream.vovmedia.vn/vov6
 #EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VOV" tvg-logo="https://i.imgur.com/OIzhtBi.png" radio="true",VOV GT HANOI
 #EXTGRP:DAKLAKIPTV_RadioVietNam | VOV
-https://stream.vovmedia.vn/vovgt-hn
+https://play.vovgiaothong.vn/live/gthn/playlist.m3u8
 #EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VOV" tvg-logo="https://i.imgur.com/OIzhtBi.png" radio="true",VOV GT HCMC
 #EXTGRP:DAKLAKIPTV_RadioVietNam | VOV
-https://stream.vovmedia.vn/vovgt-hcm
+https://play.vovgiaothong.vn/live/gthcm/playlist.m3u8
 #EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VOV" tvg-id="vovgtmekong" tvg-logo="https://cdn.hqth.me/logo/thumbs/245.png", VOV GT MEKONG
 #EXTGRP:DAKLAKIPTV_RadioVietNam | VOV
-https://stream.vovmedia.vn/vovmekong
+https://play.vovgiaothong.vn/live/mekong/playlist.m3u8
 #EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | VOV" tvg-id="vovgtduyenhai" radio=true tvg-logo="https://byvn.net/vovgtduyenhai", VOV GT DUYEN HAI
 #EXTGRP:DAKLAKIPTV_RadioVietNam | VOV
-https://stream.vovmedia.vn/gtduyenhai
+https://play.vovgiaothong.vn/live/duyenhai/playlist.m3u8
 #EXTINF:-1 group-title="DAKLAKIPTV_RadioVietNam | TV AUDIO" radio=true tvg-id="vtv1hd" tvg-logo="https://images.fptplay53.net/media/channels/icon_channel_vtv1-hd_165657381026.png", VTV1 AUDIO
 #EXTGRP:DAKLAKIPTV_RadioVietNam | TV AUDIO
 https://live.fptplay53.net/fnxch2/vtv1hd_abr.smil/chunklist.m3u8
@@ -4946,7 +4946,7 @@ https://tv.ctvcamau.vn/live/radio/radio.m3u8
 #EXTINF:-1 tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/5/0/8/f/508fb88137284723e67c83b9c9fede28.jpg" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", ZingRadio 1 - Vpop
 #EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://multi-playlist-zmp3.zmdcdn.me/odi6UBatld4/zhls/playback-realtime/6ddadf76e3330a6d5322/index.m3u8
-#EXTINF:-1 tvg-logo="https://photo-zmp3.zmdcdn.me/avatars/7/7/8/d/778d152062edfbe0e4c4abf151858bf0.jpg" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", ZingRadio 2 - Chạm FM
+#EXTINF:-1 tvg-logo="https://photo-zmp3.zmdcdn.me/avatars/7/7/8/d/778d152062edfbe0e4c4abf151858bf0.jpg" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", ZingRadio 2 - Cham FM
 #EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://multi-playlist-zmp3.zmdcdn.me/eHjZAdAk-sk/zhls/playback-realtime/59a2ee0ed24b3b15625a/index.m3u8
 #EXTINF:-1 tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/e/1/8/8/e1887a2c79f9d3d04984905cbf443a29.jpg" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", ZingRadio 3 - Kpop
@@ -4967,7 +4967,7 @@ https://multi-playlist-zmp3.zmdcdn.me/AiekixzmitQ/zhls/playback-realtime/9b7b55d
 #EXTINF:-1 tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/d/6/7/4/d6746d1bbff609111133449abb9e622b.jpg" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", ZingRadio 8 - Bolero
 #EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://multi-playlist-zmp3.zmdcdn.me/ioZs7yhxUxk/zhls/playback-realtime/5bace800d4453d1b6454/index.m3u8
-#EXTINF:-1 tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/0/c/2/e/0c2ee7cb5ef72b5db673341864312a2a.jpg" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", ZingRadio 9 - Rap Việt
+#EXTINF:-1 tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/0/c/2/e/0c2ee7cb5ef72b5db673341864312a2a.jpg" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", ZingRadio 9 - Rap Viet
 #EXTGRP:DAKLAKIPTV_RadioVietNam | Ungrouped
 https://multi-playlist-zmp3.zmdcdn.me/XHOosOJ-f8g/zhls/playback-realtime/cef1015d3d18d4468d09/index.m3u8
 #EXTINF:-1 tvg-logo="https://photo-resize-zmp3.zmdcdn.me/w165_r1x1_jpeg/cover/9/5/5/b/955b98868b8b29e1e782fc0913d857d2.jpg" group-title="DAKLAKIPTV_RadioVietNam | Ungrouped", ZingRadio 10 - Indie
@@ -5184,6 +5184,7 @@ https://rumble.com/hls-vod/73s4u6/playlist.m3u8
 https://rumble.com/hls-vod/73txdq/playlist.m3u8
 #EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo="https://images.fptplay53.net/media/OTT/VOD/2026/02/11/hung-long-phong-ba-4-fpt-play-1770804850859_Landscape.jpg", Hùng Long Phong Bá Phần 4 - Tập Cuối
 #EXTGRP:vmttv | LIVE EVENTS 🔴
+https://rumble.com/hls-vod/73vrdu/playlist.m3u8
 #EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo="https://images.fptplay53.net/media/OTT/VOD/2026/01/12/dua-con-cua-than-tuong-phan-3-fpt-play-1768204408459_Background_origin.jpg", Oshi No Ko Phần 3 - Tập 1
 #EXTGRP:vmttv | LIVE EVENTS 🔴
 https://rumble.com/hls-vod/72av32/playlist.m3u8
@@ -5196,6 +5197,9 @@ https://rumble.com/hls-vod/73bg84/playlist.m3u8
 #EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo="https://images.fptplay53.net/media/OTT/VOD/2026/01/12/dua-con-cua-than-tuong-phan-3-fpt-play-1768204408459_Background_origin.jpg", Oshi No Ko Phần 3 - Tập 4
 #EXTGRP:vmttv | LIVE EVENTS 🔴
 https://rumble.com/hls-vod/73gpe4/playlist.m3u8
+#EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo="https://images.fptplay53.net/media/OTT/VOD/2026/01/12/dua-con-cua-than-tuong-phan-3-fpt-play-1768204408459_Background_origin.jpg", Oshi No Ko Phần 3 - Tập 5
+#EXTGRP:vmttv | LIVE EVENTS 🔴
+https://rumble.com/hls-vod/73uq6q/playlist.m3u8
 #EXTINF:-1 tvg-id="tv360plus9" group-title="vmttv | Sự Kiện TV360" tvg-logo="https://img-ali1.tv360.vn/image1/2024/09/30/22/1727709197325/1be646ba55c5_640_360.png", TV360+9
 #EXTGRP:vmttv | Sự Kiện TV360
 https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/tv360-9/KenhCoBan.m3u8
@@ -5214,6 +5218,8 @@ https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/tv360.live/KenhCoBan.m3u8
 #EXTINF:-1 tvg-id="tv360phimviet" group-title="vmttv | Rạp Phim" tvg-logo="https://img-ali1.tv360.vn/image1/2025/12/31/18/1767180734794/7cda83f18b5d_640_360.png", Phim Việt
 #EXTGRP:vmttv | Rạp Phim
 https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/phim-viet/KenhCoBan.m3u8
+#EXTINF:-1 tvg-id="tv360aumy" group-title="vmttv | Rạp Phim" tvg-logo="https://img-ali1.tv360.vn/image1/2025/03/24/23/1742835081398/4e6776be1efd_640_360.png", Phim Âu Mỹ
+#EXTGRP:vmttv | Rạp Phim
 #EXTINF:-1 tvg-id="vtv1hd" group-title="vmttv | VTV" tvg-logo="https://i.ytimg.com/vi/dGohEWXz7Sk/maxresdefault.jpg" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}, VTV1
 #EXTGRP:vmttv | VTV
 https://freem3u.xyz/api/live/play.m3u8?vid=2
@@ -10241,7 +10247,7 @@ https://HaNoiIPTV.short.gy/HaNoiIPTV-FM96-Thoi_su_Ha_Noi
 #EXTINF:-1  tvg-id="hanoi90" tvg-link="http://14.162.146.90:8000/HANOI90 và https://cloudcdnfm90.tek4tv.vn/HANOI90/stream.m3u8 và https://cloudstreamhntv.tek4tv.vn/audio/fm90/chunklist_w721090887.m3u8" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-link="https://cecex9g5cpliv.vcdn.cloud/audio/fm90/chunklist_w1787246294.m3u8" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/FM90%20Mhz%20%E2%80%A2%20TIN%20T%E1%BB%A8C%20GIAO%20TH%C3%94NG.png",FM90 • TIN TỨC & GIAO THÔNG HÀ NỘI
 #EXTGRP:HaNoilPTV | KÊNH ĐẶC SẮC
 https://HaNoiIPTV.short.gy/HaNoiIPTV-FM90-Tin_tuc_va_Giao_thong_Ha_Noi
-#EXTINF:-1  tvg-id="haiphong937" tvg-name="FM92.7 • TIN TỨC HƯNG YÊN & VĂN HÓA - DÂN SINH" tvg-link="http://stream.truyenthanhso.com:3001/805bfb93c77345acbfff6ebf72399724 và http://icecast.vov.link:8000/24D7EBA6121C và http://stream.radiotech.vn:3000/863462063242745 và http://stream.truyenthanhso.com:3001/1720066687417 và http://stream.truyenthanhso.com:3001/863462068424728" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/H%C2%B2M%20TV%20-%20H%E1%BB%87%20th%E1%BB%91ng%20c%C3%A1c%20k%C3%AAnh%20H%C3%A0%20N%E1%BB%99i%20IPTV/H%C2%B2M%20TV%20logo%20T%E1%BA%BFt.png",CHƯƠNG TRÌNH PHÁT THANH ĐẶC BIỆT MỪNG XUÂN BÍNH NGỌ 2026
+#EXTINF:-1  tvg-id="ninhbinhradio" tvg-name="FM92.7 • TIN TỨC HƯNG YÊN & VĂN HÓA - DÂN SINH" tvg-link="http://stream.truyenthanhso.com:3001/805bfb93c77345acbfff6ebf72399724 và http://icecast.vov.link:8000/24D7EBA6121C và http://stream.radiotech.vn:3000/863462063242745 và http://stream.truyenthanhso.com:3001/1720066687417 và http://stream.truyenthanhso.com:3001/863462068424728" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/H%C2%B2M%20TV%20-%20H%E1%BB%87%20th%E1%BB%91ng%20c%C3%A1c%20k%C3%AAnh%20H%C3%A0%20N%E1%BB%99i%20IPTV/H%C2%B2M%20TV%20logo%20T%E1%BA%BFt.png",CHƯƠNG TRÌNH PHÁT THANH ĐẶC BIỆT MỪNG XUÂN BÍNH NGỌ 2026
 #EXTGRP:HaNoilPTV | KÊNH ĐẶC SẮC
 https://HaNoiIPTV.short.gy/HaNoiIPTVPlus-NBTV-Phat_thanh_Ninh_Binh
 #EXTINF:-1  tvg-id="haiphong937" tvg-link="https://HaNoiIPTV.short.gy/HaNoiIPTV-TV_Globo_HD" group-title="HaNoilPTV | KÊNH VOV" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Logo%20kh%C3%A1c/THP%20-%20Truy%E1%BB%81n%20h%C3%ACnh%20H%E1%BA%A3i%20Ph%C3%B2ng%20HD/THP%20-%20Ph%C3%A1t%20thanh%20H%E1%BA%A3i%20Ph%C3%B2ng.png",FM 93.7 • THP CHÍNH TRỊ - TỔNG HỢP
@@ -11843,7 +11849,7 @@ https://live.fptplay53.net/fnxhd1/vtv5tnb_vhls.smil/chunklist_b5000000.m3u8
 https://live.fptplay53.net/fnxhd1/vtv5taynguyen_vhls.smil/chunklist_b5000000.m3u8
 #EXTINF:-1 tvg-logo="https://vn.xemtv.net/image/vtvcantho.png" group-title="aioiptv | XemTV",VTV Cần Thơ
 #EXTGRP:aioiptv | XemTV
-https://live.fptplay53.net/fnxhd1/vtvcantho_vhls.smil/chunklist_b5000000.m3u8
+https://live.fptplay53.net/fnxch2/vtvcantho_abr.smil/chunklist_b4200000.m3u8
 #EXTINF:-1 tvg-logo="https://vn.xemtv.net/image/vtv7.png" group-title="aioiptv | XemTV",VTV7
 #EXTGRP:aioiptv | XemTV
 https://live.fptplay53.net/fnxhd1/vtv7hd_vhls.smil/chunklist_b5000000.m3u8
@@ -11852,7 +11858,7 @@ https://live.fptplay53.net/fnxhd1/vtv7hd_vhls.smil/chunklist_b5000000.m3u8
 https://live.fptplay53.net/epzhd1/vtv8hd_vhls.smil/chunklist.m3u8
 #EXTINF:-1 tvg-logo="https://vn.xemtv.net/image/vtv9.png" group-title="aioiptv | XemTV",VTV9
 #EXTGRP:aioiptv | XemTV
-https://liveh12.vtvprime.vn/hls/VTV9_HD/index.m3u8
+https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/vtv9-hd/KenhCoBan.m3u8
 #EXTINF:-1 tvg-logo="https://vn.xemtv.net/image/vietnamtoday.png" group-title="aioiptv | XemTV",Vietnam Today
 #EXTGRP:aioiptv | XemTV
 https://live.fptplay53.net/fnxhd1/vntoday_vhls.smil/chunklist_b5000000.m3u8
@@ -11889,6 +11895,62 @@ https://live.fptplay53.net/epzhd2/vinhlong3_vhls.smil/chunklist_b5000000.m3u8
 #EXTINF:-1 tvg-logo="https://vn.xemtv.net/image/vinhlong4.png" group-title="aioiptv | XemTV",THVL4 HD
 #EXTGRP:aioiptv | XemTV
 https://live.fptplay53.net/epzhd2/vinhlong4hd_vhls.smil/chunklist.m3u8
+#EXTINF:-1 group-title="aioiptv | ⚽| Thể thao quốc tế" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/eb/Canal%2BFoot.png", Canal+ Foot
+#EXTGRP:aioiptv | ⚽| Thể thao quốc tế
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1071923&extension=ts&play_token=vcQAIeKouv
+#EXTINF:-1 group-title="aioiptv | ⚽| Thể thao quốc tế" tvg-logo="https://s1.dmcdn.net/v/JjNMw1Z-Js5kwK7KN/x720", CANAL+ LIVE 1
+#EXTGRP:aioiptv | ⚽| Thể thao quốc tế
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1122056&extension=ts&play_token=223GgKAnFY
+#EXTINF:-1 group-title="aioiptv | ⚽| Thể thao quốc tế" tvg-logo="https://s1.dmcdn.net/v/JjNMw1Z-Js5kwK7KN/x720", CANAL+ LIVE 2
+#EXTGRP:aioiptv | ⚽| Thể thao quốc tế
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1122022&extension=ts&play_token=iSj2dolRme
+#EXTINF:-1 group-title="aioiptv | ⚽| Thể thao quốc tế" tvg-logo="https://s1.dmcdn.net/v/JjNMw1Z-Js5kwK7KN/x720", CANAL+ LIVE 3
+#EXTGRP:aioiptv | ⚽| Thể thao quốc tế
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1122024&extension=ts&play_token=CybqwfSLOa
+#EXTINF:-1 group-title="aioiptv | ⚽| Thể thao quốc tế" tvg-logo="https://s1.dmcdn.net/v/JjNMw1Z-Js5kwK7KN/x720", CANAL+ LIVE 4
+#EXTGRP:aioiptv | ⚽| Thể thao quốc tế
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1122939&extension=ts&play_token=HIEGNfDnjh
+#EXTINF:-1 group-title="aioiptv | ⚽| Thể thao quốc tế" tvg-logo="https://s1.dmcdn.net/v/JjNMw1Z-Js5kwK7KN/x720", CANAL+ LIVE 5
+#EXTGRP:aioiptv | ⚽| Thể thao quốc tế
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1122028&extension=ts&play_token=kFra0tQEzm
+#EXTINF:-1 group-title="aioiptv | ⚽| Thể thao quốc tế" tvg-logo="https://s1.dmcdn.net/v/JjNMw1Z-Js5kwK7KN/x720", CANAL+ LIVE 6
+#EXTGRP:aioiptv | ⚽| Thể thao quốc tế
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1122030&extension=ts&play_token=JO8O3NwIu3
+#EXTINF:-1 group-title="aioiptv | ⚽| Thể thao quốc tế" tvg-logo="https://s1.dmcdn.net/v/JjNMw1Z-Js5kwK7KN/x720", CANAL+ LIVE 7
+#EXTGRP:aioiptv | ⚽| Thể thao quốc tế
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1122032&extension=ts&play_token=v6BlP5EabS
+#EXTINF:-1 group-title="aioiptv | ⚽| Thể thao quốc tế" tvg-logo="https://s1.dmcdn.net/v/JjNMw1Z-Js5kwK7KN/x720", CANAL+ LIVE 8
+#EXTGRP:aioiptv | ⚽| Thể thao quốc tế
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1122034&extension=ts&play_token=x6iYHVWSH9
+#EXTINF:-1 group-title="aioiptv | ⚽| Thể thao quốc tế" tvg-logo="https://s1.dmcdn.net/v/JjNMw1Z-Js5kwK7KN/x720", CANAL+ LIVE 9
+#EXTGRP:aioiptv | ⚽| Thể thao quốc tế
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1122036&extension=ts&play_token=kuZ8wahbOG
+#EXTINF:-1 group-title="aioiptv | ⚽| Thể thao quốc tế" tvg-logo="https://s1.dmcdn.net/v/JjNMw1Z-Js5kwK7KN/x720", CANAL+ LIVE 10
+#EXTGRP:aioiptv | ⚽| Thể thao quốc tế
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1122038&extension=ts&play_token=Pop6uUQR3I
+#EXTINF:-1 group-title="aioiptv | ⚽| Thể thao quốc tế" tvg-logo="https://s1.dmcdn.net/v/JjNMw1Z-Js5kwK7KN/x720", CANAL+ LIVE 11
+#EXTGRP:aioiptv | ⚽| Thể thao quốc tế
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1122040&extension=ts&play_token=hTZeyPAfkN
+#EXTINF:-1 group-title="aioiptv | ⚽| Thể thao quốc tế" tvg-logo="https://cdn.livesoccertv.com/images/channels/thumbnails/canalplus-live-12.png", CANAL+ LIVE 12
+#EXTGRP:aioiptv | ⚽| Thể thao quốc tế
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1122042&extension=ts&play_token=1MtcjI5wmF
+#EXTINF:-1 group-title="aioiptv | ⚽| Thể thao quốc tế" tvg-logo="https://cdn.livesoccertv.com/images/channels/thumbnails/canalplus-live-13.png", CANAL+ LIVE 13
+#EXTGRP:aioiptv | ⚽| Thể thao quốc tế
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1122044&extension=ts&play_token=g168GcxJY4
+#EXTINF:-1 group-title="aioiptv | ⚽| Thể thao quốc tế" tvg-logo="https://cdn.livesoccertv.com/images/channels/thumbnails/canalplus-live-14.png", CANAL+ LIVE 14
+#EXTGRP:aioiptv | ⚽| Thể thao quốc tế
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1122046&extension=ts&play_token=ehR6K7NzS8
+#EXTINF:-1 group-title="aioiptv | ⚽| Thể thao quốc tế" tvg-logo="https://cdn.livesoccertv.com/images/channels/thumbnails/canalplus-live-15.png", CANAL+ LIVE 15
+#EXTGRP:aioiptv | ⚽| Thể thao quốc tế
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1122048&extension=ts&play_token=jR2N0mt5SZ
+#EXTINF:-1 group-title="aioiptv | ⚽| Thể thao quốc tế" tvg-logo="https://cdn.livesoccertv.com/images/channels/thumbnails/canalplus-live-16.png", CANAL+ LIVE 16
+#EXTGRP:aioiptv | ⚽| Thể thao quốc tế
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1122050&extension=ts&play_token=pgbrtZxiUM
+#EXTINF:-1 group-title="aioiptv | ⚽| Thể thao quốc tế" tvg-logo="https://cdn.livesoccertv.com/images/channels/thumbnails/canalplus-live-17.png", CANAL+ LIVE 17
+#EXTGRP:aioiptv | ⚽| Thể thao quốc tế
+http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1122052&extension=ts&play_token=o7h6R125hi
+#EXTINF:-1 group-title="aioiptv | ⚽| Thể thao quốc tế" tvg-logo="https://cdn.livesoccertv.com/images/channels/thumbnails/canalplus-live-18.png", CANAL+ LIVE 18
+#EXTGRP:aioiptv | ⚽| Thể thao quốc tế
 #EXTINF:-1 tvg-logo="https://vn.xemtv.net/image/hanoi1.png" group-title="aioiptv | XemTV",Hà Nội 1
 #EXTGRP:aioiptv | XemTV
 https://live.fptplay53.net/fnxhd2/hanoitv1_hls.smil/chunklist.m3u8
