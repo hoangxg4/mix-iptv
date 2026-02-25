@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://epg.pw/xmltv/epg_HK.xml,https://vnepg.site/epg.xml,http://gg.gg/epgbeartv,https://vnepg.site/epg.xml.gz,https://epg.catvod.com/epg.xml,https://epg.pw/xmltv/epg_MY.xml,http://lichphatsong.xyz/schedule/epg.xml,https://iptvx.one/epg/epg.xml.gz,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,http://epg.51zmt.top:8000/e.xml,http://gg.gg/fptepg,https://epg.946985.xyz/t.xml.gz,https://epg.pw/xmltv/epg_AU.xml,https://epg.pw/xmltv/epg_FR.xml,https://hnlive.dramahay.xyz/epg.xml,https://epg.aptv.app/pp.xml.gz,http://gg.gg/guidevn,http://gg.gg/epgmytv,http://gg.gg/coodertvepg,https://tvbvn.quanlehong539.workers.dev/xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://epg.pw/xmltv/epg_ID.xml,https://live.fanmingming.com/e.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://lichphatsong.site/schedule/epg.xml,http://trada.info/epg.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,http://megavie.live/schedule/epg.xml"
+#EXTM3U x-tvg-url="https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://live.fanmingming.com/e.xml,https://epg.pw/xmltv/epg_MY.xml,http://gg.gg/epgmytv,http://trada.info/epg.xml,https://tvbvn.quanlehong539.workers.dev/xml,https://epg.946985.xyz/t.xml.gz,https://vnepg.site/epg.xml,https://lichphatsong.site/schedule/epg.xml,https://epg.aptv.app/pp.xml.gz,http://gg.gg/epgbeartv,https://epg.pw/xmltv/epg_FR.xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://vnepg.site/epg.xml.gz,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://epg.pw/xmltv/epg_ID.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,http://megavie.live/schedule/epg.xml,https://epg.pw/xmltv/epg_HK.xml,https://epg.pw/xmltv/epg_AU.xml,http://epg.51zmt.top:8000/e.xml,https://iptvx.one/epg/epg.xml.gz,http://gg.gg/fptepg,https://epg.catvod.com/epg.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,http://lichphatsong.xyz/schedule/epg.xml,https://hnlive.dramahay.xyz/epg.xml,http://gg.gg/coodertvepg,http://gg.gg/guidevn"
 #EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}",VTV1
 #EXTGRP:DAKLAKIPTV | VTV
 https://live-a.fptplay53.net/live/media/VTV1HD/live_hls_avc/index.m3u8
@@ -5017,7 +5017,6 @@ http://myxpanel.pro:80/Martin/Martin/709374
 http://myxpanel.pro:80/Martin/Martin/276893
 #EXTINF:-1 group-title="vmttv | THỂ THAO QUỐC TẾ" tvg-id="tnt5" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/tntsport5.png",TNT Sports 5 4Mbps for 4G
 #EXTGRP:vmttv | THỂ THAO QUỐC TẾ
-https://starshare.cx:443/live/P4B9TB9xR8/humongous2tonight/186631.ts
 #EXTINF:-1 group-title="vmttv | ⚽| Thể thao quốc tế" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/eb/Canal%2BFoot.png", Canal+ Foot
 #EXTGRP:vmttv | ⚽| Thể thao quốc tế
 http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1071923&extension=ts&play_token=vcQAIeKouv
@@ -5168,7 +5167,7 @@ https://rumble.com/hls-vod/73txdq/playlist.m3u8
 #EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo="https://images.fptplay53.net/media/OTT/VOD/2026/02/11/hung-long-phong-ba-4-fpt-play-1770804850859_Landscape.jpg", Hùng Long Phong Bá Phần 4 - Tập Cuối
 #EXTGRP:vmttv | LIVE EVENTS 🔴
 https://rumble.com/hls-vod/73vrdu/playlist.m3u8
-#EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo="
+#EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/Th%E1%BA%BF%20H%E1%BB%87%20K%E1%BB%B3%20T%C3%ADch.jpg"
 #EXTGRP:vmttv | LIVE EVENTS 🔴
 #EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo="https://images.fptplay53.net/media/OTT/VOD/2026/01/12/dua-con-cua-than-tuong-phan-3-fpt-play-1768204408459_Background_origin.jpg", Oshi No Ko Phần 3 - Tập 1
 #EXTGRP:vmttv | LIVE EVENTS 🔴
@@ -5206,12 +5205,8 @@ https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/phim-viet/KenhCoBan.m3u8
 #EXTINF:-1 tvg-id="tv360aumy" group-title="vmttv | Rạp Phim" tvg-logo="https://img-ali1.tv360.vn/image1/2025/03/24/23/1742835081398/4e6776be1efd_640_360.png", Phim Âu Mỹ
 #EXTGRP:vmttv | Rạp Phim
 https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/phim-au-my/KenhCoBan.m3u8
-#EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/02/21/slider_1771647425192.jpg", Sự Kiện 3
-#EXTGRP:vmttv | Sự Kiện FPT PLAY
-https://live.fptplay53.net/live/media/su-kien-03/hls_avc_v6/index.m3u8
-#EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/02/22/slider_1771773932094.jpg", Sự Kiện 4
-#EXTGRP:vmttv | Sự Kiện FPT PLAY
-https://live.fptplay53.net/live/media/su-kien-04/hls_avc_v6/index.m3u8
+#EXTINF:-1 group-title="vmttv | Ungrouped"
+#EXTGRP:vmttv | Ungrouped
 #EXTINF:-1 tvg-id="vtv1hd" group-title="vmttv | VTV" tvg-logo="https://i.ytimg.com/vi/dGohEWXz7Sk/maxresdefault.jpg" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}, VTV1
 #EXTGRP:vmttv | VTV
 https://freem3u.xyz/api/live/play.m3u8?vid=2
@@ -5394,8 +5389,8 @@ https://freem3u.xyz/api/live/play.m3u8?vid=192
 #EXTINF:-1 tvg-id="htvkey" group-title="vmttv | HTV" tvg-logo="https://s7771.cdn.mytvnet.vn/vimages/2a/a0/00/07/7b/b1/2a007-phtvkeyhd-channel-unkn.png" catchup="append" catchup-days="2" catchup-source="https://api.vthanhtivi.pw/v1/dvr/vieon/htv-key/${start}/${offset}", HTV Key - Đài PTTH Thành Phố Hồ Chí Minh
 #EXTGRP:vmttv | HTV
 https://freem3u.xyz/api/live/play.m3u8?vid=9
-#EXTINF:-1 tvg-id="anvienhd" group-title="
-#EXTGRP:vmttv | Ungrouped
+#EXTINF:-1 tvg-id="anvienhd" group-title="vmttv | HTV"
+#EXTGRP:vmttv | HTV
 #EXTINF:-1 tvg-id="htv7hd" group-title="vmttv | HTV" tvg-logo="https://img-zlr1.tv360.vn/image1/2020_09_23/1600822381421/47d2615f6141_640_360.png" catchup="append" catchup-days="2" catchup-source="https://tshift.fptplay.net/dvr/htv7hd_1000.stream/chunks_dvr_range-${start}-${offset}.m3u8", HTV7 - Đài PTTH Thành Phố Hồ Chí Minh
 #EXTGRP:vmttv | HTV
 https://vc.101vn.com/htv/htvcmb.php?id=256
