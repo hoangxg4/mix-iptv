@@ -8,4 +8,5 @@ vietngatv,https://vietngatv.short.gy/vietngatv
 HaNoilPTV,https://hanoiiptv.short.gy/HaNoiIPTV
 quidntv,https://bit.ly/quidntv
 aioiptv,https://github.com/giangnam0201/All-In-One-IPTV/raw/refs/heads/main/channels.m3u
+easport,https://livesport.io.vn/easport
 synthetic_iptv,https://github.com/hung319/cloudstream-ext/raw/refs/heads/iptv/playlist.m3u8
