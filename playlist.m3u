@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="http://gg.gg/epgmytv,https://hnlive.dramahay.xyz/epg.xml,https://epg.catvod.com/epg.xml,http://epg.one/epg.xml,https://epg.pw/xmltv/epg_FR.xml,https://lichphatsong.site/schedule/epg.xml,https://epg.946985.xyz/t.xml.gz,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://live.fanmingming.com/e.xml,https://epg.pw/xmltv/epg_ID.xml,http://gg.gg/guidevn,https://a.rawtv.top/epg-vn,http://trada.info/epg.xml,https://tvbvn.quanlehong539.workers.dev/xml,https://epg.aptv.app/pp.xml.gz,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://vnepg.site/epg.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,http://gg.gg/fptepg,http://gg.gg/coodertvepg,https://epg.pw/xmltv/epg_HK.xml,https://vnepg.site/epg.xml.gz,https://epg.pw/xmltv/epg_AU.xml,http://lichphatsong.xyz/schedule/epg.xml,https://epg.pw/xmltv/epg_MY.xml,http://megavie.live/schedule/epg.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,http://gg.gg/epgbeartv,http://epg.51zmt.top:8000/e.xml"
+#EXTM3U x-tvg-url="https://epg.catvod.com/epg.xml,http://gg.gg/fptepg,https://epg.pw/xmltv/epg_FR.xml,https://epg.946985.xyz/t.xml.gz,https://live.fanmingming.com/e.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://epg.aptv.app/pp.xml.gz,https://tvbvn.quanlehong539.workers.dev/xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,http://gg.gg/guidevn,https://epg.pw/xmltv/epg_MY.xml,http://gg.gg/epgmytv,http://epg.one/epg.xml,http://megavie.live/schedule/epg.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://epg.pw/xmltv/epg_AU.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,http://trada.info/epg.xml,http://epg.51zmt.top:8000/e.xml,https://lichphatsong.site/schedule/epg.xml,https://vnepg.site/epg.xml,http://lichphatsong.xyz/schedule/epg.xml,https://vnepg.site/epg.xml.gz,https://epg.pw/xmltv/epg_ID.xml,https://hnlive.dramahay.xyz/epg.xml,https://epg.pw/xmltv/epg_HK.xml,https://a.rawtv.top/epg-vn,http://gg.gg/epgbeartv,http://gg.gg/coodertvepg"
 #EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}",VTV1
 #EXTGRP:DAKLAKIPTV | VTV
 https://live-a.fptplay53.net/live/media/VTV1HD/live_hls_avc/index.m3u8
@@ -5173,6 +5173,7 @@ https://rumble.com/hls-vod/73vrdu/playlist.m3u8
 https://rumble.com/hls-vod/745t9a/playlist.m3u8
 #EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo="https://thegioidienanh.vn/stores/news_dataimages/2025/092025/14/13/in_social/tay-anh-giu-mot-vi-sao-payoff-poster-social-khoi-chieu-0310202520250914134014.jpg", Tay Anh Giữ Một Vì Sao
 #EXTGRP:vmttv | LIVE EVENTS 🔴
+https://vip.opstream90.com/20260102/21538_3a9ba451/3000k/hls/mixed.m3u8
 #EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo="https://images.fptplay53.net/media/OTT/VOD/2026/01/12/dua-con-cua-than-tuong-phan-3-fpt-play-1768204408459_Background_origin.jpg", Oshi No Ko Phần 3 - Tập 1
 #EXTGRP:vmttv | LIVE EVENTS 🔴
 https://rumble.com/hls-vod/72av32/playlist.m3u8
@@ -5191,6 +5192,9 @@ https://rumble.com/hls-vod/73uq6q/playlist.m3u8
 #EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo="https://images.fptplay53.net/media/OTT/VOD/2026/01/12/dua-con-cua-than-tuong-phan-3-fpt-play-1768204408459_Background_origin.jpg", Oshi No Ko Phần 3 - Tập 6
 #EXTGRP:vmttv | LIVE EVENTS 🔴
 https://vip.opstream90.com/20260219/25424_5534491f/3000k/hls/mixed.m3u8
+#EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo="https://images.fptplay53.net/media/OTT/VOD/2026/01/12/dua-con-cua-than-tuong-phan-3-fpt-play-1768204408459_Background_origin.jpg", Oshi No Ko Phần 3 - Tập 7
+#EXTGRP:vmttv | LIVE EVENTS 🔴
+https://rumble.com/hls-vod/74da00/playlist.m3u8
 #EXTINF:-1 tvg-id="tv360plus9" group-title="vmttv | Sự Kiện TV360" tvg-logo="https://img-ali1.tv360.vn/image1/2024/09/30/22/1727709197325/1be646ba55c5_640_360.png", TV360+9
 #EXTGRP:vmttv | Sự Kiện TV360
 https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/tv360-9/KenhCoBan.m3u8
@@ -5212,7 +5216,7 @@ https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/phim-viet/KenhCoBan.m3u8
 #EXTINF:-1 tvg-id="tv360aumy" group-title="vmttv | Rạp Phim" tvg-logo="https://img-ali1.tv360.vn/image1/2025/03/24/23/1742835081398/4e6776be1efd_640_360.png", Phim Âu Mỹ
 #EXTGRP:vmttv | Rạp Phim
 https://toiyeuvietnam.dpdns.org/TuyetDoiKhongKinhDoanh/phim-au-my/KenhCoBan.m3u8
-#EXTINF:-1 tvg-id="tv360hoathinh" group-title="vmttv | Rạp Phim"
+#EXTINF:-1 tvg-id="tv360hoathinh" group-title="vmttv | Rạp Phim" tvg-logo
 #EXTGRP:vmttv | Rạp Phim
 #EXTINF:-1 tvg-id="vtv1hd" group-title="vmttv | VTV" tvg-logo="https://i.ytimg.com/vi/dGohEWXz7Sk/maxresdefault.jpg" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}, VTV1
 #EXTGRP:vmttv | VTV
@@ -5451,7 +5455,7 @@ https://1.org.vn/dnrtv3
 #EXTINF:-1 tvg-id="hanoi1" group-title="vmttv | Địa phương" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/H1.jpg", H1 - Báo và PTTH Hà Nội
 #EXTGRP:vmttv | Địa phương
 https://freem3u.xyz/api/live/play.m3u8?vid=33
-#EXTINF:-1 tvg-id="hanoi2" group-title="vmttv | Địa phương" tvg-logo="https://img-zlr1.tv360.vn/image1/2024/10/07/16/1728293033798/d23973063be9_640_360.png", H2 - Báo và PTTH Hà Nội
+#EXTINF:-1 tvg-id="hanoi2" group-title="vmttv | Địa phương" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/H2.jpg", H2 - Báo và PTTH Hà Nội
 #EXTGRP:vmttv | Địa phương
 https://live.fptplay53.net/fnxch2/hntv2_abr.smil/chunklist_b6000000.m3u8
 #EXTINF:-1 tvg-id="thanhhoa" group-title="vmttv | Địa phương" tvg-logo="https://img-zlr1.tv360.vn/image1/2020_09_23/1600821878406/58ff77e57117_640_360.png", TTV HD - Báo và PTTH Thanh Hóa
@@ -5463,19 +5467,19 @@ https://live.baoquangninh.vn/qtvlive/tv1live.m3u8
 #EXTINF:-1 tvg-id="quangninh3" group-title="vmttv | Địa phương" tvg-logo=" https://i.ytimg.com/vi/cTNt-U1akXw/hq720.jpg", QTV3 HD - Báo và PTTH Quảng Ninh
 #EXTGRP:vmttv | Địa phương
 https://live.baoquangninh.vn/qtvlive/tv3live.m3u8
-#EXTINF:-1 tvg-id="vinhlong1hd" group-title="vmttv | Địa phương" tvg-logo="https://img-zlr1.tv360.vn/image1/2024/10/07/17/1728296900530/38c6e7b9cb86_640_360.png", THVL1 HD - Báo và PTTH Vĩnh Long
+#EXTINF:-1 tvg-id="vinhlong1hd" group-title="vmttv | Địa phương" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/THVL1.webp", THVL1 - Báo và PTTH Vĩnh Long
 #EXTGRP:vmttv | Địa phương
 https://live.fptplay53.net/epzch2/vinhlong1_abr.smil/chunklist_b4200000.m3u8
-#EXTINF:-1 tvg-id="vinhlong2hd" group-title="vmttv | Địa phương" tvg-logo="https://i.ytimg.com/vi/0W7Nvg-dQjY/maxresdefault.jpg", THVL2 HD - Báo và PTTH Vĩnh Long
+#EXTINF:-1 tvg-id="vinhlong2hd" group-title="vmttv | Địa phương" tvg-logo="https://i.ytimg.com/vi/0W7Nvg-dQjY/maxresdefault.jpg", THVL2 - Báo và PTTH Vĩnh Long
 #EXTGRP:vmttv | Địa phương
 https://live.fptplay53.net/epzhd2/vinhlong2_vhls.smil/chunklist_b5000000.m3u8
-#EXTINF:-1 tvg-id="vinhlong3hd" group-title="vmttv | Địa phương" tvg-logo="https://img-zlr1.tv360.vn/image1/2024/10/07/16/1728294189124/f518bf3b705d_640_360.png", THVL3 HD - Báo và PTTH Vĩnh Long
+#EXTINF:-1 tvg-id="vinhlong3hd" group-title="vmttv | Địa phương" tvg-logo="https://img-zlr1.tv360.vn/image1/2024/10/07/16/1728294189124/f518bf3b705d_640_360.png", THVL3 - Báo và PTTH Vĩnh Long
 #EXTGRP:vmttv | Địa phương
 https://live.fptplay53.net/epzhd2/vinhlong3_vhls.smil/chunklist_b5000000.m3u8
-#EXTINF:-1 tvg-id="vinhlong4hd" group-title="vmttv | Địa phương" tvg-logo="https://img-zlr1.tv360.vn/image1/2024/10/07/16/1728294229199/5f70465aa342_640_360.png", THVL4 HD - Báo và PTTH Vĩnh Long
+#EXTINF:-1 tvg-id="vinhlong4hd" group-title="vmttv | Địa phương" tvg-logo="https://img-zlr1.tv360.vn/image1/2024/10/07/16/1728294229199/5f70465aa342_640_360.png", THVL4 - Báo và PTTH Vĩnh Long
 #EXTGRP:vmttv | Địa phương
 https://live.fptplay53.net/epzhd2/vinhlong4hd_vhls.smil/chunklist_b5000000.m3u8
-#EXTINF:-1 tvg-id="vinhlong5hd" group-title="vmttv | Địa phương" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/THVL5.jpg", THVL5 HD - Báo và PTTH Vĩnh Long
+#EXTINF:-1 tvg-id="vinhlong5hd" group-title="vmttv | Địa phương" tvg-logo="", THVL5 - Báo và PTTH Vĩnh Long
 #EXTGRP:vmttv | Địa phương
 https://freem3u.xyz/api/live/play.m3u8?vid=91
 #EXTINF:-1 tvg-id="angiang2" group-title="vmttv | Địa phương" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/ATV2.jpg", ATV2 | Báo và PTTH An Giang
@@ -7864,18 +7868,18 @@ http://31.130.203.6:8477
 #EXTINF:-1 tvg-id="sov-kinklass" tvg-logo="https://i.postimg.cc/D038FdBy/Soviet.png" group-title="coban66 | KÊNH PHIM TRUYỆN",Советская Киноклассика
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid276/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="russky-bestseller" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/w0ZE9QJ.png",Русский Бестселлер
+#EXTINF:-1 tvg-id="russky-bestseller" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/w0ZE9QJ.png",Русский бестселлер
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://iptv46.mcx-ix.ru:8077/rus-bestseller/index.m3u8
 #EXTINF:-1 tvg-id="russky-detektiv" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/H3qhN8S.png",Русский детектив
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid82/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="russky-illuzion" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/RlsqFN8.png",Русский Иллюзион
-#EXTGRP:coban66 | KÊNH PHIM TRUYỆN
-http://91.226.120.120/chid81/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="russky-roman" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/cQN0P2B.png",Русский Роман
+#EXTINF:-1 tvg-id="russky-roman" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/cQN0P2B.png",Русский роман
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://vod.tuva.ru/rusroman/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-id="russky-illuzion" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/RlsqFN8.png",Русский иллюзион
+#EXTGRP:coban66 | KÊNH PHIM TRUYỆN
+http://91.226.120.120/chid81/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="tvxxi" group-title="coban66 | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/YUVmPRa.png",ТВ 21
 #EXTGRP:coban66 | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid265/tracks-v1a1/mono.m3u8
@@ -8047,7 +8051,7 @@ http://188.225.31.197/bpk-tv/000006639/tve/index.m3u8
 #EXTINF:-1 tvg-id="luxury-hd" tvg-logo="https://i.imgur.com/nobZa5l.png" group-title="coban66 | KÊNH GIẢI TRÍ",Luxury
 #EXTGRP:coban66 | KÊNH GIẢI TRÍ
 http://s1.tv-nano.com/Luxury_rec/tracks-v1a1/index.m3u8
-#EXTINF:-1 group-title="coban66 | KÊNH GIẢI TRÍ" tvg-logo="https://raw.githubusercontent.com/Monoloshka/iptv/refs/heads/main/logo/womens-magazine.png" tvg-id="womens-magazine",Women's Magazine
+#EXTINF:-1 group-title="coban66 | KÊNH GIẢI TRÍ" tvg-logo="https://i.postimg.cc/Dw1Nymq1/3F3F3F3F3F3F.png" tvg-id="womens-magazine",Женский журнал
 #EXTGRP:coban66 | KÊNH GIẢI TRÍ
 http://188.225.31.197/bpk-tv/000008065/tve/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.imgur.com/KON0z08.png" tvg-id="zal-suda" group-title="coban66 | KÊNH GIẢI TRÍ",Зал суда
@@ -9475,18 +9479,18 @@ http://31.130.203.6:8477
 #EXTINF:-1 tvg-id="sov-kinklass" tvg-logo="https://i.postimg.cc/D038FdBy/Soviet.png" group-title="vietngatv | KÊNH PHIM TRUYỆN",Советская Киноклассика
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid276/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="russky-bestseller" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/w0ZE9QJ.png",Русский Бестселлер
+#EXTINF:-1 tvg-id="russky-bestseller" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/w0ZE9QJ.png",Русский бестселлер
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://iptv46.mcx-ix.ru:8077/rus-bestseller/index.m3u8
 #EXTINF:-1 tvg-id="russky-detektiv" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/H3qhN8S.png",Русский детектив
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid82/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="russky-illuzion" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/RlsqFN8.png",Русский Иллюзион
-#EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
-http://91.226.120.120/chid81/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="russky-roman" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/cQN0P2B.png",Русский Роман
+#EXTINF:-1 tvg-id="russky-roman" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/cQN0P2B.png",Русский роман
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://vod.tuva.ru/rusroman/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-id="russky-illuzion" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/RlsqFN8.png",Русский иллюзион
+#EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
+http://91.226.120.120/chid81/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="tvxxi" group-title="vietngatv | KÊNH PHIM TRUYỆN" tvg-logo="https://i.imgur.com/YUVmPRa.png",ТВ 21
 #EXTGRP:vietngatv | KÊNH PHIM TRUYỆN
 http://91.226.120.120/chid265/tracks-v1a1/mono.m3u8
@@ -9658,7 +9662,7 @@ http://188.225.31.197/bpk-tv/000006639/tve/index.m3u8
 #EXTINF:-1 tvg-id="luxury-hd" tvg-logo="https://i.imgur.com/nobZa5l.png" group-title="vietngatv | KÊNH GIẢI TRÍ",Luxury
 #EXTGRP:vietngatv | KÊNH GIẢI TRÍ
 http://s1.tv-nano.com/Luxury_rec/tracks-v1a1/index.m3u8
-#EXTINF:-1 group-title="vietngatv | KÊNH GIẢI TRÍ" tvg-logo="https://raw.githubusercontent.com/Monoloshka/iptv/refs/heads/main/logo/womens-magazine.png" tvg-id="womens-magazine",Women's Magazine
+#EXTINF:-1 group-title="vietngatv | KÊNH GIẢI TRÍ" tvg-logo="https://i.postimg.cc/Dw1Nymq1/3F3F3F3F3F3F.png" tvg-id="womens-magazine",Женский журнал
 #EXTGRP:vietngatv | KÊNH GIẢI TRÍ
 http://188.225.31.197/bpk-tv/000008065/tve/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.imgur.com/KON0z08.png" tvg-id="zal-suda" group-title="vietngatv | KÊNH GIẢI TRÍ",Зал суда
