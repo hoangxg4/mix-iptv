@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="https://epg.catvod.com/epg.xml,http://gg.gg/fptepg,https://epg.pw/xmltv/epg_FR.xml,https://epg.946985.xyz/t.xml.gz,https://live.fanmingming.com/e.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://epg.aptv.app/pp.xml.gz,https://tvbvn.quanlehong539.workers.dev/xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,http://gg.gg/guidevn,https://epg.pw/xmltv/epg_MY.xml,http://gg.gg/epgmytv,http://epg.one/epg.xml,http://megavie.live/schedule/epg.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://epg.pw/xmltv/epg_AU.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,http://trada.info/epg.xml,http://epg.51zmt.top:8000/e.xml,https://lichphatsong.site/schedule/epg.xml,https://vnepg.site/epg.xml,http://lichphatsong.xyz/schedule/epg.xml,https://vnepg.site/epg.xml.gz,https://epg.pw/xmltv/epg_ID.xml,https://hnlive.dramahay.xyz/epg.xml,https://epg.pw/xmltv/epg_HK.xml,https://a.rawtv.top/epg-vn,http://gg.gg/epgbeartv,http://gg.gg/coodertvepg"
+#EXTM3U x-tvg-url="http://gg.gg/fptepg,http://gg.gg/epgmytv,http://gg.gg/epgbeartv,https://epg.pw/xmltv/epg_FR.xml,https://vnepg.site/epg.xml,https://epg.catvod.com/epg.xml,http://epg.51zmt.top:8000/e.xml,https://epg.pw/xmltv/epg_ID.xml,https://live.fanmingming.com/e.xml,https://vnepg.site/epg.xml.gz,https://epg.aptv.app/pp.xml.gz,http://lichphatsong.xyz/schedule/epg.xml,https://epg.pw/xmltv/epg_AU.xml,http://trada.info/epg.xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://tvbvn.quanlehong539.workers.dev/xml,https://epg.pw/xmltv/epg_HK.xml,http://epg.one/epg.xml,https://hnlive.dramahay.xyz/epg.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://epg.946985.xyz/t.xml.gz,http://gg.gg/guidevn,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,http://megavie.live/schedule/epg.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,http://gg.gg/coodertvepg,https://a.rawtv.top/epg-vn,https://epg.pw/xmltv/epg_MY.xml,https://lichphatsong.site/schedule/epg.xml"
 #EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}",VTV1
 #EXTGRP:DAKLAKIPTV | VTV
 https://live-a.fptplay53.net/live/media/VTV1HD/live_hls_avc/index.m3u8
@@ -13240,18 +13240,23 @@ http://livesport.io.vn/iptv/onsport.php?id=skyaction
 http://livesport.io.vn/iptv/onsport.php?id=skymix
 #EXTINF:-1 tvg-id="eleven-sport1-pt" tvg-logo="https://img2.sport-tv-guide.live/images/tv-station-eleven-sports-1-pt-1500.png" group-title="easport | SPORTS 2",DAZN 1
 #EXTGRP:easport | SPORTS 2
+http://livesport.io.vn/iptv/portu.php?name=ele1&type=.m3u8
 http://livesport.io.vn/iptv/onsport.php?id=ele111
 #EXTINF:-1 tvg-id="eleven-sport2-pt" tvg-logo="https://img2.sport-tv-guide.live/images/tv-station-eleven-sports-2-pt-1501.png" group-title="easport | SPORTS 2",DAZN 2
 #EXTGRP:easport | SPORTS 2
+http://livesport.io.vn/iptv/portu.php?name=ele2&type=.m3u8
 http://livesport.io.vn/iptv/onsport.php?id=ele222
 #EXTINF:-1 tvg-id="eleven-sport3-pt" tvg-logo="https://img2.sport-tv-guide.live/images/tv-station-eleven-sports-3-pt-1502.png" group-title="easport | SPORTS 2",DAZN 3
 #EXTGRP:easport | SPORTS 2
+http://livesport.io.vn/iptv/portu.php?name=ele3&type=.m3u8
 http://livesport.io.vn/iptv/onsport.php?id=ele333
 #EXTINF:-1 tvg-id="eleven-sport4-pt" tvg-logo="https://img2.sport-tv-guide.live/images/tv-station-eleven-sports-4-pt-1557.png" group-title="easport | SPORTS 2",DAZN 4
 #EXTGRP:easport | SPORTS 2
+http://livesport.io.vn/iptv/portu.php?name=ele4&type=.m3u8
 http://livesport.io.vn/iptv/onsport.php?id=ele444
 #EXTINF:-1 tvg-id="eleven-sport5-pt" tvg-logo="https://img2.sport-tv-guide.live/images/tv-station-eleven-sports-5-pt-1558.png" group-title="easport | SPORTS 2",DAZN 5
 #EXTGRP:easport | SPORTS 2
+http://livesport.io.vn/iptv/portu.php?name=ele5&type=.m3u8
 http://livesport.io.vn/iptv/onsport.php?id=ele555
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/sport/spo1.png" group-title="easport | SPORTS 2",SPORTTV 1
 #EXTGRP:easport | SPORTS 2
