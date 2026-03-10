@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="https://lichphatsong.site/schedule/epg.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,http://lichphatsong.xyz/schedule/epg.xml,https://epg.pw/xmltv/epg_ID.xml,http://gg.gg/epgbeartv,https://tvbvn.quanlehong539.workers.dev/xml,https://vnepg.site/epg.xml.gz,https://live.fanmingming.com/e.xml,http://trada.info/epg.xml,http://gg.gg/epgmytv,https://epg.pw/xmltv/epg_FR.xml,http://megavie.live/schedule/epg.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,http://gg.gg/fptepg,http://epg.51zmt.top:8000/e.xml,https://vnepg.site/epg.xml,http://epg.one/epg.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://epg.pw/xmltv/epg_MY.xml,http://gg.gg/guidevn,https://a.rawtv.top/epg-vn,https://epg.catvod.com/epg.xml,https://hnlive.dramahay.xyz/epg.xml,https://epg.aptv.app/pp.xml.gz,https://epg.946985.xyz/t.xml.gz,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://epg.pw/xmltv/epg_HK.xml,https://epg.pw/xmltv/epg_AU.xml,http://gg.gg/coodertvepg"
+#EXTM3U x-tvg-url="https://hnlive.dramahay.xyz/epg.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://lichphatsong.site/schedule/epg.xml,https://epg.pw/xmltv/epg_ID.xml,https://epg.catvod.com/epg.xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,http://epg.one/epg.xml,http://gg.gg/fptepg,http://gg.gg/guidevn,https://vnepg.site/epg.xml,http://megavie.live/schedule/epg.xml,https://vnepg.site/epg.xml.gz,https://epg.pw/xmltv/epg_HK.xml,http://gg.gg/epgmytv,http://gg.gg/coodertvepg,https://epg.pw/xmltv/epg_AU.xml,http://gg.gg/epgbeartv,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://epg.pw/xmltv/epg_MY.xml,https://epg.946985.xyz/t.xml.gz,http://lichphatsong.xyz/schedule/epg.xml,https://live.fanmingming.com/e.xml,https://epg.aptv.app/pp.xml.gz,https://a.rawtv.top/epg-vn,https://tvbvn.quanlehong539.workers.dev/xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,http://epg.51zmt.top:8000/e.xml,https://epg.pw/xmltv/epg_FR.xml,http://trada.info/epg.xml"
 #EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}",VTV1
 #EXTGRP:DAKLAKIPTV | VTV
 https://live-a.fptplay53.net/live/media/VTV1HD/live_hls_avc/index.m3u8
@@ -5611,7 +5611,7 @@ https://s2129134.cdn.mytvnet.vn/pkg20/live_dzones/max.smil/manifest.mpd
 #EXTINF:-1 tvg-id="cinemaworldhd" group-title="vmttv | Quốc Tế" tvg-logo="https://www.voilah.sg/wp-content/uploads/2020/04/cinema-world-2.png", Cinema World
 #EXTGRP:vmttv | Quốc Tế
 https://s2129134.cdn.mytvnet.vn/pkg20/live_dzones/cinemaworld.smil/manifest.mpd
-#EXTINF:-1 tvg-id="animaxhd" group-title="vmttv | Quốc Tế" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/b/bc/Animax.jpg" catchup="append" catchup-days="2" catchup-source="https://tshift.fptplay.net/dvr/animaxport_1000.stream/chunks_dvr_range-${start}-${offset}.m3u8", Animax HD
+#EXTINF:-1 group-title="vmttv | Quốc Tế" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/b/bc/Animax.jpg" catchup="append" catchup-days="2" catchup-source="https://tshift.fptplay.net/dvr/animaxport_1000.stream/chunks_dvr_range-${start}-${offset}.m3u8", Animax
 #EXTGRP:vmttv | Quốc Tế
 http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1165775&extension=ts&play_token=yyA3sijrgj
 #EXTINF:-1 tvg-id="boomerang" group-title="vmttv | Quốc Tế" tvg-logo="https://1000logos.net/wp-content/uploads/2023/10/Cartoonito-Logo.jpg", Cartoonito
@@ -10159,7 +10159,7 @@ https://HaNoiIPTV.short.gy/HaNoiIPTV-FM96-Thoi_su_Ha_Noi
 #EXTINF:-1  tvg-id="hanoi90" tvg-link="http://14.162.146.90:8000/HANOI90 và https://cloudcdnfm90.tek4tv.vn/HANOI90/stream.m3u8 và https://cloudstreamhntv.tek4tv.vn/audio/fm90/chunklist_w721090887.m3u8" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-link="https://cecex9g5cpliv.vcdn.cloud/audio/fm90/chunklist_w1787246294.m3u8" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/FM90%20Mhz%20%E2%80%A2%20TIN%20T%E1%BB%A8C%20GIAO%20TH%C3%94NG.png",FM90 • TIN TỨC & GIAO THÔNG HÀ NỘI
 #EXTGRP:HaNoilPTV | KÊNH ĐẶC SẮC
 https://HaNoiIPTV.short.gy/HaNoiIPTV-FM90-Tin_tuc_va_Giao_thong_Ha_Noi
-#EXTINF:-1  tvg-id="hungyenradio" tvg-link="http://stream.truyenthanhso.com:3001/805bfb93c77345acbfff6ebf72399724 và http://icecast.vov.link:8000/24D7EBA6121C và http://stream.radiotech.vn:3000/863462063242745 và http://stream.truyenthanhso.com:3001/1720066687417 và http://stream.truyenthanhso.com:3001/863462068424728" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Logo%20kh%C3%A1c/HYTV%20HD%20-%20Truy%E1%BB%81n%20h%C3%ACnh%20H%C6%B0ng%20Y%C3%AAn/HYTV%20-%20Ph%C3%A1t%20thanh%20H%C6%B0ng%20Y%C3%AAn%20%E2%80%A2%20B%E1%BA%A3n%202.png",FM92.7 • TIN TỨC HƯNG YÊN & VĂN HÓA - DÂN SINH
+#EXTINF:-1  tvg-id="hungyenradio" tvg-link="http://stream.truyenthanhso.com:3001/805bfb93c77345acbfff6ebf72399724 và http://icecast.vov.link:8000/24D7EBA6121C và http://stream.radiotech.vn:3000/863462063242745 và http://stream.truyenthanhso.com:3001/1720066687417 và http://stream.truyenthanhso.com:3001/863462068424728" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/H%C2%B2M%20TV%20-%20H%E1%BB%87%20th%E1%BB%91ng%20c%C3%A1c%20k%C3%AAnh%20H%C3%A0%20N%E1%BB%99i%20IPTV/H%C6%B0%E1%BB%9Bng%20t%E1%BB%9Bi%20Ng%C3%A0y%20h%E1%BB%99i%2015-03-2026.png",FM92.7 • TIN TỨC HƯNG YÊN & VĂN HÓA - DÂN SINH
 #EXTGRP:HaNoilPTV | KÊNH ĐẶC SẮC
 https://HaNoiIPTV.short.gy/HaNoiIPTVPlus-HYTV-Phat_thanh_Hung_Yen
 #EXTINF:-1  tvg-id="haiphong937" tvg-link="https://HaNoiIPTV.short.gy/HaNoiIPTV-TV_Globo_HD" group-title="HaNoilPTV | KÊNH VOV" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Logo%20kh%C3%A1c/THP%20-%20Truy%E1%BB%81n%20h%C3%ACnh%20H%E1%BA%A3i%20Ph%C3%B2ng%20HD/THP%20-%20Ph%C3%A1t%20thanh%20H%E1%BA%A3i%20Ph%C3%B2ng.png",FM 93.7 • THP CHÍNH TRỊ - TỔNG HỢP
@@ -13050,13 +13050,13 @@ http://cdam.work/ott/playlist.php?token=0f03ebf8d02992e184db6bdb34b8625b
 http://cdam.work/ott/playlist.php?token=9d9188b8866845abc5d8983c1eaf5543
 #EXTINF:-1  group-logo="https://cdn-icons-png.flaticon.com/512/4768/4768732.png" tvg-logo="http://livesport.io.vn/logo/epls.png" group-title="easport | LIVE EVENT",EPL 1
 #EXTGRP:easport | LIVE EVENT
-http://livesport.io.vn/iptv/onsport.php?id=usa
+https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/epll/manifest.mpd
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/epls.png" group-title="easport | LIVE EVENT",EPL 2
 #EXTGRP:easport | LIVE EVENT
-http://livesport.io.vn/link.php?id=epl2
+http://livesport.io.vn/ott/ottlink.php?id=epl1
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/epls.png" group-title="easport | LIVE EVENT",EPL 3
 #EXTGRP:easport | LIVE EVENT
-http://livesport.io.vn/link.php?id=epl4
+http://livesport.io.vn/ott/ottlink.php?id=epl2
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/laligas.png" group-title="easport | LIVE EVENT",LALIGA 1
 #EXTGRP:easport | LIVE EVENT
 https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/laligatv/manifest.mpd
@@ -13074,16 +13074,16 @@ https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/seriea/manifest.mpd
 https://d1zqtf09wb8nt5.cloudfront.net/livedash/oil/freetv/live/one_2/live.livx
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/buns.png" group-title="easport | LIVE EVENT",BUNDESLIGA 1
 #EXTGRP:easport | LIVE EVENT
-http://livesport.io.vn/ottlink.php?id=bun1
-#EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/buns.png" group-title="easport | LIVE EVENT",BUNDESLIGA 1
+http://livesport.io.vn/ott/ottlink.php?id=bun1
+#EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/buns.png" group-title="easport | LIVE EVENT",BUNDESLIGA 2
 #EXTGRP:easport | LIVE EVENT
-http://livesport.io.vn/ottlink.php?id=bun2
-#EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/buns.png" group-title="easport | LIVE EVENT",BUNDESLIGA 1
+http://livesport.io.vn/ott/ottlink.php?id=bun2
+#EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/buns.png" group-title="easport | LIVE EVENT",BUNDESLIGA 3
 #EXTGRP:easport | LIVE EVENT
-http://livesport.io.vn/ottlink.php?id=bun3
+http://livesport.io.vn/ott/ottlink.php?id=bun3
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/ligue1s.png" group-title="easport | LIVE EVENT",LIGUE 1
 #EXTGRP:easport | LIVE EVENT
-http://livesport.io.vn/link.php?id=ligue1
+http://livesport.io.vn/ott/ottlink.php?id=ligue1
 #EXTINF:-1  group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552" tvg-id="bt-sport1" tvg-logo="http://cdam.work/logo/sport/fox1.png" group-title="easport | SPORTS 1",FOX 1
 #EXTGRP:easport | SPORTS 1
 https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/fx1/manifest.mpd
@@ -13191,68 +13191,67 @@ https://d1zqtf09wb8nt5.cloudfront.net/livedash/oil/freetv/live/sport_5_plus/live
 https://d1zqtf09wb8nt5.cloudfront.net/livedash/oil/freetv/live/sport_5_starz/live.livx
 #EXTINF:-1 group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552" tvg-logo="http://livesport.io.vn/logo/sport/tn1.png" group-title="easport | SPORTS 2",TNT SPORTS 1
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=tnt1
+http://livesport.io.vn/ott/ottlink.php?id=tnt1
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/sport/tn2.png" group-title="easport | SPORTS 2",TNT SPORTS 2
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=tnt2
+http://livesport.io.vn/ott/ottlink.php?id=tnt2
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/sport/tn3.png" group-title="easport | SPORTS 2",TNT SPORTS 3
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=tnt3
+http://livesport.io.vn/ott/ottlink.php?id=tnt3
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/sport/tn4.png" group-title="easport | SPORTS 2",TNT SPORTS 4
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=tnt4
+http://livesport.io.vn/ott/ottlink.php?id=tnt4
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/sport/sepl.png" group-title="easport | SPORTS 2",SKY SPORT PREMIER LEAGUE
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=skyepl
+http://livesport.io.vn/ott/iptv.php?id=skyepl
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/sport/sfoot.png" group-title="easport | SPORTS 2",SKY SPORTS FOOTBALL
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/ott/play.php?name=skyepl
-http://livesport.io.vn/iptv/onsport.php?id=skyfoot
+http://livesport.io.vn/ott/iptv.php?id=skyfoot
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/sport/smain.png" group-title="easport | SPORTS 2",SKY SPORT MAIN EVENT
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=skymain
+http://livesport.io.vn/ott/iptv.php?id=skymain
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/sport/snews.png" group-title="easport | SPORTS 2",SKY SPORTS NEWS
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=skynews
+http://livesport.io.vn/ott/iptv.php?id=skynews
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/sport/sf1.png" group-title="easport | SPORTS 2",SKY SPORTS F1
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=skyf1
+http://livesport.io.vn/ott/iptv.php?id=skyf1
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/sport/sgolf.png" group-title="easport | SPORTS 2",SKY SPORTS GOLF
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=skygolf
+http://livesport.io.vn/ott/iptv.php?id=skygolf
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/sport/saction.png" group-title="easport | SPORTS 2",SKY SPORT ACTION
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=skyaction
+http://livesport.io.vn/ott/iptv.php?id=skyaction
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/sport/smix.png" group-title="easport | SPORTS 2",SKY SPORTS MIX HD
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=skymix
+http://livesport.io.vn/ott/iptv.php?id=skymix
 #EXTINF:-1 tvg-id="eleven-sport1-pt" tvg-logo="https://img2.sport-tv-guide.live/images/tv-station-eleven-sports-1-pt-1500.png" group-title="easport | SPORTS 2",DAZN 1
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=ele111
+http://livesport.io.vn/ott/iptv.php?id=ele111
 #EXTINF:-1 tvg-id="eleven-sport2-pt" tvg-logo="https://img2.sport-tv-guide.live/images/tv-station-eleven-sports-2-pt-1501.png" group-title="easport | SPORTS 2",DAZN 2
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=ele222
+http://livesport.io.vn/ott/iptv.php?id=ele222
 #EXTINF:-1 tvg-id="eleven-sport3-pt" tvg-logo="https://img2.sport-tv-guide.live/images/tv-station-eleven-sports-3-pt-1502.png" group-title="easport | SPORTS 2",DAZN 3
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=ele333
+http://livesport.io.vn/ott/iptv.php?id=ele333
 #EXTINF:-1 tvg-id="eleven-sport4-pt" tvg-logo="https://img2.sport-tv-guide.live/images/tv-station-eleven-sports-4-pt-1557.png" group-title="easport | SPORTS 2",DAZN 4
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=ele444
+http://livesport.io.vn/ott/iptv.php?id=ele444
 #EXTINF:-1 tvg-id="eleven-sport5-pt" tvg-logo="https://img2.sport-tv-guide.live/images/tv-station-eleven-sports-5-pt-1558.png" group-title="easport | SPORTS 2",DAZN 5
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=ele555
+http://livesport.io.vn/ott/iptv.php?id=ele555
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/sport/spo1.png" group-title="easport | SPORTS 2",SPORTTV 1
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=spo1
+http://livesport.io.vn/ott/iptv.php?id=spo1
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/sport/spo2.png" group-title="easport | SPORTS 2",SPORTTV 2
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=spo2
+http://livesport.io.vn/ott/iptv.php?id=spo2
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/sport/spo3.png" group-title="easport | SPORTS 2",SPORTTV 3
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=spo3
+http://livesport.io.vn/ott/iptv.php?id=spo3
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/sport/spo4.png" group-title="easport | SPORTS 2",SPORTTV 4
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=spo4
+http://livesport.io.vn/ott/iptv.php?id=spo4
 #EXTINF:-1 tvg-logo="http://cdam.work/logo/sport/tsn1.png" group-title="easport | SPORTS 2",TSN 1
 #EXTGRP:easport | SPORTS 2
 https://livesport.io.vn/iptv/tsn.php?id=tsn1
@@ -13270,25 +13269,25 @@ https://livesport.io.vn/iptv/tsn.php?id=tsn4
 https://livesport.io.vn/iptv/tsn.php?id=tsn5
 #EXTINF:-1 tvg-logo="http://cdam.work/logo/sport/fs1.png" group-title="easport | SPORTS 2",FS 1
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=fs1
+http://livesport.io.vn/ott/iptv.php?id=fs1
 #EXTINF:-1 tvg-logo="http://cdam.work/logo/sport/fs2.png" group-title="easport | SPORTS 2",FS 2
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=fs2
+http://livesport.io.vn/ott/iptv.php?id=fs2
 #EXTINF:-1 tvg-logo="http://cdam.work/logo/sport/espn.png" group-title="easport | SPORTS 2",ESPN
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=espn
+http://livesport.io.vn/ott/iptv.php?id=espn
 #EXTINF:-1 tvg-logo="http://cdam.work/logo/sport/espn2.png" group-title="easport | SPORTS 2",ESPN 2
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=espn2
+http://livesport.io.vn/ott/iptv.php?id=espn2
 #EXTINF:-1 tvg-logo="http://cdam.work/logo/sport/espnu.png" group-title="easport | SPORTS 2",ESPN U
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=espnu
+http://livesport.io.vn/ott/iptv.php?id=espnu
 #EXTINF:-1 tvg-logo="http://cdam.work/logo/sport/espnews.png" group-title="easport | SPORTS 2",ESPN NEWS
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=espnews
+http://livesport.io.vn/ott/iptv.php?id=espnews
 #EXTINF:-1 tvg-logo="https://img2.sport-tv-guide.live/images/tv-station-usa-network-74.png" group-title="easport | SPORTS 2",USA NETWORK
 #EXTGRP:easport | SPORTS 2
-http://livesport.io.vn/iptv/onsport.php?id=usa
+http://livesport.io.vn/ott/iptv.php?id=usa
 #EXTINF:-1 tvg-id="beIN Sports HDTV (English)" tvg-logo="https://i.ibb.co.com/v1bpVxN/beinxtraen.png" group-title="easport | SPORTS 2" , BEIN SPORTS XTRA
 #EXTGRP:easport | SPORTS 2
 https://amg01334-beinsportsllc-beinxtra-localnow-kcy6r.amagi.tv/playlist.m3u8
@@ -13316,15 +13315,6 @@ https://proxy.manchesterunitedfanclubvietnam.workers.dev//ch/cine/manifest.mpd
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/KIX_logo.svg/743px-KIX_logo.svg.png" group-title="easport | MOVIES",KIX
 #EXTGRP:easport | MOVIES
 https://livesport.io.vn/m3u/playlist.php?ch=kix
-#EXTINF:-1 tvg-id="boxhits" tvg-logo="http://cdam.work/logo/movies/hit.png" group-title="easport | MOVIES" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",BOX HITS
-#EXTGRP:easport | MOVIES
-http://livesport.io.vn/iptv/onsport.php?id=mhit
-#EXTINF:-1 tvg-id="boxmovie" tvg-logo="http://cdam.work/logo/movies/movie.png" group-title="easport | MOVIES" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",BOX MOVIE 1
-#EXTGRP:easport | MOVIES
-http://livesport.io.vn/iptv/onsport.php?id=mthiler
-#EXTINF:-1 tvg-id="inthebox" tvg-logo="http://cdam.work/logo/movies/inbox.png" group-title="easport | MOVIES" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",IN THE BOX
-#EXTGRP:easport | MOVIES
-http://livesport.io.vn/iptv/onsport.php?id=m
 #EXTINF:-1 tvg-id="HBO Hits.id" tvg-name="HBO Hits" tvg-logo="https://mimipipi22.github.io/logo/movies/hbohits.jpg" group-title="easport | MOVIES",HBO HITS
 #EXTGRP:easport | MOVIES
 https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/hbohitss/manifest.mpd
