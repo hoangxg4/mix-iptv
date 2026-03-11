@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="http://gg.gg/epgmytv,http://gg.gg/epgbeartv,https://epg.946985.xyz/t.xml.gz,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,http://epg.51zmt.top:8000/e.xml,http://megavie.live/schedule/epg.xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://epg.pw/xmltv/epg_HK.xml,https://live.fanmingming.com/e.xml,http://epg.one/epg.xml,https://epg.pw/xmltv/epg_MY.xml,https://epg.pw/xmltv/epg_AU.xml,https://lichphatsong.site/schedule/epg.xml,https://epg.pw/xmltv/epg_ID.xml,http://lichphatsong.xyz/schedule/epg.xml,https://vnepg.site/epg.xml.gz,https://epg.pw/xmltv/epg_FR.xml,https://epg.catvod.com/epg.xml,https://tvbvn.quanlehong539.workers.dev/xml,http://gg.gg/guidevn,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,http://gg.gg/coodertvepg,https://a.rawtv.top/epg-vn,https://epg.aptv.app/pp.xml.gz,https://hnlive.dramahay.xyz/epg.xml,http://gg.gg/fptepg,http://trada.info/epg.xml,https://vnepg.site/epg.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml"
+#EXTM3U x-tvg-url="https://epg.pw/xmltv/epg_AU.xml,http://gg.gg/fptepg,http://epg.one/epg.xml,http://epg.51zmt.top:8000/e.xml,https://live.fanmingming.com/e.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://a.rawtv.top/epg-vn,https://vnepg.site/epg.xml.gz,https://epg.aptv.app/pp.xml.gz,http://gg.gg/guidevn,http://gg.gg/epgbeartv,https://hnlive.dramahay.xyz/epg.xml,https://epg.946985.xyz/t.xml.gz,http://lichphatsong.xyz/schedule/epg.xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://lichphatsong.site/schedule/epg.xml,https://tvbvn.quanlehong539.workers.dev/xml,http://gg.gg/epgmytv,https://epg.pw/xmltv/epg_HK.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,http://trada.info/epg.xml,https://epg.catvod.com/epg.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://epg.pw/xmltv/epg_MY.xml,http://megavie.live/schedule/epg.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://epg.pw/xmltv/epg_FR.xml,https://vnepg.site/epg.xml,https://epg.pw/xmltv/epg_ID.xml,http://gg.gg/coodertvepg"
 #EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}",VTV1
 #EXTGRP:DAKLAKIPTV | VTV
 https://live-a.fptplay53.net/live/media/VTV1HD/live_hls_avc/index.m3u8
@@ -5231,6 +5231,8 @@ https://livevlisctcdnw.seenow.vn/livesnv2/ONSPORT1/manifest.mpd
 #EXTINF:-1 group-title="vmttv | Sự Kiện VTVPrime" tvg-logo="https://vtvprime.vn/sideLogoBig.png", Sự Kiện VTVPrime 2
 #EXTGRP:vmttv | Sự Kiện VTVPrime
 https://livevlisctcdnw.seenow.vn/livesnv2/ONSPORT2/manifest.mpd
+#EXTINF:-1 group-title="vmttv | Sự Kiện VTVPrime" tvg-logo="https://vtvprime.vn/sideLogoBig.png", Sự Kiện VTVPrime 3
+#EXTGRP:vmttv | Sự Kiện VTVPrime
 #EXTINF:-1 tvg-id="vtv1hd" group-title="vmttv | VTV" tvg-logo="https://i.ytimg.com/vi/dGohEWXz7Sk/maxresdefault.jpg" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}, VTV1
 #EXTGRP:vmttv | VTV
 https://freem3u.xyz/api/live/play.m3u8?vid=2
@@ -5635,7 +5637,6 @@ http://ch-4k-top.org:80/play/live.php?mac=00:1A:79:7a:39:a6&stream=1165908&exten
 https://s7771.cdn.mytvnet.vn/pkg20/live_dzones/bbcearth.smil/manifest.mpd
 #EXTINF:-1 tvg-id="bbclifestyle" group-title="vmttv | Quốc Tế" tvg-logo="https://images.now-tv.com/shares/channelPreview/img/en_hk/color/ch502_425_305" catchup="append" catchup-days="2" catchup-source="https://tshift.fptplay.net/dvr/bbclifestyle_2000.stream/chunks_dvr_range-${start}-${offset}.m3u8", BBC Lifestyle
 #EXTGRP:vmttv | Quốc Tế
-https://ace.hoiquan.click/module/IPTV/?id=Bbclifestyle&accKenh=vuminhthanh1
 #EXTINF:-1 tvg-id="cbeebies" group-title="vmttv | Quốc Tế" tvg-logo="https://s72140.cdn.mytvnet.vn/vimages/7d/d5/58/8c/ce/ea/7d58c-pcbeebieshd-channel-unkn.png", BBC Cbeebies
 #EXTGRP:vmttv | Quốc Tế
 https://s2129134.cdn.mytvnet.vn/pkg20/live_dzones/cbb.smil/manifest.mpd
