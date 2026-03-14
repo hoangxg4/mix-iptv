@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="https://epg.pw/xmltv/epg_FR.xml,http://gg.gg/fptepg,https://a.rawtv.top/epg-vn,http://gg.gg/epgmytv,http://gg.gg/guidevn,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,http://gg.gg/coodertvepg,http://trada.info/epg.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,http://megavie.live/schedule/epg.xml,http://epg.one/epg.xml,https://epg.pw/xmltv/epg_HK.xml,https://epg.pw/xmltv/epg_MY.xml,https://epg.pw/xmltv/epg_AU.xml,http://lichphatsong.xyz/schedule/epg.xml,https://vnepg.site/epg.xml.gz,https://epg.pw/xmltv/epg_ID.xml,http://gg.gg/epgbeartv,https://epg.946985.xyz/t.xml.gz,https://live.fanmingming.com/e.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://lichphatsong.site/schedule/epg.xml,http://epg.51zmt.top:8000/e.xml,https://vnepg.site/epg.xml,https://epg.aptv.app/pp.xml.gz,https://hnlive.dramahay.xyz/epg.xml,https://epg.catvod.com/epg.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml"
+#EXTM3U x-tvg-url="https://epg.pw/xmltv/epg_ID.xml,https://lichphatsong.site/schedule/epg.xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,http://gg.gg/coodertvepg,https://epg.catvod.com/epg.xml,http://gg.gg/epgmytv,https://a.rawtv.top/epg-vn,http://gg.gg/guidevn,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://vnepg.site/epg.xml.gz,https://epg.946985.xyz/t.xml.gz,http://lichphatsong.xyz/schedule/epg.xml,http://trada.info/epg.xml,https://vnepg.site/epg.xml,https://epg.pw/xmltv/epg_HK.xml,https://live.fanmingming.com/e.xml,http://gg.gg/fptepg,http://megavie.live/schedule/epg.xml,http://epg.one/epg.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://epg.aptv.app/pp.xml.gz,https://epg.pw/xmltv/epg_FR.xml,https://epg.pw/xmltv/epg_MY.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://epg.pw/xmltv/epg_AU.xml,http://gg.gg/epgbeartv,https://hnlive.dramahay.xyz/epg.xml,http://epg.51zmt.top:8000/e.xml"
 #EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}",VTV1
 #EXTGRP:DAKLAKIPTV | VTV
 https://live-a.fptplay53.net/live/media/VTV1HD/live_hls_avc/index.m3u8
@@ -5242,15 +5242,7 @@ https://livevlisctcdnw.seenow.vn/livesnv2/ONSPORT4/manifest.mpd
 https://livevlisctcdnw.seenow.vn/livesnv2/ONSPORT5/manifest.mpd
 #EXTINF:-1 group-title="vmttv | Sự Kiện VTVPrime" tvg-logo="https://vtvprime.vn/sideLogoBig.png", Sự Kiện VTVPrime 6
 #EXTGRP:vmttv | Sự Kiện VTVPrime
-#EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/03/11/13_1773209444043.jpg", Event 6
-#EXTGRP:vmttv | Sự Kiện FPT PLAY
-https://live.fptplay53.net/live/media/event-06/hls_avc_v6/index.m3u8
-#EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/03/11/slider_1773223576992.jpg", Sự Kiện 1
-#EXTGRP:vmttv | Sự Kiện FPT PLAY
-https://live.fptplay53.net/live/media/su-kien-01/hls_avc_v6/index.m3u8
-#EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/03/11/slider_1773223403531.jpg", Event 3
-#EXTGRP:vmttv | Sự Kiện FPT PLAY
-https://live.fptplay53.net/live/media/event-03/hls_avc_v6/index.m3u8
+https://livevlisctcdnw.seenow.vn/livesnv2/ONSPORT6/manifest.mpd
 #EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/03/11/slider_1773223694625.jpg", Sự Kiện 2
 #EXTGRP:vmttv | Sự Kiện FPT PLAY
 https://live.fptplay53.net/live/media/su-kien-02/hls_avc_v6/index.m3u8
@@ -5670,7 +5662,6 @@ https://s7771.cdn.mytvnet.vn/pkg20/live_dzones/bbcworldnews.smil/manifest.mpd
 https://amdlive-ch01-ctnd-com.akamaized.net/arirang_1ch/smil:arirang_1ch.smil/chunklist_b3256000_sleng.m3u8
 #EXTINF:-1 tvg-id="bloomberg" group-title="vmttv | Quốc Tế" tvg-logo="https://i.imgur.com/rxFZgIK.png", Bloomberg
 #EXTGRP:vmttv | Quốc Tế
-http://ch-4k-top.org/play/live.php?mac=00:1A:79:7a:39:a6&stream=1163721&extension=ts&play_token=0KHVv60c5W
 #EXTINF:-1 tvg-id="cnbc" group-title="vmttv | Quốc Tế" tvg-logo="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/30b1d744249569.56076e09dd31e.png", CNBC
 #EXTGRP:vmttv | Quốc Tế
 http://2.magmas5.com:8000/live/XXXR3str3amLine/200conxxxxQ41/131029.ts
@@ -10004,7 +9995,7 @@ https://HaNoiIPTV.short.gy/HaNoiIPTV-FM96-Thoi_su_Ha_Noi
 #EXTINF:-1  tvg-id="hanoi90" tvg-link="http://14.162.146.90:8000/HANOI90 và https://cloudcdnfm90.tek4tv.vn/HANOI90/stream.m3u8 và https://cloudstreamhntv.tek4tv.vn/audio/fm90/chunklist_w721090887.m3u8" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-link="https://cecex9g5cpliv.vcdn.cloud/audio/fm90/chunklist_w1787246294.m3u8" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/FM90%20Mhz%20%E2%80%A2%20TIN%20T%E1%BB%A8C%20GIAO%20TH%C3%94NG.png",FM90 • TIN TỨC & GIAO THÔNG HÀ NỘI
 #EXTGRP:HaNoilPTV | KÊNH ĐẶC SẮC
 https://HaNoiIPTV.short.gy/HaNoiIPTV-FM90-Tin_tuc_va_Giao_thong_Ha_Noi
-#EXTINF:-1  tvg-id="hungyenradio" tvg-link="http://stream.truyenthanhso.com:3001/805bfb93c77345acbfff6ebf72399724 và http://icecast.vov.link:8000/24D7EBA6121C và http://stream.radiotech.vn:3000/863462063242745 và http://stream.truyenthanhso.com:3001/1720066687417 và http://stream.truyenthanhso.com:3001/863462068424728" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/H%C2%B2M%20TV%20-%20H%E1%BB%87%20th%E1%BB%91ng%20c%C3%A1c%20k%C3%AAnh%20H%C3%A0%20N%E1%BB%99i%20IPTV/H%C6%B0%E1%BB%9Bng%20t%E1%BB%9Bi%20Ng%C3%A0y%20h%E1%BB%99i%2015-03-2026.png",FM92.7 • TIN TỨC HƯNG YÊN & VĂN HÓA - DÂN SINH
+#EXTINF:-1  tvg-id="ninhbinhradio" tvg-name="FM92.7 • TIN TỨC HƯNG YÊN & VĂN HÓA - DÂN SINH" tvg-link="http://stream.truyenthanhso.com:3001/805bfb93c77345acbfff6ebf72399724 và http://icecast.vov.link:8000/24D7EBA6121C và http://stream.radiotech.vn:3000/863462063242745 và http://stream.truyenthanhso.com:3001/1720066687417 và http://stream.truyenthanhso.com:3001/863462068424728" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/H%C2%B2M%20TV%20-%20H%E1%BB%87%20th%E1%BB%91ng%20c%C3%A1c%20k%C3%AAnh%20H%C3%A0%20N%E1%BB%99i%20IPTV/Ch%C3%A0o%20m%E1%BB%ABng%20Ng%C3%A0y%20h%E1%BB%99i%2015-03-2026.png",CHƯƠNG TRÌNH PHÁT THANH ĐẶC BIỆT CHÀO MỪNG NGÀY BẦU CỬ ĐẠI BIỂU HĐND TỈNH NINH BÌNH VÀ PHƯỜNG PHỦ LÝ - KHÓA II | NHIỆM KỲ 2026 - 2031
 #EXTGRP:HaNoilPTV | KÊNH ĐẶC SẮC
 https://HaNoiIPTV.short.gy/HaNoiIPTVPlus-NBTV-Phat_thanh_Ninh_Binh
 #EXTINF:-1  tvg-id="haiphong937" tvg-link="https://HaNoiIPTV.short.gy/HaNoiIPTV-TV_Globo_HD" group-title="HaNoilPTV | KÊNH VOV" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Logo%20kh%C3%A1c/THP%20-%20Truy%E1%BB%81n%20h%C3%ACnh%20H%E1%BA%A3i%20Ph%C3%B2ng%20HD/THP%20-%20Ph%C3%A1t%20thanh%20H%E1%BA%A3i%20Ph%C3%B2ng.png",FM 93.7 • THP CHÍNH TRỊ - TỔNG HỢP
@@ -12913,12 +12904,13 @@ http://livesport.io.vn/ott/ottlink.php?id=epl2
 https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/laligatv/manifest.mpd
 #EXTINF:-1 tvg-id="" tvg-logo="http://livesport.io.vn/logo/laligas.png" group-title="easport | LIVE EVENT", LALIGA 2
 #EXTGRP:easport | LIVE EVENT
-https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/laligaa/manifest.mpd
+https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/b2/manifest.mpd
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/laligas.png" group-title="easport | LIVE EVENT",LALIGA 3
 #EXTGRP:easport | LIVE EVENT
 https://mpd.manchesterunitedfanclubvietnam.workers.dev/live/one1
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/serieas.png" group-title="easport | LIVE EVENT",SERIEA 1
 #EXTGRP:easport | LIVE EVENT
+https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/b3/manifest.mpd
 http://livesport.io.vn/ott/ottlink.php?id=seriea
 #EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/serieas.png" group-title="easport | LIVE EVENT",SERIEA 2
 #EXTGRP:easport | LIVE EVENT
@@ -12967,10 +12959,10 @@ http://livesport.io.vn/ott/ottlink.php?id=z5
 http://livesport.io.vn/ott/ottlink.php?id=z6
 #EXTINF:-1 tvg-logo="https://img2.sport-tv-guide.live/images/tv-station-spotv-southeast-asia-2846.png" group-title="easport | SPORTS 1",SPOTV
 #EXTGRP:easport | SPORTS 1
-https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/spotv/manifest.mpd
+https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/cg_spotvhd/default/index.mpd
 #EXTINF:-1 tvg-logo="https://img2.sport-tv-guide.live/images/tv-station-spotv-2-southeast-asia-2847.png" group-title="easport | SPORTS 1",SPOTV2
 #EXTGRP:easport | SPORTS 1
-https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/spotv2/manifest.mpd
+https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/dr_spotv2hd/default/index.mpd
 #EXTINF:-1 tvg-logo="https://img2.sport-tv-guide.live/images/tv-station-nova-sport-1-563.png" group-title="easport | SPORTS 1",NOVA 1
 #EXTGRP:easport | SPORTS 1
 https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/nova1/manifest.mpd
@@ -13040,6 +13032,15 @@ https://mpd.manchesterunitedfanclubvietnam.workers.dev/live/5plus
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/52/Sport5_Logo.png" group-title="easport | SPORTS 2",SPORT-5-stars
 #EXTGRP:easport | SPORTS 2
 https://mpd.manchesterunitedfanclubvietnam.workers.dev/live/5star
+#EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/sport/b.png" group-title="easport | SPORTS 2",BEINSPORT 1 AU
+#EXTGRP:easport | SPORTS 2
+https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/laligaa/manifest.mpd
+#EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/sport/b2.png" group-title="easport | SPORTS 2",BEINSPORT 2 AU
+#EXTGRP:easport | SPORTS 2
+https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/b2/manifest.mpd
+#EXTINF:-1 tvg-logo="http://livesport.io.vn/logo/sport/b3.png" group-title="easport | SPORTS 2",BEINSPORT 3 AU
+#EXTGRP:easport | SPORTS 2
+https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/b3/manifest.mpd
 #EXTINF:-1 group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552" tvg-logo="http://livesport.io.vn/logo/sport/tn1.png" group-title="easport | SPORTS 2",TNT SPORTS 1
 #EXTGRP:easport | SPORTS 2
 https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/tnt1/manifest.mpd
