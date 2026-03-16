@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="https://epg.pw/xmltv/epg_ID.xml,http://epg.51zmt.top:8000/e.xml,http://megavie.live/schedule/epg.xml,http://gg.gg/coodertvepg,https://epg.pw/xmltv/epg_HK.xml,https://epg.946985.xyz/t.xml.gz,http://trada.info/epg.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://vnepg.site/epg.xml,http://gg.gg/epgmytv,https://epg.catvod.com/epg.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://vnepg.site/epg.xml.gz,http://gg.gg/epgbeartv,http://lichphatsong.xyz/schedule/epg.xml,https://epg.pw/xmltv/epg_MY.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,http://gg.gg/fptepg,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://a.rawtv.top/epg-vn,http://gg.gg/guidevn,https://epg.pw/xmltv/epg_FR.xml,http://www.teleguide.info/download/new3/xmltv.xml.gz,https://hnlive.dramahay.xyz/epg.xml,https://epg.pw/xmltv/epg_AU.xml"
+#EXTM3U x-tvg-url="https://epg.pw/xmltv/epg_FR.xml,http://megavie.live/schedule/epg.xml,http://gg.gg/fptepg,http://gg.gg/epgmytv,https://hnlive.dramahay.xyz/epg.xml,https://a.rawtv.top/epg-vn,http://trada.info/epg.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,http://gg.gg/epgbeartv,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://epg.catvod.com/epg.xml,https://epg.pw/xmltv/epg_HK.xml,http://epg.51zmt.top:8000/e.xml,http://www.teleguide.info/download/new3/xmltv.xml.gz,https://epg.pw/xmltv/epg_ID.xml,http://gg.gg/guidevn,http://gg.gg/coodertvepg,https://epg.pw/xmltv/epg_AU.xml,https://epg.946985.xyz/t.xml.gz,http://lichphatsong.xyz/schedule/epg.xml,https://epg.pw/xmltv/epg_MY.xml,https://vnepg.site/epg.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://vnepg.site/epg.xml.gz"
 #EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}",VTV1
 #EXTGRP:DAKLAKIPTV | VTV
 https://live-a.fptplay53.net/live/media/VTV1HD/live_hls_avc/index.m3u8
@@ -5252,24 +5252,9 @@ https://livevlisctcdnw.seenow.vn/livesnv2/ONSPORT7/manifest.mpd
 #EXTINF:-1 group-title="vmttv | Sự Kiện VTVPrime" tvg-logo="https://vtvprime.vn/sideLogoBig.png", Sự Kiện VTVPrime 8
 #EXTGRP:vmttv | Sự Kiện VTVPrime
 https://livevlisctcdnw.seenow.vn/livesnv2/ONSPORT8/manifest.mpd
-#EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/03/11/15_1773210796448.jpg", Event 1 4K
-#EXTGRP:vmttv | Sự Kiện FPT PLAY
-https://live.fptplay53.net/live/media/event-01-4k/hls_avc_v6/index.m3u8
-#EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/03/11/15_1773209739037.jpg", Sự Kiện 9
-#EXTGRP:vmttv | Sự Kiện FPT PLAY
-https://live.fptplay53.net/live/media/su-kien-09/hls_avc_v6/index.m3u8
-#EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/03/12/slider_1773282188962.jpg", Event 2
-#EXTGRP:vmttv | Sự Kiện FPT PLAY
-https://live.fptplay53.net/live/media/event-02/hls_avc_v6/index.m3u8
 #EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/03/14/live-3x3-hanoi-open-cup-2026-slide-thumb_1773425061417.jpg", Sự Kiện 10
 #EXTGRP:vmttv | Sự Kiện FPT PLAY
 https://live.fptplay53.net/live/media/su-kien-10/hls_avc_v6/index.m3u8
-#EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/03/11/slider_1773224858156.jpg", Sự Kiện 2
-#EXTGRP:vmttv | Sự Kiện FPT PLAY
-https://live.fptplay53.net/live/media/su-kien-02/hls_avc_v6/index.m3u8
-#EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/03/11/slider_1773225157212.jpg", Sự Kiện 3
-#EXTGRP:vmttv | Sự Kiện FPT PLAY
-https://live.fptplay53.net/live/media/su-kien-03/hls_avc_v6/index.m3u8
 #EXTINF:-1 tvg-id="vtv1hd" group-title="vmttv | VTV" tvg-logo="https://i.ytimg.com/vi/dGohEWXz7Sk/maxresdefault.jpg" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}, VTV1
 #EXTGRP:vmttv | VTV
 https://freem3u.xyz/api/live/play.m3u8?vid=2
@@ -5689,7 +5674,6 @@ https://amdlive-ch01-ctnd-com.akamaized.net/arirang_1ch/smil:arirang_1ch.smil/ch
 https://s2129134.cdn.mytvnet.vn/pkg20/live_dzones/bloomberg.smil/manifest.mpd
 #EXTINF:-1 tvg-id="cnbc" group-title="vmttv | Quốc Tế" tvg-logo="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/30b1d744249569.56076e09dd31e.png", CNBC
 #EXTGRP:vmttv | Quốc Tế
-http://2.magmas5.com:8000/live/XXXR3str3amLine/200conxxxxQ41/131029.ts
 #EXTINF:-1 tvg-id="cnn" group-title="vmttv | Quốc Tế" tvg-logo="https://deadline.com/wp-content/uploads/2020/09/CNN-Logo.jpg", CNN
 #EXTGRP:vmttv | Quốc Tế
 http://ch-4k-top.org/play/live.php?mac=00:1A:79:7a:39:a6&stream=1163749&extension=ts&play_token=ykRIE6GwRI
@@ -10035,6 +10019,9 @@ https://HaNoiIPTV.short.gy/Ha_Noi_IPTV_9-JTBC4-Giai_tri_Danh_cho_Gioi_tre
 #EXTINF:-1  tvg-id="北京卫视" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Danh%20s%C3%A1ch%20k%C3%AAnh/N%C6%B0%E1%BB%9Bc%20ngo%C3%A0i/%E5%8C%97%E4%BA%AC%E5%8D%AB%E8%A7%86.png",北京卫视高清 | TH BẮC KINH HD
 #EXTGRP:HaNoilPTV | KÊNH ĐẶC SẮC
 https://HaNoiIPTV.short.gy/HaNoiIPTV-Bei_Jing_Wei_Shi_HD
+#EXTINF:-1  tvg-id="天津卫视" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Danh%20s%C3%A1ch%20k%C3%AAnh/N%C6%B0%E1%BB%9Bc%20ngo%C3%A0i/%E5%A4%A9%E6%B4%A5%E5%8D%AB%E8%A7%86.png",天津卫视 | TH THIÊN TÂN
+#EXTGRP:HaNoilPTV | KÊNH ĐẶC SẮC
+https://HaNoiIPTV.short.gy/HaNoiIPTV-Tian_Jin_Wei_Shi_HD
 #EXTINF:-1  tvg-id="河南卫视" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Danh%20s%C3%A1ch%20k%C3%AAnh/N%C6%B0%E1%BB%9Bc%20ngo%C3%A0i/%E6%B2%B3%E5%8D%97%E5%8D%AB%E8%A7%86.png",河南卫视高清 | TH HÀ NAM HD
 #EXTGRP:HaNoilPTV | KÊNH ĐẶC SẮC
 https://HaNoiIPTV.short.gy/HaNoiIPTV-He_Nan_Wei_Shi_HD
@@ -10050,18 +10037,15 @@ https://HaNoiIPTV.short.gy/HaNoiIPTV-Jiang_Su_Wei_Shi_HD
 #EXTINF:-1  tvg-id="湖南卫视" tvg-link="http://4.3.2.1:0000/udp/239.76.245.115:1234" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Danh%20s%C3%A1ch%20k%C3%AAnh/N%C6%B0%E1%BB%9Bc%20ngo%C3%A0i/%E6%B9%96%E5%8D%97%E5%8D%AB%E8%A7%86%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89.png",湖南卫视 | TH HỒ NAM
 #EXTGRP:HaNoilPTV | KÊNH ĐẶC SẮC
 https://HaNoiIPTV.short.gy/HaNoiIPTV-Hu_Nan_Wei_Shi_HD
-#EXTINF:-1  tvg-id="hanoi96" tvg-name="FM96 • TIN TỨC & ÂM NHẠC" tvg-link="https://cloudcdnfm90.tek4tv.vn/HANOI96/stream.m3u8 và http://222.252.21.96:8000/HANOI96 và https://cecex9g5cpliv.vcdn.cloud/audio/fm96/chunklist_w1504493920.m3u8" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/FM96%20Mhz%20%E2%80%A2%20K%C3%8ANH%20PH%E1%BB%A4.png",FM96 • THỜI SỰ TỔNG HỢP
+#EXTINF:-1  tvg-id="hanoi96" tvg-name="FM96 • TIN TỨC & ÂM NHẠC" tvg-link="https://cloudcdnfm90.tek4tv.vn/HANOI96/stream.m3u8 và http://222.252.21.96:8000/HANOI96 và https://cecex9g5cpliv.vcdn.cloud/audio/fm96/chunklist_w1504493920.m3u8 và http://14.162.146.90:8000/HANOI90 và https://cloudcdnfm90.tek4tv.vn/HANOI90/stream.m3u8 và https://cloudstreamhntv.tek4tv.vn/audio/fm90/chunklist_w721090887.m3u8 và https://HaNoiIPTV.short.gy/HaNoiIPTV-FM90-Tin_tuc_va_Giao_thong_Ha_Noi" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Logo%20kh%C3%A1c/FM96%20phi%C3%AAn%20b%E1%BA%A3n%20s%E1%BB%91%20%E2%80%A2%20B%E1%BA%A3n%202.png",FM96 • THỜI SỰ TỔNG HỢP
 #EXTGRP:HaNoilPTV | KÊNH ĐẶC SẮC
 https://HaNoiIPTV.short.gy/HaNoiIPTV-FM96-Thoi_su_Ha_Noi
-#EXTINF:-1  tvg-id="hanoi90" tvg-link="http://14.162.146.90:8000/HANOI90 và https://cloudcdnfm90.tek4tv.vn/HANOI90/stream.m3u8 và https://cloudstreamhntv.tek4tv.vn/audio/fm90/chunklist_w721090887.m3u8" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-link="https://cecex9g5cpliv.vcdn.cloud/audio/fm90/chunklist_w1787246294.m3u8" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/FM90%20Mhz%20%E2%80%A2%20TIN%20T%E1%BB%A8C%20GIAO%20TH%C3%94NG.png",FM90 • TIN TỨC & GIAO THÔNG HÀ NỘI
-#EXTGRP:HaNoilPTV | KÊNH ĐẶC SẮC
-https://HaNoiIPTV.short.gy/HaNoiIPTV-FM90-Tin_tuc_va_Giao_thong_Ha_Noi
-#EXTINF:-1  tvg-id="ninhbinhradio" tvg-name="FM92.7 • TIN TỨC HƯNG YÊN & VĂN HÓA - DÂN SINH" tvg-link="http://stream.truyenthanhso.com:3001/805bfb93c77345acbfff6ebf72399724 và http://icecast.vov.link:8000/24D7EBA6121C và http://stream.radiotech.vn:3000/863462063242745 và http://stream.truyenthanhso.com:3001/1720066687417 và http://stream.truyenthanhso.com:3001/863462068424728" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/H%C2%B2M%20TV%20-%20H%E1%BB%87%20th%E1%BB%91ng%20c%C3%A1c%20k%C3%AAnh%20H%C3%A0%20N%E1%BB%99i%20IPTV/Ch%C3%A0o%20m%E1%BB%ABng%20Ng%C3%A0y%20h%E1%BB%99i%2015-03-2026.png",CHƯƠNG TRÌNH PHÁT THANH ĐẶC BIỆT CHÀO MỪNG NGÀY BẦU CỬ ĐẠI BIỂU HĐND TỈNH NINH BÌNH VÀ PHƯỜNG PHỦ LÝ - KHÓA II | NHIỆM KỲ 2026 - 2031
-#EXTGRP:HaNoilPTV | KÊNH ĐẶC SẮC
-https://HaNoiIPTV.short.gy/HaNoiIPTVPlus-NBTV-Phat_thanh_Ninh_Binh
 #EXTINF:-1  tvg-id="haiphong937" tvg-link="https://HaNoiIPTV.short.gy/HaNoiIPTV-TV_Globo_HD" group-title="HaNoilPTV | KÊNH VOV" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Logo%20kh%C3%A1c/THP%20-%20Truy%E1%BB%81n%20h%C3%ACnh%20H%E1%BA%A3i%20Ph%C3%B2ng%20HD/THP%20-%20Ph%C3%A1t%20thanh%20H%E1%BA%A3i%20Ph%C3%B2ng.png",FM 93.7 • THP CHÍNH TRỊ - TỔNG HỢP
 #EXTGRP:HaNoilPTV | KÊNH VOV
 https://HaNoiIPTV.short.gy/HaNoiIPTVPlus-FM93.7-THP_Radio-Phat_thanh_Hai_Phong
+#EXTINF:-1  tvg-id="hungyenradio" tvg-link="http://stream.truyenthanhso.com:3001/805bfb93c77345acbfff6ebf72399724 và http://icecast.vov.link:8000/24D7EBA6121C và http://stream.radiotech.vn:3000/863462063242745 và http://stream.truyenthanhso.com:3001/1720066687417 và http://stream.truyenthanhso.com:3001/863462068424728" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Logo%20kh%C3%A1c/HYTV%20HD%20-%20Truy%E1%BB%81n%20h%C3%ACnh%20H%C6%B0ng%20Y%C3%AAn/HYTV%20-%20Ph%C3%A1t%20thanh%20H%C6%B0ng%20Y%C3%AAn.png",FM92.7 • TIN TỨC HƯNG YÊN & VĂN HÓA - DÂN SINH
+#EXTGRP:HaNoilPTV | KÊNH ĐẶC SẮC
+https://HaNoiIPTV.short.gy/HaNoiIPTVPlus-HYTV-Phat_thanh_Hung_Yen
 #EXTINF:-1  tvg-id="haiphong1022" tvg-link="https://HaNoiIPTV.short.gy/HaNoiIPTV-Globo_News_HD" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Logo%20kh%C3%A1c/THP+%20HD/THP+%20-%20Ph%C3%A1t%20thanh%20H%E1%BA%A3i%20Ph%C3%B2ng%202.png",FM 102.2 • THP GIAO THÔNG
 #EXTGRP:HaNoilPTV | KÊNH ĐẶC SẮC
 https://HaNoiIPTV.short.gy/HaNoiIPTVPlus-FM102.2-THP_Giao_thong
@@ -10590,9 +10574,6 @@ https://HaNoiIPTV.short.gy/HaNoiIPTV-Hei_Long_Jiang_Wei_Shi_HD
 #EXTINF:-1  group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Danh%20s%C3%A1ch%20k%C3%AAnh/N%C6%B0%E1%BB%9Bc%20ngo%C3%A0i/%E8%BE%BD%E5%AE%81%E5%8D%AB%E8%A7%86.png",辽宁卫视 | TH LIÊU NINH
 #EXTGRP:HaNoilPTV | KÊNH ĐẶC SẮC
 https://HaNoiIPTV.short.gy/HaNoiIPTV-Liao_Ning_Wei_Shi_HD
-#EXTINF:-1  group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Danh%20s%C3%A1ch%20k%C3%AAnh/N%C6%B0%E1%BB%9Bc%20ngo%C3%A0i/%E5%A4%A9%E6%B4%A5%E5%8D%AB%E8%A7%86.png",天津卫视 | TH THIÊN TÂN
-#EXTGRP:HaNoilPTV | KÊNH ĐẶC SẮC
-https://HaNoiIPTV.short.gy/HaNoiIPTV-Tian_Jin_Wei_Shi_HD
 #EXTINF:-1  group-title="HaNoilPTV | KÊNH ĐẶC SẮC" group-title="HaNoilPTV | KÊNH ĐẶC SẮC" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Danh%20s%C3%A1ch%20k%C3%AAnh/N%C6%B0%E1%BB%9Bc%20ngo%C3%A0i/%E6%B2%B3%E5%8C%97%E5%8D%AB%E8%A7%86.png",河北卫视高清 | TH HÀ BẮC HD
 #EXTGRP:HaNoilPTV | KÊNH ĐẶC SẮC
 https://HaNoiIPTV.short.gy/HaNoiIPTV-He_Bei_Wei_Shi_HD
