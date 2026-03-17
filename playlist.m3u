@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="https://epg.pw/xmltv/epg_FR.xml,https://vnepg.site/epg.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://epg.pw/xmltv/epg_MY.xml,http://www.teleguide.info/download/new3/xmltv.xml.gz,http://gg.gg/epgbeartv,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://a.rawtv.top/epg-vn,http://megavie.live/schedule/epg.xml,https://epg.946985.xyz/t.xml.gz,http://gg.gg/guidevn,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://epg.pw/xmltv/epg_ID.xml,http://lichphatsong.xyz/schedule/epg.xml,https://epg.pw/xmltv/epg_HK.xml,http://gg.gg/fptepg,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,http://trada.info/epg.xml,https://epg.pw/xmltv/epg_AU.xml,http://gg.gg/epgmytv,https://hnlive.dramahay.xyz/epg.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://epg.catvod.com/epg.xml,http://gg.gg/coodertvepg,http://epg.51zmt.top:8000/e.xml,https://vnepg.site/epg.xml.gz"
+#EXTM3U x-tvg-url="https://a.rawtv.top/epg-vn,http://epg.51zmt.top:8000/e.xml,http://www.teleguide.info/download/new3/xmltv.xml.gz,http://gg.gg/guidevn,https://epg.pw/xmltv/epg_ID.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://vnepg.site/epg.xml.gz,https://epg.pw/xmltv/epg_FR.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,http://gg.gg/coodertvepg,https://vnepg.site/epg.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,http://lichphatsong.xyz/schedule/epg.xml,https://epg.pw/xmltv/epg_MY.xml,https://epg.catvod.com/epg.xml,https://epg.946985.xyz/t.xml.gz,http://gg.gg/fptepg,https://hnlive.dramahay.xyz/epg.xml,https://epg.pw/xmltv/epg_AU.xml,http://trada.info/epg.xml,http://megavie.live/schedule/epg.xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,http://gg.gg/epgbeartv,https://epg.pw/xmltv/epg_HK.xml,http://gg.gg/epgmytv,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml"
 #EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}",VTV1
 #EXTGRP:DAKLAKIPTV | VTV
 https://live-a.fptplay53.net/live/media/VTV1HD/live_hls_avc/index.m3u8
@@ -5258,6 +5258,8 @@ https://livevlisctcdnw.seenow.vn/livesnv2/ONSPORT7/manifest.mpd
 #EXTINF:-1 group-title="vmttv | Sự Kiện VTVPrime" tvg-logo="https://vtvprime.vn/sideLogoBig.png", Sự Kiện VTVPrime 8
 #EXTGRP:vmttv | Sự Kiện VTVPrime
 https://livevlisctcdnw.seenow.vn/livesnv2/ONSPORT8/manifest.mpd
+#EXTINF:-1 group-title="vmttv | Sự Kiện VTVPrime" tvg-logo="https://vtvprime.vn/sideLogoBig.png", Sự Kiện VTVPrime 9
+#EXTGRP:vmttv | Sự Kiện VTVPrime
 #EXTINF:-1 tvg-id="vtv1hd" group-title="vmttv | VTV" tvg-logo="https://i.ytimg.com/vi/dGohEWXz7Sk/maxresdefault.jpg" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}, VTV1
 #EXTGRP:vmttv | VTV
 https://freem3u.xyz/api/live/play.m3u8?vid=2
@@ -12860,81 +12862,81 @@ https://livesport.io.vn/m3u/playlist.php?ch=htvcplus
 #EXTINF:-1 tvg-id="htvccanhac" tvg-logo="http://cdam.work/logo/htv/canhac.png" group-title="easport | HTVC" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",HTVC Ca Nhạc
 #EXTGRP:easport | HTVC
 https://livesport.io.vn/m3u/playlist.php?ch=htvccanhac
-#EXTINF:-1 tvg-id="hanoi1" tvg-logo="https://i.imgur.com/mwCTDMj.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",HanoiTV1
+#EXTINF:-1 tvg-id="hanoi1" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552" tvg-logo="https://freem3u.xyz/static/images/diaphuong/hanoi1.png" group-title="easport | ĐỊA PHƯƠNG",HanoiTV1
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=9ae45c99222477684b23629acc5ddc60
-#EXTINF:-1 tvg-id="hanoi2" tvg-logo="https://i.ibb.co/L5bfkfQ/HANOI2-TV-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",HanoiTV2 FHD
+https://cloudstreamhntv.tek4tv.vn/capture/smil:HN1.smil/playlist.m3u8
+#EXTINF:-1 tvg-id="hanoi2" tvg-logo="https://freem3u.xyz/static/images/diaphuong/hanoi2.png" group-title="easport | ĐỊA PHƯƠNG",HanoiTV2 FHD
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=729e4f3200315dc3d097209a83014760
-#EXTINF:-1 tvg-id="vinhlong1hd" tvg-logo="https://i.ibb.co/2MVntS3/THVL1-HD-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",THVL1 HD
+https://cloudstreamhntv.tek4tv.vn/live/smil:HN2.smil/playlist.m3u8
+#EXTINF:-1 tvg-id="vinhlong1hd" tvg-logo="https://i.ibb.co/2MVntS3/THVL1-HD-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG",THVL1 HD
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=bc96a79799b7799cccd6ed33594d1f9d
-#EXTINF:-1 tvg-id="vinhlong2hd" tvg-logo="https://i.ibb.co/LJWVVRp/THVL2-HD-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",THVL2 HD
+https://live.fptplay53.net/epzch2/vinhlong1_abr.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="vinhlong2hd" tvg-logo="https://i.ibb.co/LJWVVRp/THVL2-HD-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG",THVL2 HD
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=060d5fd1770b0144cc1a0c9b19b8966b
-#EXTINF:-1 tvg-id="vinhlong3hd" tvg-logo="https://i.ibb.co/Y8XFm4Z/THVL3-HD-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",THVL3 HD
+https://live.fptplay53.net/epzhd2/vinhlong2_vhls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="vinhlong3hd" tvg-logo="https://i.ibb.co/Y8XFm4Z/THVL3-HD-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG",THVL3 HD
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=2cb61780f03f00bedf741db3d0844caf
-#EXTINF:-1 tvg-id="vinhlong4hd" tvg-logo="https://i.ibb.co/F5VZQ8x/THVL4-HD-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",THVL4 HD
+https://live.fptplay53.net/epzch2/vinhlong3_abr.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="vinhlong4hd" tvg-logo="https://i.ibb.co/F5VZQ8x/THVL4-HD-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG",THVL4 HD
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=2886be21bd0c8dcd7b8c76abf0243929
-#EXTINF:-1 tvg-id="vinhlong5hd" tvg-logo="https://i.ibb.co/B5RPzLYV/thvl5.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",THVL5 HD
+https://live.fptplay53.net/epzhd2/vinhlong4hd_vhls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="vinhlong5hd" tvg-logo="https://i.ibb.co/B5RPzLYV/thvl5.png" group-title="easport | ĐỊA PHƯƠNG",THVL5 HD
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=3b5751e9aca6480e7f1fee45f0d9a30d
-#EXTINF:-1 tvg-id="bacninh" tvg-logo="https://i.ibb.co/pLwf7JF/BACNINH-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",BTV Bắc Ninh
+https://live.fptplay53.net/epzsd1/vinhlong5_vhls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="bacninh" tvg-logo="https://i.ibb.co/pLwf7JF/BACNINH-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG",BTV Bắc Ninh
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=2fe510f9e8d7a8928a78c8a533e0cd13
-#EXTINF:-1 tvg-id="binhduong9" tvg-logo="https://i.ibb.co/F08gVbK/BTV9-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",BTV9 Bình Dương
+https://live.fptplay53.net/fnxsd1/bacninh01_hls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="danang1" tvg-logo="https://i.ibb.co/TRhDWXc/128.png" group-title="easport | ĐỊA PHƯƠNG",DaNangTV1
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=cef16993e447a6387f213d5271c80d52
-#EXTINF:-1 tvg-id="danang1" tvg-logo="https://i.ibb.co/TRhDWXc/128.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",DaNangTV1
+https://live.fptplay53.net/epzsd1/danang1_hls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="danang2" tvg-logo="https://i.ibb.co/TRhDWXc/128.png" group-title="easport | ĐỊA PHƯƠNG",DaNangTV2
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=0e8c33befbc5e34b15f5e85c58cec13e
-#EXTINF:-1 tvg-id="danang2" tvg-logo="https://i.ibb.co/TRhDWXc/128.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",DaNangTV2
+https://live.fptplay53.net/epzsd1/danang2_hls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="dongnai1" tvg-logo="https://i.ibb.co/9TBsXRP/dongnai1-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG",ĐNRTV1 Đồng Nai
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=776d3c230f1ca0beee47c2c8c071bf61
-#EXTINF:-1 tvg-id="dongnai1" tvg-logo="https://i.ibb.co/9TBsXRP/dongnai1-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",ĐNRTV1 Đồng Nai
+https://live.fptplay53.net/epzsd1/dongnai1_hls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="dongnai2" tvg-logo="https://i.ibb.co/6B0LCKJ/dongnai2-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG",ĐNRTV2 Đồng Nai
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=9302951289fceb8c4f0fbd35f9b72e33
-#EXTINF:-1 tvg-id="dongnai2" tvg-logo="https://i.ibb.co/6B0LCKJ/dongnai2-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",ĐNRTV2 Đồng Nai
+https://live.fptplay53.net/epzsd1/dongnai2_hls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="dongthap1" tvg-logo="https://i.ibb.co/3N22Nd4/TH-T-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG",THĐT1 Đồng Tháp
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=fd2524f0b2042b07e1084f137e48e8de
-#EXTINF:-1 tvg-id="dongthap1" tvg-logo="https://i.ibb.co/3N22Nd4/TH-T-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",THĐT1 Đồng Tháp
+https://live.fptplay53.net/epzsd1/dongthap_vhls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="dongthap2" tvg-logo="https://i.ibb.co/Fm6ZT1J/thdt2-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG",THĐT2 Đồng Tháp
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=af210595d64adfa713c507c79ed1254c
-#EXTINF:-1 tvg-id="dongthap2" tvg-logo="https://i.ibb.co/Fm6ZT1J/thdt2-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",THĐT2 Đồng Tháp
+https://live.fptplay53.net/epzsd1/dongthaphd_vhls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="haiphong" tvg-logo="https://i.ibb.co/xJ0y2Vw/HAIPHONG-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG",THP Hải Phòng
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=89c4a1c93dde6a5ba67d726a7dc4c961
-#EXTINF:-1 tvg-id="haiphong" tvg-logo="https://i.ibb.co/xJ0y2Vw/HAIPHONG-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",THP Hải Phòng
+https://live.fptplay53.net/fnxsd1/haiphong_hls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="haiphongplus" tvg-logo="https://i.ibb.co/72CpJK0/haiphongplus-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG",THP+ Hải Phòng
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=3ac8b35984ae3af3a723237c78ffbd02
-#EXTINF:-1 tvg-id="haiphongplus" tvg-logo="https://i.ibb.co/72CpJK0/haiphongplus-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",THP+ Hải Phòng
+https://live.fptplay53.net/fnxsd1/haiphongplus_hls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="cantho1" tvg-logo="https://freem3u.xyz/static/images/diaphuong/caicach/cantho1_new.png" group-title="easport | ĐỊA PHƯƠNG",CẦN THƠ 1
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=4b29c772bbe35afa637a57e709abc399
-#EXTINF:-1 tvg-id="namdinh" tvg-logo="https://i.ibb.co/0ycH3mR/Nam-Dinh-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",NTV Nam Định
+https://live.fptplay53.net/epzsd1/cantho_hls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="cantho2" tvg-logo="https://freem3u.xyz/static/images/diaphuong/caicach/cantho2_new.png" group-title="easport | ĐỊA PHƯƠNG",CẦN THƠ 2
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=b6ff4fe602dd5f112204ae4fc7608d85
-#EXTINF:-1 tvg-id="quangtri" tvg-logo="https://i.ibb.co/JnH32XZ/Quang-Tri-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",QRTV Quảng Trị
+https://live.fptplay53.net/epzsd1/cantho02_vhls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="cantho3" tvg-logo="https://freem3u.xyz/static/images/diaphuong/caicach/cantho3_new.png" group-title="easport | ĐỊA PHƯƠNG",CẦN THƠ 3
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=1042a009bce9d3f7cec9e010cbb7b360
-#EXTINF:-1 tvg-id="sonla" tvg-logo="https://i.ibb.co/z5Q0bkz/sonlatv-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",STV Sơn La
+https://live.fptplay53.net/epzsd1/cantho03_hls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="thanhhoa" tvg-logo="https://i.ibb.co/pr7CGhb/THANHHOA-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG",TTV Thanh Hóa
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=ae688218bed1e00ffab64f6371b47492
-#EXTINF:-1 tvg-id="thanhhoa" tvg-logo="https://i.ibb.co/pr7CGhb/THANHHOA-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",TTV Thanh Hóa
+https://live.fptplay53.net/fnxsd1/thanhhoa_hls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="hue" tvg-logo="https://i.ibb.co/5X0YF3c/Hue-TV-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG",TRT Thừa Thiên Huế
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=0a09bc16161983c87e514181df9e381d
-#EXTINF:-1 tvg-id="hue" tvg-logo="https://i.ibb.co/5X0YF3c/Hue-TV-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",TRT Thừa Thiên Huế
+https://live.fptplay53.net/epzsd1/hue_hls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="tuyenquang" tvg-logo="https://i.ibb.co/Hp6pHKp/TUYENQUANG-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG",TTV Tuyên Quang
 #EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=0f03ebf8d02992e184db6bdb34b8625b
-#EXTINF:-1 tvg-id="tuyenquang" tvg-logo="https://i.ibb.co/Hp6pHKp/TUYENQUANG-BEARTV.png" group-title="easport | ĐỊA PHƯƠNG" group-logo="https://static.wikia.nocookie.net/logopedia/images/7/7c/EA_Sports_2009.svg/revision/latest/scale-to-width-down/200?cb=20220526064552",TTV Tuyên Quang
-#EXTGRP:easport | ĐỊA PHƯƠNG
-http://cdam.work/ott/playlist.php?token=9d9188b8866845abc5d8983c1eaf5543
+https://live.fptplay53.net/fnxsd1/tuyenquang_hls.smil/chunklist.m3u8
 #EXTINF:-1  group-logo="https://cdn-icons-png.flaticon.com/512/4768/4768732.png" tvg-logo="http://livesport.io.vn/logo/c.png" group-title="easport | LIVE EVENT",UEFA 1
 #EXTGRP:easport | LIVE EVENT
+https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/tnt1/manifest.mpd
 #EXTINF:-1  group-logo="https://cdn-icons-png.flaticon.com/512/4768/4768732.png" tvg-logo="http://livesport.io.vn/logo/c.png" group-title="easport | LIVE EVENT",UEFA 2
 #EXTGRP:easport | LIVE EVENT
+https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/tnt2/manifest.mpd
 #EXTINF:-1  group-logo="https://cdn-icons-png.flaticon.com/512/4768/4768732.png" tvg-logo="http://livesport.io.vn/logo/c.png" group-title="easport | LIVE EVENT",UEFA 3
 #EXTGRP:easport | LIVE EVENT
+https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/tnt3/manifest.mpd
 #EXTINF:-1 group-logo="https://cdn-icons-png.flaticon.com/512/4768/4768732.png" tvg-logo="http://livesport.io.vn/logo/epls.png" group-title="easport | LIVE EVENT",EPL 1
 #EXTGRP:easport | LIVE EVENT
 https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/epll/manifest.mpd
