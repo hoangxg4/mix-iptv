@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="http://epg.51zmt.top:8000/e.xml,http://www.teleguide.info/download/new3/xmltv.xml.gz,https://a.rawtv.top/epg-vn,http://trada.info/epg.xml,https://epg.pw/xmltv/epg_ID.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://vnepg.site/epg.xml.gz,http://epg.one/epg2.xml.gz,http://gg.gg/coodertvepg,https://epg.946985.xyz/t.xml.gz,https://epg.pw/xmltv/epg_MY.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://hnlive.dramahay.xyz/epg.xml,https://epg.pw/xmltv/epg_AU.xml,https://vnepg.site/epg.xml,http://gg.gg/fptepg,http://gg.gg/epgbeartv,http://lichphatsong.xyz/schedule/epg.xml,http://gg.gg/guidevn,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://epg.pw/xmltv/epg_HK.xml,https://epg.catvod.com/epg.xml,http://gg.gg/epgmytv,http://megavie.live/schedule/epg.xml,https://epg.pw/xmltv/epg_FR.xml"
+#EXTM3U x-tvg-url="https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,http://epg.51zmt.top:8000/e.xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://epg.pw/xmltv/epg_AU.xml,http://gg.gg/guidevn,http://gg.gg/fptepg,https://vnepg.site/epg.xml,http://lichphatsong.xyz/schedule/epg.xml,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,http://epg.one/epg2.xml.gz,https://epg.pw/xmltv/epg_HK.xml,https://epg.catvod.com/epg.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://vnepg.site/epg.xml.gz,https://epg.946985.xyz/t.xml.gz,https://epg.pw/xmltv/epg_MY.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,http://gg.gg/coodertvepg,http://www.teleguide.info/download/new3/xmltv.xml.gz,http://trada.info/epg.xml,https://epg.pw/xmltv/epg_ID.xml,https://epg.pw/xmltv/epg_FR.xml,https://a.rawtv.top/epg-vn,https://hnlive.dramahay.xyz/epg.xml,http://gg.gg/epgbeartv,http://megavie.live/schedule/epg.xml,http://gg.gg/epgmytv"
 #EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}",VTV1
 #EXTGRP:DAKLAKIPTV | VTV
 https://live-a.fptplay53.net/live/media/VTV1HD/live_hls_avc/index.m3u8
@@ -5185,7 +5185,7 @@ https://vip.opstream90.com/20260213/24963_b4f6926d/3000k/hls/mixed.m3u8
 https://s6.kkphimplayer6.com/20260118/tdyKqxYZ/3500kb/hls/index.m3u8
 #EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo="https://images.fptplay53.net/media/OTT/VOD/2026/03/13/thien-duong-mau-fpt-play-1773396128871_Landscape.jpg", Thiên Đường Máu
 #EXTGRP:vmttv | LIVE EVENTS 🔴
-https://rumble.com/hls-vod/7550ai/playlist.m3u8
+https://s6.kkphimplayer6.com/20260320/02bq9QLy/3500kb/hls/index.m3u8
 #EXTINF:-1 group-title="vmttv | LIVE EVENTS 🔴" tvg-logo="https://images.fptplay53.net/media/OTT/VOD/2026/01/12/dua-con-cua-than-tuong-phan-3-fpt-play-1768204408459_Background_origin.jpg", Oshi No Ko Phần 3 - Tập 1
 #EXTGRP:vmttv | LIVE EVENTS 🔴
 https://rumble.com/hls-vod/72av32/playlist.m3u8
@@ -5272,6 +5272,12 @@ https://livevlisctcdnw.seenow.vn/livesnv2/ONSPORT9/manifest.mpd
 #EXTINF:-1 group-title="vmttv | Sự Kiện VTVPrime" tvg-logo="https://vtvprime.vn/sideLogoBig.png", Sự Kiện VTVPrime 10
 #EXTGRP:vmttv | Sự Kiện VTVPrime
 https://livevlisctcdnw.seenow.vn/livesnv2/ONSPORT10/manifest.mpd
+#EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/03/19/slider_1773890856096.jpg", AFC Bournemouth vs Manchester United
+#EXTGRP:vmttv | Sự Kiện FPT PLAY
+https://vips-livecdn.fptplay.net/live/media/EPL_HCM_04_4K_H264/web-dash-drm/index.mpd
+#EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/03/19/slider_1773891177327.jpg", AFC Bournemouth vs Manchester United - Fan Cứng
+#EXTGRP:vmttv | Sự Kiện FPT PLAY
+https://vips-livecdn.fptplay.net/live/media/EPL_HN_01_4K_H264/web-dash-drm/index.mpd
 #EXTINF:-1 tvg-id="vtv1hd" group-title="vmttv | VTV" tvg-logo="https://i.ytimg.com/vi/dGohEWXz7Sk/maxresdefault.jpg" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}, VTV1
 #EXTGRP:vmttv | VTV
 https://freem3u.xyz/api/live/play.m3u8?vid=2
@@ -13442,6 +13448,15 @@ https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/hbofaa/manifest.mpd
 #EXTINF:-1 tvg-id="HBO Signature.id" tvg-name="HBOSignature1" tvg-logo="https://mimipipi22.github.io/logo/movies/hbosig.jpg" group-title="easport | MOVIES",HBO SIGNATURE
 #EXTGRP:easport | MOVIES
 https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/hbosigg/manifest.mpd
+#EXTINF:-1 tvg-id=""  tvg-logo="https://medianet.mv/media/channel/260x0-icon.png" group-title="easport | MOVIES", ROCK ACTION
+#EXTGRP:easport | MOVIES
+https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/action/manifest.mpd
+#EXTINF:-1 tvg-id=""  tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/94/Rock_Entertainment.png" group-title="easport | MOVIES", ROCK ENTERTAIMENT
+#EXTGRP:easport | MOVIES
+https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/enter/manifest.mpd
+#EXTINF:-1 tvg-id=""  tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Thrill_logo.svg/330px-Thrill_logo.svg.png" group-title="easport | MOVIES", THRILL
+#EXTGRP:easport | MOVIES
+https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/thrill/manifest.mpd
 #EXTINF:-1 tvg-id="3BB Asian.th"  tvg-logo="https://www.ais.th/content/dam/ais/consumer/content/lifestyle/tv-and-movie/premuim-content/ch-logo-asian.jpg" group-title="easport | MOVIES", ASIAN HITS
 #EXTGRP:easport | MOVIES
 https://cnt1-streamer9.cdn.3bbtv.com:8443/3bb/live/101/101.mpd
@@ -13742,7 +13757,6 @@ https://pubgfc.teleosmedia.com/linear/globalfashionchannel/globalfashionchannel/
 https://cdn.wfc.tv/cdn/stream-eng.m3u8
 #EXTINF:-1 tvg-id="Kaloopy TV" tvg-name="Kaloopy TV" tvg-logo="https://mimipipi22.github.io/logo/lifestyle/kaloopy.jpg" group-title="easport | LIFESTYLE",KALOOPY TV
 #EXTGRP:easport | LIFESTYLE
-https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/kaloopy/master.m3u8
 https://d35j504z0x2vu2.cloudfront.net/v1/manifest/0bc8e8376bd8417a1b6761138aa41c26c7309312/kaloopy/df2e1f8e-4f47-41b0-bd26-626e8a63caf2/2.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://mimipipi22.github.io/logo/lifestyle/biznetlifestyle.jpg" group-title="easport | LIFESTYLE",BIZNET LIFESTYLE
 #EXTGRP:easport | LIFESTYLE
@@ -13796,9 +13810,6 @@ https://vs-cmaf-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_c
 #EXTINF:-1 tvg-id="ABCAustralia.au" tvg-logo="https://iili.io/dVK1ux1.png" group-title="easport | WORLD NEWS",ABC News
 #EXTGRP:easport | WORLD NEWS
 https://abc-news-dmd-streams-1.akamaized.net/out/v1/abc83881886746b0802dc3e7ca2bc792/index.m3u8
-#EXTINF:-1 tvg-id="ABCAustralia.au" tvg-logo="https://iili.io/dVK1ux1.png" group-title="easport | WORLD NEWS",box
-#EXTGRP:easport | WORLD NEWS
-https://livevlisctcdnw.seenow.vn/mean/BM1/manifest.mpd
 #EXTINF:-1 tvg-logo="https://freem3u.xyz/static/images/vtv/vtv1.png" group-title="synthetic_iptv | VTV1","VTV1 [Link 1]"
 #EXTGRP:synthetic_iptv | VTV1
 https://live.fptplay53.net/fnxhd1/vtv1hd_vhls.smil/chunklist.m3u8
