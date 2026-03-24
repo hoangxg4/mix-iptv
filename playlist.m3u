@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,http://epg.one/epg2.xml.gz,http://www.teleguide.info/download/new3/xmltv.xml.gz,https://epg.pw/xmltv/epg_AU.xml,https://epg.pw/xmltv/epg_MY.xml,https://vnepg.site/epg.xml,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://epg.pw/xmltv/epg_FR.xml,https://epg.catvod.com/epg.xml,https://epg.pw/xmltv/epg_ID.xml,https://epg.pw/xmltv/epg_HK.xml,https://a.rawtv.top/epg-vn"
+#EXTM3U x-tvg-url="https://vnepg.site/epg.xml,https://epg.pw/xmltv/epg_MY.xml,https://epg.pw/xmltv/epg_ID.xml,http://epg.one/epg2.xml.gz,http://www.teleguide.info/download/new3/xmltv.xml.gz,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://epg.pw/xmltv/epg_HK.xml,https://epg.pw/xmltv/epg_FR.xml,https://a.rawtv.top/epg-vn,https://epg.pw/xmltv/epg_AU.xml,https://epg.catvod.com/epg.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml"
 #EXTINF:-1 tvg-id="vtv1" tvg-logo="https://cdam.work/logo/vtv/vtv11.png" group-title="easport | VTV" group-logo="https://livesport.io.vn/logo/vtv.png",VTV1 HD
 #EXTGRP:easport | VTV
 https://livesport.io.vn/m3u/playlist.php?ch=vtv1
@@ -152,12 +152,6 @@ http://cdam.work/ott/playlist.php?token=9d9188b8866845abc5d8983c1eaf5543
 #EXTGRP:easport | LIVE EVENT
 #EXTINF:-1  group-logo="https://cdn-icons-png.flaticon.com/512/4768/4768732.png" tvg-logo="http://livesport.io.vn/logo/c.png" group-title="easport | LIVE EVENT",UEFA 3
 #EXTGRP:easport | LIVE EVENT
-#EXTINF:-1 tvg-logo="https://resizer-acm.eco.astro.com.my/tr:w-3840,q:75/https://s3-ap-southeast-1.amazonaws.com/ams-astro/production/images/KTXOC.jpg" group-title="easport | LIVE EVENT",CARABAO CUP 1
-#EXTGRP:easport | LIVE EVENT
-https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/b2/manifest.mpd
-#EXTINF:-1 tvg-logo="https://resizer-acm.eco.astro.com.my/tr:w-3840,q:75/https://s3-ap-southeast-1.amazonaws.com/ams-astro/production/images/KTXOC.jpg" group-title="easport | LIVE EVENT",CARABAO CUP 2
-#EXTGRP:easport | LIVE EVENT
-https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/cbs/manifest.mpd
 #EXTINF:-1 group-logo="https://cdn-icons-png.flaticon.com/512/4768/4768732.png" tvg-logo="http://livesport.io.vn/logo/epls.png" group-title="easport | LIVE EVENT",EPL 1
 #EXTGRP:easport | LIVE EVENT
 https://proxy.manchesterunitedfanclubvietnam.workers.dev/ch/epll/manifest.mpd
@@ -459,6 +453,33 @@ https://times-ott-live.akamaized.net/mnplus_wv_drm/index.mpd
 #EXTINF:-1 tvg-id="" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS41j-t7L0_qgFLV8Xa6lGMR7Xfe61_XC4O_A&s" group-title="easport | MOVIES" , MNX
 #EXTGRP:easport | MOVIES
 https://times-ott-live.akamaized.net/mnxhd_wv_drm/index.mpd
+#EXTINF:-1 tvg-logo="https://static.wikia.nocookie.net/logos/images/9/9a/TVB1.png/revision/latest?cb=20231128083230&path-prefix=vi" group-title="easport | TVB MOVIES",TVB1
+#EXTGRP:easport | TVB MOVIES
+https://livesport.io.vn/m3u/playlist.php?ch=tvb1
+#EXTINF:-1 tvg-logo="https://app.ksmctv.com/Content/MCTV/Image/Channel/8-TVB_Asian_Action_TV_HD.png" group-title="easport | MOVIES",TVB ACTION
+#EXTGRP:easport | MOVIES
+https://livesport.io.vn/m3u/playlist.php?ch=tvbac
+#EXTINF:-1 tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/TVB星河.png" group-title="easport | MOVIES",TVB XINGHE
+#EXTGRP:easport | MOVIES
+https://livesport.io.vn/m3u/playlist.php?ch=tvbxh
+#EXTINF:-1 tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/翡翠.png" group-title="easport | MOVIES",TVB DRAMA
+#EXTGRP:easport | MOVIES
+https://livesport.io.vn/m3u/playlist.php?ch=tvbdrama
+#EXTINF:-1 tvg-name="Jade Channel (Cable)" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/翡翠.png" group-title="easport | MOVIES",Jade Channel (Cable)
+#EXTGRP:easport | MOVIES
+https://livesport.io.vn/m3u/playlist.php?ch=fct_gd
+#EXTINF:-1 tvg-name="Jade Channel 4K" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/翡翠.png" group-title="easport | MOVIES",Jade Channel 4K
+#EXTGRP:easport | MOVIES
+https://livesport.io.vn/m3u/playlist.php?ch=fct4k
+#EXTINF:-1 tvg-name="TVB News Channel" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/无线新闻.png" group-title="easport | MOVIES",TVB News Channel
+#EXTGRP:easport | MOVIES
+https://livesport.io.vn/m3u/playlist.php?ch=wxxw
+#EXTINF:-1 tvg-name="Pearl Channel" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/明珠.png" group-title="easport | MOVIES",Pearl Channel
+#EXTGRP:easport | MOVIES
+https://livesport.io.vn/m3u/playlist.php?ch=tvbpearl
+#EXTINF:-1 tvg-name="TVB Plus" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/TVBPLUS.png" group-title="easport | MOVIES",TVB Plus
+#EXTGRP:easport | MOVIES
+https://livesport.io.vn/m3u/playlist.php?ch=tvbp
 #EXTINF:-1 tvg-id="Studio Universal.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Logo_Studio_Universal.svg/2560px-Logo_Studio_Universal.svg.png" group-title="easport | MOVIES" ,Studio Universal
 #EXTGRP:easport | MOVIES
 https://cdn08jtedge.indihometv.com/dassdvr/130/studiouniversal/manifest.mpd
@@ -483,78 +504,26 @@ https://livesport.io.vn/m3u/playlist.php?ch=ionmys
 #EXTINF:-1 tvg-logo="https://canvas-lb.tubitv.com/opts/kgPnfzyjJ7Ef4g==/979fd7e0-d2df-4c2b-90d0-af690c9405cb/CHgQeDoFMS4xLjhAAQ==" group-title="easport | MOVIES",ION PLUS
 #EXTGRP:easport | MOVIES
 https://livesport.io.vn/m3u/playlist.php?ch=ionplus
-#EXTINF:-1  group-logo="https://static.wikia.nocookie.net/ultraverse/images/7/73/TVB_Logo.png/revision/latest/scale-to-width-down/268?cb=20191220185029" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/VIUTV.png" group-title="easport | TVB MOVIES",VIU TV
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=viutv
-#EXTINF:-1 tvg-logo="https://static.wikia.nocookie.net/logos/images/9/9a/TVB1.png/revision/latest?cb=20231128083230&path-prefix=vi" group-title="easport | TVB MOVIES",TVB1
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=tvb1
-#EXTINF:-1 tvg-logo="https://app.ksmctv.com/Content/MCTV/Image/Channel/8-TVB_Asian_Action_TV_HD.png" group-title="easport | TVB MOVIES",TVB ACTION
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=tvbac
-#EXTINF:-1 tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/TVB星河.png" group-title="easport | TVB MOVIES",TVB XINGHE
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=tvbxh
-#EXTINF:-1 tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/翡翠.png" group-title="easport | TVB MOVIES",TVB DRAMA
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=tvbdrama
-#EXTINF:-1 tvg-name="Jade Channel (Cable)" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/翡翠.png" group-title="easport | TVB MOVIES",Jade Channel (Cable)
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=fct_gd
-#EXTINF:-1 tvg-name="Jade Channel 4K" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/翡翠.png" group-title="easport | TVB MOVIES",Jade Channel 4K
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=fct4k
-#EXTINF:-1 tvg-name="TVB News Channel" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/无线新闻.png" group-title="easport | TVB MOVIES",TVB News Channel
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=wxxw
-#EXTINF:-1 tvg-name="Pearl Channel" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/明珠.png" group-title="easport | TVB MOVIES",Pearl Channel
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=tvbpearl
-#EXTINF:-1 tvg-name="TVB Plus" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/TVBPLUS.png" group-title="easport | TVB MOVIES",TVB Plus
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=tvbp
-#EXTINF:-1 tvg-name="HOY TV 76" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/HOYTV.png" group-title="easport | TVB MOVIES",HOY TV 76
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=hoy
-#EXTINF:-1 tvg-name="HOY TV 77" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/HOYTV.png" group-title="easport | TVB MOVIES",HOY TV 77
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=hoy
-#EXTINF:-1 tvg-name="HOY TV 78" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/HOYTV.png" group-title="easport | TVB MOVIES",HOY TV 78
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=hoy
-#EXTINF:-1 tvg-name="ViuTV" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/VIUTV.png" group-title="easport | TVB MOVIES",ViuTV
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=viu
-#EXTINF:-1 tvg-name="NOW News Channel" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/NOW新闻.png" group-title="easport | TVB MOVIES",NOW News Channel
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=now
-#EXTINF:-1 tvg-name="RTHK TV 31" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/RTHK31.png" group-title="easport | TVB MOVIES",RTHK TV 31
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=rthk31
-#EXTINF:-1 tvg-name="RTHK TV 32" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/RTHK32.png" group-title="easport | TVB MOVIES",RTHK TV 32
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=rthk32
-#EXTINF:-1 tvg-name="Lung Wah Movies" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/龙华电影.png" group-title="easport | TVB MOVIES",Lung Wah Movies
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=lhdy
-#EXTINF:-1 tvg-name="Lung Wah Classic" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/龙华经典.png" group-title="easport | TVB MOVIES",Lung Wah Classic
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=lhjd
-#EXTINF:-1 tvg-name="Lung Wah Kids" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/龙华卡通.png" group-title="easport | TVB MOVIES",Lung Wah Kids
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=lhkt
-#EXTINF:-1 tvg-name="Lung Wah Idol" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/龙华偶像.png" group-title="easport | TVB MOVIES",Lung Wah Idol
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=lhox
-#EXTINF:-1 tvg-name="Lung Wah Korea & Japan" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/龙华日韩.png" group-title="easport | TVB MOVIES",Lung Wah Korea & Japan
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=lhrh
-#EXTINF:-1 tvg-name="Lung Wah Drama" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/龙华戏剧.png" group-title="easport | TVB MOVIES",Lung Wah Drama
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=lhxj
-#EXTINF:-1 tvg-name="Lung Wah Western Movies" tvg-logo="http://gcore.jsdelivr.net/gh/taksssss/tv/icon/龙华洋片.png" group-title="easport | TVB MOVIES",Lung Wah Western Movies
-#EXTGRP:easport | TVB MOVIES
-https://livesport.io.vn/m3u/playlist.php?ch=lhyp
+#EXTINF:-1 tvg-id="" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/龙华电影.png" group-title="easport | MOVIES",Longhua Movies
+#EXTGRP:easport | MOVIES
+http://cdn8.163189.xyz/163189/lhdy
+http://cdn8.veryfast.filegear-sg.me/163189/lhdy
+#EXTINF:-1 tvg-id="" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/龙华经典.png" group-title="easport | MOVIES",Longhua Classics
+#EXTGRP:easport | MOVIES
+http://cdn8.163189.xyz/163189/lhjd
+http://cdn8.veryfast.filegear-sg.me/163189/lhjd
+#EXTINF:-1 tvg-id="" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/龙华偶像.png" group-title="easport | MOVIES",Longhua Idols
+#EXTGRP:easport | MOVIES
+http://cdn8.163189.xyz/163189/lhox
+http://cdn8.veryfast.filegear-sg.me/163189/lhox
+#EXTINF:-1 tvg-id="" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/龙华日韩.png" group-title="easport | MOVIES",Longhua Japanese & Korean
+#EXTGRP:easport | MOVIES
+http://cdn8.163189.xyz/163189/lhrh
+http://cdn8.veryfast.filegear-sg.me/163189/lhrh
+#EXTINF:-1 tvg-id="" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/龙华戏剧.png" group-title="easport | MOVIES",Longhua Drama
+#EXTGRP:easport | MOVIES
+http://cdn8.163189.xyz/163189/lhxj
+http://cdn8.veryfast.filegear-sg.me/163189/lhxj
 #EXTINF:-1 group-logo="https://cdn-icons-png.flaticon.com/128/1384/1384061.png" tvg-id="kronehit1-x" tvg-name="KRONEHIT TV" tvg-logo="https://i.imgur.com/f4KOpQl.png" group-title="easport | MUSIC",KRONEHIT TV
 #EXTGRP:easport | MUSIC
 https://ac-003.live.p7s1video.net/6e5a61c7/t_003/kronehittv-at/cenc-default.mpd
