@@ -1,4 +1,4 @@
-#EXTM3U x-tvg-url="https://a.rawtv.top/epg-vn,https://epg.pw/xmltv/epg_FR.xml,http://epg.one/epg2.xml.gz,http://gg.gg/coodertvepg,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,http://megavie.live/schedule/epg.xml,https://epg.pw/xmltv/epg_ID.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://vnepg.site/epg.xml.gz,https://epg.946985.xyz/t.xml.gz,http://gg.gg/epgbeartv,https://vnepg.site/epg.xml,https://epg.pw/xmltv/epg_HK.xml,https://epg.catvod.com/epg.xml,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,http://trada.info/epg.xml,http://www.teleguide.info/download/new3/xmltv.xml.gz,http://lichphatsong.xyz/schedule/epg.xml,https://epg.pw/xmltv/epg_MY.xml,http://gg.gg/fptepg,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,http://epg.51zmt.top:8000/e.xml,https://hnlive.dramahay.xyz/epg.xml,http://gg.gg/guidevn,http://gg.gg/epgmytv,https://epg.pw/xmltv/epg_AU.xml"
+#EXTM3U x-tvg-url="http://trada.info/epg.xml,http://megavie.live/schedule/epg.xml,https://a.rawtv.top/epg-vn,https://epg.946985.xyz/t.xml.gz,https://HaNoiIPTV.short.gy/HaNoiIPTV-Lich_phat_song,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://epg.pw/xmltv/epg_ID.xml,http://gg.gg/epgmytv,http://gg.gg/guidevn,https://manhkendo.000webhostapp.com/epgvn/lichtv/homnay.xml,https://epg.pw/xmltv/epg_AU.xml,https://epg.pw/xmltv/epg_MY.xml,http://gg.gg/epgbeartv,http://epg.one/epg2.xml.gz,https://vnepg.site/epg.xml.gz,http://lichphatsong.xyz/schedule/epg.xml,http://gg.gg/coodertvepg,https://github.com/iptv-pro/iptv-pro.github.io/raw/refs/heads/main/epg/epg.xml.gz,https://epg.pw/xmltv/epg_FR.xml,https://HaNoiIPTV.short.gy/HeNeiIPTV-Jie_Mu_Biao,https://epg.catvod.com/epg.xml,http://gg.gg/fptepg,https://vnepg.site/epg.xml,https://epg.pw/xmltv/epg_HK.xml,https://hnlive.dramahay.xyz/epg.xml,http://www.teleguide.info/download/new3/xmltv.xml.gz,http://epg.51zmt.top:8000/e.xml"
 #EXTINF:-1 tvg-id="vtv1hd" group-title="DAKLAKIPTV | VTV" tvg-logo="https://i.imgur.com/nfkmvAY.png" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}",VTV1
 #EXTGRP:DAKLAKIPTV | VTV
 https://live-a.fptplay53.net/live/media/VTV1HD/live_hls_avc/index.m3u8
@@ -5294,6 +5294,9 @@ https://liveh34byt.vtvprime.vn/hls/SKSS6/04.m3u8
 #EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/03/25/live-hero-indian-open-2026---dp-world-tour-2026-slider-thumb_1774449224892.jpg", Sự Kiện 4
 #EXTGRP:vmttv | Sự Kiện FPT PLAY
 https://live.fptplay53.net/live/media/su-kien-04/hls_avc_v6/index.m3u8
+#EXTINF:-1 group-title="vmttv | Sự Kiện FPT PLAY" tvg-logo="https://images.fptplay53.net/media/home_event/OTT/2026/03/25/slider_1774409212182.jpg", Sự Kiện 1
+#EXTGRP:vmttv | Sự Kiện FPT PLAY
+https://live.fptplay53.net/live/media/su-kien-01/hls_avc_v6/index.m3u8
 #EXTINF:-1 tvg-id="vtv1hd" group-title="vmttv | VTV" tvg-logo="https://i.ytimg.com/vi/dGohEWXz7Sk/maxresdefault.jpg" catchup="default" catchup-days="2" catchup-source="http://sv.cvtv.xyz:3000/mytvod.m3u8?id=210&time=${start}&offset=${duration}, VTV1
 #EXTGRP:vmttv | VTV
 https://freem3u.xyz/api/live/play.m3u8?vid=2
@@ -7196,6 +7199,9 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01412-xiaomiasia-abpnews-xiaomi/pla
 #EXTINF:-1 tvg-id="Alarabiya.ae@SD" tvg-logo="https://i.imgur.com/NXFkYFj.png" group-title="coban66 | KÊNH TIN TỨC",Al Arabiya
 #EXTGRP:coban66 | KÊNH TIN TỨC
 https://live.alarabiya.net/alarabiapublish/alarabiya.smil/playlist.m3u8
+#EXTINF:-1 tvg-id="AlSaudiya.sa@SD" tvg-logo="https://i.imgur.com/GRQTndk.png" group-title="coban66 | KÊNH TỔNG HỢP",Al Saudiya
+#EXTGRP:coban66 | KÊNH TỔNG HỢP
+https://shd-gcp-live.edgenextcdn.net/live/bitmovin-saudi-tv/2ad66056b51fd8c1b624854623112e43/index.m3u8
 #EXTINF:-1 tvg-id="AlJazeeraEnglish" group-title="coban66 | KÊNH TIN TỨC" tvg-logo="https://i.imgur.com/BB93NQP.png",ALJAZEERA
 #EXTGRP:coban66 | KÊNH TIN TỨC
 https://dash.antik.sk/live/test_aljazeera_eng/playlist.m3u8
@@ -7291,7 +7297,7 @@ https://live.fptplay53.net/fnxsd1/cnbc_hls.smil/chunklist_b2500000.m3u8
 https://live.fptplay53.net/fnxhd2/newsasia_hls.smil/chunklist_b2500000.m3u8
 #EXTINF:-1 tvg-id="cnn" group-title="coban66 | KÊNH TIN TỨC" tvg-logo="https://i.imgur.com/68hmRiM.png",CNN
 #EXTGRP:coban66 | KÊNH TIN TỨC
-http://125hvt.ddns.net:21585/cnn/tracks-v1a1/mono.m3u8
+http://cdn4.skygo.mn/live/disk1/CNNi/HLSv3-FTA/CNNi.m3u8
 #EXTINF:-1 tvg-id="cgtn" group-title="coban66 | KÊNH TIN TỨC" tvg-logo="https://i.imgur.com/QCSeNYK.png",CGTN
 #EXTGRP:coban66 | KÊNH TIN TỨC
 https://english-livebkali.cgtn.com/live/encgtn_0.m3u8
@@ -8834,6 +8840,9 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01412-xiaomiasia-abpnews-xiaomi/pla
 #EXTINF:-1 tvg-id="Alarabiya.ae@SD" tvg-logo="https://i.imgur.com/NXFkYFj.png" group-title="vietngatv | KÊNH TIN TỨC",Al Arabiya
 #EXTGRP:vietngatv | KÊNH TIN TỨC
 https://live.alarabiya.net/alarabiapublish/alarabiya.smil/playlist.m3u8
+#EXTINF:-1 tvg-id="AlSaudiya.sa@SD" tvg-logo="https://i.imgur.com/GRQTndk.png" group-title="vietngatv | KÊNH TỔNG HỢP",Al Saudiya
+#EXTGRP:vietngatv | KÊNH TỔNG HỢP
+https://shd-gcp-live.edgenextcdn.net/live/bitmovin-saudi-tv/2ad66056b51fd8c1b624854623112e43/index.m3u8
 #EXTINF:-1 tvg-id="AlJazeeraEnglish" group-title="vietngatv | KÊNH TIN TỨC" tvg-logo="https://i.imgur.com/BB93NQP.png",ALJAZEERA
 #EXTGRP:vietngatv | KÊNH TIN TỨC
 https://dash.antik.sk/live/test_aljazeera_eng/playlist.m3u8
@@ -8929,7 +8938,7 @@ https://live.fptplay53.net/fnxsd1/cnbc_hls.smil/chunklist_b2500000.m3u8
 https://live.fptplay53.net/fnxhd2/newsasia_hls.smil/chunklist_b2500000.m3u8
 #EXTINF:-1 tvg-id="cnn" group-title="vietngatv | KÊNH TIN TỨC" tvg-logo="https://i.imgur.com/68hmRiM.png",CNN
 #EXTGRP:vietngatv | KÊNH TIN TỨC
-http://125hvt.ddns.net:21585/cnn/tracks-v1a1/mono.m3u8
+http://cdn4.skygo.mn/live/disk1/CNNi/HLSv3-FTA/CNNi.m3u8
 #EXTINF:-1 tvg-id="cgtn" group-title="vietngatv | KÊNH TIN TỨC" tvg-logo="https://i.imgur.com/QCSeNYK.png",CGTN
 #EXTGRP:vietngatv | KÊNH TIN TỨC
 https://english-livebkali.cgtn.com/live/encgtn_0.m3u8
