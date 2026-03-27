@@ -8,13 +8,29 @@ import gzip
 import xml.etree.ElementTree as ET
 import concurrent.futures
 
-# Cấu hình lõi
 SOURCE_FILE = "sources.txt"
 OUTPUT_FILE = "playlist.m3u"
 OUTPUT_EPG = "light_epg.xml"
 TIMEOUT = 15
 STREAM_TIMEOUT = 3 
 MAX_WORKERS = 50 
+
+# Thêm VTVCAB / ON vào thứ tự ưu tiên
+GROUP_PRIORITY = {
+    'VTV': 1,
+    'HTV': 2,
+    'VTC': 3,
+    'VTVCAB / ON': 4,
+    'K+': 5,
+    'THỂ THAO': 6,
+    'TIN TỨC': 7,
+    'PHIM TRUYỆN': 8,
+    'GIẢI TRÍ': 9,
+    'THIẾU NHI': 10,
+    'ĐỊA PHƯƠNG': 11,
+    'QUỐC TẾ': 12,
+    'KHÁC': 99
+}
 
 class M3UBuilder:
     def __init__(self):
@@ -23,7 +39,6 @@ class M3UBuilder:
         self.unique_links = {}  
         self.final_channels = []
         
-        # [Nâng cấp 3] Lắp bộ giảm xóc mạng (Auto-Retry)
         self.session = requests.Session()
         retries = Retry(total=3, backoff_factor=1, status_forcelist=[500, 502, 503, 504])
         adapter = HTTPAdapter(max_retries=retries)
@@ -31,31 +46,50 @@ class M3UBuilder:
         self.session.mount('https://', adapter)
         self.session.headers.update({'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'})
 
-    # [Nâng cấp 1] AI Rule-based: Chuẩn hóa tên kênh
+    def natural_sort_key(self, text):
+        return [int(c) if c.isdigit() else c for c in re.split(r'(\d+)', text)]
+
     def normalize_channel_name(self, name: str) -> str:
-        # Xóa các tag rác phổ biến
         name = re.sub(r'(?i)[\[\(\-_\.]?(fhd|hd|sd|1080p|720p|4k|vn|vie|h264|hevc)[\]\)\-_\.]?', '', name)
-        # Nối liền VTV 1 thành VTV1, HTV 7 thành HTV7
         name = re.sub(r'(?i)(vtv|htv|vtc|sctv|vtvcab)\s+(\d+)', r'\1\2', name)
-        # Xóa ký tự đặc biệt thừa, chỉ giữ lại chữ, số và dấu + (ví dụ K+1)
         name = re.sub(r'[^a-zA-Z0-9\+\s]', '', name)
         return ' '.join(name.split()).strip().upper()
 
-    # [Nâng cấp 1] AI Rule-based: Chuẩn hóa nhóm
-    def normalize_group_name(self, group: str) -> str:
-        group_lower = group.lower()
-        if any(x in group_lower for x in ['thể thao', 'sports', 'bong da', 'bóng đá']): return 'Thể Thao'
-        if any(x in group_lower for x in ['vtv']): return 'VTV'
-        if any(x in group_lower for x in ['htv']): return 'HTV'
-        if any(x in group_lower for x in ['vtc']): return 'VTC'
-        if any(x in group_lower for x in ['phim', 'movies']): return 'Phim Truyện'
-        if any(x in group_lower for x in ['thiếu nhi', 'kids']): return 'Thiếu Nhi'
-        if any(x in group_lower for x in ['tin tức', 'news']): return 'Tin Tức'
-        if any(x in group_lower for x in ['k+', 'kplus']): return 'K+'
-        if any(x in group_lower for x in ['địa phương', 'local']): return 'Địa Phương'
-        return group.title()
+    # [CẬP NHẬT TRỌNG TÂM] Nhìn tên kênh để bắt mạch, tránh bị nguồn dắt mũi
+    def smart_grouping(self, raw_group: str, clean_name: str) -> str:
+        g_lower = raw_group.lower()
+        n_lower = clean_name.lower()
 
-    # [Nâng cấp 2] Bóc tách Header ẩn trong link
+        # 1. Bắt các kênh VTVCab và hệ sinh thái ON (ON+, ON Sports...)
+        if 'vtvcab' in g_lower or 'vtvcab' in n_lower or n_lower.startswith('on ') or n_lower.startswith('on+'):
+            if any(x in n_lower for x in ['thể thao', 'sports', 'football']):
+                return 'Thể Thao' # Nếu là ON Sports thì cho vào Thể Thao
+            return 'VTVCab / ON'
+
+        # 2. Bắt VTV xịn qua tên kênh (VTV1 -> VTV9, VTV Cần Thơ)
+        if re.match(r'^vtv\s?\d', n_lower) or 'vtv cần thơ' in n_lower or n_lower == 'vtv':
+            return 'VTV'
+
+        # 3. Bắt K+, HTV, VTC qua tên kênh
+        if n_lower.startswith('k+'): return 'K+'
+        if re.match(r'^htv\s?\d', n_lower) or n_lower == 'htv': return 'HTV'
+        if re.match(r'^vtc\s?\d', n_lower) or n_lower == 'vtc': return 'VTC'
+
+        # 4. Nếu tên kênh không rõ ràng, mới bám vào Tên Nhóm (Group) của nguồn
+        if any(x in g_lower for x in ['thể thao', 'sports', 'bong da', 'bóng đá']): return 'Thể Thao'
+        if any(x in g_lower for x in ['phim', 'movies', 'cinema']): return 'Phim Truyện'
+        if any(x in g_lower for x in ['thiếu nhi', 'kids', 'cartoon']): return 'Thiếu Nhi'
+        if any(x in g_lower for x in ['tin tức', 'news']): return 'Tin Tức'
+        if any(x in g_lower for x in ['địa phương', 'local', 'tỉnh']): return 'Địa Phương'
+        if any(x in g_lower for x in ['giải trí', 'entertainment']): return 'Giải Trí'
+        
+        # Sửa dứt điểm lỗi chữ "VTVcab" bị nhận diện nhầm thành "VTV"
+        if 'vtv' in g_lower and 'cab' not in g_lower: return 'VTV'
+        if 'htv' in g_lower: return 'HTV'
+        if 'vtc' in g_lower: return 'VTC'
+
+        return 'Khác'
+
     def parse_url_headers(self, url: str):
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
         clean_url = url
@@ -77,22 +111,19 @@ class M3UBuilder:
             return html.unescape(content)
         return content
 
-    def add_channel(self, extinf: str, url: str, raw_group: str):
+    def add_channel(self, extinf: str, url: str, raw_group: str, extra_tags: list):
         raw_name = extinf.split(',')[-1].strip()
-        
-        # Bỏ qua kênh rác
         if len(raw_name) < 2 or re.search(r'[-=_*.]{3,}', raw_name): return
 
-        # Làm sạch tên và nhóm
         clean_name = self.normalize_channel_name(raw_name)
-        clean_group = self.normalize_group_name(raw_group)
         
-        # Bắt EPG ID
+        # Gọi hàm smart_grouping, truyền cả tên nhóm gốc và tên kênh đã làm sạch vào
+        clean_group = self.smart_grouping(raw_group, clean_name)
+        
         id_match = re.search(r'tvg-id=["\']([^"\']+)["\']', extinf)
         if id_match:
             self.required_tvg_ids.add(id_match.group(1))
 
-        # Cấu trúc lại dòng EXTINF với tên và nhóm đã được chuẩn hóa
         parts = extinf.rsplit(',', 1)
         new_extinf = parts[0] + ',' + clean_name
         
@@ -103,14 +134,14 @@ class M3UBuilder:
 
         new_extgrp = f"#EXTGRP:{clean_group}"
 
-        # Lọc trùng bằng URL nguyên bản
         if url not in self.unique_links:
             self.unique_links[url] = {
                 'extinf': new_extinf,
                 'extgrp': new_extgrp,
-                'url': url,           # Link nguyên bản lưu vào file
-                'group': clean_group, # Dùng để sắp xếp
-                'name': clean_name    # Dùng để sắp xếp
+                'extra_tags': extra_tags, 
+                'url': url,           
+                'group': clean_group, 
+                'name': clean_name    
             }
 
     def process_url(self, source_name: str, url: str):
@@ -122,6 +153,7 @@ class M3UBuilder:
             
             curr_extinf = ""
             curr_group_name = "Khác"
+            extra_tags = [] 
 
             for line in content.splitlines():
                 line = line.strip()
@@ -139,23 +171,26 @@ class M3UBuilder:
                     if grp_match:
                         curr_group_name = grp_match.group(1)
                     curr_extinf = line
+                    extra_tags = [] 
                 
                 elif line.startswith("#EXTGRP"):
                     continue
+                
+                elif line.startswith("#") and curr_extinf:
+                    extra_tags.append(line)
                     
                 elif not line.startswith("#"):
                     if line.startswith(("http", "rtmp")) and curr_extinf:
-                        self.add_channel(curr_extinf, line, curr_group_name)
+                        self.add_channel(curr_extinf, line, curr_group_name, extra_tags)
                         curr_extinf = ""
+                        extra_tags = []
 
         except Exception as e:
             print(f"  [!] Lỗi: {e}")
 
     def check_single_link(self, data):
-        # Lấy URL thực tế và Header giả mạo để vượt tường lửa
         clean_url, headers = self.parse_url_headers(data['url'])
         try:
-            # Gõ cửa server bằng Header nhà đài
             res = self.session.get(clean_url, headers=headers, stream=True, timeout=STREAM_TIMEOUT)
             if res.status_code == 200:
                 return data
@@ -164,7 +199,7 @@ class M3UBuilder:
         return None
 
     def fast_health_check(self):
-        print(f"\n[*] Đã gom được {len(self.unique_links)} link UNIQUE. Bắt đầu check SỐNG/CHẾT với hệ thống Anti-Ban...")
+        print(f"\n[*] Đã gom được {len(self.unique_links)} link UNIQUE. Bắt đầu check LIVE/DEAD...")
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
             futures = [executor.submit(self.check_single_link, data) for url, data in self.unique_links.items()]
@@ -173,8 +208,11 @@ class M3UBuilder:
                 if result:
                     self.final_channels.append(result)
 
-        # Sắp xếp gọn gàng theo Nhóm -> Tên kênh
-        self.final_channels.sort(key=lambda x: (x['group'], x['name']))
+        self.final_channels.sort(key=lambda x: (
+            GROUP_PRIORITY.get(x['group'].upper(), 99), 
+            self.natural_sort_key(x['name'])
+        ))
+        
         print(f"✅ Lọc thành công! Giữ lại {len(self.final_channels)} kênh siêu mượt.")
 
     def generate_light_epg(self):
@@ -187,7 +225,6 @@ class M3UBuilder:
             if len(fully_found_ids) >= len(self.required_tvg_ids):
                 break
             try:
-                # Có Retry bọc lót nên kéo file 50MB an tâm không đứt giữa chừng
                 res = self.session.get(epg_url, timeout=30)
                 xml_data = gzip.decompress(res.content) if epg_url.endswith('.gz') else res.content
                 root_in = ET.fromstring(xml_data)
@@ -228,6 +265,10 @@ class M3UBuilder:
             for ch in self.final_channels:
                 f.write(ch['extinf'] + "\n")
                 f.write(ch['extgrp'] + "\n")
+                
+                for tag in ch['extra_tags']:
+                    f.write(tag + "\n")
+                    
                 f.write(ch['url'] + "\n")
             
         print("\n🏆 Build thành công! Sẵn sàng Push lên Server.")
