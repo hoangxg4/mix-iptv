@@ -7,6 +7,7 @@ import html
 import gzip
 import xml.etree.ElementTree as ET
 import concurrent.futures
+import unicodedata  # [MỚI] Thư viện xử lý chuẩn hóa font chữ
 
 SOURCE_FILE = "sources.txt"
 OUTPUT_FILE = "playlist.m3u"
@@ -129,6 +130,10 @@ class M3UBuilder:
         return content
 
     def add_channel(self, extinf: str, url: str, raw_group: str, extra_tags: list):
+        # [FIX NFD LỖI] Ép nối liền dấu câu vào chữ cái trước khi xử lý bằng Regex
+        extinf = unicodedata.normalize('NFC', extinf)
+        raw_group = unicodedata.normalize('NFC', raw_group)
+
         raw_name = extinf.split(',')[-1].strip()
         if len(raw_name) < 2 or re.search(r'[-=_*.]{3,}', raw_name): return
 
@@ -167,10 +172,7 @@ class M3UBuilder:
         try:
             res = self.session.get(url, timeout=TIMEOUT)
             res.raise_for_status()
-            
-            # [FIX LỖI FONT] Ép Python đọc nội dung bằng chuẩn UTF-8, sửa dứt điểm lỗi mojibake
             res.encoding = 'utf-8' 
-            
             content = self.clean_html(res.text)
             
             curr_extinf = ""
@@ -274,7 +276,6 @@ class M3UBuilder:
     def run(self):
         if not os.path.exists(SOURCE_FILE): return
 
-        # [LƯU Ý NHỎ] Bạn đảm bảo file sources.txt của bạn cũng đang được lưu dưới dạng UTF-8 nhé!
         with open(SOURCE_FILE, 'r', encoding='utf-8') as f:
             for line in f:
                 parts = re.split(r'[,|]', line.strip(), 1)
