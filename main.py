@@ -54,20 +54,14 @@ class M3UBuilder:
         self.session.mount('https://', adapter)
         self.session.headers.update({'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'})
 
-    # [SIÊU CẤP] Bộ lọc xếp hạng 3 tầng thông minh
     def get_sort_key(self, channel):
         group = channel['group'].upper()
         priority = GROUP_PRIORITY.get(group, 99)
         name = channel['name']
         
-        # Tầng 1: Kênh Quốc Gia đánh số (VTV1-9, HTV1-9, VTC...) -> Ép điểm 0 (Lên đầu)
         is_core_numbered = 0 if re.match(r'^(VTV|HTV|VTC|K\+|SCTV)\d+', name) else 1
-        
-        # Tầng 2: Kênh bắt đầu bằng tên Group (Ví dụ: "VTV Cần Thơ") -> Ép điểm 0 (Đứng nhì)
         prefix = group.split()[0] if group else ""
         is_group_prefix = 0 if prefix and name.startswith(prefix) else 1
-        
-        # Tầng 3: Sắp xếp chữ và số tách biệt chuẩn xác 100% (VTV1 sẽ luôn đứng trước VTV Cần Thơ)
         nat_key = [int(c) if c.isdigit() else c.lower() for c in re.split(r'(\d+)', name)]
         
         return (priority, group, is_core_numbered, is_group_prefix, nat_key)
@@ -173,6 +167,10 @@ class M3UBuilder:
         try:
             res = self.session.get(url, timeout=TIMEOUT)
             res.raise_for_status()
+            
+            # [FIX LỖI FONT] Ép Python đọc nội dung bằng chuẩn UTF-8, sửa dứt điểm lỗi mojibake
+            res.encoding = 'utf-8' 
+            
             content = self.clean_html(res.text)
             
             curr_extinf = ""
@@ -238,7 +236,6 @@ class M3UBuilder:
                 if result:
                     self.final_channels.append(result)
 
-        # Đã cập nhật lại lời gọi hàm sort bằng get_sort_key siêu cấp
         self.final_channels.sort(key=self.get_sort_key)
         
         print(f"✅ Lọc thành công! Giữ lại {len(self.final_channels)} kênh siêu mượt.", flush=True)
@@ -277,6 +274,7 @@ class M3UBuilder:
     def run(self):
         if not os.path.exists(SOURCE_FILE): return
 
+        # [LƯU Ý NHỎ] Bạn đảm bảo file sources.txt của bạn cũng đang được lưu dưới dạng UTF-8 nhé!
         with open(SOURCE_FILE, 'r', encoding='utf-8') as f:
             for line in f:
                 parts = re.split(r'[,|]', line.strip(), 1)
