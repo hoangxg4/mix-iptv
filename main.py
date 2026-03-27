@@ -2,19 +2,24 @@ import requests
 import re
 import os
 import html
-from io import StringIO
+import gzip
+import xml.etree.ElementTree as ET
+import concurrent.futures
 
 # Cấu hình
 SOURCE_FILE = "sources.txt"
 OUTPUT_FILE = "playlist.m3u"
+OUTPUT_EPG = "light_epg.xml"
 TIMEOUT = 15
-MAX_EPG_LINKS = 5  # Số lượng EPG chất lượng tối đa muốn giữ lại
-WHITELIST_DOMAINS = ["epg.vn", "bepg", "github", "vthanhtivi"] # Các keyword ưu tiên
+STREAM_TIMEOUT = 4 # Chỉ cho phép 4s để check link sống/chết
+MAX_WORKERS = 30 # Chạy 30 luồng song song cho nhanh
 
 class M3UBuilder:
     def __init__(self):
         self.epg_urls = set()
-        self.channels_buffer = StringIO()
+        self.required_tvg_ids = set()
+        self.channels = {}  # { 'tenkenh': [{'extinf':.., 'extgrp':.., 'url':..}, ...] }
+        self.final_channels = []
         self.session = requests.Session()
         self.session.headers.update({'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'})
 
@@ -26,58 +31,42 @@ class M3UBuilder:
             return html.unescape(content)
         return content
 
-    def filter_quality_epgs(self) -> list:
-        print(f"\n[*] Đang phân tích và chọn lọc EPGs (Tối đa {MAX_EPG_LINKS})...")
-        valid_epgs = []
-        seen_sizes = set()
+    def add_channel(self, extinf: str, extgrp: str, url: str):
+        name_part = extinf.split(',')[-1].strip()
+        norm_name = re.sub(r'[^a-zA-Z0-9]', '', name_part.lower())
+        
+        if len(norm_name) < 2 or re.search(r'[-=_*.]{3,}', name_part):
+            return
 
-        # Sắp xếp: URL nào chứa keyword trong Whitelist sẽ được đưa lên check trước
-        sorted_urls = sorted(
-            list(self.epg_urls), 
-            key=lambda u: not any(w in u.lower() for w in WHITELIST_DOMAINS)
-        )
+        id_match = re.search(r'tvg-id=["\']([^"\']+)["\']', extinf)
+        if id_match:
+            self.required_tvg_ids.add(id_match.group(1))
 
-        for url in sorted_urls:
-            if len(valid_epgs) >= MAX_EPG_LINKS:
-                break
-            
-            try:
-                # Dùng HEAD để check header, không tải body
-                res = self.session.head(url, timeout=5, allow_redirects=True)
-                
-                if res.status_code == 200:
-                    file_size = res.headers.get('Content-Length')
-                    
-                    # Chống trùng lặp nội dung dựa vào kích thước file
-                    if file_size and int(file_size) > 1024: # Bỏ qua các file lỗi quá nhỏ (<1KB)
-                        if file_size in seen_sizes:
-                            print(f"  [-] Bỏ qua (Trùng nội dung): {url}")
-                            continue
-                        seen_sizes.add(file_size)
-                    
-                    valid_epgs.append(url)
-                    print(f"  [+] Sống & Unique: {url} (Size: {file_size or 'Unknown'})")
-                else:
-                    print(f"  [-] Lỗi {res.status_code}: {url}")
-            except requests.RequestException:
-                print(f"  [-] Timeout/Die: {url}")
-
-        return valid_epgs
+        if norm_name not in self.channels:
+            self.channels[norm_name] = []
+        
+        # Gom tất cả link trùng tên vào một mảng
+        self.channels[norm_name].append({
+            'extinf': extinf,
+            'extgrp': extgrp,
+            'url': url,
+            'name': name_part
+        })
 
     def process_url(self, source_name: str, url: str):
-        print(f"[*] Đang tải kênh từ: {source_name} ...")
+        print(f"[*] Đang tải danh sách từ: {source_name} ...")
         try:
             res = self.session.get(url, timeout=TIMEOUT)
             res.raise_for_status()
-            
             content = self.clean_html(res.text)
-            skip_channel = False
             
+            curr_extinf = ""
+            curr_extgrp = ""
+
             for line in content.splitlines():
                 line = line.strip()
                 if not line: continue
 
-                # 1. Thu thập EPG
                 if line.startswith("#EXTM3U"):
                     tvg_match = re.search(r'(?:x-tvg-url|url-tvg)="([^"]*)"', line, re.IGNORECASE)
                     if tvg_match:
@@ -85,60 +74,121 @@ class M3UBuilder:
                             if epg.strip(): self.epg_urls.add(epg.strip())
                     continue
 
-                # 2. Xử lý Kênh
                 if line.startswith("#EXTINF"):
-                    channel_name = line.split(',')[-1].strip()
-                    if re.search(r'[-=_*.]{3,}', channel_name) or len(channel_name) < 2:
-                        skip_channel = True
-                        continue
-                    
-                    skip_channel = False
                     grp_match = re.search(r'group-title="([^"]*)"', line)
                     orig_group = grp_match.group(1) if grp_match else "Ungrouped"
                     new_group = f"{source_name} | {orig_group}"
 
                     if grp_match:
-                        line = re.sub(r'group-title="[^"]*"', f'group-title="{new_group}"', line)
+                        curr_extinf = re.sub(r'group-title="[^"]*"', f'group-title="{new_group}"', line)
                     else:
-                        line = line.replace("#EXTINF:", f'#EXTINF:-1 group-title="{new_group}",', 1)
+                        curr_extinf = line.replace("#EXTINF:", f'#EXTINF:-1 group-title="{new_group}",', 1)
+                    curr_extgrp = f"#EXTGRP:{new_group}"
+                
+                elif line.startswith("#EXTGRP"):
+                    continue
                     
-                    self.channels_buffer.write(line + "\n")
-                    self.channels_buffer.write(f"#EXTGRP:{new_group}\n")
-
-                # 3. Ghi Link
-                elif not line.startswith("#") and not skip_channel:
-                    if line.startswith(("http", "rtmp")):
-                        self.channels_buffer.write(line + "\n")
+                elif not line.startswith("#"):
+                    if line.startswith(("http", "rtmp")) and curr_extinf:
+                        self.add_channel(curr_extinf, curr_extgrp, line)
+                        curr_extinf = ""
+                        curr_extgrp = ""
 
         except Exception as e:
             print(f"  [!] Lỗi: {e}")
 
+    def is_link_alive(self, url: str) -> bool:
+        """Kiểm tra nhanh xem link có sống không (Không tải video)"""
+        try:
+            # stream=True giúp chỉ lấy header, không tải body video gây treo máy
+            res = self.session.get(url, stream=True, timeout=STREAM_TIMEOUT)
+            return res.status_code == 200
+        except:
+            return False
+
+    def deduplicate_and_check_health(self):
+        print(f"\n[*] Bắt đầu kiểm tra SỐNG/CHẾT cho {len(self.channels)} kênh...")
+        print(f"[*] Đang chạy đa luồng ({MAX_WORKERS} workers) - Sẽ mất vài phút...")
+
+        def process_channel(norm_name, channel_links):
+            # Duyệt qua các link của kênh này, thấy link nào sống thì chốt luôn
+            for data in channel_links:
+                if self.is_link_alive(data['url']):
+                    return data
+            # Nếu xui quá tất cả đều chết, đành lấy tạm link đầu tiên
+            return channel_links[0]
+
+        # Chạy kiểm tra song song để tiết kiệm thời gian
+        with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+            futures = [executor.submit(process_channel, name, links) for name, links in self.channels.items()]
+            for future in concurrent.futures.as_completed(futures):
+                result = future.result()
+                if result:
+                    self.final_channels.append(result)
+
+        print(f"✅ Lọc xong! Danh sách cuối cùng có {len(self.final_channels)} kênh.")
+
+    def generate_light_epg(self):
+        if not self.required_tvg_ids or not self.epg_urls: return None
+
+        print(f"\n[*] Đang quét toàn bộ {len(self.epg_urls)} link EPG để tìm dữ liệu...")
+        root_out = ET.Element("tv")
+        fully_found_ids = set()
+
+        for epg_url in list(self.epg_urls):
+            if len(fully_found_ids) >= len(self.required_tvg_ids):
+                print("  -> Đã tìm đủ EPG, dừng quét sớm!")
+                break
+                
+            print(f"  -> Quét: {epg_url}")
+            try:
+                res = self.session.get(epg_url, timeout=30)
+                xml_data = gzip.decompress(res.content) if epg_url.endswith('.gz') else res.content
+                root_in = ET.fromstring(xml_data)
+                active_ids = set()
+                
+                for elem in root_in:
+                    if elem.tag == 'channel':
+                        ch_id = elem.get('id')
+                        if ch_id in self.required_tvg_ids and ch_id not in fully_found_ids:
+                            root_out.append(elem)
+                            active_ids.add(ch_id)
+                            fully_found_ids.add(ch_id)
+                    elif elem.tag == 'programme' and elem.get('channel') in active_ids:
+                        root_out.append(elem)
+            except:
+                pass
+
+        tree = ET.ElementTree(root_out)
+        tree.write(OUTPUT_EPG, encoding='utf-8', xml_declaration=True)
+        return OUTPUT_EPG
+
     def run(self):
-        if not os.path.exists(SOURCE_FILE):
-            print(f"Không tìm thấy file {SOURCE_FILE}")
-            return
+        if not os.path.exists(SOURCE_FILE): return
 
         with open(SOURCE_FILE, 'r', encoding='utf-8') as f:
             for line in f:
-                line = line.strip()
-                if not line or line.startswith("#"): continue
-                
-                parts = re.split(r'[,|]', line, 1)
+                parts = re.split(r'[,|]', line.strip(), 1)
                 if len(parts) == 2 and parts[1].strip().startswith("http"):
                     self.process_url(parts[0].strip(), parts[1].strip())
 
-        # Xử lý và ghi file
-        final_epgs = self.filter_quality_epgs()
+        # Gọi hàm lọc link sống/chết
+        self.deduplicate_and_check_health()
         
-        header = "#EXTM3U"
-        if final_epgs:
-            header += f' x-tvg-url="{",".join(final_epgs)}"'
-            
+        # Gọi hàm xử lý EPG
+        self.generate_light_epg()
+        
+        # Ghi M3U
+        header = '#EXTM3U x-tvg-url="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/light_epg.xml"'
+        
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             f.write(header + "\n")
-            f.write(self.channels_buffer.getvalue())
+            for ch in self.final_channels:
+                f.write(ch['extinf'] + "\n")
+                f.write(ch['extgrp'] + "\n")
+                f.write(ch['url'] + "\n")
             
-        print(f"\n✅ Hoàn tất! Đã lưu playlist với {len(final_epgs)} EPGs chất lượng cao.")
+        print("\n✅ Hoàn tất toàn bộ quy trình!")
 
 if __name__ == "__main__":
     M3UBuilder().run()
