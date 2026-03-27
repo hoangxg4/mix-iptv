@@ -1,140 +1,144 @@
 import requests
 import re
 import os
-import html  # Thêm thư viện này để xử lý HTML entities
+import html
+from io import StringIO
 
-# Cấu hình file
+# Cấu hình
 SOURCE_FILE = "sources.txt"
 OUTPUT_FILE = "playlist.m3u"
+TIMEOUT = 15
+MAX_EPG_LINKS = 5  # Số lượng EPG chất lượng tối đa muốn giữ lại
+WHITELIST_DOMAINS = ["epg.vn", "bepg", "github", "vthanhtivi"] # Các keyword ưu tiên
 
-def merge_m3u():
-    channels_content = ""
-    epg_urls = set()
-    
-    skip_channel = False
-    
-    if not os.path.exists(SOURCE_FILE):
-        print(f"Không tìm thấy file {SOURCE_FILE}")
-        return
+class M3UBuilder:
+    def __init__(self):
+        self.epg_urls = set()
+        self.channels_buffer = StringIO()
+        self.session = requests.Session()
+        self.session.headers.update({'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'})
 
-    try:
-        with open(SOURCE_FILE, 'r', encoding='utf-8') as f:
-            lines = f.readlines()
+    def clean_html(self, content: str) -> str:
+        if any(tag in content.lower() for tag in ["<html", "<body", "<br"]):
+            content = re.sub(r'<(br|p|div)\s*/?>', '\n', content, flags=re.IGNORECASE)
+            content = re.sub(r'</(p|div)>', '\n', content, flags=re.IGNORECASE)
+            content = re.sub(r'<[^>]+>', '', content)
+            return html.unescape(content)
+        return content
+
+    def filter_quality_epgs(self) -> list:
+        print(f"\n[*] Đang phân tích và chọn lọc EPGs (Tối đa {MAX_EPG_LINKS})...")
+        valid_epgs = []
+        seen_sizes = set()
+
+        # Sắp xếp: URL nào chứa keyword trong Whitelist sẽ được đưa lên check trước
+        sorted_urls = sorted(
+            list(self.epg_urls), 
+            key=lambda u: not any(w in u.lower() for w in WHITELIST_DOMAINS)
+        )
+
+        for url in sorted_urls:
+            if len(valid_epgs) >= MAX_EPG_LINKS:
+                break
             
-        for line in lines:
-            line = line.strip()
-            if not line or line.startswith("#"): continue
-                
-            if "," in line:
-                parts = line.split(",", 1)
-            elif "|" in line:
-                parts = line.split("|", 1)
-            else:
-                continue
-                
-            source_name = parts[0].strip()
-            url = parts[1].strip()
-            
-            if not url.startswith("http"): continue
-
             try:
-                print(f"Dang tai: {source_name} ...")
-                # Thêm User-Agent để tránh bị chặn bởi một số trang web
-                headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
-                response = requests.get(url, headers=headers, timeout=15)
+                # Dùng HEAD để check header, không tải body
+                res = self.session.head(url, timeout=5, allow_redirects=True)
                 
-                if response.status_code == 200:
-                    content = response.text
+                if res.status_code == 200:
+                    file_size = res.headers.get('Content-Length')
                     
-                    # --- BƯỚC XỬ LÝ HTML TỰ ĐỘNG (MỚI) ---
-                    # Nếu nội dung chứa thẻ HTML cơ bản, tiến hành làm sạch
-                    if "<html" in content.lower() or "<body" in content.lower() or "<br" in content.lower():
-                        print(f"  -> Phát hiện HTML, đang làm sạch...")
-                        # Thay thế <br>, </p>, </div> thành xuống dòng
-                        content = re.sub(r'<(br|p|div)\s*/?>', '\n', content, flags=re.IGNORECASE)
-                        content = re.sub(r'</(p|div)>', '\n', content, flags=re.IGNORECASE)
-                        # Xóa tất cả thẻ HTML còn lại
-                        content = re.sub(r'<[^>]+>', '', content)
-                        # Giải mã ký tự đặc biệt (&amp; -> &)
-                        content = html.unescape(content)
-                    # -------------------------------------
-
-                    file_lines = content.splitlines()
+                    # Chống trùng lặp nội dung dựa vào kích thước file
+                    if file_size and int(file_size) > 1024: # Bỏ qua các file lỗi quá nhỏ (<1KB)
+                        if file_size in seen_sizes:
+                            print(f"  [-] Bỏ qua (Trùng nội dung): {url}")
+                            continue
+                        seen_sizes.add(file_size)
                     
-                    for f_line in file_lines:
-                        f_line = f_line.strip()
-                        if not f_line: continue
-                        
-                        # 1. LẤY EPG
-                        if f_line.startswith("#EXTM3U"):
-                            tvg_match = re.search(r'(?:x-tvg-url|url-tvg)="([^"]*)"', f_line, re.IGNORECASE)
-                            if tvg_match:
-                                found_urls = tvg_match.group(1).split(',')
-                                for epg in found_urls:
-                                    if epg.strip():
-                                        epg_urls.add(epg.strip())
-                            continue
-                        
-                        # 2. XỬ LÝ #EXTINF
-                        if f_line.startswith("#EXTINF"):
-                            skip_channel = False
-                            channel_name = f_line.split(',')[-1].strip()
-                            
-                            # Bộ lọc rác
-                            if re.search(r'[-=_*.]{3,}', channel_name) or len(channel_name) < 2:
-                                skip_channel = True 
-                                continue
-                            
-                            # Xử lý Group
-                            original_group = "Ungrouped"
-                            grp_match = re.search(r'group-title="([^"]*)"', f_line)
-                            if grp_match:
-                                original_group = grp_match.group(1)
-                            
-                            new_group = f"{source_name} | {original_group}"
-                            
-                            if 'group-title="' in f_line:
-                                f_line = re.sub(r'group-title="[^"]*"', f'group-title="{new_group}"', f_line)
-                            else:
-                                comma_index = f_line.find(',')
-                                if comma_index != -1:
-                                    f_line = f_line[:comma_index] + f' group-title="{new_group}"' + f_line[comma_index:]
-                                else:
-                                    f_line = f_line + f' group-title="{new_group}"'
-                            
-                            channels_content += f_line + "\n"
-                            channels_content += f"#EXTGRP:{new_group}\n"
-                        
-                        elif f_line.startswith("#EXTGRP"):
-                            continue
-                        
-                        # 3. XỬ LÝ LINK
-                        elif not f_line.startswith("#"):
-                            if skip_channel: continue
-                            # Chỉ lấy dòng nào thực sự là link (có http hoặc rtmp)
-                            if f_line.startswith("http") or f_line.startswith("rtmp"):
-                                channels_content += f_line + "\n"
-                        
+                    valid_epgs.append(url)
+                    print(f"  [+] Sống & Unique: {url} (Size: {file_size or 'Unknown'})")
                 else:
-                    print(f" -> Lỗi tải: {response.status_code}")
-            except Exception as e:
-                print(f" -> Lỗi kết nối: {e}")
+                    print(f"  [-] Lỗi {res.status_code}: {url}")
+            except requests.RequestException:
+                print(f"  [-] Timeout/Die: {url}")
 
-        # GHI FILE
-        header = "#EXTM3U"
-        if epg_urls:
-            combined_epg = ",".join(epg_urls)
-            header += f' x-tvg-url="{combined_epg}"'
-        
-        final_content = header + "\n" + channels_content
+        return valid_epgs
 
-        with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-            f.write(final_content)
+    def process_url(self, source_name: str, url: str):
+        print(f"[*] Đang tải kênh từ: {source_name} ...")
+        try:
+            res = self.session.get(url, timeout=TIMEOUT)
+            res.raise_for_status()
             
-        print("✅ Đã gộp file, làm sạch HTML và lọc rác thành công!")
+            content = self.clean_html(res.text)
+            skip_channel = False
+            
+            for line in content.splitlines():
+                line = line.strip()
+                if not line: continue
+
+                # 1. Thu thập EPG
+                if line.startswith("#EXTM3U"):
+                    tvg_match = re.search(r'(?:x-tvg-url|url-tvg)="([^"]*)"', line, re.IGNORECASE)
+                    if tvg_match:
+                        for epg in tvg_match.group(1).split(','):
+                            if epg.strip(): self.epg_urls.add(epg.strip())
+                    continue
+
+                # 2. Xử lý Kênh
+                if line.startswith("#EXTINF"):
+                    channel_name = line.split(',')[-1].strip()
+                    if re.search(r'[-=_*.]{3,}', channel_name) or len(channel_name) < 2:
+                        skip_channel = True
+                        continue
+                    
+                    skip_channel = False
+                    grp_match = re.search(r'group-title="([^"]*)"', line)
+                    orig_group = grp_match.group(1) if grp_match else "Ungrouped"
+                    new_group = f"{source_name} | {orig_group}"
+
+                    if grp_match:
+                        line = re.sub(r'group-title="[^"]*"', f'group-title="{new_group}"', line)
+                    else:
+                        line = line.replace("#EXTINF:", f'#EXTINF:-1 group-title="{new_group}",', 1)
+                    
+                    self.channels_buffer.write(line + "\n")
+                    self.channels_buffer.write(f"#EXTGRP:{new_group}\n")
+
+                # 3. Ghi Link
+                elif not line.startswith("#") and not skip_channel:
+                    if line.startswith(("http", "rtmp")):
+                        self.channels_buffer.write(line + "\n")
+
+        except Exception as e:
+            print(f"  [!] Lỗi: {e}")
+
+    def run(self):
+        if not os.path.exists(SOURCE_FILE):
+            print(f"Không tìm thấy file {SOURCE_FILE}")
+            return
+
+        with open(SOURCE_FILE, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#"): continue
+                
+                parts = re.split(r'[,|]', line, 1)
+                if len(parts) == 2 and parts[1].strip().startswith("http"):
+                    self.process_url(parts[0].strip(), parts[1].strip())
+
+        # Xử lý và ghi file
+        final_epgs = self.filter_quality_epgs()
         
-    except Exception as e:
-        print(f"Có lỗi hệ thống: {e}")
+        header = "#EXTM3U"
+        if final_epgs:
+            header += f' x-tvg-url="{",".join(final_epgs)}"'
+            
+        with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+            f.write(header + "\n")
+            f.write(self.channels_buffer.getvalue())
+            
+        print(f"\n✅ Hoàn tất! Đã lưu playlist với {len(final_epgs)} EPGs chất lượng cao.")
 
 if __name__ == "__main__":
-    merge_m3u()
+    M3UBuilder().run()
