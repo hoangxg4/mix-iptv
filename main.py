@@ -15,21 +15,22 @@ TIMEOUT = 15
 STREAM_TIMEOUT = 3 
 MAX_WORKERS = 50 
 
-# Thêm VTVCAB / ON vào thứ tự ưu tiên
+# Thêm VTVPRIME vào danh sách ưu tiên hàng đầu
 GROUP_PRIORITY = {
-    'VTV': 1,
-    'HTV': 2,
-    'VTC': 3,
-    'VTVCAB / ON': 4,
-    'K+': 5,
-    'THỂ THAO': 6,
-    'TIN TỨC': 7,
-    'PHIM TRUYỆN': 8,
-    'GIẢI TRÍ': 9,
-    'THIẾU NHI': 10,
-    'ĐỊA PHƯƠNG': 11,
-    'QUỐC TẾ': 12,
-    'KHÁC': 99
+    'VTVPRIME': 1,
+    'VTV': 2,
+    'HTV': 3,
+    'VTC': 4,
+    'VTVCAB / ON': 5,
+    'K+': 6,
+    'THỂ THAO': 7,
+    'TIN TỨC': 8,
+    'PHIM TRUYỆN': 9,
+    'GIẢI TRÍ': 10,
+    'THIẾU NHI': 11,
+    'ĐỊA PHƯƠNG': 12,
+    'QUỐC TẾ': 13
+    # Mọi nhóm khác (của nguồn) sẽ tự động nhận độ ưu tiên 99
 }
 
 class M3UBuilder:
@@ -50,45 +51,50 @@ class M3UBuilder:
         return [int(c) if c.isdigit() else c for c in re.split(r'(\d+)', text)]
 
     def normalize_channel_name(self, name: str) -> str:
-        name = re.sub(r'(?i)[\[\(\-_\.]?(fhd|hd|sd|1080p|720p|4k|vn|vie|h264|hevc)[\]\)\-_\.]?', '', name)
+        # Dùng \b để chỉ xóa tag rác khi nó đứng độc lập, không xóa nhầm chữ trong tên (vd: "vie" trong "Việt")
+        name = re.sub(r'(?i)[\[\(\-_\.]?\b(fhd|hd|sd|1080p|720p|4k|vn|vie|h264|hevc)\b[\]\)\-_\.]?', ' ', name)
         name = re.sub(r'(?i)(vtv|htv|vtc|sctv|vtvcab)\s+(\d+)', r'\1\2', name)
-        name = re.sub(r'[^a-zA-Z0-9\+\s]', '', name)
+        
+        # [FIX TIẾNG VIỆT] Dùng \w để giữ lại chữ cái có dấu Unicode, số và khoảng trắng
+        name = re.sub(r'[^\w\s\+]', '', name)
+        
         return ' '.join(name.split()).strip().upper()
 
-    # [CẬP NHẬT TRỌNG TÂM] Nhìn tên kênh để bắt mạch, tránh bị nguồn dắt mũi
     def smart_grouping(self, raw_group: str, clean_name: str) -> str:
         g_lower = raw_group.lower()
         n_lower = clean_name.lower()
 
-        # 1. Bắt các kênh VTVCab và hệ sinh thái ON (ON+, ON Sports...)
+        # 1. Bắt VTVPRIME tách biệt hoàn toàn
+        if 'vtvprime' in n_lower or 'vtvprime' in g_lower:
+            return 'VTVPRIME'
+
+        # 2. Bắt VTVCab và ON
         if 'vtvcab' in g_lower or 'vtvcab' in n_lower or n_lower.startswith('on ') or n_lower.startswith('on+'):
-            if any(x in n_lower for x in ['thể thao', 'sports', 'football']):
-                return 'Thể Thao' # Nếu là ON Sports thì cho vào Thể Thao
+            if any(x in n_lower for x in ['thể thao', 'sports', 'football']): return 'Thể Thao'
             return 'VTVCab / ON'
 
-        # 2. Bắt VTV xịn qua tên kênh (VTV1 -> VTV9, VTV Cần Thơ)
+        # 3. Bắt VTV xịn
         if re.match(r'^vtv\s?\d', n_lower) or 'vtv cần thơ' in n_lower or n_lower == 'vtv':
             return 'VTV'
 
-        # 3. Bắt K+, HTV, VTC qua tên kênh
+        # 4. Các kênh quốc dân khác
         if n_lower.startswith('k+'): return 'K+'
         if re.match(r'^htv\s?\d', n_lower) or n_lower == 'htv': return 'HTV'
         if re.match(r'^vtc\s?\d', n_lower) or n_lower == 'vtc': return 'VTC'
 
-        # 4. Nếu tên kênh không rõ ràng, mới bám vào Tên Nhóm (Group) của nguồn
+        # 5. Gom nhóm logic cơ bản
         if any(x in g_lower for x in ['thể thao', 'sports', 'bong da', 'bóng đá']): return 'Thể Thao'
         if any(x in g_lower for x in ['phim', 'movies', 'cinema']): return 'Phim Truyện'
         if any(x in g_lower for x in ['thiếu nhi', 'kids', 'cartoon']): return 'Thiếu Nhi'
         if any(x in g_lower for x in ['tin tức', 'news']): return 'Tin Tức'
-        if any(x in g_lower for x in ['địa phương', 'local', 'tỉnh']): return 'Địa Phương'
-        if any(x in g_lower for x in ['giải trí', 'entertainment']): return 'Giải Trí'
         
-        # Sửa dứt điểm lỗi chữ "VTVcab" bị nhận diện nhầm thành "VTV"
-        if 'vtv' in g_lower and 'cab' not in g_lower: return 'VTV'
+        # Nhận diện nhầm chữ VTV trong các nhóm khác
+        if 'vtv' in g_lower and 'cab' not in g_lower and 'prime' not in g_lower: return 'VTV'
         if 'htv' in g_lower: return 'HTV'
         if 'vtc' in g_lower: return 'VTC'
 
-        return 'Khác'
+        # [FIX NHÓM CŨ] Nếu không trúng quy tắc nào, trả lại đúng tên nhóm gốc của nguồn
+        return raw_group.strip().title() if raw_group.strip() else 'Khác'
 
     def parse_url_headers(self, url: str):
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
@@ -116,8 +122,6 @@ class M3UBuilder:
         if len(raw_name) < 2 or re.search(r'[-=_*.]{3,}', raw_name): return
 
         clean_name = self.normalize_channel_name(raw_name)
-        
-        # Gọi hàm smart_grouping, truyền cả tên nhóm gốc và tên kênh đã làm sạch vào
         clean_group = self.smart_grouping(raw_group, clean_name)
         
         id_match = re.search(r'tvg-id=["\']([^"\']+)["\']', extinf)
@@ -199,21 +203,29 @@ class M3UBuilder:
         return None
 
     def fast_health_check(self):
-        print(f"\n[*] Đã gom được {len(self.unique_links)} link UNIQUE. Bắt đầu check LIVE/DEAD...")
+        total_links = len(self.unique_links)
+        print(f"\n[*] Đã gom được {total_links} link UNIQUE. Bắt đầu check SỐNG/CHẾT...")
 
+        checked_count = 0
         with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
             futures = [executor.submit(self.check_single_link, data) for url, data in self.unique_links.items()]
             for future in concurrent.futures.as_completed(futures):
+                checked_count += 1
+                if checked_count % 50 == 0 or checked_count == total_links:
+                    print(f"  -> Đã check: {checked_count}/{total_links} links...", flush=True)
+
                 result = future.result()
                 if result:
                     self.final_channels.append(result)
 
+        # [FIX SORTING] Sắp xếp theo: Độ ưu tiên nhóm -> Tên nhóm gốc (bảng chữ cái) -> Tên kênh
         self.final_channels.sort(key=lambda x: (
             GROUP_PRIORITY.get(x['group'].upper(), 99), 
+            x['group'].upper(), 
             self.natural_sort_key(x['name'])
         ))
         
-        print(f"✅ Lọc thành công! Giữ lại {len(self.final_channels)} kênh siêu mượt.")
+        print(f"✅ Lọc thành công! Giữ lại {len(self.final_channels)} kênh siêu mượt.", flush=True)
 
     def generate_light_epg(self):
         if not self.required_tvg_ids or not self.epg_urls: return None
@@ -265,13 +277,11 @@ class M3UBuilder:
             for ch in self.final_channels:
                 f.write(ch['extinf'] + "\n")
                 f.write(ch['extgrp'] + "\n")
-                
                 for tag in ch['extra_tags']:
                     f.write(tag + "\n")
-                    
                 f.write(ch['url'] + "\n")
             
-        print("\n🏆 Build thành công! Sẵn sàng Push lên Server.")
+        print("\n🏆 Build thành công! Sẵn sàng Push lên Server.", flush=True)
 
 if __name__ == "__main__":
     M3UBuilder().run()
