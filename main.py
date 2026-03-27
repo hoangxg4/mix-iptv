@@ -11,14 +11,14 @@ SOURCE_FILE = "sources.txt"
 OUTPUT_FILE = "playlist.m3u"
 OUTPUT_EPG = "light_epg.xml"
 TIMEOUT = 15
-STREAM_TIMEOUT = 4 # Chỉ cho phép 4s để check link sống/chết
-MAX_WORKERS = 30 # Chạy 30 luồng song song cho nhanh
+STREAM_TIMEOUT = 3 # Khắt khe hơn: Quá 3s không phản hồi = loại bỏ vì sẽ gây lag TV
+MAX_WORKERS = 50 # Tăng số luồng lên 50 để vắt kiệt sức mạnh mạng của GitHub Actions
 
 class M3UBuilder:
     def __init__(self):
         self.epg_urls = set()
         self.required_tvg_ids = set()
-        self.channels = {}  # { 'tenkenh': [{'extinf':.., 'extgrp':.., 'url':..}, ...] }
+        self.unique_links = {}  # Đổi sang lọc theo URL: { 'http...': {'extinf':.., 'extgrp':..} }
         self.final_channels = []
         self.session = requests.Session()
         self.session.headers.update({'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'})
@@ -32,26 +32,23 @@ class M3UBuilder:
         return content
 
     def add_channel(self, extinf: str, extgrp: str, url: str):
+        # 1. Bỏ qua các kênh có tên rác
         name_part = extinf.split(',')[-1].strip()
-        norm_name = re.sub(r'[^a-zA-Z0-9]', '', name_part.lower())
-        
-        if len(norm_name) < 2 or re.search(r'[-=_*.]{3,}', name_part):
+        if len(name_part) < 2 or re.search(r'[-=_*.]{3,}', name_part):
             return
 
+        # 2. Thu thập tvg-id để làm EPG
         id_match = re.search(r'tvg-id=["\']([^"\']+)["\']', extinf)
         if id_match:
             self.required_tvg_ids.add(id_match.group(1))
 
-        if norm_name not in self.channels:
-            self.channels[norm_name] = []
-        
-        # Gom tất cả link trùng tên vào một mảng
-        self.channels[norm_name].append({
-            'extinf': extinf,
-            'extgrp': extgrp,
-            'url': url,
-            'name': name_part
-        })
+        # 3. Lọc trùng lặp bằng URL (Giữ lại thông tin của link xuất hiện đầu tiên)
+        if url not in self.unique_links:
+            self.unique_links[url] = {
+                'extinf': extinf,
+                'extgrp': extgrp,
+                'url': url
+            }
 
     def process_url(self, source_name: str, url: str):
         print(f"[*] Đang tải danh sách từ: {source_name} ...")
@@ -97,36 +94,33 @@ class M3UBuilder:
         except Exception as e:
             print(f"  [!] Lỗi: {e}")
 
-    def is_link_alive(self, url: str) -> bool:
-        """Kiểm tra nhanh xem link có sống không (Không tải video)"""
+    def check_single_link(self, data):
+        """Hàm công nhân: Nhận 1 link, ping xem sống hay chết"""
         try:
-            # stream=True giúp chỉ lấy header, không tải body video gây treo máy
-            res = self.session.get(url, stream=True, timeout=STREAM_TIMEOUT)
-            return res.status_code == 200
+            # Dùng stream=True để chỉ lấy header, không kéo video stream về gây tắc nghẽn
+            res = self.session.get(data['url'], stream=True, timeout=STREAM_TIMEOUT)
+            if res.status_code == 200:
+                return data
         except:
-            return False
+            pass
+        return None
 
-    def deduplicate_and_check_health(self):
-        print(f"\n[*] Bắt đầu kiểm tra SỐNG/CHẾT cho {len(self.channels)} kênh...")
-        print(f"[*] Đang chạy đa luồng ({MAX_WORKERS} workers) - Sẽ mất vài phút...")
+    def fast_health_check(self):
+        print(f"\n[*] Đã gom được {len(self.unique_links)} link UNIQUE. Bắt đầu check LIVE/DEAD...")
+        print(f"[*] Đang chạy đa luồng ({MAX_WORKERS} workers) với timeout {STREAM_TIMEOUT}s...")
 
-        def process_channel(norm_name, channel_links):
-            # Duyệt qua các link của kênh này, thấy link nào sống thì chốt luôn
-            for data in channel_links:
-                if self.is_link_alive(data['url']):
-                    return data
-            # Nếu xui quá tất cả đều chết, đành lấy tạm link đầu tiên
-            return channel_links[0]
-
-        # Chạy kiểm tra song song để tiết kiệm thời gian
+        # Sử dụng ThreadPoolExecutor để chạy song song 50 link cùng lúc
         with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-            futures = [executor.submit(process_channel, name, links) for name, links in self.channels.items()]
+            # Map dữ liệu vào các luồng
+            futures = [executor.submit(self.check_single_link, data) for url, data in self.unique_links.items()]
+            
+            # Quét kết quả trả về
             for future in concurrent.futures.as_completed(futures):
                 result = future.result()
                 if result:
                     self.final_channels.append(result)
 
-        print(f"✅ Lọc xong! Danh sách cuối cùng có {len(self.final_channels)} kênh.")
+        print(f"✅ Hoàn tất check! Số link SỐNG và cực MƯỢT giữ lại: {len(self.final_channels)}")
 
     def generate_light_epg(self):
         if not self.required_tvg_ids or not self.epg_urls: return None
@@ -172,13 +166,13 @@ class M3UBuilder:
                 if len(parts) == 2 and parts[1].strip().startswith("http"):
                     self.process_url(parts[0].strip(), parts[1].strip())
 
-        # Gọi hàm lọc link sống/chết
-        self.deduplicate_and_check_health()
+        # Check sức khỏe các link (Xử lý song song)
+        self.fast_health_check()
         
-        # Gọi hàm xử lý EPG
+        # Cắt tỉa EPG
         self.generate_light_epg()
         
-        # Ghi M3U
+        # Ghi file M3U cuối cùng
         header = '#EXTM3U x-tvg-url="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/light_epg.xml"'
         
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
@@ -188,7 +182,7 @@ class M3UBuilder:
                 f.write(ch['extgrp'] + "\n")
                 f.write(ch['url'] + "\n")
             
-        print("\n✅ Hoàn tất toàn bộ quy trình!")
+        print("\n✅ Build thành công! Sẵn sàng push lên GitHub.")
 
 if __name__ == "__main__":
     M3UBuilder().run()
