@@ -15,7 +15,6 @@ TIMEOUT = 15
 STREAM_TIMEOUT = 3 
 MAX_WORKERS = 50 
 
-# [TÙY CHỈNH] Bộ từ khóa rác - Kênh chứa chữ này sẽ bị cấm cửa ngay lập tức
 SPAM_KEYWORDS = [
     'mời quý khán giả', 'moi quy khan gia', 
     'thông báo', 'thong bao', 
@@ -37,7 +36,7 @@ GROUP_PRIORITY = {
     'GIẢI TRÍ': 10,
     'THIẾU NHI': 11,
     'ĐỊA PHƯƠNG': 12,
-    'VOV / VOH (RADIO)': 13, # Thêm nhóm Radio vào danh sách ưu tiên
+    'VOV / VOH (RADIO)': 13,
     'QUỐC TẾ': 14
 }
 
@@ -55,8 +54,23 @@ class M3UBuilder:
         self.session.mount('https://', adapter)
         self.session.headers.update({'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'})
 
-    def natural_sort_key(self, text):
-        return re.sub(r'\d+', lambda m: m.group(0).zfill(5), text.strip())
+    # [SIÊU CẤP] Bộ lọc xếp hạng 3 tầng thông minh
+    def get_sort_key(self, channel):
+        group = channel['group'].upper()
+        priority = GROUP_PRIORITY.get(group, 99)
+        name = channel['name']
+        
+        # Tầng 1: Kênh Quốc Gia đánh số (VTV1-9, HTV1-9, VTC...) -> Ép điểm 0 (Lên đầu)
+        is_core_numbered = 0 if re.match(r'^(VTV|HTV|VTC|K\+|SCTV)\d+', name) else 1
+        
+        # Tầng 2: Kênh bắt đầu bằng tên Group (Ví dụ: "VTV Cần Thơ") -> Ép điểm 0 (Đứng nhì)
+        prefix = group.split()[0] if group else ""
+        is_group_prefix = 0 if prefix and name.startswith(prefix) else 1
+        
+        # Tầng 3: Sắp xếp chữ và số tách biệt chuẩn xác 100% (VTV1 sẽ luôn đứng trước VTV Cần Thơ)
+        nat_key = [int(c) if c.isdigit() else c.lower() for c in re.split(r'(\d+)', name)]
+        
+        return (priority, group, is_core_numbered, is_group_prefix, nat_key)
 
     def normalize_channel_name(self, name: str) -> str:
         name = re.sub(r'(?i)[\[\(\-_\.]?\b(fhd|hd|sd|1080p|720p|4k|vn|vie|h264|hevc)\b[\]\)\-_\.]?', ' ', name)
@@ -65,7 +79,6 @@ class M3UBuilder:
         return ' '.join(name.split()).strip().upper()
 
     def smart_grouping(self, raw_group: str, clean_name: str) -> str:
-        # [CẢI TIẾN] Xóa sạch các icon như ☑, |, -, [, ] khỏi tên nhóm nguồn
         clean_raw_g = re.sub(r'[^\w\s]', ' ', raw_group)
         clean_raw_g = ' '.join(clean_raw_g.split()).strip()
         
@@ -83,11 +96,9 @@ class M3UBuilder:
         if re.match(r'^htv\s?\d', n_lower) or n_lower == 'htv': return 'HTV'
         if re.match(r'^vtc\s?\d', n_lower) or n_lower == 'vtc': return 'VTC'
 
-        # [CẢI TIẾN] Gom nhóm họ hàng nhà VOV, VOH, Radio lại làm 1
         if any(x in n_lower or x in g_lower for x in ['vov', 'voh', 'radio']): 
             return 'VOV / VOH (Radio)'
 
-        # [CẢI TIẾN] Bắt thêm chữ "dia phuong" không dấu
         if any(x in g_lower for x in ['địa phương', 'dia phuong', 'tỉnh', 'local']): 
             return 'Địa Phương'
 
@@ -100,7 +111,6 @@ class M3UBuilder:
         if 'htv' in g_lower: return 'HTV'
         if 'vtc' in g_lower: return 'VTC'
 
-        # Trả về tên nhóm đã được gột rửa sạch icon
         return clean_raw_g.title() if clean_raw_g else 'Khác'
 
     def parse_url_headers(self, url: str):
@@ -126,14 +136,10 @@ class M3UBuilder:
 
     def add_channel(self, extinf: str, url: str, raw_group: str, extra_tags: list):
         raw_name = extinf.split(',')[-1].strip()
-        
-        # Lọc các kênh có tên quá ngắn hoặc toàn ký tự rác
         if len(raw_name) < 2 or re.search(r'[-=_*.]{3,}', raw_name): return
 
-        # [CẢI TIẾN] Bộ lọc tiêu diệt kênh Zombie ("Mời quý khán giả...")
         name_lower_check = raw_name.lower()
-        if any(spam in name_lower_check for spam in SPAM_KEYWORDS):
-            return # Đá văng ngay lập tức, không thèm đưa vào danh sách chờ check
+        if any(spam in name_lower_check for spam in SPAM_KEYWORDS): return 
 
         clean_name = self.normalize_channel_name(raw_name)
         clean_group = self.smart_grouping(raw_group, clean_name)
@@ -232,11 +238,8 @@ class M3UBuilder:
                 if result:
                     self.final_channels.append(result)
 
-        self.final_channels.sort(key=lambda x: (
-            GROUP_PRIORITY.get(x['group'].upper(), 99), 
-            x['group'].upper(), 
-            self.natural_sort_key(x['name'])
-        ))
+        # Đã cập nhật lại lời gọi hàm sort bằng get_sort_key siêu cấp
+        self.final_channels.sort(key=self.get_sort_key)
         
         print(f"✅ Lọc thành công! Giữ lại {len(self.final_channels)} kênh siêu mượt.", flush=True)
 
