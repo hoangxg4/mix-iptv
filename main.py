@@ -7,7 +7,7 @@ import html
 import gzip
 import xml.etree.ElementTree as ET
 import concurrent.futures
-import unicodedata  # [MỚI] Thư viện xử lý chuẩn hóa font chữ
+import unicodedata
 
 SOURCE_FILE = "sources.txt"
 OUTPUT_FILE = "playlist.m3u"
@@ -48,6 +48,9 @@ class M3UBuilder:
         self.unique_links = {}  
         self.final_channels = []
         
+        # [MỚI] Kho lưu trữ TVG-ID để đồng bộ cho các kênh trùng tên
+        self.name_to_tvg_id = {} 
+        
         self.session = requests.Session()
         retries = Retry(total=3, backoff_factor=1, status_forcelist=[500, 502, 503, 504])
         adapter = HTTPAdapter(max_retries=retries)
@@ -81,31 +84,22 @@ class M3UBuilder:
         n_lower = clean_name.lower()
 
         if 'vtvprime' in n_lower or 'vtvprime' in g_lower: return 'VTVPRIME'
-        
         if 'vtvcab' in g_lower or 'vtvcab' in n_lower or n_lower.startswith('on ') or n_lower.startswith('on+'):
             if any(x in n_lower for x in ['thể thao', 'sports', 'football']): return 'Thể Thao'
             return 'VTVCab / ON'
-
         if re.match(r'^vtv\s?\d', n_lower) or 'vtv cần thơ' in n_lower or n_lower == 'vtv': return 'VTV'
         if n_lower.startswith('k+'): return 'K+'
         if re.match(r'^htv\s?\d', n_lower) or n_lower == 'htv': return 'HTV'
         if re.match(r'^vtc\s?\d', n_lower) or n_lower == 'vtc': return 'VTC'
-
-        if any(x in n_lower or x in g_lower for x in ['vov', 'voh', 'radio']): 
-            return 'VOV / VOH (Radio)'
-
-        if any(x in g_lower for x in ['địa phương', 'dia phuong', 'tỉnh', 'local']): 
-            return 'Địa Phương'
-
+        if any(x in n_lower or x in g_lower for x in ['vov', 'voh', 'radio']): return 'VOV / VOH (Radio)'
+        if any(x in g_lower for x in ['địa phương', 'dia phuong', 'tỉnh', 'local']): return 'Địa Phương'
         if any(x in g_lower for x in ['thể thao', 'sports', 'bong da', 'bóng đá']): return 'Thể Thao'
         if any(x in g_lower for x in ['phim', 'movies', 'cinema']): return 'Phim Truyện'
         if any(x in g_lower for x in ['thiếu nhi', 'kids', 'cartoon']): return 'Thiếu Nhi'
         if any(x in g_lower for x in ['tin tức', 'news']): return 'Tin Tức'
-        
         if 'vtv' in g_lower and 'cab' not in g_lower and 'prime' not in g_lower: return 'VTV'
         if 'htv' in g_lower: return 'HTV'
         if 'vtc' in g_lower: return 'VTC'
-
         return clean_raw_g.title() if clean_raw_g else 'Khác'
 
     def parse_url_headers(self, url: str):
@@ -130,7 +124,6 @@ class M3UBuilder:
         return content
 
     def add_channel(self, extinf: str, url: str, raw_group: str, extra_tags: list):
-        # [FIX NFD LỖI] Ép nối liền dấu câu vào chữ cái trước khi xử lý bằng Regex
         extinf = unicodedata.normalize('NFC', extinf)
         raw_group = unicodedata.normalize('NFC', raw_group)
 
@@ -143,24 +136,19 @@ class M3UBuilder:
         clean_name = self.normalize_channel_name(raw_name)
         clean_group = self.smart_grouping(raw_group, clean_name)
         
-        id_match = re.search(r'tvg-id=["\']([^"\']+)["\']', extinf)
+        # [MỚI] Săn lùng TVG-ID từ nguồn và lưu vào kho dùng chung
+        id_match = re.search(r'tvg-id=["\']([^"\']+)["\']', extinf, re.IGNORECASE)
+        tvg_id = ""
         if id_match:
-            self.required_tvg_ids.add(id_match.group(1))
-
-        parts = extinf.rsplit(',', 1)
-        new_extinf = parts[0] + ',' + clean_name
-        
-        if 'group-title="' in new_extinf:
-            new_extinf = re.sub(r'group-title="[^"]*"', f'group-title="{clean_group}"', new_extinf)
-        else:
-            new_extinf = new_extinf.replace("#EXTINF:", f'#EXTINF:-1 group-title="{clean_group}",', 1)
-
-        new_extgrp = f"#EXTGRP:{clean_group}"
+            tvg_id = id_match.group(1).strip()
+            self.required_tvg_ids.add(tvg_id)
+            # Lưu TVG-ID xịn nhất cho tên kênh này (Ví dụ: VTV1 -> vtv1.vn)
+            if tvg_id: 
+                self.name_to_tvg_id[clean_name] = tvg_id
 
         if url not in self.unique_links:
             self.unique_links[url] = {
-                'extinf': new_extinf,
-                'extgrp': new_extgrp,
+                'original_extinf': extinf,
                 'extra_tags': extra_tags, 
                 'url': url,           
                 'group': clean_group, 
@@ -239,7 +227,6 @@ class M3UBuilder:
                     self.final_channels.append(result)
 
         self.final_channels.sort(key=self.get_sort_key)
-        
         print(f"✅ Lọc thành công! Giữ lại {len(self.final_channels)} kênh siêu mượt.", flush=True)
 
     def generate_light_epg(self):
@@ -287,11 +274,38 @@ class M3UBuilder:
         
         header = '#EXTM3U x-tvg-url="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/light_epg.xml"'
         
+        # [MỚI] Bắt đầu gán đồng loạt ID cho kênh ở bước xuất file
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             f.write(header + "\n")
             for ch in self.final_channels:
-                f.write(ch['extinf'] + "\n")
-                f.write(ch['extgrp'] + "\n")
+                clean_name = ch['name']
+                clean_group = ch['group']
+                
+                # Tìm ID đã được chia sẻ chung trong kho
+                best_tvg_id = self.name_to_tvg_id.get(clean_name, "")
+                
+                # --- PHẪU THUẬT DÒNG EXTINF ---
+                extinf = ch['original_extinf']
+                parts = extinf.rsplit(',', 1)
+                attrs = parts[0]
+                
+                # Xóa ID và group cũ đi để dọn dẹp
+                attrs = re.sub(r'\s*tvg-id=["\'][^"\']*["\']', '', attrs, flags=re.IGNORECASE)
+                attrs = re.sub(r'\s*group-title=["\'][^"\']*["\']', '', attrs, flags=re.IGNORECASE)
+                
+                # Giữ lại thông số thời gian (ví dụ #EXTINF:-1)
+                duration_match = re.match(r'(#EXTINF:[^\s]+)', attrs)
+                duration = duration_match.group(1) if duration_match else "#EXTINF:-1"
+                attrs = attrs[len(duration):].strip()
+                
+                # Ráp lại ID mới đồng bộ
+                new_extinf = f'{duration} tvg-id="{best_tvg_id}" group-title="{clean_group}" {attrs},{clean_name}'
+                # Xóa dấu cách thừa
+                new_extinf = re.sub(r'\s+', ' ', new_extinf).replace(' ,', ',')
+                # -----------------------------
+
+                f.write(new_extinf + "\n")
+                f.write(f"#EXTGRP:{clean_group}\n")
                 for tag in ch['extra_tags']:
                     f.write(tag + "\n")
                 f.write(ch['url'] + "\n")
