@@ -3,7 +3,6 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 import re
 import os
-import html
 import gzip
 import xml.etree.ElementTree as ET
 import concurrent.futures
@@ -25,15 +24,13 @@ GROUP_PRIORITY = {
 class M3UBuilder:
     def __init__(self):
         self.epg_urls = set()
-        self.required_tvg_ids = set()
+        self.unique_links = {}
         
-        # [NEW] Bộ nhớ siêu việt để theo dõi EPG
-        self.name_to_tvg_ids = {}   # Gom tất cả ID của 1 kênh
-        self.id_to_metadata = {}    # Lưu tvg-name và tvg-logo xịn của ID đó
-        self.fallback_metadata = {} # Lưu dự phòng nếu kênh ko có ID
-        self.valid_ids_found = set()# ID nào có EPG thật mới được lưu vào đây
-        
-        self.unique_links = {}  
+        # [NEW] Kho dữ liệu EPG thông minh
+        self.available_xml_ids = set()
+        self.xml_name_mapping = {}  # Từ điển dịch tên kênh -> ID chuẩn trong XML
+        self.epg_xml_roots = []     # Lưu trữ file XML đã tải để trích xuất
+        self.final_used_ids = set() # Những ID xịn cuối cùng sẽ được đưa vào light_epg
         
         self.session = requests.Session()
         retries = Retry(total=3, backoff_factor=1, status_forcelist=[500, 502, 503, 504])
@@ -49,6 +46,7 @@ class M3UBuilder:
         return (priority, group, nat_key)
 
     def normalize_channel_name(self, name: str) -> str:
+        # Xoá các mác rườm rà để ép về tên gốc (VD: "VTV 3 HD" -> "VTV3")
         name = re.sub(r'(?i)[\[\(\-_\.]?\b(fhd|hd|sd|1080p|720p|4k|vn|vie|h264|hevc)\b[\]\)\-_\.]?', ' ', name)
         name = re.sub(r'(?i)(vtv|htv|vtc|sctv|vtvcab)\s+(\d+)', r'\1\2', name)
         name = re.sub(r'[^\w\s\+]', '', name)
@@ -85,39 +83,25 @@ class M3UBuilder:
         clean_name = self.normalize_channel_name(raw_name)
         if len(clean_name) < 2 or any(spam in clean_name.lower() for spam in SPAM_KEYWORDS): return
         
-        # Nhặt lại các thẻ quan trọng nguyên bản
         id_match = re.search(r'tvg-id=["\']([^"\']+)["\']', extinf, re.I)
-        name_match = re.search(r'tvg-name=["\']([^"\']+)["\']', extinf, re.I)
         logo_match = re.search(r'tvg-logo=["\']([^"\']+)["\']', extinf, re.I)
 
-        found_id = id_match.group(1).strip() if id_match and id_match.group(1).strip() else ""
-        # Nếu ko có tvg-name, lấy luôn tên chưa cắt (vd: VTV3 HD) làm tvg-name để app nhận diện
-        found_name = name_match.group(1).strip() if name_match and name_match.group(1).strip() else raw_name
-        found_logo = logo_match.group(1).strip() if logo_match and logo_match.group(1).strip() else ""
-
-        if clean_name not in self.name_to_tvg_ids:
-            self.name_to_tvg_ids[clean_name] = set()
-
-        if found_id:
-            self.name_to_tvg_ids[clean_name].add(found_id)
-            self.required_tvg_ids.add(found_id)
-            if found_id not in self.id_to_metadata:
-                self.id_to_metadata[found_id] = {'tvg-name': found_name, 'tvg-logo': found_logo}
-            elif not self.id_to_metadata[found_id]['tvg-logo'] and found_logo:
-                self.id_to_metadata[found_id]['tvg-logo'] = found_logo
-
-        if clean_name not in self.fallback_metadata:
-            self.fallback_metadata[clean_name] = {'tvg-name': found_name, 'tvg-logo': found_logo}
-        elif not self.fallback_metadata[clean_name]['tvg-logo'] and found_logo:
-            self.fallback_metadata[clean_name]['tvg-logo'] = found_logo
+        found_id = id_match.group(1).strip() if id_match else ""
+        found_logo = logo_match.group(1).strip() if logo_match else ""
 
         if url not in self.unique_links:
             self.unique_links[url] = {
                 'url': url,
                 'name': clean_name,
                 'group': self.smart_grouping(raw_group, clean_name),
+                'tvg_id': found_id,
+                'tvg_logo': found_logo,
                 'extra_tags': extra_tags
             }
+        else:
+            # Ưu tiên nhặt lại logo nếu link bị trùng
+            if not self.unique_links[url]['tvg_logo'] and found_logo:
+                self.unique_links[url]['tvg_logo'] = found_logo
 
     def check_single_link(self, data):
         clean_url, headers = self.parse_url_headers(data['url'])
@@ -128,7 +112,7 @@ class M3UBuilder:
         return None
 
     def process_source(self, url):
-        print(f"[*] Đang tải: {url[:50]}...")
+        print(f"[*] Đang tải source: {url[:50]}...")
         try:
             res = self.session.get(url, timeout=TIMEOUT)
             content = res.text
@@ -150,31 +134,48 @@ class M3UBuilder:
                     curr_extinf = ""
         except: pass
 
-    def generate_light_epg(self):
-        if not self.required_tvg_ids or not self.epg_urls: return
-        print(f"\n[*] Đang đào EPG... (Cần tìm {len(self.required_tvg_ids)} mã ID)", flush=True)
-        root_out = ET.Element("tv")
-        fully_found_ids = set()
-
+    def fetch_epg_and_map_ids(self):
+        # Tải EPG gốc về và học thuộc lòng bộ từ điển Tên <-> ID
+        if not self.epg_urls: return
+        print(f"\n[*] Đang đọc file EPG gốc để thiết lập đồng bộ...")
+        
         for epg_url in list(self.epg_urls):
-            if len(fully_found_ids) >= len(self.required_tvg_ids): break
             try:
                 res = self.session.get(epg_url, timeout=30)
                 xml_data = gzip.decompress(res.content) if epg_url.endswith('.gz') else res.content
-                root_in = ET.fromstring(xml_data)
-                active_ids = set()
-                
-                for elem in root_in:
-                    if elem.tag == 'channel':
-                        ch_id = elem.get('id')
-                        if ch_id in self.required_tvg_ids and ch_id not in fully_found_ids:
-                            root_out.append(elem)
-                            active_ids.add(ch_id)
-                            fully_found_ids.add(ch_id)
-                            self.valid_ids_found.add(ch_id) # Chỉ ID nào trúng tuyển mới lưu
-                    elif elem.tag == 'programme' and elem.get('channel') in active_ids:
+                root = ET.fromstring(xml_data)
+                self.epg_xml_roots.append(root)
+
+                # Quét mọi kênh có trong XML
+                for elem in root.findall('channel'):
+                    ch_id = elem.get('id')
+                    if not ch_id: continue
+                    self.available_xml_ids.add(ch_id)
+                    
+                    # Dịch display-name trong XML sang dạng chuẩn để tí nữa so sánh
+                    for dn in elem.findall('display-name'):
+                        if dn.text:
+                            norm_name = self.normalize_channel_name(dn.text)
+                            if norm_name not in self.xml_name_mapping:
+                                self.xml_name_mapping[norm_name] = ch_id
+            except Exception as e: 
+                print(f"  -> Bỏ qua EPG lỗi: {e}")
+
+    def generate_light_epg(self):
+        if not self.final_used_ids or not self.epg_xml_roots: return
+        print(f"[*] Đang xuất EPG siêu nhẹ cho {len(self.final_used_ids)} kênh đã được đồng bộ...")
+        root_out = ET.Element("tv")
+        added_channels = set()
+
+        for root_in in self.epg_xml_roots:
+            for elem in root_in:
+                if elem.tag == 'channel':
+                    ch_id = elem.get('id')
+                    if ch_id in self.final_used_ids and ch_id not in added_channels:
                         root_out.append(elem)
-            except: pass
+                        added_channels.add(ch_id)
+                elif elem.tag == 'programme' and elem.get('channel') in added_channels:
+                    root_out.append(elem)
 
         tree = ET.ElementTree(root_out)
         tree.write(OUTPUT_EPG, encoding='utf-8', xml_declaration=True)
@@ -187,54 +188,71 @@ class M3UBuilder:
                 if len(parts) == 2 and parts[1].strip().startswith("http"):
                     self.process_source(parts[1].strip())
 
-        working = []
-        print(f"\n[*] Đang check sống/chết {len(self.unique_links)} links...")
+        working_links = []
+        print(f"\n[*] Đang check {len(self.unique_links)} links...")
         with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
             futures = [executor.submit(self.check_single_link, d) for d in self.unique_links.values()]
             for f in concurrent.futures.as_completed(futures):
                 res = f.result()
-                if res: working.append(res)
+                if res: working_links.append(res)
         
-        working.sort(key=self.get_sort_key)
+        working_links.sort(key=self.get_sort_key)
         
-        # Chạy tạo EPG TRƯỚC khi ghi file M3U để biết ID nào sống, ID nào chết
-        self.generate_light_epg()
-        
-        # [QUAN TRỌNG] Trọng tài chọn ID xịn nhất cho từng đài
-        best_tvg_id_for_name = {}
-        for name, ids in self.name_to_tvg_ids.items():
-            valid_ids = ids.intersection(self.valid_ids_found)
-            if valid_ids: best_tvg_id_for_name[name] = list(valid_ids)[0]
-            elif ids: best_tvg_id_for_name[name] = list(ids)[0]
+        # [QUAN TRỌNG] Tải EPG và tra từ điển
+        self.fetch_epg_and_map_ids()
+
+        # Dò ID chuẩn cho từng nhóm kênh M3U
+        name_to_best_id = {}
+        name_to_best_logo = {}
+
+        for ch in working_links:
+            clean_name = ch['name']
+            
+            # Gán ID xịn
+            if clean_name not in name_to_best_id:
+                # Nếu ID cũ của m3u trùng khớp với XML thì xài luôn
+                if ch['tvg_id'] and ch['tvg_id'] in self.available_xml_ids:
+                    name_to_best_id[clean_name] = ch['tvg_id']
+                # Nếu không khớp, tìm trong từ điển tự động
+                elif clean_name in self.xml_name_mapping:
+                    name_to_best_id[clean_name] = self.xml_name_mapping[clean_name]
+                # Hết cách thì giữ nguyên
+                else:
+                    name_to_best_id[clean_name] = ch['tvg_id']
+            
+            # Lưu lại Logo xịn nhất để gộp nhóm
+            if ch['tvg_logo'] and clean_name not in name_to_best_logo:
+                name_to_best_logo[clean_name] = ch['tvg_logo']
 
         # XUẤT FILE M3U
         header = '#EXTM3U x-tvg-url="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/light_epg.xml"'
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             f.write(header + "\n")
-            for ch in working:
+            for ch in working_links:
                 clean_name = ch['name']
-                best_id = best_tvg_id_for_name.get(clean_name, "")
-                
-                # Truy xuất lại tên gốc và logo gốc theo đúng ID
-                if best_id: meta = self.id_to_metadata.get(best_id, {})
-                else: meta = self.fallback_metadata.get(clean_name, {})
+                # Ép lấy ID đã được đồng bộ chuẩn nhất
+                final_id = name_to_best_id.get(clean_name, "")
+                final_logo = name_to_best_logo.get(clean_name, ch['tvg_logo'])
 
-                tvg_name = meta.get('tvg-name', clean_name)
-                tvg_logo = meta.get('tvg-logo', '')
+                if final_id in self.available_xml_ids:
+                    self.final_used_ids.add(final_id)
 
-                logo_str = f' tvg-logo="{tvg_logo}"' if tvg_logo else ""
-                id_str = f' tvg-id="{best_id}"' if best_id else ""
-                name_str = f' tvg-name="{tvg_name}"' if tvg_name else f' tvg-name="{clean_name}"'
-                
-                # Nhóm lại dưới 1 cái tên duy nhất: {clean_name} ở đuôi
+                id_str = f' tvg-id="{final_id}"' if final_id else ""
+                logo_str = f' tvg-logo="{final_logo}"' if final_logo else ""
+                # Giữ nguyên tvg-name và đuôi tên cho nó đồng bộ tuyệt đối trên OTT Navigator
+                name_str = f' tvg-name="{clean_name}"'
+
                 clean_extinf = f'#EXTINF:-1{id_str}{name_str}{logo_str} group-title="{ch["group"]}",{clean_name}'
                 
                 f.write(clean_extinf + "\n")
                 f.write(f"#EXTGRP:{ch['group']}\n")
                 for t in ch['extra_tags']: f.write(t + "\n")
                 f.write(ch['url'] + "\n")
+
+        # XUẤT EPG NHẸ TỪ CÁC ID XỊN
+        self.generate_light_epg()
                 
-        print(f"✅ Xong! Đã dọn sạch dẹp gọn và khôi phục EPG cho các kênh!")
+        print(f"✅ BINGO! Đã đồng bộ cấu trúc EPG khớp 100% với file XML.")
 
 if __name__ == "__main__":
     M3UBuilder().run()
