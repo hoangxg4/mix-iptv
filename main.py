@@ -54,15 +54,15 @@ class M3UBuilder:
         if re.search(intl_keywords, n_lower): return 'Quốc Tế'
         
         # VTV Prime
-        if re.search(r'\bprime\b', n_lower) and re.search(r'\bvtv', n_lower): return 'VTVPRIME'
+        if re.search(r'\bprime\b', n_lower) and re.search(r'\bvtv\d*\b', n_lower): return 'VTVPRIME'
         
-        # VTVCAB / ON (Chữ ON ép đứng 1 mình, còn vtvcab thì thoải mái cho vtvcab1, vtvcab2...)
-        if re.search(r'\b(cab|vtvcab)', n_lower) or re.search(r'\bon\b', n_lower): return 'VTVCAB / ON'
+        # VTVCAB / ON 
+        if re.search(r'\b(cab|vtvcab)\d*\b', n_lower) or re.search(r'\bon\b', n_lower): return 'VTVCAB / ON'
         
-        # Các đài lớn (Chỉ cần bắt đầu bằng VTV, HTV, VTC là hốt trọn kể cả có số đằng sau)
-        if re.search(r'\bvtv', n_lower): return 'VTV'
-        if re.search(r'\bhtv', n_lower): return 'HTV'
-        if re.search(r'\bvtc', n_lower): return 'VTC'
+        # Các đài lớn (Khóa chặt: chỉ nhận Tên + Số, tuyệt đối không nhận dính chữ cái khác)
+        if re.search(r'\bvtv\d*\b', n_lower): return 'VTV'
+        if re.search(r'\bhtv\d*\b', n_lower): return 'HTV'
+        if re.search(r'\bvtc\d*\b', n_lower): return 'VTC'
         
         if 'k+' in n_lower: return 'K+'
         
@@ -74,7 +74,7 @@ class M3UBuilder:
         if re.search(r'\b(phim|movies|cinema)\b', g_lower) or re.search(r'\b(phim|movies|cinema)\b', n_lower): 
             return 'Phim Truyện'
         
-        # [QUAN TRỌNG] Trả lại Group gốc của link m3u nếu không thuộc bất kỳ nhóm nào ở trên
+        # Trả lại Group gốc nếu có
         if raw_group and raw_group.strip() and raw_group.strip().lower() not in ['khác', 'other', 'undefined']:
             return raw_group.strip().title()
             
