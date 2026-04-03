@@ -20,7 +20,7 @@ SPAM_KEYWORDS = ['mời quý khán giả', 'thông báo', 'tạm ngưng', 'bảo
 
 GROUP_PRIORITY = {
     'VTV': 1, 'HTV': 2, 'VTC': 3, 'VTVCAB / ON': 4, 'VTVPRIME': 5, 
-    'K+': 6, 'THỂ THAO': 7, 'ĐỊA PHƯƠNG': 12
+    'K+': 6, 'THỂ THAO': 7, 'PHIM TRUYỆN': 8, 'ĐỊA PHƯƠNG': 12
 }
 
 class M3UBuilder:
@@ -28,7 +28,6 @@ class M3UBuilder:
         self.epg_urls = set()
         self.required_tvg_ids = set()
         self.unique_links = {}  
-        self.final_channels = []
         self.name_to_tvg_id = {} 
         
         self.session = requests.Session()
@@ -36,7 +35,6 @@ class M3UBuilder:
         adapter = HTTPAdapter(max_retries=retries)
         self.session.mount('http://', adapter)
         self.session.mount('https://', adapter)
-        self.session.headers.update({'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'})
 
     def get_sort_key(self, channel):
         group = channel['group'].upper()
@@ -54,11 +52,18 @@ class M3UBuilder:
     def smart_grouping(self, raw_group: str, clean_name: str) -> str:
         g_lower = raw_group.lower()
         n_lower = clean_name.lower()
-        if 'vtv' in n_lower and 'cab' not in n_lower: return 'VTV'
+        
+        # [SỬA LỖI VTV PRIME] Ưu tiên check Prime và Cab trước khi check VTV
+        if 'prime' in n_lower or 'prime' in g_lower: return 'VTVPRIME'
+        if 'cab' in n_lower or 'cab' in g_lower or 'on ' in n_lower: return 'VTVCAB / ON'
+        if 'vtv' in n_lower: return 'VTV'
         if 'htv' in n_lower: return 'HTV'
         if 'vtc' in n_lower: return 'VTC'
         if 'k+' in n_lower: return 'K+'
-        if any(x in g_lower for x in ['địa phương', 'tỉnh', 'local']): return 'Địa Phương'
+        if any(x in g_lower or x in n_lower for x in ['địa phương', 'tỉnh', 'local']): return 'Địa Phương'
+        if any(x in g_lower for x in ['thể thao', 'sports', 'bóng đá']): return 'Thể Thao'
+        if any(x in g_lower for x in ['phim', 'movies']): return 'Phim Truyện'
+        
         return raw_group.strip().title() if raw_group else 'Khác'
 
     def parse_url_headers(self, url: str):
@@ -75,17 +80,23 @@ class M3UBuilder:
 
     def add_channel(self, extinf: str, url: str, raw_group: str, extra_tags: list):
         clean_name = self.normalize_channel_name(extinf.split(',')[-1])
-        if len(clean_name) < 2: return
+        if len(clean_name) < 2 or any(spam in clean_name.lower() for spam in SPAM_KEYWORDS): 
+            return
         
-        # Lưu ID xịn nếu có để "phát chẩn" cho các link khác cùng tên
+        # Sưu tầm ID EPG
         id_match = re.search(r'tvg-id=["\']([^"\']+)["\']', extinf, re.I)
-        if id_match:
-            self.name_to_tvg_id[clean_name] = id_match.group(1).strip()
-            self.required_tvg_ids.add(id_match.group(1).strip())
+        if id_match and id_match.group(1).strip():
+            found_id = id_match.group(1).strip()
+            self.name_to_tvg_id[clean_name] = found_id
+            self.required_tvg_ids.add(found_id)
+
+        # Trích xuất luôn logo gốc (nếu có) để làm mồi cho app hiển thị EPG
+        logo_match = re.search(r'tvg-logo=["\']([^"\']+)["\']', extinf, re.I)
+        logo_str = f' tvg-logo="{logo_match.group(1)}"' if logo_match else ""
 
         if url not in self.unique_links:
             self.unique_links[url] = {
-                'original_extinf': extinf,
+                'logo_str': logo_str,
                 'url': url,
                 'name': clean_name,
                 'group': self.smart_grouping(raw_group, clean_name),
@@ -100,43 +111,13 @@ class M3UBuilder:
         except: pass
         return None
 
-    def run(self):
-        if not os.path.exists(SOURCE_FILE): return
-        with open(SOURCE_FILE, 'r', encoding='utf-8') as f:
-            for line in f:
-                parts = re.split(r'[,|]', line.strip(), 1)
-                if len(parts) == 2 and parts[1].strip().startswith("http"):
-                    self.process_source(parts[0].strip(), parts[1].strip())
-
-        # Check sống chết
-        working = []
-        with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-            futures = [executor.submit(self.check_single_link, d) for d in self.unique_links.values()]
-            for f in concurrent.futures.as_completed(futures):
-                res = f.result()
-                if res: working.append(res)
-        
-        working.sort(key=self.get_sort_key)
-        
-        # Xuất file
-        header = '#EXTM3U x-tvg-url="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/light_epg.xml"'
-        with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-            f.write(header + "\n")
-            for ch in working:
-                best_id = self.name_to_tvg_id.get(ch['name'], "")
-                # Gom về 1 tên: Dùng ch['name'] trực tiếp cho phần hiển thị
-                line = f'#EXTINF:-1 tvg-id="{best_id}" tvg-name="{ch["name"]}" group-title="{ch["group"]}",{ch["name"]}'
-                f.write(line + "\n")
-                f.write(f"#EXTGRP:{ch['group']}\n")
-                for t in ch['extra_tags']: f.write(t + "\n")
-                f.write(ch['url'] + "\n")
-        print(f"✅ Xong! Đã gom {len(working)} link vào các tên kênh chuẩn.")
-
-    def process_source(self, name, url):
+    def process_source(self, url):
+        print(f"[*] Đang tải: {url[:50]}...")
         try:
             res = self.session.get(url, timeout=TIMEOUT)
             content = res.text
             curr_extinf, curr_grp, extra_tags = "", "Khác", []
+            
             for line in content.splitlines():
                 line = line.strip()
                 if line.startswith("#EXTINF"):
@@ -145,13 +126,79 @@ class M3UBuilder:
                     if m: curr_grp = m.group(1)
                     extra_tags = []
                 elif line.startswith("#EXTM3U"):
-                    m = re.search(r'url-tvg="([^"]*)"', line, re.I)
+                    m = re.search(r'(?:x-tvg-url|url-tvg)="([^"]*)"', line, re.I)
                     if m: [self.epg_urls.add(e.strip()) for e in m.group(1).split(',') if e.strip()]
-                elif line.startswith("#") and curr_extinf: extra_tags.append(line)
+                elif line.startswith("#") and curr_extinf: 
+                    extra_tags.append(line)
                 elif not line.startswith("#") and line.startswith("http") and curr_extinf:
                     self.add_channel(curr_extinf, line, curr_grp, extra_tags)
                     curr_extinf = ""
-        except: pass
+        except Exception as e: 
+            print(f"  -> Lỗi: {e}")
+
+    def generate_light_epg(self):
+        if not self.required_tvg_ids or not self.epg_urls: return
+        print(f"\n[*] Đang tạo EPG cho {len(self.required_tvg_ids)} kênh...", flush=True)
+        root_out = ET.Element("tv")
+        fully_found_ids = set()
+
+        for epg_url in list(self.epg_urls):
+            if len(fully_found_ids) >= len(self.required_tvg_ids): break
+            try:
+                res = self.session.get(epg_url, timeout=30)
+                xml_data = gzip.decompress(res.content) if epg_url.endswith('.gz') else res.content
+                root_in = ET.fromstring(xml_data)
+                active_ids = set()
+                
+                for elem in root_in:
+                    if elem.tag == 'channel':
+                        ch_id = elem.get('id')
+                        if ch_id in self.required_tvg_ids and ch_id not in fully_found_ids:
+                            root_out.append(elem)
+                            active_ids.add(ch_id)
+                            fully_found_ids.add(ch_id)
+                    elif elem.tag == 'programme' and elem.get('channel') in active_ids:
+                        root_out.append(elem)
+            except: pass
+
+        tree = ET.ElementTree(root_out)
+        tree.write(OUTPUT_EPG, encoding='utf-8', xml_declaration=True)
+
+    def run(self):
+        if not os.path.exists(SOURCE_FILE): return
+        with open(SOURCE_FILE, 'r', encoding='utf-8') as f:
+            for line in f:
+                parts = re.split(r'[,|]', line.strip(), 1)
+                if len(parts) == 2 and parts[1].strip().startswith("http"):
+                    self.process_source(parts[1].strip())
+
+        working = []
+        print(f"\n[*] Bắt đầu check sống chết {len(self.unique_links)} links...")
+        with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+            futures = [executor.submit(self.check_single_link, d) for d in self.unique_links.values()]
+            for f in concurrent.futures.as_completed(futures):
+                res = f.result()
+                if res: working.append(res)
+        
+        working.sort(key=self.get_sort_key)
+        self.generate_light_epg()
+        
+        # XUẤT FILE M3U
+        header = '#EXTM3U x-tvg-url="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/light_epg.xml"'
+        with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+            f.write(header + "\n")
+            for ch in working:
+                best_id = self.name_to_tvg_id.get(ch['name'], "")
+                
+                # Cấu trúc extinf sạch sẽ, dễ đọc cho app
+                clean_extinf = f'#EXTINF:-1 tvg-id="{best_id}" tvg-name="{ch["name"]}"{ch["logo_str"]} group-title="{ch["group"]}",{ch["name"]}'
+                
+                f.write(clean_extinf + "\n")
+                f.write(f"#EXTGRP:{ch['group']}\n")
+                for t in ch['extra_tags']: f.write(t + "\n")
+                f.write(ch['url'] + "\n")
+                
+        print(f"✅ Xong! Đã chuẩn hoá {len(working)} kênh.")
 
 if __name__ == "__main__":
     M3UBuilder().run()
