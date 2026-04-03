@@ -6,7 +6,7 @@ import os
 import gzip
 import xml.etree.ElementTree as ET
 import concurrent.futures
-import difflib # Thư viện tự động so sánh chuỗi (Fuzzy Match)
+import difflib
 
 SOURCE_FILE = "sources.txt"
 OUTPUT_FILE = "playlist.m3u"
@@ -39,42 +39,34 @@ class M3UBuilder:
         self.session.mount('https://', adapter)
 
     def normalize_channel_name(self, name: str) -> str:
-        # [TỰ ĐỘNG CẮT RÁC] Cắt bỏ toàn bộ phần đuôi bị nhà mạng nhồi nhét sau dấu _ hoặc |
         name = re.split(r'[_\|]', name)[0] 
-        
-        # Xoá các mác độ phân giải / nguồn thừa
         name = re.sub(r'(?i)[\[\(\-_\.]?\b(fhd|hd|sd|1080p|720p|4k|vn|vie|h264|hevc|clip|tv|fpt|sctv|vtc|local|chính|phụ)\b[\]\)\-_\.]?', ' ', name)
-        
-        # Ép chuẩn định dạng (VD: "VTV 3" -> "VTV3")
         name = re.sub(r'(?i)(vtv|htv|vtc|sctv|vtvcab|k\+)\s+(\d+)', r'\1\2', name)
-        
-        # Chỉ giữ lại chữ, số và dấu + (cho K+)
         name = re.sub(r'[^\w\s\+]', '', name)
         return ' '.join(name.split()).strip().upper()
 
     def smart_grouping(self, raw_group: str, clean_name: str) -> str:
-        g_lower = raw_group.lower()
+        g_lower = raw_group.lower() if raw_group else ""
         n_lower = clean_name.lower()
         
-        # Quốc Tế (Dùng \b để đảm bảo các tên như FOX không gom nhầm chữ có chứa fox)
+        # Quốc Tế
         intl_keywords = r'\b(hbo|cinemax|axn|discovery|disney|cartoon|fox|warner|paramount|nat geo|fashion|fon|cnbc|cnn|bbc)\b'
         if re.search(intl_keywords, n_lower): return 'Quốc Tế'
         
-        # VTV Prime (Phải có cả chữ VTV đứng riêng và Prime đứng riêng)
-        if re.search(r'\bprime\b', n_lower) and re.search(r'\bvtv\b', n_lower): return 'VTVPRIME'
+        # VTV Prime
+        if re.search(r'\bprime\b', n_lower) and re.search(r'\bvtv', n_lower): return 'VTVPRIME'
         
-        # VTVCAB / ON (Dùng \b để trị triệt để lỗi FON, ACTION...)
-        if re.search(r'\b(cab|on|vtvcab)\b', n_lower): return 'VTVCAB / ON'
+        # VTVCAB / ON (Chữ ON ép đứng 1 mình, còn vtvcab thì thoải mái cho vtvcab1, vtvcab2...)
+        if re.search(r'\b(cab|vtvcab)', n_lower) or re.search(r'\bon\b', n_lower): return 'VTVCAB / ON'
         
-        # Các đài lớn trong nước (Bắt buộc đứng độc lập)
-        if re.search(r'\bvtv\b', n_lower): return 'VTV'
-        if re.search(r'\bhtv\b', n_lower): return 'HTV'
-        if re.search(r'\bvtc\b', n_lower): return 'VTC'
+        # Các đài lớn (Chỉ cần bắt đầu bằng VTV, HTV, VTC là hốt trọn kể cả có số đằng sau)
+        if re.search(r'\bvtv', n_lower): return 'VTV'
+        if re.search(r'\bhtv', n_lower): return 'HTV'
+        if re.search(r'\bvtc', n_lower): return 'VTC'
         
-        # K+ (Dấu + là ký tự đặc biệt, ít bị dính chùm nên dùng lệnh in là đủ)
         if 'k+' in n_lower: return 'K+'
         
-        # Các nhóm còn lại
+        # Nhóm Thể loại
         if re.search(r'\b(địa phương|tỉnh|local)\b', g_lower) or re.search(r'\b(địa phương|tỉnh|local)\b', n_lower): 
             return 'Địa Phương'
         if re.search(r'\b(thể thao|sports|bóng đá)\b', g_lower) or re.search(r'\b(thể thao|sports|bóng đá)\b', n_lower): 
@@ -82,6 +74,10 @@ class M3UBuilder:
         if re.search(r'\b(phim|movies|cinema)\b', g_lower) or re.search(r'\b(phim|movies|cinema)\b', n_lower): 
             return 'Phim Truyện'
         
+        # [QUAN TRỌNG] Trả lại Group gốc của link m3u nếu không thuộc bất kỳ nhóm nào ở trên
+        if raw_group and raw_group.strip() and raw_group.strip().lower() not in ['khác', 'other', 'undefined']:
+            return raw_group.strip().title()
+            
         return 'Khác'
 
     def get_sort_key(self, channel):
@@ -140,7 +136,7 @@ class M3UBuilder:
                 if line.startswith("#EXTINF"):
                     curr_extinf = line
                     m = re.search(r'group-title="([^"]*)"', line)
-                    curr_grp = m.group(1) if m else "Khác"
+                    curr_grp = m.group(1) if m else ""
                     extra_tags = []
                 elif line.startswith("#EXTM3U"):
                     m = re.search(r'(?:x-tvg-url|url-tvg)="([^"]*)"', line, re.I)
@@ -173,13 +169,11 @@ class M3UBuilder:
             except: pass
 
     def get_best_id_match(self, clean_name, orig_id):
-        # 1. Nếu ID cũ khớp với EPG -> Giữ nguyên
         if orig_id in self.available_xml_ids:
             return orig_id
-        # 2. Nếu tên kênh khớp chính xác với từ điển XML -> Lấy luôn
         if clean_name in self.xml_name_mapping:
             return self.xml_name_mapping[clean_name]
-        # 3. [TỰ ĐỘNG THÔNG MINH] Dùng Fuzzy Match để tìm tên gần giống nhất (độ chính xác > 75%)
+        
         best_matches = difflib.get_close_matches(clean_name, self.xml_name_mapping.keys(), n=1, cutoff=0.75)
         if best_matches:
             return self.xml_name_mapping[best_matches[0]]
@@ -205,11 +199,9 @@ class M3UBuilder:
         working_links.sort(key=self.get_sort_key)
         self.fetch_epg_and_map_ids()
 
-        # Xuất file M3U và tự động ánh xạ
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             f.write('#EXTM3U x-tvg-url="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/light_epg.xml"\n')
             for ch in working_links:
-                # Gọi hàm AI tự động nhận diện ID
                 final_id = self.get_best_id_match(ch['name'], ch['tvg_id'])
                 if final_id in self.available_xml_ids: self.final_used_ids.add(final_id)
                 
@@ -219,7 +211,6 @@ class M3UBuilder:
                 for t in ch['extra_tags']: f.write(t + "\n")
                 f.write(ch['url'] + "\n")
 
-        # Xuất EPG XML siêu nhẹ
         if self.final_used_ids:
             root_out = ET.Element("tv")
             added_ch = set()
@@ -233,7 +224,7 @@ class M3UBuilder:
                         root_out.append(elem)
             ET.ElementTree(root_out).write(OUTPUT_EPG, encoding='utf-8', xml_declaration=True)
 
-        print(f"✅ HOÀN TẤT! Hệ thống đã tự động dọn rác và phân nhóm cực kỳ chính xác.")
+        print(f"✅ Đã fix: VTV1, HTV1 đã vào đúng chỗ và trả lại các Group gốc!")
 
 if __name__ == "__main__":
     M3UBuilder().run()
