@@ -6,7 +6,7 @@ import os
 import gzip
 import xml.etree.ElementTree as ET
 import concurrent.futures
-import difflib # [MỚI] Thư viện tự động so sánh chuỗi
+import difflib # Thư viện tự động so sánh chuỗi (Fuzzy Match)
 
 SOURCE_FILE = "sources.txt"
 OUTPUT_FILE = "playlist.m3u"
@@ -17,6 +17,7 @@ MAX_WORKERS = 50
 
 SPAM_KEYWORDS = ['mời quý khán giả', 'thông báo', 'tạm ngưng', 'bảo trì', 'kênh dự phòng', 'test']
 
+# [CẤU HÌNH] - Ưu tiên sắp xếp các nhóm
 GROUP_PRIORITY = {
     'VTV': 1, 'HTV': 2, 'VTC': 3, 'VTVCAB / ON': 4, 'VTVPRIME': 5, 
     'K+': 6, 'THỂ THAO': 7, 'PHIM TRUYỆN': 8, 'QUỐC TẾ': 9, 'ĐỊA PHƯƠNG': 10
@@ -38,7 +39,7 @@ class M3UBuilder:
         self.session.mount('https://', adapter)
 
     def normalize_channel_name(self, name: str) -> str:
-        # [TỰ ĐỘNG CẮT RÁC] Cắt bỏ toàn bộ phần đuôi bị nhà mạng nhồi nhét
+        # [TỰ ĐỘNG CẮT RÁC] Cắt bỏ toàn bộ phần đuôi bị nhà mạng nhồi nhét sau dấu _ hoặc |
         name = re.split(r'[_\|]', name)[0] 
         
         # Xoá các mác độ phân giải / nguồn thừa
@@ -55,19 +56,31 @@ class M3UBuilder:
         g_lower = raw_group.lower()
         n_lower = clean_name.lower()
         
-        intl_keywords = ['hbo', 'cinemax', 'axn', 'discovery', 'disney', 'cartoon', 'fox', 'warner', 'paramount', 'nat geo', 'fashion']
-        if any(x in n_lower for x in intl_keywords): return 'Quốc Tế'
+        # Quốc Tế (Dùng \b để đảm bảo các tên như FOX không gom nhầm chữ có chứa fox)
+        intl_keywords = r'\b(hbo|cinemax|axn|discovery|disney|cartoon|fox|warner|paramount|nat geo|fashion|fon|cnbc|cnn|bbc)\b'
+        if re.search(intl_keywords, n_lower): return 'Quốc Tế'
         
-        if 'prime' in n_lower and 'vtv' in n_lower: return 'VTVPRIME'
-        if 'vtv' in n_lower: return 'VTV'
-        if 'htv' in n_lower: return 'HTV'
-        if 'vtc' in n_lower: return 'VTC'
+        # VTV Prime (Phải có cả chữ VTV đứng riêng và Prime đứng riêng)
+        if re.search(r'\bprime\b', n_lower) and re.search(r'\bvtv\b', n_lower): return 'VTVPRIME'
+        
+        # VTVCAB / ON (Dùng \b để trị triệt để lỗi FON, ACTION...)
+        if re.search(r'\b(cab|on|vtvcab)\b', n_lower): return 'VTVCAB / ON'
+        
+        # Các đài lớn trong nước (Bắt buộc đứng độc lập)
+        if re.search(r'\bvtv\b', n_lower): return 'VTV'
+        if re.search(r'\bhtv\b', n_lower): return 'HTV'
+        if re.search(r'\bvtc\b', n_lower): return 'VTC'
+        
+        # K+ (Dấu + là ký tự đặc biệt, ít bị dính chùm nên dùng lệnh in là đủ)
         if 'k+' in n_lower: return 'K+'
-        if 'cab' in n_lower or 'on ' in n_lower or 'vtvcab' in n_lower: return 'VTVCAB / ON'
         
-        if any(x in g_lower or x in n_lower for x in ['địa phương', 'tỉnh', 'local']): return 'Địa Phương'
-        if any(x in g_lower or x in n_lower for x in ['thể thao', 'sports', 'bóng đá']): return 'Thể Thao'
-        if any(x in g_lower or x in n_lower for x in ['phim', 'movies', 'cinema']): return 'Phim Truyện'
+        # Các nhóm còn lại
+        if re.search(r'\b(địa phương|tỉnh|local)\b', g_lower) or re.search(r'\b(địa phương|tỉnh|local)\b', n_lower): 
+            return 'Địa Phương'
+        if re.search(r'\b(thể thao|sports|bóng đá)\b', g_lower) or re.search(r'\b(thể thao|sports|bóng đá)\b', n_lower): 
+            return 'Thể Thao'
+        if re.search(r'\b(phim|movies|cinema)\b', g_lower) or re.search(r'\b(phim|movies|cinema)\b', n_lower): 
+            return 'Phim Truyện'
         
         return 'Khác'
 
@@ -220,7 +233,7 @@ class M3UBuilder:
                         root_out.append(elem)
             ET.ElementTree(root_out).write(OUTPUT_EPG, encoding='utf-8', xml_declaration=True)
 
-        print(f"✅ HOÀN TẤT! Hệ thống đã tự động dọn rác và ghép nối EPG.")
+        print(f"✅ HOÀN TẤT! Hệ thống đã tự động dọn rác và phân nhóm cực kỳ chính xác.")
 
 if __name__ == "__main__":
     M3UBuilder().run()
