@@ -1,24 +1,21 @@
 #EXTM3U x-tvg-url="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/light_epg.xml"
-#EXTINF:-1 tvg-id="vtv1hd" tvg-name="VTV1" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/VTV1%20HD%20%E2%80%A2%20B%E1%BA%A3n%20tinh%20ch%E1%BB%89nh.png" group-title="VTV",VTV1
+#EXTINF:-1 tvg-id="3683" tvg-name="VTV1" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/VTV1%20HD%20%E2%80%A2%20B%E1%BA%A3n%20tinh%20ch%E1%BB%89nh.png" group-title="VTV",VTV1
 #EXTGRP:VTV
 https://HaNoiIPTV.short.gy/HaNoiIPTV-VTV1_HD
-#EXTINF:-1 tvg-id="vtv1hd" tvg-name="VTV1 AUDIO" tvg-logo="https://images.fptplay53.net/media/channels/icon_channel_vtv1-hd_165657381026.png" group-title="VTV",VTV1 AUDIO
-#EXTGRP:VTV
-https://live.fptplay53.net/fnxch2/vtv1hd_abr.smil/chunklist.m3u8
-#EXTINF:-1 tvg-id="vtv3hd" tvg-name="VTV3" tvg-logo="https://i.ytimg.com/vi/4jr8Y13NSME/maxresdefault.jpg" group-title="VTV",VTV3
+#EXTINF:-1 tvg-id="1072" tvg-name="VTV3" tvg-logo="https://i.ytimg.com/vi/4jr8Y13NSME/maxresdefault.jpg" group-title="VTV",VTV3
 #EXTGRP:VTV
 https://live-a.fptplay53.net/live/media/VTV3HD/live_hls_avc/index.m3u8
-#EXTINF:-1 tvg-id="vtv3hd" tvg-name="VTV3" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/VTV3%20HD%20%E2%80%A2%20B%E1%BA%A3n%20tinh%20ch%E1%BB%89nh.png" group-title="VTV",VTV3
+#EXTINF:-1 tvg-id="1072" tvg-name="VTV3" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/VTV3%20HD%20%E2%80%A2%20B%E1%BA%A3n%20tinh%20ch%E1%BB%89nh.png" group-title="VTV",VTV3
 #EXTGRP:VTV
 https://HaNoiIPTV.short.gy/HaNoiIPTV-VTV3_HD
 #EXTINF:-1 tvg-id="vt3hd" tvg-name="VTV3 AUDIO" tvg-logo="https://images.fptplay53.net/media/channels/icon_channel_vtv1-hd_165657381026.png" group-title="VTV",VTV3 AUDIO
 #EXTGRP:VTV
 https://vips-livecdn.fptplay.net/live/media/VTV3HD/live_hls_avc/index.m3u8
-#EXTINF:-1 tvg-id="vtv5hd" tvg-name="VTV5" tvg-logo="https://s12811.cdn.mytvnet.vn/vimages/b5/5c/cc/c2/22/29/b5cc2-pvtv5hd-channel-unkn.png" group-title="VTV",VTV5
+#EXTINF:-1 tvg-id="2079" tvg-name="VTV5" tvg-logo="https://s12811.cdn.mytvnet.vn/vimages/b5/5c/cc/c2/22/29/b5cc2-pvtv5hd-channel-unkn.png" group-title="VTV",VTV5
 #EXTGRP:VTV
 #EXTVLCOPT:http-user-agent=cvmedia/1.1.0
 https://live-a.fptplay53.net/live/media/VTV5HD/live_hls_avc/index.m3u8
-#EXTINF:-1 tvg-id="vtv5hd" tvg-name="VTV5" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/VTV5%20HD%20%E2%80%A2%20B%E1%BA%A3n%20tinh%20ch%E1%BB%89nh.png" group-title="VTV",VTV5
+#EXTINF:-1 tvg-id="2079" tvg-name="VTV5" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/VTV5%20HD%20%E2%80%A2%20B%E1%BA%A3n%20tinh%20ch%E1%BB%89nh.png" group-title="VTV",VTV5
 #EXTGRP:VTV
 https://HaNoiIPTV.short.gy/HaNoiIPTV-VTV5_HD
 #EXTINF:-1 tvg-id="vtv5hdtn" tvg-name="VTV5 TÂY NGUYÊN" tvg-logo="https://i.ibb.co/Fxzdz7v/ccvtv5TN.webp" group-title="VTV",VTV5 TÂY NGUYÊN
@@ -26,16 +23,13 @@ https://HaNoiIPTV.short.gy/HaNoiIPTV-VTV5_HD
 #EXTVLCOPT:http-user-agent="CloudTV"
 #https://live.fptplay53.net/fnxhd1/vtv5taynguyen_vhls.smil/chunklist_b5000000.m3u8
 https://liveh12byt.vtvprime.vn/hls/VTV5_TN/03.m3u8
-#EXTINF:-1 tvg-id="vtv1hd" tvg-name="VTV10" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/VTV10.png" group-title="VTV",VTV10
+#EXTINF:-1 tvg-id="8883" tvg-name="VTV10" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/VTV10.png" group-title="VTV",VTV10
 #EXTGRP:VTV
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36
 https://live.fptplay53.net/live/media/VTV_can_tho/live_hls_avc/index.m3u8
-#EXTINF:-1 tvg-id="vtvct" tvg-name="VTV10 CẦN THƠ" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/VTV10.png" group-title="VTV",VTV10 CẦN THƠ
+#EXTINF:-1 tvg-id="vtv10hd" tvg-name="VTV10 CẦN THƠ" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/VTV10.png" group-title="VTV",VTV10 CẦN THƠ
 #EXTGRP:VTV
 https://HaNoiIPTV.short.gy/HaNoiIPTV-VTV_Can_Tho
-#EXTINF:-1 tvg-id="htv1" tvg-name="HTV1 ĐÀI PTTH THÀNH PHỐ HỒ CHÍ MINH" tvg-logo="https://s7771.cdn.mytvnet.vn/vimages/8c/ce/ee/e7/79/98/8cee7-phtv1hd-channel-unkn.png" group-title="HTV",HTV1 ĐÀI PTTH THÀNH PHỐ HỒ CHÍ MINH
-#EXTGRP:HTV
-https://sgclient.duckdns.org/source/tv360.m3u8?id=190
 #EXTINF:-1 tvg-id="voh610" tvg-name="HTV RADIO AM 610KHZ" tvg-logo="https://static.wikia.nocookie.net/logos/images/8/87/Logo_HTV RADIO_AM_610KHz_%28%C4%90%C3%A0i_ti%E1%BA%BFng_n%C3%B3i_nh%C3%A2n_d%C3%A2n_Th%C3%A0nh_ph%E1%BB%91_H%E1%BB%93_Ch%C3%AD_Minh%29.png/revision/latest/scale-to-width-down/200?cb=20230728072341&path-prefix=vi" group-title="HTV",HTV RADIO AM 610KHZ
 #EXTGRP:HTV
 https://strm.voh.com.vn/radio/channel2/playlist.m3u8
@@ -55,6 +49,9 @@ https://strm.voh.com.vn/radio/channel3/playlist.m3u8
 #EXTGRP:VTC
 #EXT-X-STREAM-INF:BANDWIDTH=3803560,AVERAGE-BANDWIDTH=3803560,CODECS="avc1.640028,mp4a.40.2",PROGRAM-ID=1,RESOLUTION=1080x720,AUDIO="audiod"
 https://oipf0znpmnliv.vcdn.cloud/hls/todaytv/index.m3u8
+#EXTINF:-1 tvg-id="oncine" tvg-name="ON CINE" tvg-logo="https://i.ytimg.com/vi/rwhsuTvSXxo/maxresdefault.jpg" group-title="VTVCAB / ON",ON CINE
+#EXTGRP:VTVCAB / ON
+https://sgclient.duckdns.org/source/tv360.m3u8?id=176
 #EXTINF:-1 tvg-id="8786" tvg-name="ON DRAMAS" tvg-logo="https://i.imgur.com/n7QICK7.png" group-title="VTVCAB / ON",ON DRAMAS
 #EXTGRP:VTVCAB / ON
 http://dvrfl05.bozztv.com/vch_vchannel18/tracks-v1a1/mono.m3u8
@@ -172,7 +169,7 @@ http://s80718.cdn.ngenix.net/hls/CH_BOKS_TVHD/variant.m3u8
 #EXTINF:-1 tvg-id="940" tvg-name="МАТЧ АРЕНА" tvg-logo="https://i.imgur.com/udTzwzu.png" group-title="Thể Thao",МАТЧ АРЕНА
 #EXTGRP:Thể Thao
 http://185.46.16.239:8000/Match_Arena
-#EXTINF:-1 tvg-id="2054" tvg-name="МАТЧ БОЕЦ" tvg-logo="https://i.imgur.com/DogOkA4.png" group-title="Thể Thao",МАТЧ БОЕЦ
+#EXTINF:-1 tvg-id="554" tvg-name="МАТЧ БОЕЦ" tvg-logo="https://i.imgur.com/DogOkA4.png" group-title="Thể Thao",МАТЧ БОЕЦ
 #EXTGRP:Thể Thao
 http://89.218.32.179:18000/play/a037
 #EXTINF:-1 tvg-id="1354" tvg-name="МАТЧ ИГРА" tvg-logo="https://i.imgur.com/5XWpF19.png" group-title="Thể Thao",МАТЧ ИГРА
@@ -180,7 +177,7 @@ http://89.218.32.179:18000/play/a037
 http://185.46.16.239:8000/Match_Igra
 #EXTINF:-1 tvg-id="504" tvg-name="МАТЧ ПРЕМЬЕР" tvg-logo="https://i.imgur.com/GQPyHYK.png" group-title="Thể Thao",МАТЧ ПРЕМЬЕР
 #EXTGRP:Thể Thao
-http://31.148.48.15/Match_Premier/tracks-v1a1/mono.m3u8
+http://flussonic.mkpnet.ru/tv-ee3651e1e7ce5cbf/video.m3u8
 #EXTINF:-1 tvg-id="2470" tvg-name="МАТЧ СТРАНА" tvg-logo="https://i.imgur.com/X02s2UE.png" group-title="Thể Thao",МАТЧ СТРАНА
 #EXTGRP:Thể Thao
 http://ukr.ukrainske.tv/134/keytvainua/video.m3u8
@@ -214,7 +211,7 @@ http://stream8.cinerama.uz/1444/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="100013" tvg-name="CINEMA" tvg-logo="https://i.imgur.com/b5e9qUA.png" group-title="Phim Truyện",CINEMA
 #EXTGRP:Phim Truyện
 http://catchup.videoline.ru/cinema/playlist.m3u8
-#EXTINF:-1 tvg-id="cinemaworld" tvg-name="CINEMA WORLD" tvg-logo="https://www.voilah.sg/wp-content/uploads/2020/04/cinema-world-2.png" group-title="Phim Truyện",CINEMA WORLD
+#EXTINF:-1 tvg-id="cinemaworldhd" tvg-name="CINEMA WORLD" tvg-logo="https://www.voilah.sg/wp-content/uploads/2020/04/cinema-world-2.png" group-title="Phim Truyện",CINEMA WORLD
 #EXTGRP:Phim Truyện
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
@@ -249,10 +246,10 @@ https://stream.ads.ottera.tv/playlist.m3u8?network_id=3391
 #EXTINF:-1 tvg-id="2400" tvg-name="STAR FAMILY" tvg-logo="https://i.imgur.com/eGuGHnZ.png" group-title="Phim Truyện",STAR FAMILY
 #EXTGRP:Phim Truyện
 https://stream.ads.ottera.tv/playlist.m3u8?network_id=4158
-#EXTINF:-1 tvg-id="6241" tvg-name="START AIR" tvg-logo="https://i.postimg.cc/BbzMHdwC/Start-Air.png" group-title="Phim Truyện",START AIR
+#EXTINF:-1 tvg-id="507" tvg-name="START AIR" tvg-logo="https://i.postimg.cc/BbzMHdwC/Start-Air.png" group-title="Phim Truyện",START AIR
 #EXTGRP:Phim Truyện
 http://89.218.32.179:18000/play/a03s
-#EXTINF:-1 tvg-id="6240" tvg-name="START WORLD" tvg-logo="https://i.postimg.cc/C1mvLZC5/Start-World.png" group-title="Phim Truyện",START WORLD
+#EXTINF:-1 tvg-id="508" tvg-name="START WORLD" tvg-logo="https://i.postimg.cc/C1mvLZC5/Start-World.png" group-title="Phim Truyện",START WORLD
 #EXTGRP:Phim Truyện
 http://77.245.98.18:8000/play/a02c
 #EXTINF:-1 tvg-id="2726" tvg-name="TVN MOVIES" tvg-logo="https://vn.xemtv.net/image/tvnmovies.png" group-title="Phim Truyện",TVN MOVIES
@@ -267,7 +264,7 @@ http://stream8.cinerama.uz/1225/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="300116" tvg-name="VIJU+ COMEDY" tvg-logo="https://i.imgur.com/YoNOFu7.png" group-title="Phim Truyện",VIJU+ COMEDY
 #EXTGRP:Phim Truyện
 http://a3569457567-s70378.cdn.ngenix.net/vip_comedy/2/index.m3u8
-#EXTINF:-1 tvg-id="1012" tvg-name="VIJU+ MEGAHIT" tvg-logo="https://i.imgur.com/oIQNddV.png" group-title="Phim Truyện",VIJU+ MEGAHIT
+#EXTINF:-1 tvg-id="300115" tvg-name="VIJU+ MEGAHIT" tvg-logo="https://i.imgur.com/oIQNddV.png" group-title="Phim Truyện",VIJU+ MEGAHIT
 #EXTGRP:Phim Truyện
 http://a3569457567-s70378.cdn.ngenix.net/vip_megahit/2/index.m3u8
 #EXTINF:-1 tvg-id="300114" tvg-name="VIJU+ PREMIERE" tvg-logo="https://i.imgur.com/klRvhR5.png" group-title="Phim Truyện",VIJU+ PREMIERE
@@ -347,7 +344,7 @@ https://streaming.televizor-24-tochka.ru/live/43-req_offset_28000000-req_window_
 #EXTINF:-1 tvg-id="329" tvg-name="РЕТРО" tvg-logo="https://i.imgur.com/p21co1w.png" group-title="Phim Truyện",РЕТРО
 #EXTGRP:Phim Truyện
 http://stream8.cinerama.uz/1047/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="12" tvg-name="РОДНОЕ КИНО" tvg-logo="https://i.imgur.com/H70LxoZ.png" group-title="Phim Truyện",РОДНОЕ КИНО
+#EXTINF:-1 tvg-id="202" tvg-name="РОДНОЕ КИНО" tvg-logo="https://i.imgur.com/H70LxoZ.png" group-title="Phim Truyện",РОДНОЕ КИНО
 #EXTGRP:Phim Truyện
 http://stream8.cinerama.uz/1052/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="1367" tvg-name="РУССКИЙ БЕСТСЕЛЛЕР" tvg-logo="https://i.imgur.com/w0ZE9QJ.png" group-title="Phim Truyện",РУССКИЙ БЕСТСЕЛЛЕР
@@ -400,7 +397,7 @@ http://s1.thailandstreaming.net:8020/listen.pls?sid=1
 #EXTINF:-1 tvg-id="24.7.Dummy.us" tvg-name="9875 FM" tvg-logo="https://cdn.webrad.io/images/logos/radioth-net/modern-9875.png" group-title="Quốc Tế",9875 FM
 #EXTGRP:Quốc Tế
 http://112.121.150.133:9102/stream/1/
-#EXTINF:-1 tvg-id="abcaustralia" tvg-name="ABC AUSTRALIA" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/Logo/refs/heads/main/abcaustralia.png" group-title="Quốc Tế",ABC AUSTRALIA
+#EXTINF:-1 tvg-id="410383" tvg-name="ABC AUSTRALIA" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/Logo/refs/heads/main/abcaustralia.png" group-title="Quốc Tế",ABC AUSTRALIA
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=VThanhTivi
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
@@ -441,7 +438,7 @@ https://live-hls-web-aje-gcp.thehlive.com/AJE/01.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="AMERICAN FORCES RADIO TOKYO" tvg-logo="https://cdn-radiotime-logos.tunein.com/s287011g.png" group-title="Quốc Tế",AMERICAN FORCES RADIO TOKYO
 #EXTGRP:Quốc Tế
 https://playerservices.streamtheworld.com/api/livestream-redirect/AFNP_TKO.mp3
-#EXTINF:-1 tvg-id="animalhd" tvg-name="ANIMAL PLANET" tvg-logo="https://vnepg.site/logos/143.png" group-title="Quốc Tế",ANIMAL PLANET
+#EXTINF:-1 tvg-id="214" tvg-name="ANIMAL PLANET" tvg-logo="https://vnepg.site/logos/143.png" group-title="Quốc Tế",ANIMAL PLANET
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
@@ -462,7 +459,7 @@ https://i.mjh.nz/.r/radio-ih-11259
 #EXTINF:-1 tvg-id="no_epg_music" tvg-name="AVTORADIO UKRAINA" tvg-logo="https://www.radio.net/images/broadcasts/ba/3c/7051/3/c300.png" group-title="Quốc Tế",AVTORADIO UKRAINA
 #EXTGRP:Quốc Tế
 https://cast.mediaonline.net.ua/avtoradio
-#EXTINF:-1 tvg-id="axnhd" tvg-name="AXN" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/Logo/refs/heads/main/axn.png" group-title="Quốc Tế",AXN
+#EXTINF:-1 tvg-id="410366" tvg-name="AXN" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/Logo/refs/heads/main/axn.png" group-title="Quốc Tế",AXN
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
@@ -478,14 +475,14 @@ https://playerservices.streamtheworld.com/api/livestream-redirect/AXRAAC.aac
 #EXTINF:-1 tvg-id="no_epg" tvg-name="BBC ASIAN NETWORK" tvg-logo="https://sounds.files.bbci.co.uk/3.8.0/networks/bbc_asian_network/blocks-colour_600x600.png" group-title="Quốc Tế",BBC ASIAN NETWORK
 #EXTGRP:Quốc Tế
 http://as-hls-ww-live.akamaized.net/pool_22108647/live/ww/bbc_asian_network/bbc_asian_network.isml/bbc_asian_network-audio%3d320000.m3u8
-#EXTINF:-1 tvg-id="cbeebies" tvg-name="BBC CBEEBIES" tvg-logo="https://s72140.cdn.mytvnet.vn/vimages/7d/d5/58/8c/ce/ea/7d58c-pcbeebieshd-channel-unkn.png" group-title="Quốc Tế",BBC CBEEBIES
+#EXTINF:-1 tvg-id="410361" tvg-name="BBC CBEEBIES" tvg-logo="https://s72140.cdn.mytvnet.vn/vimages/7d/d5/58/8c/ce/ea/7d58c-pcbeebieshd-channel-unkn.png" group-title="Quốc Tế",BBC CBEEBIES
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","k":"uDPR9AwmHveIlvl+BvgM3A","kid":"zKc6AGtLOaWVIHzrXtnKCg"}],"type":"temporary"}
 https://s2129134.cdn.mytvnet.vn/pkg20/live_dzones/cbb.smil/manifest.mpd
-#EXTINF:-1 tvg-id="bbcearth" tvg-name="BBC EARTH" tvg-logo="https://i.ytimg.com/vi/0jFG4yuzMRo/maxresdefault.jpg" group-title="Quốc Tế",BBC EARTH
+#EXTINF:-1 tvg-id="410301" tvg-name="BBC EARTH" tvg-logo="https://i.ytimg.com/vi/0jFG4yuzMRo/maxresdefault.jpg" group-title="Quốc Tế",BBC EARTH
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
@@ -495,14 +492,14 @@ https://s7771.cdn.mytvnet.vn/pkg20/live_dzones/bbcearth.smil/manifest.mpd
 #EXTINF:-1 tvg-id="410301" tvg-name="BBC EARTH" tvg-logo="https://vn.xemtv.net/image/bbc-earth.png" group-title="Quốc Tế",BBC EARTH
 #EXTGRP:Quốc Tế
 https://streamer.nexyl.uk/69ef899e-8ca9-4537-9f1a-fe8b4216afbb.m3u8
-#EXTINF:-1 tvg-id="bbclifestyle" tvg-name="BBC LIFESTYLE" tvg-logo="https://images.now-tv.com/shares/channelPreview/img/en_hk/color/ch502_425_305" group-title="Quốc Tế",BBC LIFESTYLE
+#EXTINF:-1 tvg-id="410365" tvg-name="BBC LIFESTYLE" tvg-logo="https://images.now-tv.com/shares/channelPreview/img/en_hk/color/ch502_425_305" group-title="Quốc Tế",BBC LIFESTYLE
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=58b949986ed13294bc01b0f330abc527:23e8c5f2fe202906ac2d6554d9527299
 https://s7770.cdn.mytvnet.vn/pkg20/live_dzones/bbclifestyle.smil/manifest.mpd
-#EXTINF:-1 tvg-id="bbcworldnews" tvg-name="BBC NEWS" tvg-logo="https://i.imgur.com/ciWNcYn.png" group-title="Quốc Tế",BBC NEWS
+#EXTINF:-1 tvg-id="410307" tvg-name="BBC NEWS" tvg-logo="https://i.imgur.com/ciWNcYn.png" group-title="Quốc Tế",BBC NEWS
 #EXTGRP:Quốc Tế
 http://stream8.cinerama.uz/1251/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="442906" tvg-name="BBC RADIO 1" tvg-logo="https://cdn-profiles.tunein.com/s24939/images/logog.png?t=2409" group-title="Quốc Tế",BBC RADIO 1
@@ -541,7 +538,7 @@ http://as-hls-ww-live.akamaized.net/pool_81827798/live/ww/bbc_6music/bbc_6music.
 #EXTINF:-1 tvg-id="828" tvg-name="BBC SOUNDS NEWS" tvg-logo="https://ichef.bbci.co.uk/images/ic/320x320/p0l0jrdh.jpg.webp" group-title="Quốc Tế",BBC SOUNDS NEWS
 #EXTGRP:Quốc Tế
 http://as-hls-ww-live.akamaized.net/pool_53367543/live/ww/bbc_sounds_news/bbc_sounds_news.isml/bbc_sounds_news-audio%3d320000.m3u8
-#EXTINF:-1 tvg-id="bbcworldnews" tvg-name="BBC WORLD NEWS" tvg-logo="https://i.ytimg.com/vi/jL2fsQB9J-g/maxresdefault.jpg" group-title="Quốc Tế",BBC WORLD NEWS
+#EXTINF:-1 tvg-id="828" tvg-name="BBC WORLD NEWS" tvg-logo="https://i.ytimg.com/vi/jL2fsQB9J-g/maxresdefault.jpg" group-title="Quốc Tế",BBC WORLD NEWS
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
@@ -596,7 +593,7 @@ https://edge-audio-05-gos2.sharp-stream.com/ssvcbfbs21.mp3
 #EXTINF:-1 tvg-id="no_epg" tvg-name="BFBS SAMISHRAN" tvg-logo="https://cdn-profiles.tunein.com/s200250/images/logog.png?t=1" group-title="Quốc Tế",BFBS SAMISHRAN
 #EXTGRP:Quốc Tế
 https://direct.sharp-stream.com/ssvcbfbs23.mp3
-#EXTINF:-1 tvg-id="bloomberg" tvg-name="BLOOMBERG" tvg-logo="https://i.imgur.com/rxFZgIK.png" group-title="Quốc Tế",BLOOMBERG
+#EXTINF:-1 tvg-id="220" tvg-name="BLOOMBERG" tvg-logo="https://i.imgur.com/rxFZgIK.png" group-title="Quốc Tế",BLOOMBERG
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
@@ -632,17 +629,17 @@ https://playerservices.streamtheworld.com/api/livestream-redirect/CHGO_FM
 #EXTINF:-1 tvg-id="24.7.Dummy.us" tvg-name="CAPITOL FM" tvg-logo="https://cdn.webrad.io/images/logos/radioth-net/capitol-fm-bangkok.png" group-title="Quốc Tế",CAPITOL FM
 #EXTGRP:Quốc Tế
 http://atlanticthai.primcast.com:5898/listen.pls?sid=1
-#EXTINF:-1 tvg-id="cartoonhd" tvg-name="CARTOON NETWORK" tvg-logo="https://freight.cargo.site/w/1200/i/3cf72163d993c4d87263e6d4990ec4ccdd1e14b09ce89e6e35dee1de83ef4985/CN.jpg" group-title="Quốc Tế",CARTOON NETWORK
+#EXTINF:-1 tvg-id="410359" tvg-name="CARTOON NETWORK" tvg-logo="https://freight.cargo.site/w/1200/i/3cf72163d993c4d87263e6d4990ec4ccdd1e14b09ce89e6e35dee1de83ef4985/CN.jpg" group-title="Quốc Tế",CARTOON NETWORK
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","k":"PMGt1Drszj/jHJxqKluMIQ","kid":"PCAWZmCpOnWsd9uBVnOJ9w"}],"type":"temporary"}
 https://s2129134.cdn.mytvnet.vn/pkg20/live_dzones/cn.smil/manifest.mpd
-#EXTINF:-1 tvg-id="cartoonhd" tvg-name="CARTOON NETWORK" tvg-logo="https://i.imgur.com/6oXQdBZ.png" group-title="Quốc Tế",CARTOON NETWORK
+#EXTINF:-1 tvg-id="410359" tvg-name="CARTOON NETWORK" tvg-logo="https://i.imgur.com/6oXQdBZ.png" group-title="Quốc Tế",CARTOON NETWORK
 #EXTGRP:Quốc Tế
 http://cdn4.skygo.mn/live/disk1/Cartoon_Network/HLSv3-FTA/Cartoon_Network.m3u8
-#EXTINF:-1 tvg-id="boomerang" tvg-name="CARTOONITO" tvg-logo="https://1000logos.net/wp-content/uploads/2023/10/Cartoonito-Logo.jpg" group-title="Quốc Tế",CARTOONITO
+#EXTINF:-1 tvg-id="929" tvg-name="CARTOONITO" tvg-logo="https://1000logos.net/wp-content/uploads/2023/10/Cartoonito-Logo.jpg" group-title="Quốc Tế",CARTOONITO
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
@@ -685,13 +682,16 @@ https://cherry.akiyaresearch.com:444/stream/89/;?type=http&nocache=8
 #EXTINF:-1 tvg-id="24.7.Dummy.us" tvg-name="CHULA FM" tvg-logo="https://cdn.webrad.io/images/logos/radioth-net/cu.png" group-title="Quốc Tế",CHULA FM
 #EXTGRP:Quốc Tế
 https://radio11.plathong.net/7590/;stream.mp3
-#EXTINF:-1 tvg-id="cinemaxhd" tvg-name="CINEMAX" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/Logo/refs/heads/main/cinemax.png" group-title="Quốc Tế",CINEMAX
+#EXTINF:-1 tvg-id="410281" tvg-name="CINEMAX" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/Logo/refs/heads/main/cinemax.png" group-title="Quốc Tế",CINEMAX
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","k":"6YaPX0c9D9hpnt5I1THCsA","kid":"rLTCNHEGMyetxzLig8CEfw"}],"type":"temporary"}
 https://s2129134.cdn.mytvnet.vn/pkg20/live_dzones/max.smil/manifest.mpd
+#EXTINF:-1 tvg-id="410281" tvg-name="CINEMAX" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/f/f0/611-cinemax.png" group-title="Quốc Tế",CINEMAX
+#EXTGRP:Quốc Tế
+http://gg.gg/HaNoiIPTV-Cinemax_HD
 #EXTINF:-1 tvg-id="24.7.Dummy.us" tvg-name="CITY LIFE FM" tvg-logo="https://cdn.webrad.io/images/logos/radioth-net/city-life.png" group-title="Quốc Tế",CITY LIFE FM
 #EXTGRP:Quốc Tế
 http://onair.onair.network:8076/stream/1/
@@ -701,27 +701,24 @@ http://playerservices.streamtheworld.com/api/livestream-redirect/CLASS95AAC.aac
 #EXTINF:-1 tvg-id="no_epg" tvg-name="CLASSIC HITS FM" tvg-logo="https://play-lh.googleusercontent.com/Eqs-Yo4wwnN8397XoCpSWfg0-yD5VkR6S2sEBH_P1dgIlSmZFrHB2lw4-EqHPM0-29SY" group-title="Quốc Tế",CLASSIC HITS FM
 #EXTGRP:Quốc Tế
 https://edge2.audioxi.com/CLASSIC
-#EXTINF:-1 tvg-id="2852" tvg-name="CNA" tvg-logo="https://onecms-res.cloudinary.com/image/upload/v1673978069/mediacorp/corporate/inline-images/CNA__370x180.jpg" group-title="Quốc Tế",CNA
-#EXTGRP:Quốc Tế
-https://sgclient.duckdns.org/source/tv360.m3u8?id=112
 #EXTINF:-1 tvg-id="24.7.Dummy.us" tvg-name="CNA938" tvg-logo="https://static.mytuner.mobi/media/radios-150px/NAHdyhwt2C.png" group-title="Quốc Tế",CNA938
 #EXTGRP:Quốc Tế
 https://playerservices.streamtheworld.com/api/livestream-redirect/938NOWAAC.aac
-#EXTINF:-1 tvg-id="2128" tvg-name="CNBC" tvg-logo="https://i.ibb.co/ChmR52g/CNBC-BEARTV.png" group-title="Quốc Tế",CNBC
+#EXTINF:-1 tvg-id="280" tvg-name="CNBC" tvg-logo="https://i.ibb.co/ChmR52g/CNBC-BEARTV.png" group-title="Quốc Tế",CNBC
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent="CloudTV"
 https://liveh34.vtvprime.vn/hls/CNBC/03.m3u8
-#EXTINF:-1 tvg-id="cnn" tvg-name="CNN" tvg-logo="https://deadline.com/wp-content/uploads/2020/09/CNN-Logo.jpg" group-title="Quốc Tế",CNN
+#EXTINF:-1 tvg-id="516371" tvg-name="CNN" tvg-logo="https://deadline.com/wp-content/uploads/2020/09/CNN-Logo.jpg" group-title="Quốc Tế",CNN
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=714cc8ed05a03abb9ac61bd4bbd1d8a0:1acf58ff8d4cd87c2d3c12d22248efb1
 https://s7771.cdn.mytvnet.vn/pkg20/live_dzones/cnn.smil/manifest.mpd
-#EXTINF:-1 tvg-id="cnn" tvg-name="CNN" tvg-logo="https://i.imgur.com/68hmRiM.png" group-title="Quốc Tế",CNN
+#EXTINF:-1 tvg-id="516371" tvg-name="CNN" tvg-logo="https://i.imgur.com/68hmRiM.png" group-title="Quốc Tế",CNN
 #EXTGRP:Quốc Tế
 http://cdn4.skygo.mn/live/disk1/CNNi/HLSv3-FTA/CNNi.m3u8
-#EXTINF:-1 tvg-id="cnn" tvg-name="CNN" tvg-logo="https://vn.xemtv.net/image/cnn.png" group-title="Quốc Tế",CNN
+#EXTINF:-1 tvg-id="516371" tvg-name="CNN" tvg-logo="https://vn.xemtv.net/image/cnn.png" group-title="Quốc Tế",CNN
 #EXTGRP:Quốc Tế
 https://turnerlive.warnermediacdn.com/hls/live/586495/cnngo/cnn_slate/VIDEO_4_1064000.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CNR HONG KONG SERVICE RTHK FEED" tvg-logo="https://radio.0472.org/?id=646&logo" group-title="Quốc Tế",CNR HONG KONG SERVICE RTHK FEED
@@ -748,24 +745,24 @@ https://st02.sslstream.dlf.de/dlf/02/high/aac/stream.aac
 #EXTINF:-1 tvg-id="no_epg" tvg-name="DEUTSCHLANDFUNK NOVA" tvg-logo="https://i1.sndcdn.com/artworks-000340735005-sy8ykw-t500x500.jpg" group-title="Quốc Tế",DEUTSCHLANDFUNK NOVA
 #EXTGRP:Quốc Tế
 https://st03.sslstream.dlf.de/dlf/03/high/aac/stream.aac
-#EXTINF:-1 tvg-id="discoveryhd" tvg-name="DISCOVERY" tvg-logo="https://s72140.cdn.mytvnet.vn/vimages/c7/7f/fc/c6/69/9b/c7fc6-pdiscoveryhd-channel-unkn.png" group-title="Quốc Tế",DISCOVERY
+#EXTINF:-1 tvg-id="3710" tvg-name="DISCOVERY" tvg-logo="https://s72140.cdn.mytvnet.vn/vimages/c7/7f/fc/c6/69/9b/c7fc6-pdiscoveryhd-channel-unkn.png" group-title="Quốc Tế",DISCOVERY
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","k":"vqWgcVfgxNF7Eas5lRf5Ug","kid":"60Fg6lU6Mh2JlVPk55b+wg"}],"type":"temporary"}
 https://s7770.cdn.mytvnet.vn/pkg20/live_dzones/dsc.smil/manifest.mpd
-#EXTINF:-1 tvg-id="discoveryasiahd" tvg-name="DISCOVERY ASIA" tvg-logo="https://astromedia.com.my/wp-content/uploads/2024/01/Discovery-Asia.png" group-title="Quốc Tế",DISCOVERY ASIA
+#EXTINF:-1 tvg-id="410293" tvg-name="DISCOVERY ASIA" tvg-logo="https://astromedia.com.my/wp-content/uploads/2024/01/Discovery-Asia.png" group-title="Quốc Tế",DISCOVERY ASIA
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=934907b134be3963a6263a453846924c:788e2835fb98568aed2f47bbdc091515
 https://s2129134.cdn.mytvnet.vn/pkg20/live_dzones/dscasia.smil/manifest.mpd
-#EXTINF:-1 tvg-id="discoveryasiahd" tvg-name="DISCOVERY ASIA" tvg-logo="https://i.imgur.com/foLICwL.png" group-title="Quốc Tế",DISCOVERY ASIA
+#EXTINF:-1 tvg-id="410293" tvg-name="DISCOVERY ASIA" tvg-logo="https://i.imgur.com/foLICwL.png" group-title="Quốc Tế",DISCOVERY ASIA
 #EXTGRP:Quốc Tế
 http://cdn4.skygo.mn/live/disk1/Discovery_Asia/HLSv3-FTA/Discovery_Asia.m3u8
-#EXTINF:-1 tvg-id="discoveryhd" tvg-name="DISCOVERY CHANNEL" tvg-logo="https://i.imgur.com/h28veSi.png" group-title="Quốc Tế",DISCOVERY CHANNEL
+#EXTINF:-1 tvg-id="226" tvg-name="DISCOVERY CHANNEL" tvg-logo="https://i.imgur.com/h28veSi.png" group-title="Quốc Tế",DISCOVERY CHANNEL
 #EXTGRP:Quốc Tế
 http://cdn4.skygo.mn/live/disk1/SoutheastAsia/HLSv3-FTA/SoutheastAsia.m3u8
 #EXTINF:-1 tvg-id="224" tvg-name="DISCOVERY SCIENCE" tvg-logo="https://i.postimg.cc/90Lt4Zfp/Discovery-science.png" group-title="Quốc Tế",DISCOVERY SCIENCE
@@ -777,21 +774,21 @@ https://denver1769.pages.dev/Discovery/discovery_science_english.m3u8
 #EXTINF:-1 tvg-id="446996" tvg-name="DISCOVERY TURBO ASIA" tvg-logo="https://github.com/inspirationlinks/m3u/raw/live/Logos/Discovery%20Turbo.png" group-title="Quốc Tế",DISCOVERY TURBO ASIA
 #EXTGRP:Quốc Tế
 https://denver1769.pages.dev/Discovery/discovery_turbo.m3u8
-#EXTINF:-1 tvg-id="dmax" tvg-name="DMAX" tvg-logo="https://i.imgur.com/vHmt91V.png" group-title="Quốc Tế",DMAX
+#EXTINF:-1 tvg-id="410297" tvg-name="DMAX" tvg-logo="https://i.imgur.com/vHmt91V.png" group-title="Quốc Tế",DMAX
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","k":"DGTM+5eOc5C9MzRAdUkq7A","kid":"U7JvkErgOiC1ZHfPucXcog"}],"type":"temporary"}
 https://s2129134.cdn.mytvnet.vn/pkg20/live_dzones/dmax.smil/manifest.mpd
-#EXTINF:-1 tvg-id="dreamworks" tvg-name="DREAMWORKS" tvg-logo="https://s7266.cdn.mytvnet.vn/vimages/de/eb/ba/a7/7e/ee/deba7-pdreamworkshd-channel-unkn.png" group-title="Quốc Tế",DREAMWORKS
+#EXTINF:-1 tvg-id="89936" tvg-name="DREAMWORKS" tvg-logo="https://s7266.cdn.mytvnet.vn/vimages/de/eb/ba/a7/7e/ee/deba7-pdreamworkshd-channel-unkn.png" group-title="Quốc Tế",DREAMWORKS
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","k":"WTKPYh1WdnvF/5QEqJQGgw","kid":"Z9riBSfGPa2qrmCaqRV3yw"}],"type":"temporary"}
 https://s2129134.cdn.mytvnet.vn/pkg20/live_dzones/dreamwork.smil/manifest.mpd
-#EXTINF:-1 tvg-id="dw" tvg-name="DW" tvg-logo="https://i.ytimg.com/vi/puzK9XqJ6-Y/hq720.jpg" group-title="Quốc Tế",DW
+#EXTINF:-1 tvg-id="368373" tvg-name="DW" tvg-logo="https://i.ytimg.com/vi/puzK9XqJ6-Y/hq720.jpg" group-title="Quốc Tế",DW
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=VThanhTivi
 https://sgclient.duckdns.org/source/tv360.m3u8?id=109
@@ -819,7 +816,7 @@ https://5b2959fe11444.streamlock.net/radio/am1430.stream/playlist.m3u8
 #EXTINF:-1 tvg-id="mjh-radio-plains-fm" tvg-name="FAIRCHILD RADIO VANCOUVER FM961" tvg-logo="https://www.am1470.com/english/images/videoBg.jpg" group-title="Quốc Tế",FAIRCHILD RADIO VANCOUVER FM961
 #EXTGRP:Quốc Tế
 https://5b2959fe11444.streamlock.net/radio/fm961.stream/playlist.m3u8
-#EXTINF:-1 tvg-id="fashionhd" tvg-name="FASHION" tvg-logo="https://m.media-amazon.com/images/I/91B05VQC2kL.png" group-title="Quốc Tế",FASHION
+#EXTINF:-1 tvg-id="1282" tvg-name="FASHION" tvg-logo="https://m.media-amazon.com/images/I/91B05VQC2kL.png" group-title="Quốc Tế",FASHION
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=VThanhTivi
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
@@ -827,7 +824,7 @@ https://5b2959fe11444.streamlock.net/radio/fm961.stream/playlist.m3u8
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=c1d9f25701023508bfa6737e3a8c7001:30c3613e9b06e0f7cc201014f31bf5d8
 https://s2129134.cdn.mytvnet.vn/pkg20/live_dzones/ftv.smil/manifest.mpd
-#EXTINF:-1 tvg-id="fashionhd" tvg-name="FASHION" tvg-logo="https://i.imgur.com/wlBkL9j.png" group-title="Quốc Tế",FASHION
+#EXTINF:-1 tvg-id="1282" tvg-name="FASHION" tvg-logo="https://i.imgur.com/wlBkL9j.png" group-title="Quốc Tế",FASHION
 #EXTGRP:Quốc Tế
 http://stream8.cinerama.uz/1053/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="FEBC SEOUL FAR EAST BROADCASTING" tvg-logo="" group-title="Quốc Tế",FEBC SEOUL FAR EAST BROADCASTING
@@ -842,7 +839,7 @@ https://stream.rcs.revma.com/q17aka9mtd3vv
 #EXTINF:-1 tvg-id="503" tvg-name="FON MUSIC" tvg-logo="https://i.imgur.com/tXABQDE.png" group-title="Quốc Tế",FON MUSIC
 #EXTGRP:Quốc Tế
 http://tntm.mediacdn.ru/cdn/tntmusic/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="france24eng" tvg-name="FRANCE 24" tvg-logo="https://m.media-amazon.com/images/I/81oryzEMf-L.png" group-title="Quốc Tế",FRANCE 24
+#EXTINF:-1 tvg-id="300093" tvg-name="FRANCE 24" tvg-logo="https://m.media-amazon.com/images/I/81oryzEMf-L.png" group-title="Quốc Tế",FRANCE 24
 #EXTGRP:Quốc Tế
 https://live.france24.com/hls/live/2037218/F24_EN_HI_HLS/master_5000.m3u8
 #EXTINF:-1 tvg-id="no_epg" tvg-name="FRANCE BLEU" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/France_Bleu_2021.svg/220px-France_Bleu_2021.svg.png" group-title="Quốc Tế",FRANCE BLEU
@@ -869,17 +866,17 @@ https://stream.rcs.revma.com/xt9nhzsbv4uvv
 #EXTINF:-1 tvg-id="24.7.Dummy.us" tvg-name="GOLD 905" tvg-logo="https://static.mytuner.mobi/media/radios-150px/AWjWGLbzkc.jpg" group-title="Quốc Tế",GOLD 905
 #EXTGRP:Quốc Tế
 http://playerservices.streamtheworld.com/api/livestream-redirect/GOLD905AAC.aac
-#EXTINF:-1 tvg-id="hbohd" tvg-name="HBO" tvg-logo="https://i.pinimg.com/originals/8b/02/00/8b020050690f955ccb306cdf51324aea.png" group-title="Quốc Tế",HBO
+#EXTINF:-1 tvg-id="410283" tvg-name="HBO" tvg-logo="https://i.pinimg.com/originals/8b/02/00/8b020050690f955ccb306cdf51324aea.png" group-title="Quốc Tế",HBO
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","k":"PeDzjc8BSCff1b7Dh0PGog","kid":"Cd3+PWOGPK+ut50FRrCYqw"}],"type":"temporary"}
 https://s2129134.cdn.mytvnet.vn/pkg20/live_dzones/hbo.smil/manifest.mpd
-#EXTINF:-1 tvg-id="hgtv" tvg-name="HGTV" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/Logo/refs/heads/main/hgtv.png" group-title="Quốc Tế",HGTV
+#EXTINF:-1 tvg-id="3305" tvg-name="HGTV" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/Logo/refs/heads/main/hgtv.png" group-title="Quốc Tế",HGTV
 #EXTGRP:Quốc Tế
 https://liveh34.vtvprime.vn/hls/HGTV/03.m3u8
-#EXTINF:-1 tvg-id="historyhd" tvg-name="HISTORY" tvg-logo="https://img-zlr1.tv360.vn/image1/2024/06/03/22/1717427367441/869de47c9504_640_360.png" group-title="Quốc Tế",HISTORY
+#EXTINF:-1 tvg-id="100080" tvg-name="HISTORY" tvg-logo="https://img-zlr1.tv360.vn/image1/2024/06/03/22/1717427367441/869de47c9504_640_360.png" group-title="Quốc Tế",HISTORY
 #EXTGRP:Quốc Tế
 https://sgclient.duckdns.org/source/tv360.m3u8?id=9856
 #EXTINF:-1 tvg-id="HITZ" tvg-name="HITZ FM" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/17_144.png" group-title="Quốc Tế",HITZ FM
@@ -917,6 +914,9 @@ https://radio.bsod.kr/stream/?stn=ifm
 #EXTVLCOPT:http-user-agent=otg/1.5.1 (AppleTv Apple TV 4; tvOS16.0; appletv.client) libcurl/7.58.0 OpenSSL/1.0.2o zlib/1.2.11 clib/1.8.56
 #EXTVLCOPT:http-referrer=
 https://i.mjh.nz/.r/radio-ih-6315.aac
+#EXTINF:-1 tvg-id="" tvg-name="J1" tvg-logo="https://mmo.aiircdn.com/387/63952aea8cfb1.png" group-title="Quốc Tế",J1
+#EXTGRP:Quốc Tế
+https://maggie.torontocast.com:2000/stream/J1HD
 #EXTINF:-1 tvg-id="502007" tvg-name="J1 GOLD" tvg-logo="https://mmo.aiircdn.com/387/63952aea8cfb1.png" group-title="Quốc Tế",J1 GOLD
 #EXTGRP:Quốc Tế
 https://jenny.torontocast.com:2000/stream/J1GOLD
@@ -959,7 +959,7 @@ https://radio.bsod.kr/stream/?stn=kbs&ch=3radio
 #EXTINF:-1 tvg-id="" tvg-name="KBS KOREAN BROADCASTING" tvg-logo="" group-title="Quốc Tế",KBS KOREAN BROADCASTING
 #EXTGRP:Quốc Tế
 https://radio.bsod.kr/stream/?stn=kbs&ch=hanminjok
-#EXTINF:-1 tvg-id="kbsworld" tvg-name="KBS WORLD" tvg-logo="https://img.hplus.com.vn/728x409/banner/2018/06/05/654179-KBS.png" group-title="Quốc Tế",KBS WORLD
+#EXTINF:-1 tvg-id="2259" tvg-name="KBS WORLD" tvg-logo="https://img.hplus.com.vn/728x409/banner/2018/06/05/654179-KBS.png" group-title="Quốc Tế",KBS WORLD
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36
 https://sgclient.duckdns.org/source/tv360.m3u8?id=213
@@ -1007,6 +1007,9 @@ https://playerservices.streamtheworld.com/api/livestream-redirect/LOS40_MEXICO.m
 #EXTINF:-1 tvg-id="no_epg" tvg-name="LOS 40 URBAN" tvg-logo="https://yt3.googleusercontent.com/TShfkoEXtPL87y2ZP0TXKDcX3A-HBJ4I1lRFxbVYu79Wd6DuCmQud4WRo192erYo8BLzfD_V=s900-c-k-c0x00ffffff-no-rj" group-title="Quốc Tế",LOS 40 URBAN
 #EXTGRP:Quốc Tế
 https://playerservices.streamtheworld.com/api/livestream-redirect/LOS40_URBAN.mp3
+#EXTINF:-1 tvg-id="24.7.Dummy.us" tvg-name="LOVE 93 FM" tvg-logo="https://cdn.webrad.io/images/logos/radioth-net/love-93.png" group-title="Quốc Tế",LOVE 93 FM
+#EXTGRP:Quốc Tế
+https://radio14.plathong.net/8060/stream/1/
 #EXTINF:-1 tvg-id="24.7.Dummy.us" tvg-name="LOVE 972" tvg-logo="https://static.mytuner.mobi/media/radios-150px/22gXjWePmG.jpg" group-title="Quốc Tế",LOVE 972
 #EXTGRP:Quốc Tế
 http://playerservices.streamtheworld.com/api/livestream-redirect/LOVE972FMAAC.aac
@@ -1037,7 +1040,7 @@ https://1716664847.rsc.cdn77.org/1716664847/index.m3u8
 #EXTINF:-1 tvg-id="no_epg" tvg-name="METRO INFO" tvg-logo="https://static2.mytuner.mobi/media/tvos_radios/091/xin-cheng-zhi-xun-tai-metroinfo-fm997.91baf2b7.png" group-title="Quốc Tế",METRO INFO
 #EXTGRP:Quốc Tế
 https://1603884249.rsc.cdn77.org/1603884249/index.m3u8
-#EXTINF:-1 tvg-id="681" tvg-name="METRO PLUS" tvg-logo="https://static2.mytuner.mobi/media/tvos_radios/090/metro-plus-am-1044.7601dbed.png" group-title="Quốc Tế",METRO PLUS
+#EXTINF:-1 tvg-id="300121" tvg-name="METRO PLUS" tvg-logo="https://static2.mytuner.mobi/media/tvos_radios/090/metro-plus-am-1044.7601dbed.png" group-title="Quốc Tế",METRO PLUS
 #EXTGRP:Quốc Tế
 https://1946218710.rsc.cdn77.org/1946218710/index.m3u8
 #EXTINF:-1 tvg-id="MINNALFM" tvg-name="MINNAL FM" tvg-logo="https://rtmklik.rtm.gov.my/img/radio-minnal.891948ec.jpg" group-title="Quốc Tế",MINNAL FM
@@ -1348,6 +1351,9 @@ https://playerservices.streamtheworld.com/api/livestream-redirect/SURIA_FMAAC
 #EXTINF:-1 tvg-id="" tvg-name="SUWON FM" tvg-logo="" group-title="Quốc Tế",SUWON FM
 #EXTGRP:Quốc Tế
 https://radio.bsod.kr/stream/?stn=community&ch=sonefm
+#EXTINF:-1 tvg-id="no_epg" tvg-name="SWEET FN SIEM REAP" tvg-logo="https://www.metroradio.com.hk/superhome/2022/images/icon/img_logo_am1044-white_lg.svg" group-title="Quốc Tế",SWEET FN SIEM REAP
+#EXTGRP:Quốc Tế
+http://radio99.servradio.com:9308/;
 #EXTINF:-1 tvg-id="24.7.Dummy.us" tvg-name="SYMPHONY 924" tvg-logo="https://static.mytuner.mobi/media/radios-150px/XPcYpkaw3f.jpg" group-title="Quốc Tế",SYMPHONY 924
 #EXTGRP:Quốc Tế
 https://playerservices.streamtheworld.com/api/livestream-redirect/SYMPHONY924AAC.aac
@@ -1375,7 +1381,7 @@ https://i.mjh.nz/.r/radio-rv-thebreeze-9dcd9e.m3u8
 #EXTINF:-1 tvg-id="TheCurrent" tvg-name="THE CURRENT MINNESOTA PUBLIC RADIO" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/The_Current_logo.svg/512px-The_Current_logo.svg.png" group-title="Quốc Tế",THE CURRENT MINNESOTA PUBLIC RADIO
 #EXTGRP:Quốc Tế
 https://current.stream.publicradio.org/current.mp3
-#EXTINF:-1 tvg-id="tlchd" tvg-name="TLC" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/TLC_Logo.svg/1280px-TLC_Logo.svg.png" group-title="Quốc Tế",TLC
+#EXTINF:-1 tvg-id="425" tvg-name="TLC" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/TLC_Logo.svg/1280px-TLC_Logo.svg.png" group-title="Quốc Tế",TLC
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
@@ -1406,10 +1412,10 @@ https://22273.live.streamtheworld.com/TRAXX_FMAAC.aac
 #EXTINF:-1 tvg-id="24.7.Dummy.us" tvg-name="TRIP 8975 FM" tvg-logo="https://cdn.webrad.io/images/logos/radioth-net/trip.png" group-title="Quốc Tế",TRIP 8975 FM
 #EXTGRP:Quốc Tế
 https://cdn-th2.login.in.th/shoutcast/1150
-#EXTINF:-1 tvg-id="6240" tvg-name="TRT WORLD" tvg-logo="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/425e1955860511.59ae62ac642ba.png" group-title="Quốc Tế",TRT WORLD
+#EXTINF:-1 tvg-id="508" tvg-name="TRT WORLD" tvg-logo="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/425e1955860511.59ae62ac642ba.png" group-title="Quốc Tế",TRT WORLD
 #EXTGRP:Quốc Tế
 https://tv-trtworld.medya.trt.com.tr/master_1080.m3u8
-#EXTINF:-1 tvg-id="tv5monde" tvg-name="TV5MONDE" tvg-logo="https://information.tv5monde.com/sites/tv5-info/files/styles/entete/public/2023-11/tv5monde_logo.jpg" group-title="Quốc Tế",TV5MONDE
+#EXTINF:-1 tvg-id="54020" tvg-name="TV5MONDE" tvg-logo="https://information.tv5monde.com/sites/tv5-info/files/styles/entete/public/2023-11/tv5monde_logo.jpg" group-title="Quốc Tế",TV5MONDE
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36
 https://sgclient.duckdns.org/source/tv360.m3u8?id=9852
@@ -1437,16 +1443,19 @@ https://playerservices.streamtheworld.com/api/livestream-redirect/WABCAMAAC.aac
 #EXTINF:-1 tvg-id="24.7.Dummy.us" tvg-name="WARNA 942" tvg-logo="https://static.mytuner.mobi/media/radios-150px/HXVXmdq7mT.png" group-title="Quốc Tế",WARNA 942
 #EXTGRP:Quốc Tế
 http://playerservices.streamtheworld.com/api/livestream-redirect/WARNA942FMAAC.aac
-#EXTINF:-1 tvg-id="warnertvhd" tvg-name="WARNER" tvg-logo="https://s7774.cdn.mytvnet.vn/vimages/6b/ba/a3/36/60/0a/6ba36-pwarnerhd-channel-unkn.png" group-title="Quốc Tế",WARNER
+#EXTINF:-1 tvg-id="448585" tvg-name="WARNER" tvg-logo="https://s7774.cdn.mytvnet.vn/vimages/6b/ba/a3/36/60/0a/6ba36-pwarnerhd-channel-unkn.png" group-title="Quốc Tế",WARNER
 #EXTGRP:Quốc Tế
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","k":"NPGQjP4uBe4GAEbUDxSuyQ","kid":"CG0JpAv/OgCqbdTbr5wTsg"}],"type":"temporary"}
 https://s2129134.cdn.mytvnet.vn/pkg20/live_dzones/wtv.smil/manifest.mpd
-#EXTINF:-1 tvg-id="warnertvhd" tvg-name="WARNER" tvg-logo="https://i.imgur.com/nqiVBVM.png" group-title="Quốc Tế",WARNER
+#EXTINF:-1 tvg-id="448585" tvg-name="WARNER" tvg-logo="https://i.imgur.com/nqiVBVM.png" group-title="Quốc Tế",WARNER
 #EXTGRP:Quốc Tế
 http://cdn4.skygo.mn/live/disk1/Warner/HLSv3-FTA/Warner.m3u8
+#EXTINF:-1 tvg-id="3775" tvg-name="WARNER BROS" tvg-logo="https://i.pinimg.com/originals/79/42/27/7942275bccc3ba8a635b9d88d34efdd1.png" group-title="Quốc Tế",WARNER BROS
+#EXTGRP:Quốc Tế
+http://gg.gg/HaNoiIPTV-Warner_TV_HD
 #EXTINF:-1 tvg-id="WNYC" tvg-name="WNYC 939 FM NEW YORK" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/WNYC_logo.svg/512px-WNYC_logo.svg.png" group-title="Quốc Tế",WNYC 939 FM NEW YORK
 #EXTGRP:Quốc Tế
 https://njpr.wnyc.org/wnycfm-tunein.aac
@@ -1477,9 +1486,6 @@ https://oipf0znpmnliv.vcdn.cloud/hls/thangiang/index.m3u8
 #EXTINF:-1 tvg-id="angiang1" tvg-name="ATV1 BÁO VÀ PTTH AN GIANG" tvg-logo="https://angiangtv.vn/wp-content/uploads/2025/06/H4.png" group-title="Địa Phương",ATV1 BÁO VÀ PTTH AN GIANG
 #EXTGRP:Địa Phương
 https://tv.angiangtv.vn/live/kgtv/kgtv.m3u8
-#EXTINF:-1 tvg-id="TATV2" tvg-name="ATV2" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/ATV2.jpg" group-title="Địa Phương",ATV2
-#EXTGRP:Địa Phương
-https://sgclient.duckdns.org/source/tv360.m3u8?id=35
 #EXTINF:-1 tvg-id="angiang2" tvg-name="ATV2 TH AN GIANG 2" tvg-logo="https://i.imgur.com/efrauLr.png" group-title="Địa Phương",ATV2 TH AN GIANG 2
 #EXTGRP:Địa Phương
 https://tv.angiangtv.vn/live/kgtv2/kgtv2.m3u8
@@ -1492,9 +1498,12 @@ https://tv.angiangtv.vn/live/kgtv1/kgtv1.m3u8
 #EXTINF:-1 tvg-id="angiang3" tvg-name="ATV3 TH AN GIANG 3" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/refs/heads/master/ATV3%20-%20Truy%E1%BB%81n%20h%C3%ACnh%20An%20Giang%203%20HD.png" group-title="Địa Phương",ATV3 TH AN GIANG 3
 #EXTGRP:Địa Phương
 https://HaNoiIPTV.short.gy/HaNoiIPTV-ATV3-Truyen_hinh_An_Giang_3_HD
-#EXTINF:-1 tvg-id="bacgiang" tvg-name="BGTV" tvg-logo="https://i.ibb.co/Czf1tJc/BACGIANG-BEARTV.png" group-title="Địa Phương",BGTV
+#EXTINF:-1 tvg-id="524008" tvg-name="BGTV" tvg-logo="https://i.ibb.co/Czf1tJc/BACGIANG-BEARTV.png" group-title="Địa Phương",BGTV
 #EXTGRP:Địa Phương
 https://liveh34.vtvprime.vn/hls/BACGIANGTV/03.m3u8
+#EXTINF:-1 tvg-id="hatinh" tvg-name="BHTTV BÁO VÀ PTTH HÀ TĨNH" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/BHTTV.webp" group-title="Địa Phương",BHTTV BÁO VÀ PTTH HÀ TĨNH
+#EXTGRP:Địa Phương
+https://sgclient.duckdns.org/source/tv360.m3u8?id=58
 #EXTINF:-1 tvg-id="binhduong1" tvg-name="BTV1 TIN TỨC THỜI SỰ" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/f/f0/BTV1.png" group-title="Địa Phương",BTV1 TIN TỨC THỜI SỰ
 #EXTGRP:Địa Phương
 #EXT-X-STREAM-INF:BANDWIDTH=3803560,AVERAGE-BANDWIDTH=3803560,CODECS="avc1.640028,mp4a.40.2",PROGRAM-ID=1,RESOLUTION=1080x720,AUDIO="audiod"
@@ -1503,13 +1512,16 @@ https://oipf0znpmnliv.vcdn.cloud/hls/btv1/index.m3u8
 #EXTGRP:Địa Phương
 #EXT-X-STREAM-INF:BANDWIDTH=3803560,AVERAGE-BANDWIDTH=3803560,CODECS="avc1.640028,mp4a.40.2",PROGRAM-ID=1,RESOLUTION=1080x720,AUDIO="audiod"
 https://oipf0znpmnliv.vcdn.cloud/hls/btv2/index.m3u8
+#EXTINF:-1 tvg-id="bacninh" tvg-name="BTV BÁO VÀ PTTH BẮC NINH" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/BTVBACNINH.jpg" group-title="Địa Phương",BTV BÁO VÀ PTTH BẮC NINH
+#EXTGRP:Địa Phương
+https://sgclient.duckdns.org/source/tv360.m3u8?id=39
 #EXTINF:-1 tvg-id="bacninh" tvg-name="BTV TH BẮC NINH" tvg-logo="https://i.imgur.com/CoYqQa5.png" group-title="Địa Phương",BTV TH BẮC NINH
 #EXTGRP:Địa Phương
 https://live.mediatech.vn/live/285f5f227e988ab4445a2138091d3d62e8d/playlist.m3u8
 #EXTINF:-1 tvg-id="bacgiang" tvg-name="BẮC GIANG" tvg-logo="https://bacgiangtv.vn/templates/frontend/bgtv/Assets/img/logo.png" group-title="Địa Phương",BẮC GIANG
 #EXTGRP:Địa Phương
 https://live.mediatech.vn/live/285f5f227e988ab4445a2138091d3d62e8d/chunklist.m3u8
-#EXTINF:-1 tvg-id="backan" tvg-name="BẮC KẠN" tvg-logo="https://static.wikia.nocookie.net/logos/images/9/99/TBK_HD_logo_2023.png/revision/latest/scale-to-width-down/1000?cb=20231007063829&path-prefix=vi" group-title="Địa Phương",BẮC KẠN
+#EXTINF:-1 tvg-id="baccan" tvg-name="BẮC KẠN" tvg-logo="https://static.wikia.nocookie.net/logos/images/9/99/TBK_HD_logo_2023.png/revision/latest/scale-to-width-down/1000?cb=20231007063829&path-prefix=vi" group-title="Địa Phương",BẮC KẠN
 #EXTGRP:Địa Phương
 https://truyenhinh.vnptvas.vn/live.m3u8?c=vstv360&q=high&pkg=pkg11.hni
 #EXTINF:-1 tvg-id="bacninh" tvg-name="BẮC NINH" tvg-logo="https://static.wikia.nocookie.net/logos/images/c/c2/BTV_Bac_Ninh_2023.png/revision/latest/scale-to-width-down/1000?cb=20240414012049&path-prefix=vi" group-title="Địa Phương",BẮC NINH
@@ -1518,6 +1530,9 @@ https://stream.thingnet.vn/live/smil:BTV.smil/playlist.m3u8
 #EXTINF:-1 tvg-id="caobang" tvg-name="CAO BẰNG" tvg-logo="https://static.wikia.nocookie.net/logos/images/7/79/CRTV_logo_1997.png/revision/latest/scale-to-width-down/1200?cb=20220427114001&path-prefix=vi" group-title="Địa Phương",CAO BẰNG
 #EXTGRP:Địa Phương
 http://118.107.85.4:1935/live/smil:CRTV.smil/playlist.m3u8
+#EXTINF:-1 tvg-id="caobang" tvg-name="CRTV BÁO CAO BẰNG" tvg-logo="https://img-zlr1.tv360.vn/image1/2024/10/07/16/1728292499129/aeb3499f5824_640_360.png" group-title="Địa Phương",CRTV BÁO CAO BẰNG
+#EXTGRP:Địa Phương
+https://sgclient.duckdns.org/source/tv360.m3u8?id=48
 #EXTINF:-1 tvg-id="cantho3" tvg-name="CẦN THƠ 3 BÁO VÀ PTTH THÀNH PHỐ CẦN THƠ" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/CanTho3.png" group-title="Địa Phương",CẦN THƠ 3 BÁO VÀ PTTH THÀNH PHỐ CẦN THƠ
 #EXTGRP:Địa Phương
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36
@@ -1525,11 +1540,14 @@ https://sgclient.duckdns.org/source/tv360.m3u8?id=84
 #EXTINF:-1 tvg-id="danang2" tvg-name="DNRT2 TH ĐÀ NẴNG 2" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/DNRT2%20-%20Truy%E1%BB%81n%20h%C3%ACnh%20%C4%90%C3%A0%20N%E1%BA%B5ng%202.png" group-title="Địa Phương",DNRT2 TH ĐÀ NẴNG 2
 #EXTGRP:Địa Phương
 https://HaNoiIPTV.short.gy/HaNoiIPTV-DNRT2-Truyen_hinh_Da_Nang_2_HD
+#EXTINF:-1 tvg-id="hanoi1" tvg-name="H1 BÁO VÀ PTTH HÀ NỘI" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/H1.jpg" group-title="Địa Phương",H1 BÁO VÀ PTTH HÀ NỘI
+#EXTGRP:Địa Phương
+https://sgclient.duckdns.org/source/tv360.m3u8?id=33
 #EXTINF:-1 tvg-id="hanoi2" tvg-name="HANOITV2" tvg-logo="https://i.ibb.co/L5bfkfQ/HANOI2-TV-BEARTV.png" group-title="Địa Phương",HANOITV2
 #EXTGRP:Địa Phương
 #EXTVLCOPT:http-user-agent="CloudTV"
 https://liveh34.vtvprime.vn/hls/HANOI2TV/03.m3u8
-#EXTINF:-1 tvg-id="hitv" tvg-name="HITV" tvg-logo="https://img-zlr1.tv360.vn/image1/2020_09_23/1600823412691/61627b84a612_640_360.png" group-title="Địa Phương",HITV
+#EXTINF:-1 tvg-id="2217" tvg-name="HITV" tvg-logo="https://img-zlr1.tv360.vn/image1/2020_09_23/1600823412691/61627b84a612_640_360.png" group-title="Địa Phương",HITV
 #EXTGRP:Địa Phương
 https://sgclient.duckdns.org/source/tv360.m3u8?id=32
 #EXTINF:-1 tvg-id="hungyen" tvg-name="HYTV BÁO VÀ PTTH HƯNG YÊN" tvg-logo="https://hungyentv.vn/templates/frontend/hytv/Assets/img/truyenhinh.jpg" group-title="Địa Phương",HYTV BÁO VÀ PTTH HƯNG YÊN
@@ -1556,18 +1574,21 @@ https://truyenhinh.vnptvas.vn/live.m3u8?c=vstv369&q=high&pkg=pkg11.hni
 #EXTINF:-1 tvg-id="haiphong" tvg-name="HẢI PHÒNG" tvg-logo="https://media.thhp.vn/upload/files/avatar/NewFolder/Logo_THP.png" group-title="Địa Phương",HẢI PHÒNG
 #EXTGRP:Địa Phương
 https://live.mediatech.vn/live/285a4c99665fdf84e94956c66bc7dc7eb5d/playlist.m3u8
-#EXTINF:-1 tvg-id="haiphong" tvg-name="HẢI PHÒNG PLUS" tvg-logo="https://thp.org.vn/wp-content/uploads/2019/12/THP-Logo.png" group-title="Địa Phương",HẢI PHÒNG PLUS
+#EXTINF:-1 tvg-id="haiphongplus" tvg-name="HẢI PHÒNG PLUS" tvg-logo="https://thp.org.vn/wp-content/uploads/2019/12/THP-Logo.png" group-title="Địa Phương",HẢI PHÒNG PLUS
 #EXTGRP:Địa Phương
 https://live.mediatech.vn/live/28548ca35823d41426d8b3da7ed82bdab13/playlist.m3u8
 #EXTINF:-1 tvg-id="kiengiang" tvg-name="KIÊN GIANG" tvg-logo="https://static.wikia.nocookie.net/logos/images/f/f1/KG-PTTH_2024.png/revision/latest/scale-to-width-down/1000?cb=20240208024620&path-prefix=vi" group-title="Địa Phương",KIÊN GIANG
 #EXTGRP:Địa Phương
 http://tv.kgtv.vn/live/kgtv/kgtv.m3u8
-#EXTINF:-1 tvg-id="kiengiang" tvg-name="KIÊN GIANG 1" tvg-logo="https://static.wikia.nocookie.net/logos/images/4/4c/KG1-PTTH_2024.png/revision/latest/scale-to-width-down/1000?cb=20240208025104&path-prefix=vi" group-title="Địa Phương",KIÊN GIANG 1
+#EXTINF:-1 tvg-id="kiengiang1" tvg-name="KIÊN GIANG 1" tvg-logo="https://static.wikia.nocookie.net/logos/images/4/4c/KG1-PTTH_2024.png/revision/latest/scale-to-width-down/1000?cb=20240208025104&path-prefix=vi" group-title="Địa Phương",KIÊN GIANG 1
 #EXTGRP:Địa Phương
 http://tv.kgtv.vn/live/kgtv1/kgtv1.m3u8
 #EXTINF:-1 tvg-id="khanhhoa1" tvg-name="KTV1 BÁO VÀ PTTH KHÁNH HÒA" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/KTV1_KhanhHoa.png" group-title="Địa Phương",KTV1 BÁO VÀ PTTH KHÁNH HÒA
 #EXTGRP:Địa Phương
 https://sgclient.duckdns.org/source/tv360.m3u8?id=76
+#EXTINF:-1 tvg-id="khanhhoa" tvg-name="KTV BÁO VÀ PTTH KHÁNH HÒA" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/KTV_KhanhHoa.png" group-title="Địa Phương",KTV BÁO VÀ PTTH KHÁNH HÒA
+#EXTGRP:Địa Phương
+https://sgclient.duckdns.org/source/tv360.m3u8?id=65
 #EXTINF:-1 tvg-id="langson" tvg-name="LSTV BÁO VÀ PTTH LẠNG SƠN" tvg-logo="https://langsontv.vn/templates/frontend/lstv/Assets/img/video_bg.png" group-title="Địa Phương",LSTV BÁO VÀ PTTH LẠNG SƠN
 #EXTGRP:Địa Phương
 https://stream.langsontv.vn/live/285c78da0c246524c90917842f8de03bd21/chunklist.m3u8
@@ -1577,9 +1598,6 @@ https://stream.langsontv.vn/live/285c78da0c246524c90917842f8de03bd21/playlist.m3
 #EXTINF:-1 tvg-id="lamdong1" tvg-name="LTV1 BÁO VÀ PTTH LÂM ĐỒNG" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/LTV1.jpg" group-title="Địa Phương",LTV1 BÁO VÀ PTTH LÂM ĐỒNG
 #EXTGRP:Địa Phương
 https://sgclient.duckdns.org/source/tv360.m3u8?id=69
-#EXTINF:-1 tvg-id="laichau" tvg-name="LTV BÁO LAI CHÂU" tvg-logo="https://images.fptplay53.net/media/channels/icon_channel_lai-chau_165649245279.png" group-title="Địa Phương",LTV BÁO LAI CHÂU
-#EXTGRP:Địa Phương
-https://sgclient.duckdns.org/source/tv360.m3u8?id=68
 #EXTINF:-1 tvg-id="lamdong" tvg-name="LÂM ĐỒNG" tvg-logo="https://img-zlr1.tv360.vn/image1/2020_09_23/1600822048131/6809a132f691_640_360.png" group-title="Địa Phương",LÂM ĐỒNG
 #EXTGRP:Địa Phương
 http://118.107.85.5:1935/live/smil:LTV.smil/chunklist_b1384000.m3u8
@@ -1589,10 +1607,10 @@ https://live.mediatech.vn/live/28597f8fd7ea5064d0f84ab00b3699dfd86/chunklist.m3u
 #EXTINF:-1 tvg-id="NeiMonggolTV.cn" tvg-name="NEI MONGGOL" tvg-logo="https://i.imgur.com/WeugJBE.png" group-title="Địa Phương",NEI MONGGOL
 #EXTGRP:Địa Phương
 http://cdn4.skygo.mn/live/disk1/NeigMGL/HLSv3-FTA/NeigMGL.m3u8
-#EXTINF:-1 tvg-id="nghean" tvg-name="NGHỆ AN" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/9b/Logo_NTV_Ngh%E1%BB%87_An_2013.png" group-title="Địa Phương",NGHỆ AN
+#EXTINF:-1 tvg-id="" tvg-name="NGHỆ AN" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/9b/Logo_NTV_Ngh%E1%BB%87_An_2013.png" group-title="Địa Phương",NGHỆ AN
 #EXTGRP:Địa Phương
 https://live.truyenhinhnghean.vn/hls/na1/index.m3u8
-#EXTINF:-1 tvg-id="ninhbinh" tvg-name="NINH BÌNH" tvg-logo="https://nbtv.vn/templates/frontend/nbtv/Assets/img/logo.png" group-title="Địa Phương",NINH BÌNH
+#EXTINF:-1 tvg-id="TH Ninh Bình" tvg-name="NINH BÌNH" tvg-logo="https://nbtv.vn/templates/frontend/nbtv/Assets/img/logo.png" group-title="Địa Phương",NINH BÌNH
 #EXTGRP:Địa Phương
 https://live.mediatech.vn/live/28597f8fd7ea5064d0f84ab00b3699dfd86/playlist.m3u8
 #EXTINF:-1 tvg-id="nghean" tvg-name="NTV TH NGHỆ AN" tvg-logo="https://i.imgur.com/FLvFSLS.png" group-title="Địa Phương",NTV TH NGHỆ AN
@@ -1617,6 +1635,9 @@ https://HaNoiIPTV.short.gy/HaNoiIPTV-QNgTV1-Truyen_hinh_Quang_Ngai_1
 #EXTINF:-1 tvg-id="quangngai2" tvg-name="QNGTV2 TH QUẢNG NGÃI 2" tvg-logo="https://i.postimg.cc/0j90HbNC/QNg-TV2.png" group-title="Địa Phương",QNGTV2 TH QUẢNG NGÃI 2
 #EXTGRP:Địa Phương
 https://vtvgolive-ott3.vtvdigital.vn/live/bentretv/chunklist_2.m3u8
+#EXTINF:-1 tvg-id="quangtri" tvg-name="QTTV BÁO VÀ PTTH QUẢNG TRỊ" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/QTTV.jpg" group-title="Địa Phương",QTTV BÁO VÀ PTTH QUẢNG TRỊ
+#EXTGRP:Địa Phương
+https://sgclient.duckdns.org/source/tv360.m3u8?id=83
 #EXTINF:-1 tvg-id="quangtri" tvg-name="QTTV TH QUẢNG TRỊ" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/QTTV%20-%20Truy%E1%BB%81n%20h%C3%ACnh%20Qu%E1%BA%A3ng%20Tr%E1%BB%8B%20HD.png" group-title="Địa Phương",QTTV TH QUẢNG TRỊ
 #EXTGRP:Địa Phương
 https://HaNoiIPTV.short.gy/HaNoiIPTV-QTTV-Truyen_hinh_Quang_Tri_HD
@@ -1639,9 +1660,6 @@ https://live.mediatech.vn/live/28595222e707a364251b8724717894baa46/playlist.m3u8
 #EXTINF:-1 tvg-id="thanhhoa" tvg-name="THANH HÓA" tvg-logo="https://static.wikia.nocookie.net/thanhhoa/images/6/6f/Logo_%C4%90%C3%A0i_Ph%C3%A1t_thanh_%26_Truy%E1%BB%81n_h%C3%ACnh_Thanh_H%C3%B3a_-_TTV.png/revision/latest?cb=20220716191054&path-prefix=vi" group-title="Địa Phương",THANH HÓA
 #EXTGRP:Địa Phương
 https://truyenhinh.vnptvas.vn/live.m3u8?c=vstv525&q=sd&pkg=pkg12.hni
-#EXTINF:-1 tvg-id="laocai" tvg-name="THLC BÁO VÀ PTTH LÀO CAI" tvg-logo="https://lichphatsongtivi.com/storage/images/thumbnails/lich-phat-song-thlc.png" group-title="Địa Phương",THLC BÁO VÀ PTTH LÀO CAI
-#EXTGRP:Địa Phương
-https://sgclient.duckdns.org/source/tv360.m3u8?id=71
 #EXTINF:-1 tvg-id="laocai" tvg-name="THLC TH LÀO CAI" tvg-logo="https://i.imgur.com/Vd0P0rx.png" group-title="Địa Phương",THLC TH LÀO CAI
 #EXTGRP:Địa Phương
 https://live.baolaocai.vn/channel2/stream.m3u8
@@ -1665,16 +1683,13 @@ https://live.mediatech.vn/live/2851dc2c9af68834814a89e61db0faee561/chunklist.m3u
 #EXTGRP:Địa Phương
 #https://live.fptplay53.net/epzsd1/hue_hls.smil/chunklist.m3u8
 https://liveh12.vtvprime.vn/hls/HUE/03.m3u8
-#EXTINF:-1 tvg-id="thanhhoa" tvg-name="TTV BÁO VÀ PTTH THANH HÓA" tvg-logo="https://img-zlr1.tv360.vn/image1/2020_09_23/1600821878406/58ff77e57117_640_360.png" group-title="Địa Phương",TTV BÁO VÀ PTTH THANH HÓA
-#EXTGRP:Địa Phương
-https://sgclient.duckdns.org/source/tv360.m3u8?id=89
 #EXTINF:-1 tvg-id="tuyenquang" tvg-name="TTV BÁO VÀ PTTH TUYÊN QUANG" tvg-logo="https://img-zlr1.tv360.vn/image1/2023/05/10/03/1683663305895/0f3f1e5bd284_640_360.png" group-title="Địa Phương",TTV BÁO VÀ PTTH TUYÊN QUANG
 #EXTGRP:Địa Phương
 https://sgclient.duckdns.org/source/tv360.m3u8?id=92
 #EXTINF:-1 tvg-id="tuyenquang" tvg-name="TTV TH TUYÊN QUANG" tvg-logo="https://i.imgur.com/Pfq3ix9.png" group-title="Địa Phương",TTV TH TUYÊN QUANG
 #EXTGRP:Địa Phương
 https://streaming.tuyenquangtv.vn/channel/tuyenquang/playlist.m3u8
-#EXTINF:-1 tvg-id="youtv" tvg-name="YOUTV" tvg-logo="https://img-ali1.tv360.vn/image1/2020_09_23/1600823396313/7b474bf7bbce_640_360.png" group-title="Địa Phương",YOUTV
+#EXTINF:-1 tvg-id="376105" tvg-name="YOUTV" tvg-logo="https://img-ali1.tv360.vn/image1/2020_09_23/1600823396313/7b474bf7bbce_640_360.png" group-title="Địa Phương",YOUTV
 #EXTGRP:Địa Phương
 https://sgclient.duckdns.org/source/tv360.m3u8?id=31
 #EXTINF:-1 tvg-id="dienbien" tvg-name="ĐIỆN BIÊN" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/1c/Logo_%C4%90%C3%A0i_Ph%C3%A1t_thanh_%26_Truy%E1%BB%81n_h%C3%ACnh_%C4%90i%E1%BB%87n_Bi%C3%AAn_-_%C4%90TV_from_2019.svg" group-title="Địa Phương",ĐIỆN BIÊN
@@ -1686,10 +1701,16 @@ https://sgclient.duckdns.org/source/tv360.m3u8?id=53
 #EXTINF:-1 tvg-id="dongnai2" tvg-name="ĐNNRTV2 BÁO VÀ PTTH ĐỒNG NAI" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/ĐNNRTV2.png" group-title="Địa Phương",ĐNNRTV2 BÁO VÀ PTTH ĐỒNG NAI
 #EXTGRP:Địa Phương
 https://sgclient.duckdns.org/source/tv360.m3u8?id=255
-#EXTINF:-1 tvg-id="danang1" tvg-name="ĐNRT1 TH TP ĐÀ NẴNG 1" tvg-logo="https://i.ibb.co/xt86qZ9F/DANANG1-BEARTV.png" group-title="Địa Phương",ĐNRT1 TH TP ĐÀ NẴNG 1
+#EXTINF:-1 tvg-id="danang1" tvg-name="ĐNRT1 BÁO VÀ PTTH ĐÀ NẴNG" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/ĐNRT1.png" group-title="Địa Phương",ĐNRT1 BÁO VÀ PTTH ĐÀ NẴNG
+#EXTGRP:Địa Phương
+https://sgclient.duckdns.org/source/tv360.m3u8?id=49
+#EXTINF:-1 tvg-id="danang1" tvg-name="ĐNRT1 TH TP ĐÀ NẴNG 1" tvg-logo="https://i.imgur.com/b4hZPxo.png" group-title="Địa Phương",ĐNRT1 TH TP ĐÀ NẴNG 1
 #EXTGRP:Địa Phương
 https://live.mediatech.vn/live/285b59a111d76974225a8e3004bfc31a509/chunklist.m3u8
-#EXTINF:-1 tvg-id="danang2" tvg-name="ĐNRT2 TH TP ĐÀ NẴNG 2" tvg-logo="https://i.ibb.co/ds1M2NBF/DANANG2-BEARTV.png" group-title="Địa Phương",ĐNRT2 TH TP ĐÀ NẴNG 2
+#EXTINF:-1 tvg-id="danang2" tvg-name="ĐNRT2 BÁO VÀ PTTH ĐÀ NẴNG" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/DNRT2_logo.png" group-title="Địa Phương",ĐNRT2 BÁO VÀ PTTH ĐÀ NẴNG
+#EXTGRP:Địa Phương
+https://sgclient.duckdns.org/source/tv360.m3u8?id=80
+#EXTINF:-1 tvg-id="danang2" tvg-name="ĐNRT2 TH TP ĐÀ NẴNG 2" tvg-logo="https://i.imgur.com/qgwls5b.png" group-title="Địa Phương",ĐNRT2 TH TP ĐÀ NẴNG 2
 #EXTGRP:Địa Phương
 https://live.mediatech.vn/live/2859145290d0d7947ef88b6240123b62474/chunklist.m3u8
 #EXTINF:-1 tvg-id="dienbien" tvg-name="ĐTV BÁO ĐIỆN BIÊN PHỦ" tvg-logo="https://img-zlr1.tv360.vn/image1/2020_09_23/1600823593760/3a9a9e608e8d_640_360.png" group-title="Địa Phương",ĐTV BÁO ĐIỆN BIÊN PHỦ
@@ -1698,7 +1719,7 @@ https://sgclient.duckdns.org/source/tv360.m3u8?id=52
 #EXTINF:-1 tvg-id="daklak" tvg-name="ĐẮK LẮK" tvg-logo="https://media.drt.vn/upload/files/image/LOGO_DRT_HD_2023-2.png" group-title="Địa Phương",ĐẮK LẮK
 #EXTGRP:Địa Phương
 https://cdn.drt.vn/live/285a27750861b964c27af22091662a74f2f/playlist.m3u8
-#EXTINF:-1 tvg-id="dacnong" tvg-name="ĐẮK NÔNG" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGYuW4jrcWliL7Wv9HLyh6V8-hRHX7QQMph3972Kl55w&s" group-title="Địa Phương",ĐẮK NÔNG
+#EXTINF:-1 tvg-id="daknong" tvg-name="ĐẮK NÔNG" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGYuW4jrcWliL7Wv9HLyh6V8-hRHX7QQMph3972Kl55w&s" group-title="Địa Phương",ĐẮK NÔNG
 #EXTGRP:Địa Phương
 https://cloudstreamthdn.tek4tv.vn/live/smil:daknong.smil/playlist.m3u8
 #EXTINF:-1 tvg-id="dongnai1" tvg-name="ĐỒNG NAI 1" tvg-logo="https://img.hplus.com.vn/728x409/banner/2022/08/23/343651-DN1-LOGO.png" group-title="Địa Phương",ĐỒNG NAI 1
@@ -1743,7 +1764,7 @@ http://catchup.videoline.ru/iriston/playlist.m3u8
 #EXTINF:-1 tvg-id="1154" tvg-name="ОТС" tvg-logo="https://i.imgur.com/T7YPwMe.png" group-title="Địa Phương",ОТС
 #EXTGRP:Địa Phương
 http://tele2dvrnat01-02.cdnvideo.ru/stream/NAT_OTC_ap1f55f482a2df2bede07c661806c4eb/hls/1920x1080@4504/playlist.m3u8
-#EXTINF:-1 tvg-id="2472" tvg-name="ПЕРВЫЙ ПСКОВСКИЙ" tvg-logo="https://i.imgur.com/1gciFqi.png" group-title="Địa Phương",ПЕРВЫЙ ПСКОВСКИЙ
+#EXTINF:-1 tvg-id="400038" tvg-name="ПЕРВЫЙ ПСКОВСКИЙ" tvg-logo="https://i.imgur.com/1gciFqi.png" group-title="Địa Phương",ПЕРВЫЙ ПСКОВСКИЙ
 #EXTGRP:Địa Phương
 http://live-3.otcnet.ru/pskov/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="5818" tvg-name="ПРИМА" tvg-logo="https://i.imgur.com/33XGMch.png" group-title="Địa Phương",ПРИМА
@@ -1775,13 +1796,13 @@ https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m
 #EXTGRP:Khá Phá
 #EXT-X-STREAM-INF:BANDWIDTH=3803560,AVERAGE-BANDWIDTH=3803560,CODECS="avc1.640028,mp4a.40.2",PROGRAM-ID=1,RESOLUTION=1080x720,AUDIO="audiod"
 https://oipf0znpmnliv.vcdn.cloud/hls/drfit/index.m3u8
-#EXTINF:-1 tvg-id="dw" tvg-name="DW" tvg-logo="https://cdn.hqth.me/logo/thumbs/221.png" group-title="Khá Phá",DW
+#EXTINF:-1 tvg-id="368373" tvg-name="DW" tvg-logo="https://cdn.hqth.me/logo/thumbs/221.png" group-title="Khá Phá",DW
 #EXTGRP:Khá Phá
 https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/stream05/streamPlaylist.m3u8
-#EXTINF:-1 tvg-id="france24eng" tvg-name="FRANCE 24" tvg-logo="https://cdn.hqth.me/logo/thumbs/222.png" group-title="Khá Phá",FRANCE 24
+#EXTINF:-1 tvg-id="300093" tvg-name="FRANCE 24" tvg-logo="https://cdn.hqth.me/logo/thumbs/222.png" group-title="Khá Phá",FRANCE 24
 #EXTGRP:Khá Phá
 https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV38.m3u8
-#EXTINF:-1 tvg-id="woman" tvg-name="WOMAN" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/WOMAN%20HD.png" group-title="Khá Phá",WOMAN
+#EXTINF:-1 tvg-id="womanhd" tvg-name="WOMAN" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/WOMAN%20HD.png" group-title="Khá Phá",WOMAN
 #EXTGRP:Khá Phá
 https://oipf0znpmnliv.vcdn.cloud/hls/woman/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="947 96MHZ" tvg-logo="" group-title="Khác",947 96MHZ
@@ -1841,9 +1862,6 @@ https://live.mediatech.vn/live/285c1421f29d05045909836b37313898e2f/playlist.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TUYEN QUANG RADIO FM956MHZ" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT96-zuuFTogPk5nu4EprYtOCaCt5_JdpPNpe57O9RrvfV9eB7CUCejNFgn9E1s-EUPDgE&usqp=CAU" group-title="Khác",TUYEN QUANG RADIO FM956MHZ
 #EXTGRP:Khác
 https://streaming.tuyenquangtv.vn/channel/tuyenquang_radio/chunks.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="ZINGRADIO 1 VPOP" tvg-logo="https://photo-zmp3.zmdcdn.me/cover_rect/5/0/8/f/508fb88137284723e67c83b9c9fede28.jpg" group-title="Khác",ZINGRADIO 1 VPOP
-#EXTGRP:Khác
-https://multi-playlist-zmp3.zmdcdn.me/odi6UBatld4/zhls/playback-realtime/6ddadf76e3330a6d5322/index.m3u8
 #EXTINF:-1 tvg-id="happykids" tvg-name="HAPPY KIDS" tvg-logo="https://i.ibb.co/4Y4yxZq/Happy-Kids.png" group-title="Kid",HAPPY KIDS
 #EXTGRP:Kid
 #EXTVLCOPT:http-user-agent=ReactNativeVideo/3.4.4 (Linux;Android 9) ExoPlayerLib/2.13.3
@@ -1867,7 +1885,7 @@ http://live-uvelirochka.cdnvideo.ru/uvelirochka/uvelirochka_720p3/playlist.m3u8
 #EXTINF:-1 tvg-id="1821" tvg-name="1HD MUSIC TELEVISION" tvg-logo="https://i.imgur.com/4Ww7CsR.png" group-title="Kênh Ca NhạC",1HD MUSIC TELEVISION
 #EXTGRP:Kênh Ca NhạC
 http://stream8.cinerama.uz/1267/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="9029" tvg-name="BABY TIME" tvg-logo="https://i.imgur.com/lW3WIBD.png" group-title="Kênh Ca NhạC",BABY TIME
+#EXTINF:-1 tvg-id="300156" tvg-name="BABY TIME" tvg-logo="https://i.imgur.com/lW3WIBD.png" group-title="Kênh Ca NhạC",BABY TIME
 #EXTGRP:Kênh Ca NhạC
 http://89.218.32.179:18000/play/a028
 #EXTINF:-1 tvg-id="300037" tvg-name="BRIDGE" tvg-logo="https://i.imgur.com/qYObfrG.png" group-title="Kênh Ca NhạC",BRIDGE
@@ -1933,7 +1951,10 @@ http://136.243.42.146/HLS/HD.m3u8
 #EXTINF:-1 tvg-id="5369" tvg-name="РАДИО СТРАНА FM ТВ" tvg-logo="https://i.imgur.com/WsPlKJJ.png" group-title="Kênh Ca NhạC",РАДИО СТРАНА FM ТВ
 #EXTGRP:Kênh Ca NhạC
 http://live.stranafm.cdnvideo.ru/stranafm/stranafm.sdp/playlist.m3u8
-#EXTINF:-1 tvg-id="arirang" tvg-name="ARIRANG" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Arirang.png" group-title="Kênh Có Nhiều Lượt Xem Cao Nhất",ARIRANG
+#EXTINF:-1 tvg-id="300054" tvg-name="ШАНСОН ТВ" tvg-logo="https://i.imgur.com/kYPVxFv.png" group-title="Kênh Ca NhạC",ШАНСОН ТВ
+#EXTGRP:Kênh Ca NhạC
+http://hls-shansontv.cdnvideo.ru/shansontv/shansontv.sdp/playlist.m3u8
+#EXTINF:-1 tvg-id="300098" tvg-name="ARIRANG" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Arirang.png" group-title="Kênh Có Nhiều Lượt Xem Cao Nhất",ARIRANG
 #EXTGRP:Kênh Có Nhiều Lượt Xem Cao Nhất
 https://HaNoiIPTV.short.gy/HaNoiIPTV-Arirang
 #EXTINF:-1 tvg-id="hollywoodclassics" tvg-name="HOLLYWOOD CLASSICS" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Hollywood%20Classics%20HD.png" group-title="Kênh Có Nhiều Lượt Xem Cao Nhất",HOLLYWOOD CLASSICS
@@ -1963,7 +1984,7 @@ https://dash.antik.sk/live/test_fashionbox_medium_atk/playlist.m3u8
 #EXTINF:-1 tvg-id="1754" tvg-name="LUXURY" tvg-logo="https://i.imgur.com/nobZa5l.png" group-title="Kênh Giải Trí",LUXURY
 #EXTGRP:Kênh Giải Trí
 http://s1.tv-nano.com/Luxury_rec/tracks-v1a1/index.m3u8
-#EXTINF:-1 tvg-id="musicbox" tvg-name="MUSIC BOX" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Music%20Box.png" group-title="Kênh Giải Trí",MUSIC BOX
+#EXTINF:-1 tvg-id="300043" tvg-name="MUSIC BOX" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Music%20Box.png" group-title="Kênh Giải Trí",MUSIC BOX
 #EXTGRP:Kênh Giải Trí
 https://HaNoiIPTV.short.gy/HaNoiIPTV-Music_BOX_HD
 #EXTINF:-1 tvg-id="1754" tvg-name="TVM CHANNEL" tvg-logo="https://i.imgur.com/ZX6crqH.png" group-title="Kênh Giải Trí",TVM CHANNEL
@@ -2018,6 +2039,18 @@ http://sk.cri.cn/am846.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CRI NEWS RADIO" tvg-logo="https://i.postimg.cc/GmK8bdHt/cri-news-radio.png" group-title="Kênh Khác",CRI NEWS RADIO
 #EXTGRP:Kênh Khác
 http://sk.cri.cn/905.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="FM 886 PT LẠNG SƠN" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/LSTV%20-%20Truy%E1%BB%81n%20h%C3%ACnh%20L%E1%BA%A1ng%20S%C6%A1n%20HD.png" group-title="Kênh Khác",FM 886 PT LẠNG SƠN
+#EXTGRP:Kênh Khác
+http://gg.gg/HaNoiIPTVPlus-LSTV-Phat_thanh_Lang_Son
+#EXTINF:-1 tvg-id="" tvg-name="FM 921 BTV PT BẮC NINH" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/BTV%20-%20Truy%E1%BB%81n%20h%C3%ACnh%20B%E1%BA%AFc%20Ninh%20HD.png" group-title="Kênh Khác",FM 921 BTV PT BẮC NINH
+#EXTGRP:Kênh Khác
+http://gg.gg/HaNoiIPTVPlus-BTV-Phat_thanh_Bac_Ninh
+#EXTINF:-1 tvg-id="" tvg-name="FM 941 PT LAI CHÂU" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/LTV%20HD%20-%20Truy%E1%BB%81n%20h%C3%ACnh%20Lai%20Ch%C3%A2u.png" group-title="Kênh Khác",FM 941 PT LAI CHÂU
+#EXTGRP:Kênh Khác
+http://gg.gg/HaNoiIPTVPlus-LTV-Phat_thanh_Lai_Chau
+#EXTINF:-1 tvg-id="http://42.1.64.42/MBF2029 và http://tv.ctvcamau.vn/live/radio/radio.m3u8" tvg-name="FM 946 PT CÀ MAU" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/CTV%20-%20Truy%E1%BB%81n%20h%C3%ACnh%20C%C3%A0%20Mau%20HD.png" group-title="Kênh Khác",FM 946 PT CÀ MAU
+#EXTGRP:Kênh Khác
+http://gg.gg/HaNoiIPTVPlus-CTV-Phat_thanh_Ca_Mau
 #EXTINF:-1 tvg-id="" tvg-name="FM 956 PT TUYÊN QUANG" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/TTV%20-%20Truy%E1%BB%81n%20h%C3%ACnh%20Tuy%C3%AAn%20Quang%20HD.png" group-title="Kênh Khác",FM 956 PT TUYÊN QUANG
 #EXTGRP:Kênh Khác
 https://HaNoiIPTV.short.gy/HaNoiIPTVPlus-TTV-Phat_thanh_Tuyen_Quang
@@ -2027,7 +2060,7 @@ https://hqth.me/Xhjj
 #EXTINF:-1 tvg-id="55787" tvg-name="RADIO FRANCE INTERNATIONALE" tvg-logo="https://i.postimg.cc/7LLC6d2m/RFI.png" group-title="Kênh Khác",RADIO FRANCE INTERNATIONALE
 #EXTGRP:Kênh Khác
 http://rfimonde96k.ice.infomaniak.ch/rfimonde-96k.mp3
-#EXTINF:-1 tvg-id="447029" tvg-name="SPUTNIK INTERNATIONAL" tvg-logo="https://i.imgur.com/NCDtVhn.png" group-title="Kênh Khác",SPUTNIK INTERNATIONAL
+#EXTINF:-1 tvg-id="55992" tvg-name="SPUTNIK INTERNATIONAL" tvg-logo="https://i.imgur.com/NCDtVhn.png" group-title="Kênh Khác",SPUTNIK INTERNATIONAL
 #EXTGRP:Kênh Khác
 http://icecast-rian.cdnvideo.ru/voicerus
 #EXTINF:-1 tvg-id="no_epg" tvg-name="SPUTNIK TÜRKÇE" tvg-logo="https://i.imgur.com/NCDtVhn.png" group-title="Kênh Khác",SPUTNIK TÜRKÇE
@@ -2072,10 +2105,10 @@ https://liveh12.vtvprime.vn/hls/SCTV2/03.m3u8
 #EXTINF:-1 tvg-id="2060" tvg-name="ARMENIA 1 INTERNATIONAL" tvg-logo="https://i.imgur.com/HIwJ4lc.png" group-title="Kênh Thiết Yếu",ARMENIA 1 INTERNATIONAL
 #EXTGRP:Kênh Thiết Yếu
 http://amtv.tulixcdn.com/amtv2/am2abr/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="3268" tvg-name="BTV" tvg-logo="https://i.imgur.com/sSnrg7o.png" group-title="Kênh Thiết Yếu",BTV
+#EXTINF:-1 tvg-id="503305" tvg-name="BTV" tvg-logo="https://i.imgur.com/sSnrg7o.png" group-title="Kênh Thiết Yếu",BTV
 #EXTGRP:Kênh Thiết Yếu
 https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8
-#EXTINF:-1 tvg-id="410375" tvg-name="CCTV4" tvg-logo="https://i.imgur.com/kx8metk.png" group-title="Kênh Thiết Yếu",CCTV4
+#EXTINF:-1 tvg-id="100011" tvg-name="CCTV4" tvg-logo="https://i.imgur.com/kx8metk.png" group-title="Kênh Thiết Yếu",CCTV4
 #EXTGRP:Kênh Thiết Yếu
 https://dash.antik.sk/live/test_cctv_tizen/playlist.m3u8
 #EXTINF:-1 tvg-id="443211" tvg-name="RAI 1" tvg-logo="https://i.imgur.com/CAx7yRm.png" group-title="Kênh Thiết Yếu",RAI 1
@@ -2111,10 +2144,10 @@ http://stream8.cinerama.uz/1281/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="3035" tvg-name="ТЕЛЕКАНАЛ ЗВЕЗДА" tvg-logo="https://i.imgur.com/4PAcpfM.png" group-title="Kênh Thiết Yếu",ТЕЛЕКАНАЛ ЗВЕЗДА
 #EXTGRP:Kênh Thiết Yếu
 http://vod.tuva.ru/zvezda/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="2011" tvg-name="ANI" tvg-logo="https://i.imgur.com/i2AP0hp.png" group-title="Kênh Thiếu Nhi",ANI
+#EXTINF:-1 tvg-id="2042" tvg-name="ANI" tvg-logo="https://i.imgur.com/i2AP0hp.png" group-title="Kênh Thiếu Nhi",ANI
 #EXTGRP:Kênh Thiếu Nhi
 http://31.148.48.15/Ani/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="boomerang" tvg-name="CARTOONITO" tvg-logo="https://i.imgur.com/yVfSqNg.png" group-title="Kênh Thiếu Nhi",CARTOONITO
+#EXTINF:-1 tvg-id="929" tvg-name="CARTOONITO" tvg-logo="https://i.imgur.com/yVfSqNg.png" group-title="Kênh Thiếu Nhi",CARTOONITO
 #EXTGRP:Kênh Thiếu Nhi
 http://cdn4.skygo.mn/live/disk1/Boomerang/HLSv3-FTA/Boomerang.m3u8
 #EXTINF:-1 tvg-id="15" tvg-name="CCTV14" tvg-logo="https://i.imgur.com/SORrhtE.png" group-title="Kênh Thiếu Nhi",CCTV14
@@ -2126,6 +2159,9 @@ https://dash.antik.sk/live/duck_tv/index.m3u8
 #EXTINF:-1 tvg-id="300082" tvg-name="GULLI GIRL" tvg-logo="https://i.imgur.com/lbViDuC.png" group-title="Kênh Thiếu Nhi",GULLI GIRL
 #EXTGRP:Kênh Thiếu Nhi
 http://live-3.otcnet.ru/GulliGirl/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-id="100054" tvg-name="TIJI" tvg-logo="https://i.imgur.com/QCOUJ30.png" group-title="Kênh Thiếu Nhi",TIJI
+#EXTGRP:Kênh Thiếu Nhi
+http://live-3.otcnet.ru/Tiji/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="368368" tvg-name="ZOOMOO" tvg-logo="https://i.imgur.com/ciTJrnl.png" group-title="Kênh Thiếu Nhi",ZOOMOO
 #EXTGRP:Kênh Thiếu Nhi
 https://cdn-apse1-prod.tsv2.amagi.tv/linear/amg01553-blueantmediaasi-zoomoonz-samsungnz/playlist.m3u8
@@ -2195,7 +2231,7 @@ https://live-hls-apps-aje-fa.getaj.net/AJE/01.m3u8
 #EXTINF:-1 tvg-id="55940" tvg-name="ARMENIA 1 NEWS" tvg-logo="https://i.imgur.com/RlYJUH4.png" group-title="Kênh Tin Tức",ARMENIA 1 NEWS
 #EXTGRP:Kênh Tin Tức
 http://amtv.tulixcdn.com/amtv3/am3abr/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="bloomberg" tvg-name="BLOOMBERG" tvg-logo="https://i.imgur.com/rxFZgIK.png" group-title="Kênh Tin Tức",BLOOMBERG
+#EXTINF:-1 tvg-id="220" tvg-name="BLOOMBERG" tvg-logo="https://i.imgur.com/rxFZgIK.png" group-title="Kênh Tin Tức",BLOOMBERG
 #EXTGRP:Kênh Tin Tức
 https://cdn4.skygo.mn/live/disk1/Bloomberg/HLSv3-FTA/Bloomberg.m3u8
 #EXTINF:-1 tvg-id="DVBTV.mm@SD" tvg-name="DVB" tvg-logo="https://i.imgur.com/VdezHOv.png" group-title="Kênh Tin Tức",DVB
@@ -2204,7 +2240,7 @@ https://live-stream.dvb.no/hls/stream_src/index.m3u8
 #EXTINF:-1 tvg-id="534189" tvg-name="EURONEWS" tvg-logo="https://i.imgur.com/8t9mdg9.png" group-title="Kênh Tin Tức",EURONEWS
 #EXTGRP:Kênh Tin Tức
 https://dash.antik.sk/live/test_euronews/playlist.m3u8
-#EXTINF:-1 tvg-id="france24eng" tvg-name="FRANCE 24" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/France%2024.png" group-title="Kênh Tin Tức",FRANCE 24
+#EXTINF:-1 tvg-id="300093" tvg-name="FRANCE 24" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/France%2024.png" group-title="Kênh Tin Tức",FRANCE 24
 #EXTGRP:Kênh Tin Tức
 https://www.youtube.com/watch?v=h3MuIUNCCzI
 #EXTINF:-1 tvg-id="300093" tvg-name="FRANCE 24 FRENCH" tvg-logo="https://i.imgur.com/u8N6uoj.png" group-title="Kênh Tin Tức",FRANCE 24 FRENCH
@@ -2297,7 +2333,7 @@ https://HaNoiIPTV.short.gy/HaNoiIPTV-Canal_Gov_HD
 #EXTINF:-1 tvg-id="461591" tvg-name="CGTN DOCUMENTARY" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Danh%20s%C3%A1ch%20k%C3%AAnh/N%C6%B0%E1%BB%9Bc%20ngo%C3%A0i/CGTN%20Documentary.png" group-title="Kênh Tổng Hợp",CGTN DOCUMENTARY
 #EXTGRP:Kênh Tổng Hợp
 https://HaNoiIPTV.short.gy/HaNoiIPTV-CGTN_Documentary
-#EXTINF:-1 tvg-id="hgtv" tvg-name="HGTV" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/HGTV%20HD.png" group-title="Kênh Tổng Hợp",HGTV
+#EXTINF:-1 tvg-id="3305" tvg-name="HGTV" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/HGTV%20HD.png" group-title="Kênh Tổng Hợp",HGTV
 #EXTGRP:Kênh Tổng Hợp
 https://HaNoiIPTV.short.gy/HaNoiIPTV-HGTV_HD
 #EXTINF:-1 tvg-id="MaharTV.mm@SD" tvg-name="MAHAR" tvg-logo="https://i.imgur.com/ig0QECf.png" group-title="Kênh Tổng Hợp",MAHAR
@@ -2306,7 +2342,7 @@ https://tv.mahar.live/mahar/website.stream/playlist.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="REDE MINAS" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Logo%20kh%C3%A1c/S%C3%A9rie%20de%20canais%20muda%20a%20transmiss%C3%A3o%20para%20dissolver%20as%20prov%C3%ADncias/Rede%20Minas%20HD.png" group-title="Kênh Tổng Hợp",REDE MINAS
 #EXTGRP:Kênh Tổng Hợp
 https://HaNoiIPTV.short.gy/HaNoiIPTV-Rede_Minas_HD
-#EXTINF:-1 tvg-id="sctv1hd" tvg-name="SCTV1" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/SCTV1%20HD.png" group-title="Kênh Tổng Hợp",SCTV1
+#EXTINF:-1 tvg-id="SCTV1" tvg-name="SCTV1" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/SCTV1%20HD.png" group-title="Kênh Tổng Hợp",SCTV1
 #EXTGRP:Kênh Tổng Hợp
 https://HaNoiIPTV.short.gy/HaNoiIPTV-SCTV1_HD_du_phong
 #EXTINF:-1 tvg-id="2067" tvg-name="SEATV" tvg-logo="https://i.imgur.com/oZPorvg.png" group-title="Kênh Tổng Hợp",SEATV
@@ -2336,7 +2372,7 @@ https://cdn.nexttvnet.ru/hlsl/provide/61394/ChinaTV2/china-tv_1920x1080/index.m3
 #EXTINF:-1 tvg-id="2015" tvg-name="КРАСНАЯ ЛИНИЯ" tvg-logo="https://i.imgur.com/TgZ8Uv1.png" group-title="Kênh Tổng Hợp",КРАСНАЯ ЛИНИЯ
 #EXTGRP:Kênh Tổng Hợp
 http://s55766.cdn.ngenix.net/s55766-media-origin/rline_high/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="2412" tvg-name="ОШТВ" tvg-logo="https://i.imgur.com/1HjNIfn.png" group-title="Kênh Tổng Hợp",ОШТВ
+#EXTINF:-1 tvg-id="369" tvg-name="ОШТВ" tvg-logo="https://i.imgur.com/1HjNIfn.png" group-title="Kênh Tổng Hợp",ОШТВ
 #EXTGRP:Kênh Tổng Hợp
 http://212.42.117.34:8080/hls/OshTV.m3u8
 #EXTINF:-1 tvg-id="voh610" tvg-name="AM 610 VOH4" tvg-logo="" group-title="Kênh Voh",AM 610 VOH4
@@ -2366,10 +2402,19 @@ https://strm.voh.com.vn/radio/channel3/chunklist.m3u8
 #EXTINF:-1 tvg-id="voh925" tvg-name="VOHM FM 92 925 MHZ" tvg-logo="https://i.postimg.cc/mZn3t8Wy/VOHM.png" group-title="Kênh Voh Radio",VOHM FM 92 925 MHZ
 #EXTGRP:Kênh Voh Radio
 https://strm.voh.com.vn/radio/channel6/chunklist.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="FM 89 XONE RADIO" tvg-logo="" group-title="Kênh Vov",FM 89 XONE RADIO
+#EXTGRP:Kênh Vov
+http://gg.gg/HaNoiIPTV-XONE_Radio
+#EXTINF:-1 tvg-id="" tvg-name="FM 937 PT HẢI PHÒNG" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/THP%20-%20Truy%E1%BB%81n%20h%C3%ACnh%20H%E1%BA%A3i%20Ph%C3%B2ng%20HD.png" group-title="Kênh Vov",FM 937 PT HẢI PHÒNG
+#EXTGRP:Kênh Vov
+http://gg.gg/HaNoiIPTV-THP-Phat_thanh_Hai_Phong
 #EXTINF:-1 tvg-id="haiphong937" tvg-name="FM 937 THP TRỊ TỔNG HỢP" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Logo%20kh%C3%A1c/THP%20-%20Truy%E1%BB%81n%20h%C3%ACnh%20H%E1%BA%A3i%20Ph%C3%B2ng%20HD/THP%20-%20Ph%C3%A1t%20thanh%20H%E1%BA%A3i%20Ph%C3%B2ng.png" group-title="Kênh Vov",FM 937 THP TRỊ TỔNG HỢP
 #EXTGRP:Kênh Vov
 https://HaNoiIPTV.short.gy/HaNoiIPTVPlus-FM93.7-THP_Radio-Phat_thanh_Hai_Phong
-#EXTINF:-1 tvg-id="vtv5hd" tvg-name="VOV5" tvg-logo="https://i.imgur.com/wd9CDkT.png" group-title="Kênh Vov",VOV5
+#EXTINF:-1 tvg-id="" tvg-name="FM 1022 THP GIAO THÔNG PT HẢI PHÒNG 2" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/THP%2B%20-%20Ph%C3%A1t%20thanh%20H%E1%BA%A3i%20Ph%C3%B2ng%202.png" group-title="Kênh Vov",FM 1022 THP GIAO THÔNG PT HẢI PHÒNG 2
+#EXTGRP:Kênh Vov
+http://gg.gg/HaNoiIPTVPlus-THP_Giao_thong-Phat_thanh_Hai_Phong_2
+#EXTINF:-1 tvg-id="vov5" tvg-name="VOV5" tvg-logo="https://i.imgur.com/wd9CDkT.png" group-title="Kênh Vov",VOV5
 #EXTGRP:Kênh Vov
 https://media-audio.vov.vn/vov5.sdp_aac/chunklist.m3u8
 #EXTINF:-1 tvg-id="vov247" tvg-name="VOV ENGLISH 247" tvg-logo="https://i.imgur.com/OgdY02B.png" group-title="Kênh Vov",VOV ENGLISH 247
@@ -2405,7 +2450,7 @@ https://HaNoiIPTV.short.gy/HaNoiIPTV-CGTN
 #EXTINF:-1 tvg-id="461591" tvg-name="CGTN DOCUMENTARY" tvg-logo="https://i.imgur.com/JHv0WxM.png" group-title="Kênh Đặc Sắc",CGTN DOCUMENTARY
 #EXTGRP:Kênh Đặc Sắc
 http://cdn4.skygo.mn/live/disk1/CGTN_Doc/HLSv3-FTA/CGTN_Doc.m3u8
-#EXTINF:-1 tvg-id="459232" tvg-name="DAS ERSTE" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Logo%20kh%C3%A1c/S%C3%A9rie%20de%20canais%20muda%20a%20transmiss%C3%A3o%20para%20dissolver%20as%20prov%C3%ADncias/Das%20Erste%20HD.png" group-title="Kênh Đặc Sắc",DAS ERSTE
+#EXTINF:-1 tvg-id="502003" tvg-name="DAS ERSTE" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/Logo%20kh%C3%A1c/S%C3%A9rie%20de%20canais%20muda%20a%20transmiss%C3%A3o%20para%20dissolver%20as%20prov%C3%ADncias/Das%20Erste%20HD.png" group-title="Kênh Đặc Sắc",DAS ERSTE
 #EXTGRP:Kênh Đặc Sắc
 https://HaNoiIPTV.short.gy/HaNoiIPTV-Das_Erste_HD
 #EXTINF:-1 tvg-id="danang1" tvg-name="DNRT1 TH ĐÀ NẴNG 1" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/DNRT1%20-%20Truy%E1%BB%81n%20h%C3%ACnh%20%C4%90%C3%A0%20N%E1%BA%B5ng%201.png" group-title="Kênh Đặc Sắc",DNRT1 TH ĐÀ NẴNG 1
@@ -2447,7 +2492,7 @@ https://HaNoiIPTV.short.gy/H²M_First_HD
 #EXTINF:-1 tvg-id="" tvg-name="H²M SỐ 1 THỬ NGHIỆM" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/refs/heads/master/H%C2%B2M%20TV%20-%20H%E1%BB%87%20th%E1%BB%91ng%20c%C3%A1c%20k%C3%AAnh%20H%C3%A0%20N%E1%BB%99i%20IPTV/H%C2%B2M%20S%E1%BB%91%201%20UHD.png" group-title="Kênh Đặc Sắc",H²M SỐ 1 THỬ NGHIỆM
 #EXTGRP:Kênh Đặc Sắc
 https://HaNoiIPTV.short.gy/H²M_First_4K
-#EXTINF:-1 tvg-id="2801" tvg-name="LOVE NATURE" tvg-logo="https://i.imgur.com/Cj5a1JF.png" group-title="Kênh Đặc Sắc",LOVE NATURE
+#EXTINF:-1 tvg-id="410299" tvg-name="LOVE NATURE" tvg-logo="https://i.imgur.com/Cj5a1JF.png" group-title="Kênh Đặc Sắc",LOVE NATURE
 #EXTGRP:Kênh Đặc Sắc
 https://pb-ehs1glsha1juy.akamaized.net/Love_Nature_4K.m3u8
 #EXTINF:-1 tvg-id="lamdong3" tvg-name="LTV3 TH LÂM ĐỒNG 3" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/refs/heads/master/LTV3%20-%20Truy%E1%BB%81n%20h%C3%ACnh%20L%C3%A2m%20%C4%90%E1%BB%93ng%203%20HD.png" group-title="Kênh Đặc Sắc",LTV3 TH LÂM ĐỒNG 3
@@ -2462,7 +2507,7 @@ https://livemtaasia.akamaized.net/hls/live/2039224/mta6asia/playlist.m3u8
 #EXTINF:-1 tvg-id="2428" tvg-name="NANO" tvg-logo="https://i.imgur.com/dYj3XDa.png" group-title="Kênh Đặc Sắc",NANO
 #EXTGRP:Kênh Đặc Sắc
 http://s1.tv-nano.com/Nano_rec/index.m3u8
-#EXTINF:-1 tvg-id="55" tvg-name="OCEAN" tvg-logo="https://i.imgur.com/zswzDZS.png" group-title="Kênh Đặc Sắc",OCEAN
+#EXTINF:-1 tvg-id="636" tvg-name="OCEAN" tvg-logo="https://i.imgur.com/zswzDZS.png" group-title="Kênh Đặc Sắc",OCEAN
 #EXTGRP:Kênh Đặc Sắc
 http://a3569457567-s70378.cdn.ngenix.net/ocean_tv/1/index.m3u8
 #EXTINF:-1 tvg-id="3637" tvg-name="PEACE ENGLISH" tvg-logo="https://i.imgur.com/rjgCM2B.png" group-title="Kênh Đặc Sắc",PEACE ENGLISH
@@ -2477,17 +2522,17 @@ http://rt-doc.rttv.com/live/rtdru/rtdru720.m3u8
 #EXTINF:-1 tvg-id="400019" tvg-name="RTG" tvg-logo="https://i.imgur.com/ZMKPAho.png" group-title="Kênh Đặc Sắc",RTG
 #EXTGRP:Kênh Đặc Sắc
 http://a3569457567-s70378.cdn.ngenix.net/rtg_hd/1/index.m3u8
-#EXTINF:-1 tvg-id="sctv4hd" tvg-name="SCTV4" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/SCTV4%20HD.png" group-title="Kênh Đặc Sắc",SCTV4
+#EXTINF:-1 tvg-id="SCTV4" tvg-name="SCTV4" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/SCTV4%20HD.png" group-title="Kênh Đặc Sắc",SCTV4
 #EXTGRP:Kênh Đặc Sắc
 https://HaNoiIPTV.short.gy/HaNoiIPTV-SCTV4_HD_du_phong
-#EXTINF:-1 tvg-id="sctv9hd" tvg-name="SCTV9" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/SCTV9%20HD.png" group-title="Kênh Đặc Sắc",SCTV9
+#EXTINF:-1 tvg-id="SCTV9" tvg-name="SCTV9" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/SCTV9%20HD.png" group-title="Kênh Đặc Sắc",SCTV9
 #EXTGRP:Kênh Đặc Sắc
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=a7c942778e874d43be92b8d0a0cd11b4:6d54358306571658ffdb952c6560688b
 https://HaNoiIPTV.short.gy/HaNoiIPTV-SCTV9_HD_du_phong
-#EXTINF:-1 tvg-id="sctv17hd" tvg-name="SCTV17" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/SCTV17%20HD.png" group-title="Kênh Đặc Sắc",SCTV17
+#EXTINF:-1 tvg-id="SCTV7" tvg-name="SCTV17" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/SCTV17%20HD.png" group-title="Kênh Đặc Sắc",SCTV17
 #EXTGRP:Kênh Đặc Sắc
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
@@ -2515,7 +2560,7 @@ http://a3569457567-s70378.cdn.ngenix.net/the_explorers/2/index.m3u8
 #EXTINF:-1 tvg-id="haiphong" tvg-name="THP TH HẢI PHÒNG" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/THP%20-%20Truy%E1%BB%81n%20h%C3%ACnh%20H%E1%BA%A3i%20Ph%C3%B2ng%20HD%20%E2%80%A2%20B%E1%BA%A3n%20m%E1%BB%9Bi.png" group-title="Kênh Đặc Sắc",THP TH HẢI PHÒNG
 #EXTGRP:Kênh Đặc Sắc
 https://HaNoiIPTV.short.gy/HaNoiIPTV-THP-Truyen_hinh_Hai_Phong_HD
-#EXTINF:-1 tvg-id="tlchd" tvg-name="TLC" tvg-logo="https://i.imgur.com/ZStxdQI.png" group-title="Kênh Đặc Sắc",TLC
+#EXTINF:-1 tvg-id="425" tvg-name="TLC" tvg-logo="https://i.imgur.com/ZStxdQI.png" group-title="Kênh Đặc Sắc",TLC
 #EXTGRP:Kênh Đặc Sắc
 http://125hvt.ddns.net:21585/tlc/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="1707" tvg-name="TRAVEL+ADVENTURE" tvg-logo="https://i.imgur.com/AlpdXC4.png" group-title="Kênh Đặc Sắc",TRAVEL+ADVENTURE
@@ -2596,6 +2641,9 @@ http://stream8.cinerama.uz/1236/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="400001" tvg-name="МОЯ ПЛАНЕТА" tvg-logo="https://i.imgur.com/uIiAdBv.png" group-title="Kênh Đặc Sắc",МОЯ ПЛАНЕТА
 #EXTGRP:Kênh Đặc Sắc
 http://vod.tuva.ru/myplanet/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-id="300110" tvg-name="МУЖСКОЙ" tvg-logo="https://i.imgur.com/xyztpBf.png" group-title="Kênh Đặc Sắc",МУЖСКОЙ
+#EXTGRP:Kênh Đặc Sắc
+http://flussonic.mkpnet.ru/tv-55c94e838b306657/video.m3u8
 #EXTINF:-1 tvg-id="2008" tvg-name="НАДЕЖДА" tvg-logo="https://i.imgur.com/NQD8Zer.png" group-title="Kênh Đặc Sắc",НАДЕЖДА
 #EXTGRP:Kênh Đặc Sắc
 http://live-tvhope.cdnvideo.ru/tvhope-pull/tvhope_1/playlist.m3u8
@@ -2646,7 +2694,7 @@ http://94.230.128.107:8080/SPAS/index.m3u8
 #EXTINF:-1 tvg-id="1638" tvg-name="ТБН" tvg-logo="https://i.imgur.com/XAmPtWu.png" group-title="Kênh Đặc Sắc",ТБН
 #EXTGRP:Kênh Đặc Sắc
 https://5f05e059699ae.streamlock.net/WEB_TBN/ngrp:TBN.stream-adaptive/chunklist.m3u8
-#EXTINF:-1 tvg-id="2304" tvg-name="ТЕЛЕКАФЕ" tvg-logo="https://i.imgur.com/1H3h1HL.png" group-title="Kênh Đặc Sắc",ТЕЛЕКАФЕ
+#EXTINF:-1 tvg-id="620" tvg-name="ТЕЛЕКАФЕ" tvg-logo="https://i.imgur.com/1H3h1HL.png" group-title="Kênh Đặc Sắc",ТЕЛЕКАФЕ
 #EXTGRP:Kênh Đặc Sắc
 http://a3569457567-s70378.cdn.ngenix.net/telecafe/2/index.m3u8
 #EXTINF:-1 tvg-id="300018" tvg-name="ТЕХНО 24" tvg-logo="https://i.imgur.com/1W6R14o.png" group-title="Kênh Đặc Sắc",ТЕХНО 24
@@ -2685,12 +2733,15 @@ https://v7.kkphimplayer7.com/20260504/xNE4czZl/3500kb/hls/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CUỐC XE ÂM PHỦ TẬP CUỐI" tvg-logo="https://images.fptplay53.net/media/OTT/VOD/2026/04/30/cuoc-xe-am-phu-fpt-play-1777541165464_Background_origin.jpg" group-title="Live Events 🔴",CUỐC XE ÂM PHỦ TẬP CUỐI
 #EXTGRP:Live Events 🔴
 https://v7.kkphimplayer7.com/20260505/6REaXK8f/3500kb/hls/index.m3u8
-#EXTINF:-1 tvg-id="boxhits" tvg-name="BOX HITS" tvg-logo="https://raw.githubusercontent.com/Hannstcott/logo/main/box_hits.png" group-title="Movie",BOX HITS
+#EXTINF:-1 tvg-id="410279" tvg-name="BOX HITS" tvg-logo="https://raw.githubusercontent.com/Hannstcott/logo/main/box_hits.png" group-title="Movie",BOX HITS
 #EXTGRP:Movie
 https://hqth.me/hIPQ
 #EXTINF:-1 tvg-id="boxmovie1" tvg-name="BOX MOVIE" tvg-logo="https://raw.githubusercontent.com/Hannstcott/logo/main/Box-Movie1-BEARTV.png" group-title="Movie",BOX MOVIE
 #EXTGRP:Movie
 https://oipf0znpmnliv.vcdn.cloud/hls/boxmovie1/index.m3u8
+#EXTINF:-1 tvg-id="inthebox" tvg-name="IN THE BOX" tvg-logo="https://raw.githubusercontent.com/HaNoiIPTV/HaNoiIPTV.m3u/master/InTheBox%20Channel.png" group-title="Movie",IN THE BOX
+#EXTGRP:Movie
+http://gg.gg/HaNoiIPTV-In_The_Box_Channel
 #EXTINF:-1 tvg-id="nhk|fm" tvg-name="NHK FM TOKYO" tvg-logo="https://radiko.jp/v2/static/station/logo/JOAK-FM/224x100.png" group-title="Nhk Radio",NHK FM TOKYO
 #EXTGRP:Nhk Radio
 http://mnet.x10.mx/nhkfm.m3u8
@@ -2700,10 +2751,10 @@ http://mnet.x10.mx/nhkr1.m3u8
 #EXTINF:-1 tvg-id="nhk|radio2" tvg-name="NHK RADIO 2" tvg-logo="https://radiko.jp/v2/static/station/logo/JOAB/224x100.png" group-title="Nhk Radio",NHK RADIO 2
 #EXTGRP:Nhk Radio
 http://mnet.x10.mx/nhkr2.m3u8
-#EXTINF:-1 tvg-id="bacninh" tvg-name="BẮC NINH" tvg-logo="https://bacninhtv.vn/templates/frontend/bgtv/Assets/img/v3/btv_bg_video.jpg" group-title="Radio",BẮC NINH
+#EXTINF:-1 tvg-id="bacninhradio" tvg-name="BẮC NINH" tvg-logo="https://bacninhtv.vn/templates/frontend/bgtv/Assets/img/v3/btv_bg_video.jpg" group-title="Radio",BẮC NINH
 #EXTGRP:Radio
 https://live.mediatech.vn/live/285acd5e43b501e4c21b0af4e55810625c8/chunklist.m3u8
-#EXTINF:-1 tvg-id="camau" tvg-name="CÀ MAU" tvg-logo="http://118.69.199.136/wp-content/uploads/2014/01/radio_online.jpg" group-title="Radio",CÀ MAU
+#EXTINF:-1 tvg-id="camauradio" tvg-name="CÀ MAU" tvg-logo="http://118.69.199.136/wp-content/uploads/2014/01/radio_online.jpg" group-title="Radio",CÀ MAU
 #EXTGRP:Radio
 http://tv.ctvcamau.vn/live/radio/radio.m3u8
 #EXTINF:-1 tvg-id="canthoradio1" tvg-name="CẦN THƠ RADIO 1" tvg-logo="https://canthoplus.vn/storage/channels/9b7858d5-ff44-43b3-94ab-e4d66a54f1bd.png" group-title="Radio",CẦN THƠ RADIO 1
@@ -2715,10 +2766,10 @@ https://sgchill.io.vn/360/9905/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="HÀ NỘI FM 96" tvg-logo="https://image.voh.com.vn/voh/image/2024/03/08/dai-ha-noi-5_96mhz--3-01-111727.jpg?w=450&h=270" group-title="Radio",HÀ NỘI FM 96
 #EXTGRP:Radio
 https://sgchill.io.vn/360/9906/index.m3u8
-#EXTINF:-1 tvg-id="langson" tvg-name="LẠNG SƠN" tvg-logo="http://langsontv.vn/templates/frontend/lstv/Assets/img/radio_bg.png" group-title="Radio",LẠNG SƠN
+#EXTINF:-1 tvg-id="" tvg-name="LẠNG SƠN" tvg-logo="http://langsontv.vn/templates/frontend/lstv/Assets/img/radio_bg.png" group-title="Radio",LẠNG SƠN
 #EXTGRP:Radio
 http://103.90.220.236/lstvlive/radio-transmux.m3u8
-#EXTINF:-1 tvg-id="ninhbinh" tvg-name="NINH BÌNH" tvg-logo="https://nbtv.vn/templates/frontend/nbtv/Assets/img/audio_bg.jpg" group-title="Radio",NINH BÌNH
+#EXTINF:-1 tvg-id="" tvg-name="NINH BÌNH" tvg-logo="https://nbtv.vn/templates/frontend/nbtv/Assets/img/audio_bg.jpg" group-title="Radio",NINH BÌNH
 #EXTGRP:Radio
 https://live.mediatech.vn/live/285391a08f01f83458793b293c5e9517265/chunklist.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="QNR1 QUẢNG NINH" tvg-logo="https://media.baoquangninh.vn/upload/files/logo/logotrangchu4.png" group-title="Radio",QNR1 QUẢNG NINH
@@ -2730,13 +2781,13 @@ http://103.90.220.236/qtvlive/qnr2.m3u8
 #EXTINF:-1 tvg-id="voh925" tvg-name="VOH FM 92 925 MHZ" tvg-logo="https://image.voh.com.vn/voh/image/2025/11/17/92-5-3-104929.png" group-title="Radio",VOH FM 92 925 MHZ
 #EXTGRP:Radio
 https://strm.voh.com.vn/radio/channel6/chunklist_w1907970894.m3u8
-#EXTINF:-1 tvg-id="vtv2hd" tvg-name="VOV2" tvg-logo="https://vov2.vov.vn/themes/custom/vov_news/logo.png" group-title="Radio",VOV2
+#EXTINF:-1 tvg-id="vov2" tvg-name="VOV2" tvg-logo="https://vov2.vov.vn/themes/custom/vov_news/logo.png" group-title="Radio",VOV2
 #EXTGRP:Radio
 https://audio-lss.vov.vn/han/live/vov2/audio/haudio-eng.m3u8
-#EXTINF:-1 tvg-id="vtv3hd" tvg-name="VOV3" tvg-logo="https://vov3.vov.vn/sites/default/files/styles/front_medium/public/2021-12/Logo%20VOV3%20800x600%20edit.jpg" group-title="Radio",VOV3
+#EXTINF:-1 tvg-id="vov3" tvg-name="VOV3" tvg-logo="https://vov3.vov.vn/sites/default/files/styles/front_medium/public/2021-12/Logo%20VOV3%20800x600%20edit.jpg" group-title="Radio",VOV3
 #EXTGRP:Radio
 https://audio-lss.vov.vn/han/live/vov3/audio/haudio-eng.m3u8
-#EXTINF:-1 tvg-id="vtv5hd" tvg-name="VOV5" tvg-logo="https://foxxradio.com/upload/vi/1671788035.png.webp" group-title="Radio",VOV5
+#EXTINF:-1 tvg-id="vov5" tvg-name="VOV5" tvg-logo="https://foxxradio.com/upload/vi/1671788035.png.webp" group-title="Radio",VOV5
 #EXTGRP:Radio
 https://str.vov.gov.vn/vovlive/vov5.sdp_aac/playlist.m3u8
 #EXTINF:-1 tvg-id="vovgthn" tvg-name="VOV GIAO THÔNG HÀ NỘI" tvg-logo="https://foxxradio.com/upload/vi/1671787624.png.webp" group-title="Radio",VOV GIAO THÔNG HÀ NỘI
@@ -2745,15 +2796,15 @@ https://str.vov.gov.vn/vovlive/vovGTHN.sdp_aac/chunklist_w601606653.m3u8
 #EXTINF:-1 tvg-id="vovgthcm" tvg-name="VOV GIAO THÔNG HỒ CHÍ MINH" tvg-logo="https://foxxradio.com/upload/vi/1671787823.png.webp" group-title="Radio",VOV GIAO THÔNG HỒ CHÍ MINH
 #EXTGRP:Radio
 https://str.vov.gov.vn/vovlive/vovGTHCM.sdp_aac/chunklist_w1213978008.m3u8
-#EXTINF:-1 tvg-id="sctv1hd" tvg-name="SCTV1" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/sctv1.png" group-title="Sctv",SCTV1
+#EXTINF:-1 tvg-id="SCTV1" tvg-name="SCTV1" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/sctv1.png" group-title="Sctv",SCTV1
 #EXTGRP:Sctv
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36
 https://liveh12.vtvprime.vn/hls/SCTV1/03.m3u8
-#EXTINF:-1 tvg-id="sctv4hd" tvg-name="SCTV4" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/sctv4.png" group-title="Sctv",SCTV4
+#EXTINF:-1 tvg-id="SCTV4" tvg-name="SCTV4" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/sctv4.png" group-title="Sctv",SCTV4
 #EXTGRP:Sctv
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36
 https://liveh12.vtvprime.vn/hls/SCTV4/03.m3u8
-#EXTINF:-1 tvg-id="sctv10hd" tvg-name="SCTV10" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/SCTV10.jpg" group-title="Sctv",SCTV10
+#EXTINF:-1 tvg-id="SCTV1" tvg-name="SCTV10" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/SCTV10.jpg" group-title="Sctv",SCTV10
 #EXTGRP:Sctv
 https://liveh34.vtvprime.vn/hls/SCTV10/index.m3u8
 #EXTINF:-1 tvg-id="mjh-radio-2gb" tvg-name="2GB" tvg-logo="https://i.mjh.nz/.images/radio-2gb.png" group-title="Sydney",2GB
@@ -2986,21 +3037,10 @@ https://i.mjh.nz/.r/radio-ih-9689.aac
 #EXTVLCOPT:http-user-agent=otg/1.5.1 (AppleTv Apple TV 4; tvOS16.0; appletv.client) libcurl/7.58.0 OpenSSL/1.0.2o zlib/1.2.11 clib/1.8.56
 #EXTVLCOPT:http-referrer=
 https://i.mjh.nz/.r/radio-ih-9195
-#EXTINF:-1 tvg-id="inthebox" tvg-name="NINO CHANNEL" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/ninochannel1.jpg" group-title="Sự Kiện",NINO CHANNEL
-#EXTGRP:Sự Kiện
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
-https://sgclient.duckdns.org/source/twitch.m3u8?channel=ninochannel12
 #EXTINF:-1 tvg-id="sglive" tvg-name="SGLIVE" tvg-logo="https://devonlynino.github.io/assets/images/main.png" group-title="Sự Kiện",SGLIVE
 #EXTGRP:Sự Kiện
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
 https://sgclient.duckdns.org/source/twitch.m3u8?channel=devonlynino
-#EXTINF:-1 tvg-id="tv360plus2" tvg-name="TV360+2" tvg-logo="https://img-ali1.tv360.vn/image1/2024/09/24/21/1727189794311/c4d18ecff9f7_640_360.png" group-title="Sự Kiện Tv360",TV360+2
-#EXTGRP:Sự Kiện Tv360
-#EXTVLCOPT:http-user-agent=Dalvik/2.1.0
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vpsttt.vietanhtv.top/tv/cleankey.php?id=tv360plus2
-https://sgclient.duckdns.org/source/tv360.m3u8?id=1
 #EXTINF:-1 tvg-id="" tvg-name="SỰ KIỆN VTVPRIME 11" tvg-logo="https://vtvprime.vn/sideLogoBig.png" group-title="Sự Kiện Vtvprime",SỰ KIỆN VTVPRIME 11
 #EXTGRP:Sự Kiện Vtvprime
 https://liveh34byt.vtvprime.vn/hls/SKSS1/04.m3u8
@@ -3019,17 +3059,14 @@ https://liveh34byt.vtvprime.vn/hls/SKSS5/04.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="SỰ KIỆN VTVPRIME 16" tvg-logo="https://vtvprime.vn/sideLogoBig.png" group-title="Sự Kiện Vtvprime",SỰ KIỆN VTVPRIME 16
 #EXTGRP:Sự Kiện Vtvprime
 https://liveh34byt.vtvprime.vn/hls/SKSS6/04.m3u8
-#EXTINF:-1 tvg-id="vinhlong1hd" tvg-name="THVL1" tvg-logo="https://mytv.com.vn/upload/channel/24.png" group-title="Thvl",THVL1
+#EXTINF:-1 tvg-id="3683" tvg-name="THVL1" tvg-logo="https://mytv.com.vn/upload/channel/24.png" group-title="Thvl",THVL1
 #EXTGRP:Thvl
 #EXT-X-STREAM-INF:BANDWIDTH=3803560,AVERAGE-BANDWIDTH=3803560,CODECS="avc1.640028,mp4a.40.2",PROGRAM-ID=1,RESOLUTION=1080x720,AUDIO="audiod"
 https://oipf0znpmnliv.vcdn.cloud/hls/thvl1/index.m3u8
-#EXTINF:-1 tvg-id="vinhlong2hd" tvg-name="THVL2" tvg-logo="https://mytv.com.vn/upload/channel/28.png" group-title="Thvl",THVL2
+#EXTINF:-1 tvg-id="3711" tvg-name="THVL2" tvg-logo="https://mytv.com.vn/upload/channel/28.png" group-title="Thvl",THVL2
 #EXTGRP:Thvl
 #EXT-X-STREAM-INF:BANDWIDTH=3803560,AVERAGE-BANDWIDTH=3803560,CODECS="avc1.640028,mp4a.40.2",PROGRAM-ID=1,RESOLUTION=1080x720,AUDIO="audiod"
 https://oipf0znpmnliv.vcdn.cloud/hls/thvl2/index.m3u8
-#EXTINF:-1 tvg-id="vietnamtoday" tvg-name="VIETNAM TODAY AUDIO" tvg-logo="https://images.fptplay53.net/media/channels/icon_channel_vtv1-hd_165657381026.png" group-title="Tv Audio",VIETNAM TODAY AUDIO
-#EXTGRP:Tv Audio
-https://live.fptplay53.net/fnxhd1/vntoday_vhls.smil/chunklist.m3u8
 #EXTINF:-1 tvg-id="tvbvn" tvg-name="TVB VIỆT NAM" tvg-logo="https://tvbaw-na.s3.us-west-1.amazonaws.com/hb/TVB%20Vietnam%20Banner_Side.jpg" group-title="Tvb",TVB VIỆT NAM
 #EXTGRP:Tvb
 https://amg01868-amg01868c3-tvbanywhere-us-4491.playouts.now.amagi.tv/playlist1080p.m3u8
@@ -3042,13 +3079,13 @@ https://play.vovgiaothong.vn/live/duyenhai2/playlist.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="SCIENTIFIC SOUNDS ASIA" tvg-logo="https://static2.mytuner.mobi/media/tvos_radios/svztgcvwrjew.png" group-title="Việt Nam",SCIENTIFIC SOUNDS ASIA
 #EXTGRP:Việt Nam
 http://carol.epichosts.co.uk:8270/live.mp3
-#EXTINF:-1 tvg-id="vtv1hd" tvg-name="VOV1" tvg-logo="https://cdn.hqth.me/logo/thumbs/239.png" group-title="Việt Nam",VOV1
+#EXTINF:-1 tvg-id="vov1" tvg-name="VOV1" tvg-logo="https://cdn.hqth.me/logo/thumbs/239.png" group-title="Việt Nam",VOV1
 #EXTGRP:Việt Nam
 https://media-audio.vov.vn/vov1vov5Vietnamese.sdp_aac/playlist.m3u8
-#EXTINF:-1 tvg-id="vtv2hd" tvg-name="VOV2" tvg-logo="https://cdn.hqth.me/logo/thumbs/240.png" group-title="Việt Nam",VOV2
+#EXTINF:-1 tvg-id="vov2" tvg-name="VOV2" tvg-logo="https://cdn.hqth.me/logo/thumbs/240.png" group-title="Việt Nam",VOV2
 #EXTGRP:Việt Nam
 https://media-audio.vov.vn/vov2.sdp_aac/playlist.m3u8
-#EXTINF:-1 tvg-id="vtv3hd" tvg-name="VOV3" tvg-logo="https://cdn.hqth.me/logo/thumbs/241.png" group-title="Việt Nam",VOV3
+#EXTINF:-1 tvg-id="vov3" tvg-name="VOV3" tvg-logo="https://cdn.hqth.me/logo/thumbs/241.png" group-title="Việt Nam",VOV3
 #EXTGRP:Việt Nam
 https://media-audio.vov.vn/vov3.sdp_aac/playlist.m3u8
 #EXTINF:-1 tvg-id="vov4tn" tvg-name="VOV4 CENTRAL HIGHLANDS" tvg-logo="https://cdn.hqth.me/logo/thumbs/242.png" group-title="Việt Nam",VOV4 CENTRAL HIGHLANDS
@@ -3057,16 +3094,16 @@ https://str.vov.gov.vn/vovlive/vov4.TayNguyen.sdp_aac/playlist.m3u8
 #EXTINF:-1 tvg-id="vov247" tvg-name="VOV ENGLISH SERVICE" tvg-logo="https://cdn.hqth.me/logo/thumbs/243.png" group-title="Việt Nam",VOV ENGLISH SERVICE
 #EXTGRP:Việt Nam
 https://media-audio.vov.vn/vov247vov5English.sdp_aac/playlist.m3u8
-#EXTINF:-1 tvg-id="vtv1hd" tvg-name="VOV1" tvg-logo="https://i.imgur.com/fuuXXSo.png" group-title="Vov",VOV1
+#EXTINF:-1 tvg-id="" tvg-name="VOV1" tvg-logo="https://i.imgur.com/fuuXXSo.png" group-title="Vov",VOV1
 #EXTGRP:Vov
 https://audio-lss.vov.vn/han/live/vov1/audio/haudio-eng.m3u8
-#EXTINF:-1 tvg-id="vtv2hd" tvg-name="VOV2" tvg-logo="https://i.imgur.com/GDmiZVe.png" group-title="Vov",VOV2
+#EXTINF:-1 tvg-id="" tvg-name="VOV2" tvg-logo="https://i.imgur.com/GDmiZVe.png" group-title="Vov",VOV2
 #EXTGRP:Vov
 https://audio-lss.vov.vn/han/live/vov2/audio/manifest.m3u8
-#EXTINF:-1 tvg-id="vtv3hd" tvg-name="VOV3" tvg-logo="https://i.imgur.com/p4JOiUC.png" group-title="Vov",VOV3
+#EXTINF:-1 tvg-id="" tvg-name="VOV3" tvg-logo="https://i.imgur.com/p4JOiUC.png" group-title="Vov",VOV3
 #EXTGRP:Vov
 https://audio-lss.vov.vn/han/live/vov3/audio/manifest.m3u8
-#EXTINF:-1 tvg-id="vtv5hd" tvg-name="VOV5" tvg-logo="https://i.imgur.com/1s4kWpx.png" group-title="Vov",VOV5
+#EXTINF:-1 tvg-id="" tvg-name="VOV5" tvg-logo="https://i.imgur.com/1s4kWpx.png" group-title="Vov",VOV5
 #EXTGRP:Vov
 https://media-audio.vov.vn/vov5.sdp_aac/playlist.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="VOV 247" tvg-logo="https://i.imgur.com/jjfSOYm.png" group-title="Vov",VOV 247
@@ -3084,7 +3121,7 @@ https://play.vovgiaothong.vn/live/gthcm/playlist.m3u8
 #EXTINF:-1 tvg-id="vovgtmekong" tvg-name="VOV GT MEKONG" tvg-logo="https://cdn.hqth.me/logo/thumbs/245.png" group-title="Vov",VOV GT MEKONG
 #EXTGRP:Vov
 https://play.vovgiaothong.vn/live/mekong/playlist.m3u8
-#EXTINF:-1 tvg-id="musicbox" tvg-name="MUSIC BOX" tvg-logo="https://raw.githubusercontent.com/Hannstcott/logo/main/LOGO-MUSICBOX.png" group-title="Vtvcab",MUSIC BOX
+#EXTINF:-1 tvg-id="300043" tvg-name="MUSIC BOX" tvg-logo="https://raw.githubusercontent.com/Hannstcott/logo/main/LOGO-MUSICBOX.png" group-title="Vtvcab",MUSIC BOX
 #EXTGRP:Vtvcab
 #EXT-X-STREAM-INF:BANDWIDTH=3803560,AVERAGE-BANDWIDTH=3803560,CODECS="avc1.640028,mp4a.40.2",PROGRAM-ID=1,RESOLUTION=1080x720,AUDIO="audiod"
 https://oipf0znpmnliv.vcdn.cloud/hls/boxmusic/index.m3u8
@@ -3100,10 +3137,10 @@ http://12.troya.info:34000/ch1062/mono.m3u8?token=padurarunick1._cq6UKuIYBZy9-Z9
 #EXTINF:-1 tvg-id="3878" tvg-name="BEINSPORTS XTRA" tvg-logo="https://vn.xemtv.net/image/beinxtra.png" group-title="Xemtv",BEINSPORTS XTRA
 #EXTGRP:Xemtv
 https://amg01334-beinsportsllc-beinxtra-localnow-kcy6r.amagi.tv/playlist.m3u8
-#EXTINF:-1 tvg-id="3268" tvg-name="BHTTV" tvg-logo="https://vn.xemtv.net/image/bhttv.png" group-title="Xemtv",BHTTV
+#EXTINF:-1 tvg-id="503305" tvg-name="BHTTV" tvg-logo="https://vn.xemtv.net/image/bhttv.png" group-title="Xemtv",BHTTV
 #EXTGRP:Xemtv
 https://wse.hatinhtv.net/live/httv1/chunklist_w1547680104.m3u8
-#EXTINF:-1 tvg-id="446954" tvg-name="BLOOMBERG" tvg-logo="https://vn.xemtv.net/image/bloomberg.png" group-title="Xemtv",BLOOMBERG
+#EXTINF:-1 tvg-id="220" tvg-name="BLOOMBERG" tvg-logo="https://vn.xemtv.net/image/bloomberg.png" group-title="Xemtv",BLOOMBERG
 #EXTGRP:Xemtv
 https://www.bloomberg.com/media-manifest/streams/asia.m3u8
 #EXTINF:-1 tvg-id="516379" tvg-name="CANAL + SPORT 2" tvg-logo="https://vn.xemtv.net/image/canalplus-sport2.png" group-title="Xemtv",CANAL + SPORT 2
@@ -3217,7 +3254,7 @@ https://cdn-apse1-prod.tsv2.amagi.tv/linear/amg00718-outdoorchannela-outdoortvnz
 #EXTINF:-1 tvg-id="6185" tvg-name="PBS KIDS" tvg-logo="https://vn.xemtv.net/image/pbskids.png" group-title="Xemtv",PBS KIDS
 #EXTGRP:Xemtv
 https://2-fss-2.streamhoster.com/pl_140/amlst:200914-1298290/chunklist_b2000000.m3u8
-#EXTINF:-1 tvg-id="planetearthhd" tvg-name="PLANET EARTH" tvg-logo="https://vn.xemtv.net/image/planet-earth.png" group-title="Xemtv",PLANET EARTH
+#EXTINF:-1 tvg-id="" tvg-name="PLANET EARTH" tvg-logo="https://vn.xemtv.net/image/planet-earth.png" group-title="Xemtv",PLANET EARTH
 #EXTGRP:Xemtv
 https://xplore-vizio.amagi.tv/360p-cc/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="PPTV36 LIVE" tvg-logo="https://vn.xemtv.net/image/pptv36.png" group-title="Xemtv",PPTV36 LIVE
@@ -3283,7 +3320,7 @@ https://ngtrk.dc.beltelecom.by/ngtrk/_definst_/smil:belarus5int/playlist.m3u8
 #EXTINF:-1 tvg-id="8909" tvg-name="TVRI SPORT" tvg-logo="https://vn.xemtv.net/image/tvri-sport.png" group-title="Xemtv",TVRI SPORT
 #EXTGRP:Xemtv
 https://ott-balancer.tvri.go.id/live/eds/SportHD/hls/SportHD.m3u8
-#EXTINF:-1 tvg-id="6240" tvg-name="TVRI WORLD" tvg-logo="https://vn.xemtv.net/image/TVRI_World.png" group-title="Xemtv",TVRI WORLD
+#EXTINF:-1 tvg-id="508" tvg-name="TVRI WORLD" tvg-logo="https://vn.xemtv.net/image/TVRI_World.png" group-title="Xemtv",TVRI WORLD
 #EXTGRP:Xemtv
 https://ott-balancer.tvri.go.id/live/eds/TVRIWorld/hls/TVRIWorld.m3u8
 #EXTINF:-1 tvg-id="521" tvg-name="VIASAT EXPLORE" tvg-logo="https://vn.xemtv.net/image/viasat-explore.jpg" group-title="Xemtv",VIASAT EXPLORE
@@ -3378,11 +3415,11 @@ https://strm.voh.com.vn/radio/channel3/chunklist_w1936699032.m3u8
 #EXTINF:-1 tvg-id="8823" tvg-name="EBS KIDS" tvg-logo="https://i.ibb.co/Tk66hWb/ebskids.png" group-title="🌈| Kids",EBS KIDS
 #EXTGRP:🌈| Kids
 https://ebsonair.ebs.co.kr/ebsufamilypc/familypc1m/chunklist.m3u8
-#EXTINF:-1 tvg-id="arirang" tvg-name="ARIRANG" tvg-logo="https://i.ibb.co/HtmBMq6/Arirang-BEARTV.png" group-title="🌏| Quốc Tế",ARIRANG
+#EXTINF:-1 tvg-id="300098" tvg-name="ARIRANG" tvg-logo="https://i.ibb.co/HtmBMq6/Arirang-BEARTV.png" group-title="🌏| Quốc Tế",ARIRANG
 #EXTGRP:🌏| Quốc Tế
 #EXTVLCOPT:http-user-agent="CloudTV"
 https://liveh12.vtvprime.vn/hls/ARIRANG/03.m3u8
-#EXTINF:-1 tvg-id="afnhd" tvg-name="ASIAN FOOD NETWORK" tvg-logo="https://i.ibb.co/yqWvBRY/afn.png" group-title="🌏| Quốc Tế",ASIAN FOOD NETWORK
+#EXTINF:-1 tvg-id="997" tvg-name="ASIAN FOOD NETWORK" tvg-logo="https://i.ibb.co/yqWvBRY/afn.png" group-title="🌏| Quốc Tế",ASIAN FOOD NETWORK
 #EXTGRP:🌏| Quốc Tế
 #EXTVLCOPT:http-user-agent="CloudTV"
 https://liveh12.vtvprime.vn/hls/AFC/03.m3u8
@@ -3390,23 +3427,23 @@ https://liveh12.vtvprime.vn/hls/AFC/03.m3u8
 #EXTGRP:🌏| Quốc Tế
 #EXTVLCOPT:http-user-agent="CloudTV"
 https://liveh12.vtvprime.vn/hls/CAN/03.m3u8
-#EXTINF:-1 tvg-id="410" tvg-name="DA VINCI" tvg-logo="https://i.ibb.co/BVdwFmN/Da-Vinci-cc.png" group-title="🌏| Quốc Tế",DA VINCI
+#EXTINF:-1 tvg-id="955" tvg-name="DA VINCI" tvg-logo="https://i.ibb.co/BVdwFmN/Da-Vinci-cc.png" group-title="🌏| Quốc Tế",DA VINCI
 #EXTGRP:🌏| Quốc Tế
 #EXTVLCOPT:http-user-agent="CloudTV"
 https://liveh12.vtvprime.vn/hls/DAVINVY/04.m3u8
-#EXTINF:-1 tvg-id="dw" tvg-name="DW" tvg-logo="https://i.ibb.co/kGkh233/DWTV-BEARTV.png" group-title="🌏| Quốc Tế",DW
+#EXTINF:-1 tvg-id="368373" tvg-name="DW" tvg-logo="https://i.ibb.co/kGkh233/DWTV-BEARTV.png" group-title="🌏| Quốc Tế",DW
 #EXTGRP:🌏| Quốc Tế
 #EXTVLCOPT:http-user-agent="CloudTV"
 https://liveh12.vtvprime.vn/hls/DW/03.m3u8
-#EXTINF:-1 tvg-id="france24eng" tvg-name="FRANCE 24" tvg-logo="https://i.ibb.co/BztxwvZ/FRANCE-24-BEARTV.png" group-title="🌏| Quốc Tế",FRANCE 24
+#EXTINF:-1 tvg-id="300093" tvg-name="FRANCE 24" tvg-logo="https://i.ibb.co/BztxwvZ/FRANCE-24-BEARTV.png" group-title="🌏| Quốc Tế",FRANCE 24
 #EXTGRP:🌏| Quốc Tế
 #EXTVLCOPT:http-user-agent="CloudTV"
 https://liveh12.vtvprime.vn/hls/FRANCE24/03.m3u8
-#EXTINF:-1 tvg-id="2356" tvg-name="HISTORY SV2" tvg-logo="https://i.imgur.com/ZL62USj.png" group-title="🌏| Quốc Tế",HISTORY SV2
+#EXTINF:-1 tvg-id="2154" tvg-name="HISTORY SV2" tvg-logo="https://i.imgur.com/ZL62USj.png" group-title="🌏| Quốc Tế",HISTORY SV2
 #EXTGRP:🌏| Quốc Tế
 #EXTVLCOPT:http-user-agent="CloudTV"
 https://liveh34.vtvprime.vn/hls/HISTORY/02.m3u8
-#EXTINF:-1 tvg-id="kbsworld" tvg-name="KBS WORLD" tvg-logo="https://i.ibb.co/8XwH2hS/KBS-World-BEARTV.png" group-title="🌏| Quốc Tế",KBS WORLD
+#EXTINF:-1 tvg-id="2259" tvg-name="KBS WORLD" tvg-logo="https://i.ibb.co/8XwH2hS/KBS-World-BEARTV.png" group-title="🌏| Quốc Tế",KBS WORLD
 #EXTGRP:🌏| Quốc Tế
 #EXTVLCOPT:http-user-agent="CloudTV"
 https://liveh12.vtvprime.vn/hls/KBS/03.m3u8
@@ -3418,11 +3455,11 @@ https://liveh34.vtvprime.vn/hls/KIX/04.m3u8
 #EXTGRP:🌏| Quốc Tế
 #EXTVLCOPT:http-user-agent="CloudTV"
 https://liveh12.vtvprime.vn/hls/NHKWORLD/03.m3u8
-#EXTINF:-1 tvg-id="tv5monde" tvg-name="TV5MONDE" tvg-logo="https://i.ibb.co/HnBxLwB/TV5-Monde-BEARTV.png" group-title="🌏| Quốc Tế",TV5MONDE
+#EXTINF:-1 tvg-id="54020" tvg-name="TV5MONDE" tvg-logo="https://i.ibb.co/HnBxLwB/TV5-Monde-BEARTV.png" group-title="🌏| Quốc Tế",TV5MONDE
 #EXTGRP:🌏| Quốc Tế
 #EXTVLCOPT:http-user-agent="CloudTV"
 https://liveh12.vtvprime.vn/hls/TV5/03.m3u8
-#EXTINF:-1 tvg-id="sctv10hd" tvg-name="SCTV10" tvg-logo="https://i.ibb.co/4sN9Rnm/ccsctv10.webp" group-title="🔴 Sctv Sv2",SCTV10
+#EXTINF:-1 tvg-id="SCTV1" tvg-name="SCTV10" tvg-logo="https://i.ibb.co/4sN9Rnm/ccsctv10.webp" group-title="🔴 Sctv Sv2",SCTV10
 #EXTGRP:🔴 Sctv Sv2
 #EXTVLCOPT:http-user-agent=ExoPlayerLib/CloudTV/
 https://liveh34.vtvprime.vn/hls/SCTV10/03.m3u8
