@@ -8,7 +8,7 @@ import xml.etree.ElementTree as ET
 import concurrent.futures
 import logging
 
-# Cấu hình Logging tinh gọn
+# Cấu hình Logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
@@ -27,7 +27,7 @@ GROUP_PRIORITY = {
     'K+': 6, 'THỂ THAO': 7, 'PHIM TRUYỆN': 8, 'QUỐC TẾ': 9, 'ĐỊA PHƯƠNG': 10
 }
 
-# Tiền biên dịch các Regex
+# Tiền biên dịch Regex
 RE_SPLIT_NAME = re.compile(r'[_\|]')
 RE_CLEAN_TAGS = re.compile(r'(?i)[\[\(\-_\.]?\b(fhd|hd|sd|1080p|720p|4k|vn|vie|h264|hevc|clip|tv|fpt|sctv|vtc|local|chính|phụ)\b[\]\)\-_\.]?')
 RE_FIX_BRANDS = re.compile(r'(?i)(vtv|htv|vtc|sctv|vtvcab|k\+)\s+(\d+)')
@@ -53,6 +53,7 @@ class M3UBuilder:
         self.epg_urls = set()
         self.unique_links = {}
         self.available_xml_ids = set()
+        self.xml_name_mapping = {} # KHÔI PHỤC BỘ NHỚ MAP TÊN
         self.epg_xml_roots = []    
         self.final_used_ids = set()
         self.source_status = {}
@@ -177,11 +178,18 @@ class M3UBuilder:
             root = ET.fromstring(xml_data)
             
             local_ids = set()
+            local_mapping = {}
             for elem in root.findall('channel'):
                 ch_id = elem.get('id')
-                if ch_id:
-                    local_ids.add(ch_id)
-            return root, local_ids
+                if not ch_id: continue
+                local_ids.add(ch_id)
+                # Đọc tên kênh trong EPG để hỗ trợ map chính xác
+                for dn in elem.findall('display-name'):
+                    if dn.text:
+                        norm_name = self.normalize_channel_name(dn.text)
+                        if norm_name not in local_mapping:
+                            local_mapping[norm_name] = ch_id
+            return root, local_ids, local_mapping
         except Exception as e:
             logger.error(f"Lỗi xử lý EPG từ {epg_url}: {e}")
             return None
@@ -195,9 +203,21 @@ class M3UBuilder:
             
         for res in results:
             if res:
-                root, local_ids = res
+                root, local_ids, local_mapping = res
                 self.epg_xml_roots.append(root)
                 self.available_xml_ids.update(local_ids)
+                self.xml_name_mapping.update(local_mapping)
+
+    # HÀM MỚI: Khớp chính xác 100%, tuyệt đối không dùng difflib đoán bừa
+    def get_best_id_match(self, clean_name, orig_id):
+        # 1. Nếu có ID chuẩn từ nguồn -> Dùng luôn
+        if orig_id in self.available_xml_ids: 
+            return orig_id
+        # 2. Nếu ID trống, kiểm tra xem tên kênh có nằm gọn trong EPG không
+        if clean_name in self.xml_name_mapping: 
+            return self.xml_name_mapping[clean_name]
+        # 3. Không có thì bỏ qua, trả về rỗng
+        return ""
 
     def run(self):
         if not os.path.exists(SOURCE_FILE):
@@ -238,12 +258,10 @@ class M3UBuilder:
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             f.write('#EXTM3U x-tvg-url="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/light_epg.xml"\n')
             for ch in working_links:
-                # GỐC HÓA LOGIC: Chỉ giữ lại tvg-id gốc của list, nếu id đó tồn tại trong dữ liệu EPG thì dùng
-                final_id = ch['tvg_id']
-                if final_id in self.available_xml_ids: 
+                # Áp dụng logic nối EPG chuẩn
+                final_id = self.get_best_id_match(ch['name'], ch['tvg_id'])
+                if final_id: 
                     self.final_used_ids.add(final_id)
-                else:
-                    final_id = "" # Nếu EPG không có ID này, thà bỏ trống để đầu phát không hiện sai chương trình ngoại
                 
                 line = f'#EXTINF:-1 tvg-id="{final_id}" tvg-name="{ch["name"]}" tvg-logo="{ch["tvg_logo"]}" group-title="{ch["group"]}",{ch["name"]}'
                 f.write(line + "\n")
@@ -270,7 +288,7 @@ class M3UBuilder:
             ET.indent(tree, space="  ", level=0)
             tree.write(OUTPUT_EPG, encoding='utf-8', xml_declaration=True)
 
-        logger.info("Hệ thống đã cập nhật thành công Full EPG chính xác theo bản gốc!")
+        logger.info("Đã khắc phục lỗi EPG và xuất EPG chuẩn thành công!")
 
 if __name__ == "__main__":
     M3UBuilder().run()
