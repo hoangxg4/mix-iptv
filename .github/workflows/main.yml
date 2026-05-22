@@ -3,7 +3,7 @@ name: Update IPTV Playlist
 on:
   schedule:
     # Chạy tự động mỗi 12 tiếng
-    - cron: '0 */12 * * *'
+    - cron: '0 */6 * * *'
   
   workflow_dispatch: # Cho phép bấm nút chạy thủ công
   
@@ -20,12 +20,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4 # Nâng cấp lên v4
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v5 # Nâng cấp lên v5
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.10' # Lên 3.10 cho tốc độ xử lý nhanh hơn
+          python-version: '3.10'
 
       - name: Install dependencies
         run: |
@@ -36,8 +36,8 @@ jobs:
         run: python main.py
 
       - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v5 # Nâng cấp v5
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🤖 Auto-update playlist and light EPG [skip ci]"
-          # CHÚ Ý: Bổ sung thêm light_epg.xml vào danh sách commit
-          file_pattern: "playlist.m3u light_epg.xml"
+          commit_message: "🤖 Auto-update playlist, EPG & update source status [skip ci]"
+          # Đã bổ sung đầy đủ 3 file cần update
+          file_pattern: "playlist.m3u light_epg.xml sources.txt"
