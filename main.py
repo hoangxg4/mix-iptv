@@ -8,23 +8,18 @@ import xml.etree.ElementTree as ET
 import concurrent.futures
 import logging
 
-# =====================================================================
-# CẤU HÌNH LOGGING TINH GỌN - CHẶN SPAM LOG TỪ URLLIB3 & REQUESTS
-# =====================================================================
+# Cấu hình Logging tinh gọn
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
-
-# Khóa họng các thông báo Retry/Warning vặt vãnh của thư viện hệ thống
 logging.getLogger("urllib3").setLevel(logging.ERROR)
 logging.getLogger("requests").setLevel(logging.ERROR)
-# =====================================================================
 
 SOURCE_FILE = "sources.txt"
 OUTPUT_FILE = "playlist.m3u"
 OUTPUT_EPG = "light_epg.xml"
 
 TIMEOUT = 10
-STREAM_TIMEOUT = 2  
+STREAM_TIMEOUT = 3  # Tăng nhẹ thời gian phản hồi cho luồng trong nước
 MAX_WORKERS = 64     
 
 SPAM_KEYWORDS = ['mời quý khán giả', 'thông báo', 'tạm ngưng', 'bảo trì', 'kênh dự phòng', 'test']
@@ -35,7 +30,7 @@ GROUP_PRIORITY = {
 }
 
 RE_SPLIT_NAME = re.compile(r'[_\|]')
-RE_CLEAN_TAGS = re.compile(r'(?i)[\[\(\-_\.]?\b(fhd|hd|sd|1080p|720p|4k|vn|vie|h264|hevc|clip|tv|fpt|sctv|vtc|local|chính|phụ)\b[\]\)\-_\.]?')
+RE_CLEAN_TAGS = re.compile(r'(?i)[\[\(\-_\.]?\b(vn|vie|h264|hevc|clip|tv|fpt|sctv|vtc|local|chính|phụ)\b[\]\)\-_\.]?')
 RE_FIX_BRANDS = re.compile(r'(?i)(vtv|htv|vtc|sctv|vtvcab|k\+)\s+(\d+)')
 RE_SPECIAL_CHARS = re.compile(r'[^\w\s\+]')
 RE_INTL = re.compile(r'\b(hbo|cinemax|axn|discovery|disney|cartoon|fox|warner|paramount|nat geo|fashion|fon|cnbc|cnn|bbc)\b')
@@ -71,7 +66,9 @@ class M3UBuilder:
         self.session.mount('https://', adapter)
 
     def normalize_channel_name(self, name: str) -> str:
-        name = RE_SPLIT_NAME.split(name)[0] 
+        name = RE_SPLIT_NAME.split(name)[0]
+        # SỬA LỖI 2: Xóa triệt để chữ HD/FHD dính liền vào số (Ví dụ: VTV1HD -> VTV1, HTV7FHD -> HTV7)
+        name = re.sub(r'(?i)(fhd|hd|sd|1080p|720p|4k|hevc|h264)', ' ', name)
         name = RE_CLEAN_TAGS.sub(' ', name)
         name = RE_FIX_BRANDS.sub(r'\1\2', name)
         name = RE_SPECIAL_CHARS.sub('', name)
@@ -138,8 +135,10 @@ class M3UBuilder:
     def check_single_link(self, data):
         clean_url, headers = self.parse_url_headers(data['url'])
         try:
-            res = self.session.head(clean_url, headers=headers, timeout=STREAM_TIMEOUT, allow_redirects=True)
-            if res.status_code < 400: return data
+            # SỬA LỖI 1: Thay HEAD bằng GET + stream=True để "cứu" các link chặn HEAD từ nhà đài VN
+            with self.session.get(clean_url, headers=headers, timeout=STREAM_TIMEOUT, allow_redirects=True, stream=True) as res:
+                if res.status_code < 400: 
+                    return data
         except requests.RequestException:
             pass
         return None
@@ -207,14 +206,31 @@ class M3UBuilder:
     def get_best_id_match(self, clean_name, orig_id):
         orig_id_lower = orig_id.lower() if orig_id else ""
         cname_lower = clean_name.lower()
+        
         for brand in ['vtv', 'htv', 'vtc', 'sctv']:
             if brand in cname_lower and brand not in orig_id_lower:
                 orig_id_lower = "" 
                 break
+
+        # TẦNG 1: Khớp ID gốc chuẩn trực tiếp trong EPG
         if orig_id_lower and orig_id_lower in self.epg_id_map: 
             return self.epg_id_map[orig_id_lower]
+            
+        # TẦNG 2: Khớp chính xác 100% theo tên đã chuẩn hóa
         if clean_name in self.xml_name_mapping: 
             return self.xml_name_mapping[clean_name]
+            
+        # TẦNG 3 (MỚI - SỬA LỖI 3): Dò tìm Fuzzy theo ID chứa tên kênh (cho đài trong nước)
+        if any(b in cname_lower for b in ['vtv', 'htv', 'vtc', 'sctv', 'k+']):
+            # Thử tìm xem có EPG ID nào khớp dạng: vtv1.vn, vtv1hd, vtv1_hd không
+            for epg_id_low, actual_id in self.epg_id_map.items():
+                if epg_id_low == cname_lower or epg_id_low.startswith(cname_lower + ".") or epg_id_low == cname_lower + "hd" or epg_id_low == cname_lower + "_hd":
+                    return actual_id
+            # Dò ngược trong danh sách Display-Name gốc của EPG
+            for x_name, ch_id in self.xml_name_mapping.items():
+                if cname_lower in x_name.lower() or x_name.lower() in cname_lower:
+                    return ch_id
+                    
         return ""
 
     def run(self):
@@ -309,7 +325,7 @@ class M3UBuilder:
             ET.indent(tree, space="  ", level=0)
             tree.write(OUTPUT_EPG, encoding='utf-8', xml_declaration=True)
 
-        logger.info("Hoàn tất! Hệ thống đã loại bỏ hoàn toàn log rác.")
+        logger.info("Hoàn tất! Đã sửa xong toàn bộ lỗi mất EPG đài trong nước.")
 
 if __name__ == "__main__":
     M3UBuilder().run()
