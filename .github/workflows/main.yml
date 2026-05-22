@@ -2,14 +2,19 @@ name: Update IPTV Playlist
 
 on:
   schedule:
-    # Chạy tự động mỗi 12 tiếng
+    # Tự động chạy mỗi 6 tiếng một lần (vào các giờ 00:00, 06:00, 12:00, 18:00 giờ UTC)
     - cron: '0 */6 * * *'
   
-  workflow_dispatch: # Cho phép bấm nút chạy thủ công
+  workflow_dispatch: # Cho phép bạn bấm nút "Run workflow" để chạy thủ công bất kỳ lúc nào
   
   push:
     paths:
-      - 'sources.txt' # Tự động chạy khi file này có thay đổi
+      - 'sources.txt' # Tự động kích hoạt chạy khi bạn cập nhật danh sách link nguồn
+
+# Cơ chế chống xung đột: Nếu có job mới kích hoạt, job cũ đang chạy sẽ tự động bị hủy
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -38,6 +43,8 @@ jobs:
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
+          # Thẻ [skip ci] cực kỳ quan trọng để tránh tạo vòng lặp chạy vô tận khi bot commit sources.txt
           commit_message: "🤖 Auto-update playlist, EPG & update source status [skip ci]"
-          # Đã bổ sung đầy đủ 3 file cần update
+          
+          # Theo dõi và cập nhật đồng thời cả 3 file sau khi script Python thực thi xong
           file_pattern: "playlist.m3u light_epg.xml sources.txt"
