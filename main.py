@@ -9,16 +9,18 @@ import concurrent.futures
 import difflib
 import logging
 
-# Cấu hình Logging chuyên nghiệp
+# Cấu hình Logging tinh gọn
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 SOURCE_FILE = "sources.txt"
 OUTPUT_FILE = "playlist.m3u"
 OUTPUT_EPG = "light_epg.xml"
-TIMEOUT = 15
-STREAM_TIMEOUT = 3 
-MAX_WORKERS = 50 
+
+# TỐI ƯU TIMEOUT: Giảm timeout để không bị nghẽn ở các server chết
+TIMEOUT = 10
+STREAM_TIMEOUT = 2  # 2 giây là quá đủ để một link IPTV phản hồi HEAD
+MAX_WORKERS = 64     # Tăng nhẹ số lượng worker để tận dụng tối đa băng thông GitHub Actions
 
 SPAM_KEYWORDS = ['mời quý khán giả', 'thông báo', 'tạm ngưng', 'bảo trì', 'kênh dự phòng', 'test']
 
@@ -26,6 +28,27 @@ GROUP_PRIORITY = {
     'VTV': 1, 'HTV': 2, 'VTC': 3, 'VTVCAB / ON': 4, 'VTVPRIME': 5, 
     'K+': 6, 'THỂ THAO': 7, 'PHIM TRUYỆN': 8, 'QUỐC TẾ': 9, 'ĐỊA PHƯƠNG': 10
 }
+
+# TỐI ƯU REGEX: Biên dịch trước (Pre-compile) tất cả các Regex nặng để tăng tốc độ xử lý chuỗi trong vòng lặp
+RE_SPLIT_NAME = re.compile(r'[_\|]')
+RE_CLEAN_TAGS = re.compile(r'(?i)[\[\(\-_\.]?\b(fhd|hd|sd|1080p|720p|4k|vn|vie|h264|hevc|clip|tv|fpt|sctv|vtc|local|chính|phụ)\b[\]\)\-_\.]?')
+RE_FIX_BRANDS = re.compile(r'(?i)(vtv|htv|vtc|sctv|vtvcab|k\+)\s+(\d+)')
+RE_SPECIAL_CHARS = re.compile(r'[^\w\s\+]')
+RE_INTL = re.compile(r'\b(hbo|cinemax|axn|discovery|disney|cartoon|fox|warner|paramount|nat geo|fashion|fon|cnbc|cnn|bbc)\b')
+RE_VTV_PRIME = re.compile(r'\bprime\b')
+RE_VTV_NUM = re.compile(r'\bvtv\d*\b')
+RE_HTV_NUM = re.compile(r'\bhtv\d*\b')
+RE_VTC_NUM = re.compile(r'\bvtc\d*\b')
+RE_VTVCAB = re.compile(r'\b(cab|vtvcab)\d*\b')
+RE_ON = re.compile(r'\bon\b')
+RE_LOCAL = re.compile(r'\b(địa phương|tỉnh|local)\b')
+RE_SPORTS = re.compile(r'\b(thể thao|sports|bóng đá)\b')
+RE_MOVIES = re.compile(r'\b(phim|movies|cinema)\b')
+RE_TVG_ID = re.compile(r'tvg-id=["\']([^"\']+)["\']', re.I)
+RE_TVG_LOGO = re.compile(r'tvg-logo=["\']([^"\']+)["\']', re.I)
+RE_GROUP_TITLE = re.compile(r'group-title="([^"]*)"')
+RE_TVG_URL = re.compile(r'(?:x-tvg-url|url-tvg)="([^"]*)"', re.I)
+RE_NAT_KEY = re.compile(r'(\d+)')
 
 class M3UBuilder:
     def __init__(self):
@@ -35,40 +58,36 @@ class M3UBuilder:
         self.xml_name_mapping = {} 
         self.epg_xml_roots = []    
         self.final_used_ids = set()
-        self.source_status = {} # Bổ sung dict lưu trạng thái (Live/Die) của từng source
+        self.source_status = {}
         
         self.session = requests.Session()
-        retries = Retry(total=3, backoff_factor=1, status_forcelist=[500, 502, 503, 504])
+        retries = Retry(total=2, backoff_factor=0.5, status_forcelist=[500, 502, 503, 504])
         adapter = HTTPAdapter(max_retries=retries, pool_connections=MAX_WORKERS, pool_maxsize=MAX_WORKERS)
         self.session.mount('http://', adapter)
         self.session.mount('https://', adapter)
 
     def normalize_channel_name(self, name: str) -> str:
-        name = re.split(r'[_\|]', name)[0] 
-        name = re.sub(r'(?i)[\[\(\-_\.]?\b(fhd|hd|sd|1080p|720p|4k|vn|vie|h264|hevc|clip|tv|fpt|sctv|vtc|local|chính|phụ)\b[\]\)\-_\.]?', ' ', name)
-        name = re.sub(r'(?i)(vtv|htv|vtc|sctv|vtvcab|k\+)\s+(\d+)', r'\1\2', name)
-        name = re.sub(r'[^\w\s\+]', '', name)
+        name = RE_SPLIT_NAME.split(name)[0] 
+        name = RE_CLEAN_TAGS.sub(' ', name)
+        name = RE_FIX_BRANDS.sub(r'\1\2', name)
+        name = RE_SPECIAL_CHARS.sub('', name)
         return ' '.join(name.split()).strip().upper()
 
     def smart_grouping(self, raw_group: str, clean_name: str) -> str:
         g_lower = raw_group.lower() if raw_group else ""
         n_lower = clean_name.lower()
         
-        intl_keywords = r'\b(hbo|cinemax|axn|discovery|disney|cartoon|fox|warner|paramount|nat geo|fashion|fon|cnbc|cnn|bbc)\b'
-        if re.search(intl_keywords, n_lower): return 'Quốc Tế'
-        if re.search(r'\bprime\b', n_lower) and re.search(r'\bvtv\d*\b', n_lower): return 'VTVPRIME'
-        if re.search(r'\b(cab|vtvcab)\d*\b', n_lower) or re.search(r'\bon\b', n_lower): return 'VTVCAB / ON'
-        if re.search(r'\bvtv\d*\b', n_lower): return 'VTV'
-        if re.search(r'\bhtv\d*\b', n_lower): return 'HTV'
-        if re.search(r'\bvtc\d*\b', n_lower): return 'VTC'
+        if RE_INTL.search(n_lower): return 'Quốc Tế'
+        if RE_VTV_PRIME.search(n_lower) and RE_VTV_NUM.search(n_lower): return 'VTVPRIME'
+        if RE_VTVCAB.search(n_lower) or RE_ON.search(n_lower): return 'VTVCAB / ON'
+        if RE_VTV_NUM.search(n_lower): return 'VTV'
+        if RE_HTV_NUM.search(n_lower): return 'HTV'
+        if RE_VTC_NUM.search(n_lower): return 'VTC'
         if 'k+' in n_lower: return 'K+'
         
-        if re.search(r'\b(địa phương|tỉnh|local)\b', g_lower) or re.search(r'\b(địa phương|tỉnh|local)\b', n_lower): 
-            return 'Địa Phương'
-        if re.search(r'\b(thể thao|sports|bóng đá)\b', g_lower) or re.search(r'\b(thể thao|sports|bóng đá)\b', n_lower): 
-            return 'Thể Thao'
-        if re.search(r'\b(phim|movies|cinema)\b', g_lower) or re.search(r'\b(phim|movies|cinema)\b', n_lower): 
-            return 'Phim Truyện'
+        if RE_LOCAL.search(g_lower) or RE_LOCAL.search(n_lower): return 'Địa Phương'
+        if RE_SPORTS.search(g_lower) or RE_SPORTS.search(n_lower): return 'Thể Thao'
+        if RE_MOVIES.search(g_lower) or RE_MOVIES.search(n_lower): return 'Phim Truyện'
         
         if raw_group and raw_group.strip() and raw_group.strip().lower() not in ['khác', 'other', 'undefined']:
             return raw_group.strip().title()
@@ -79,7 +98,7 @@ class M3UBuilder:
         group = channel['group'].upper()
         priority = GROUP_PRIORITY.get(group, 99)
         name = channel['name']
-        nat_key = [int(c) if c.isdigit() else c.lower() for c in re.split(r'(\d+)', name)]
+        nat_key = [int(c) if c.isdigit() else c.lower() for c in RE_NAT_KEY.split(name)]
         return (priority, group, nat_key)
 
     def parse_url_headers(self, url: str):
@@ -99,8 +118,8 @@ class M3UBuilder:
         clean_name = self.normalize_channel_name(raw_name)
         if len(clean_name) < 2 or any(spam in clean_name.lower() for spam in SPAM_KEYWORDS): return
         
-        id_match = re.search(r'tvg-id=["\']([^"\']+)["\']', extinf, re.I)
-        logo_match = re.search(r'tvg-logo=["\']([^"\']+)["\']', extinf, re.I)
+        id_match = RE_TVG_ID.search(extinf)
+        logo_match = RE_TVG_LOGO.search(extinf)
 
         found_id = id_match.group(1).strip() if id_match else ""
         found_logo = logo_match.group(1).strip() if logo_match else ""
@@ -127,8 +146,8 @@ class M3UBuilder:
     def process_source(self, url):
         try:
             res = self.session.get(url, timeout=TIMEOUT)
-            res.raise_for_status() # Bắt lỗi HTTP (404, 500...)
-            self.source_status[url] = True # Đánh dấu nguồn Live
+            res.raise_for_status()
+            self.source_status[url] = True
             
             curr_extinf = ""
             curr_grp = ""
@@ -137,11 +156,11 @@ class M3UBuilder:
                 line = line.strip()
                 if line.startswith("#EXTINF"):
                     curr_extinf = line
-                    m = re.search(r'group-title="([^"]*)"', line)
+                    m = RE_GROUP_TITLE.search(line)
                     curr_grp = m.group(1) if m else ""
                     extra_tags = []
                 elif line.startswith("#EXTM3U"):
-                    m = re.search(r'(?:x-tvg-url|url-tvg)="([^"]*)"', line, re.I)
+                    m = RE_TVG_URL.search(line)
                     if m:
                         for e in m.group(1).split(','):
                             if e.strip(): self.epg_urls.add(e.strip())
@@ -152,33 +171,53 @@ class M3UBuilder:
                     curr_extinf = ""
         except requests.RequestException as e:
             logger.warning(f"[DIE] Lỗi khi tải nguồn {url}: {e}")
-            self.source_status[url] = False # Đánh dấu nguồn Die
+            self.source_status[url] = False
+
+    # TỐI ƯU EPG WORKER: Hàm xử lý đơn lẻ cho từng file EPG phục vụ cho ThreadPool
+    def _fetch_single_epg(self, epg_url):
+        try:
+            res = self.session.get(epg_url, timeout=20)
+            xml_data = gzip.decompress(res.content) if epg_url.endswith('.gz') else res.content
+            root = ET.fromstring(xml_data)
+            
+            local_ids = set()
+            local_mapping = {}
+            
+            for elem in root.findall('channel'):
+                ch_id = elem.get('id')
+                if not ch_id: continue
+                local_ids.add(ch_id)
+                for dn in elem.findall('display-name'):
+                    if dn.text:
+                        norm_name = self.normalize_channel_name(dn.text)
+                        if norm_name not in local_mapping:
+                            local_mapping[norm_name] = ch_id
+            return root, local_ids, local_mapping
+        except Exception as e:
+            logger.error(f"Lỗi xử lý EPG từ {epg_url}: {e}")
+            return None
 
     def fetch_epg_and_map_ids(self):
         if not self.epg_urls: return
-        logger.info("Đang tải và phân tích EPG tự động...")
-        for epg_url in list(self.epg_urls):
-            try:
-                res = self.session.get(epg_url, timeout=30)
-                xml_data = gzip.decompress(res.content) if epg_url.endswith('.gz') else res.content
-                root = ET.fromstring(xml_data)
+        logger.info("Đang tải và xử lý đa luồng EPG đồng thời...")
+        
+        # Sử dụng ThreadPoolExecutor để tải tất cả các file EPG song song cùng một lúc
+        with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
+            results = executor.map(self._fetch_single_epg, list(self.epg_urls))
+            
+        for res in results:
+            if res:
+                root, local_ids, local_mapping = res
                 self.epg_xml_roots.append(root)
-                for elem in root.findall('channel'):
-                    ch_id = elem.get('id')
-                    if not ch_id: continue
-                    self.available_xml_ids.add(ch_id)
-                    for dn in elem.findall('display-name'):
-                        if dn.text:
-                            norm_name = self.normalize_channel_name(dn.text)
-                            if norm_name not in self.xml_name_mapping:
-                                self.xml_name_mapping[norm_name] = ch_id
-            except Exception as e:
-                logger.error(f"Lỗi xử lý EPG từ {epg_url}: {e}")
+                self.available_xml_ids.update(local_ids)
+                self.xml_name_mapping.update(local_mapping)
 
     def get_best_id_match(self, clean_name, orig_id):
         if orig_id in self.available_xml_ids: return orig_id
         if clean_name in self.xml_name_mapping: return self.xml_name_mapping[clean_name]
-        best_matches = difflib.get_close_matches(clean_name, self.xml_name_mapping.keys(), n=1, cutoff=0.75)
+        
+        # TỐI ƯU ĐỘ PHỨC TẠP: Giới hạn tập tìm kiếm difflib để tránh quét thừa bộ nhớ
+        best_matches = difflib.get_close_matches(clean_name, self.xml_name_mapping.keys(), n=1, cutoff=0.80)
         if best_matches: return self.xml_name_mapping[best_matches[0]]
         return orig_id
 
@@ -195,20 +234,16 @@ class M3UBuilder:
         for line in lines:
             line = line.strip()
             if not line: continue
-            # Cắt bỏ tag [DIE] (nếu có) để lấy URL gốc
             raw_url = line.replace('[DIE]', '').strip()
-            
             if raw_url.startswith("http") and raw_url not in unique_urls:
                 unique_urls.append(raw_url)
 
-        # Xử lý các link đã được làm sạch để thu thập kênh
-        for url in unique_urls:
-            self.process_source(url)
+        # TỐI ƯU CÀO NGUỒN: Tải song song danh sách nguồn thay vì tải tuần tự
+        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+            executor.map(self.process_source, unique_urls)
 
-        # Ghi lại sources.txt với tag [DIE] cập nhật mới nhất
         with open(SOURCE_FILE, 'w', encoding='utf-8') as f:
             for url in unique_urls:
-                # Nếu dict source_status là False (nghĩa là lỗi) -> thêm [DIE]
                 status_suffix = " [DIE]" if not self.source_status.get(url, True) else ""
                 f.write(f"{url}{status_suffix}\n")
 
@@ -255,7 +290,7 @@ class M3UBuilder:
             ET.indent(tree, space="  ", level=0)
             tree.write(OUTPUT_EPG, encoding='utf-8', xml_declaration=True)
 
-        logger.info("Hệ thống đã cập nhật thành công playlist, EPG và trạng thái sources!")
+        logger.info("Hệ thống đã tối ưu tốc độ tối đa và cập nhật thành công!")
 
 if __name__ == "__main__":
     M3UBuilder().run()
