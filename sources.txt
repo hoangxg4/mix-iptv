@@ -1,4 +1,4 @@
-https://github.com/luongtamlong/DAKLAK_RADIO/raw/refs/heads/main/DAKLAKIPTV [DIE]
+https://github.com/luongtamlong/DAKLAK_RADIO/raw/refs/heads/main/DAKLAKIPTV
 https://github.com/luongtamlong/DAKLAK_RADIO/raw/refs/heads/main/RadioQuocTe.m3u
 https://github.com/luongtamlong/DAKLAK_RADIO/raw/refs/heads/main/RadioVietNam.m3u
 https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/vmttv
