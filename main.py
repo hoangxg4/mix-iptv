@@ -8,7 +8,7 @@ import xml.etree.ElementTree as ET
 import concurrent.futures
 import logging
 
-# Cấu hình Logging
+# Cấu hình Logging tinh gọn
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
@@ -27,7 +27,7 @@ GROUP_PRIORITY = {
     'K+': 6, 'THỂ THAO': 7, 'PHIM TRUYỆN': 8, 'QUỐC TẾ': 9, 'ĐỊA PHƯƠNG': 10
 }
 
-# Tiền biên dịch Regex
+# Tiền biên dịch các mẫu Regex
 RE_SPLIT_NAME = re.compile(r'[_\|]')
 RE_CLEAN_TAGS = re.compile(r'(?i)[\[\(\-_\.]?\b(fhd|hd|sd|1080p|720p|4k|vn|vie|h264|hevc|clip|tv|fpt|sctv|vtc|local|chính|phụ)\b[\]\)\-_\.]?')
 RE_FIX_BRANDS = re.compile(r'(?i)(vtv|htv|vtc|sctv|vtvcab|k\+)\s+(\d+)')
@@ -45,15 +45,19 @@ RE_MOVIES = re.compile(r'\b(phim|movies|cinema)\b')
 RE_TVG_ID = re.compile(r'tvg-id=["\']([^"\']+)["\']', re.I)
 RE_TVG_LOGO = re.compile(r'tvg-logo=["\']([^"\']+)["\']', re.I)
 RE_GROUP_TITLE = re.compile(r'group-title="([^"]*)"')
-RE_TVG_URL = re.compile(r'(?:x-tvg-url|url-tvg)="([^"]*)"', re.I)
+
+# VÁ LỖI 3: Mở rộng nhận diện mọi kiểu định nghĩa EPG (tvg-url, x-tvg-url, url-tvg)
+RE_TVG_URL = re.compile(r'(?:x-tvg-url|url-tvg|tvg-url)=["\']([^"\']+)["\']', re.I)
 RE_NAT_KEY = re.compile(r'(\d+)')
 
 class M3UBuilder:
     def __init__(self):
         self.epg_urls = set()
         self.unique_links = {}
-        self.available_xml_ids = set()
-        self.xml_name_mapping = {} # KHÔI PHỤC BỘ NHỚ MAP TÊN
+        
+        # VÁ LỖI 2: Dùng Dict lưu bản đồ ID không phân biệt hoa thường { id_lowercase: id_gốc_xml }
+        self.epg_id_map = {}
+        self.xml_name_mapping = {} 
         self.epg_xml_roots = []    
         self.final_used_ids = set()
         self.source_status = {}
@@ -69,7 +73,15 @@ class M3UBuilder:
         name = RE_CLEAN_TAGS.sub(' ', name)
         name = RE_FIX_BRANDS.sub(r'\1\2', name)
         name = RE_SPECIAL_CHARS.sub('', name)
-        return ' '.join(name.split()).strip().upper()
+        
+        # Chuẩn hóa chữ hoa và loại bỏ khoảng trắng thừa trước
+        cleaned = ' '.join(name.split()).strip().upper()
+        
+        # VÁ LỖI 1: Tự động sửa lỗi hiển thị "VV" thành "VTV" của nhà đài (VV9 -> VTV9, VVCAB -> VTVCAB)
+        if cleaned.startswith("VV"):
+            cleaned = "VTV" + cleaned[2:]
+            
+        return cleaned
 
     def smart_grouping(self, raw_group: str, clean_name: str) -> str:
         g_lower = raw_group.lower() if raw_group else ""
@@ -177,13 +189,14 @@ class M3UBuilder:
             xml_data = gzip.decompress(res.content) if epg_url.endswith('.gz') else res.content
             root = ET.fromstring(xml_data)
             
-            local_ids = set()
+            local_ids = {}
             local_mapping = {}
             for elem in root.findall('channel'):
                 ch_id = elem.get('id')
                 if not ch_id: continue
-                local_ids.add(ch_id)
-                # Đọc tên kênh trong EPG để hỗ trợ map chính xác
+                # Lưu trữ mapping dạng không phân biệt hoa thường
+                local_ids[ch_id.lower()] = ch_id
+                
                 for dn in elem.findall('display-name'):
                     if dn.text:
                         norm_name = self.normalize_channel_name(dn.text)
@@ -205,18 +218,20 @@ class M3UBuilder:
             if res:
                 root, local_ids, local_mapping = res
                 self.epg_xml_roots.append(root)
-                self.available_xml_ids.update(local_ids)
+                self.epg_id_map.update(local_ids)
                 self.xml_name_mapping.update(local_mapping)
 
-    # HÀM MỚI: Khớp chính xác 100%, tuyệt đối không dùng difflib đoán bừa
     def get_best_id_match(self, clean_name, orig_id):
-        # 1. Nếu có ID chuẩn từ nguồn -> Dùng luôn
-        if orig_id in self.available_xml_ids: 
-            return orig_id
-        # 2. Nếu ID trống, kiểm tra xem tên kênh có nằm gọn trong EPG không
+        orig_id_lower = orig_id.lower() if orig_id else ""
+        
+        # 1. Khớp theo ID gốc (Không phân biệt hoa thường)
+        if orig_id_lower in self.epg_id_map: 
+            return self.epg_id_map[orig_id_lower]
+            
+        # 2. Khớp chính xác 100% theo tên đã xử lý lỗi "VV" -> "VTV"
         if clean_name in self.xml_name_mapping: 
             return self.xml_name_mapping[clean_name]
-        # 3. Không có thì bỏ qua, trả về rỗng
+            
         return ""
 
     def run(self):
@@ -236,13 +251,15 @@ class M3UBuilder:
             if raw_url.startswith("http") and raw_url not in unique_urls:
                 unique_urls.append(raw_url)
 
+        # VÁ LỖI 4: Chạy luồng kiểm tra trạng thái trước
+        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+            executor.map(self.process_source, unique_urls)
+
+        # Sau đó mới ghi đè file sources.txt đúng thực tế
         with open(SOURCE_FILE, 'w', encoding='utf-8') as f:
             for url in unique_urls:
                 status_suffix = " [DIE]" if not self.source_status.get(url, True) else ""
                 f.write(f"{url}{status_suffix}\n")
-
-        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-            executor.map(self.process_source, unique_urls)
 
         working_links = []
         logger.info("Đang kiểm tra trạng thái các liên kết phát luồng (Stream links)...")
@@ -258,7 +275,6 @@ class M3UBuilder:
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             f.write('#EXTM3U x-tvg-url="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/light_epg.xml"\n')
             for ch in working_links:
-                # Áp dụng logic nối EPG chuẩn
                 final_id = self.get_best_id_match(ch['name'], ch['tvg_id'])
                 if final_id: 
                     self.final_used_ids.add(final_id)
@@ -288,7 +304,7 @@ class M3UBuilder:
             ET.indent(tree, space="  ", level=0)
             tree.write(OUTPUT_EPG, encoding='utf-8', xml_declaration=True)
 
-        logger.info("Đã khắc phục lỗi EPG và xuất EPG chuẩn thành công!")
+        logger.info("Hệ thống đã sửa lỗi ánh xạ lệch chữ và xuất EPG chuẩn xác!")
 
 if __name__ == "__main__":
     M3UBuilder().run()
