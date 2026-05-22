@@ -8,9 +8,16 @@ import xml.etree.ElementTree as ET
 import concurrent.futures
 import logging
 
-# Cấu hình Logging
+# =====================================================================
+# CẤU HÌNH LOGGING TINH GỌN - CHẶN SPAM LOG TỪ URLLIB3 & REQUESTS
+# =====================================================================
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+
+# Khóa họng các thông báo Retry/Warning vặt vãnh của thư viện hệ thống
+logging.getLogger("urllib3").setLevel(logging.ERROR)
+logging.getLogger("requests").setLevel(logging.ERROR)
+# =====================================================================
 
 SOURCE_FILE = "sources.txt"
 OUTPUT_FILE = "playlist.m3u"
@@ -27,7 +34,6 @@ GROUP_PRIORITY = {
     'K+': 6, 'THỂ THAO': 7, 'PHIM TRUYỆN': 8, 'QUỐC TẾ': 9, 'ĐỊA PHƯƠNG': 10
 }
 
-# Tiền biên dịch Regex
 RE_SPLIT_NAME = re.compile(r'[_\|]')
 RE_CLEAN_TAGS = re.compile(r'(?i)[\[\(\-_\.]?\b(fhd|hd|sd|1080p|720p|4k|vn|vie|h264|hevc|clip|tv|fpt|sctv|vtc|local|chính|phụ)\b[\]\)\-_\.]?')
 RE_FIX_BRANDS = re.compile(r'(?i)(vtv|htv|vtc|sctv|vtvcab|k\+)\s+(\d+)')
@@ -70,14 +76,12 @@ class M3UBuilder:
         name = RE_FIX_BRANDS.sub(r'\1\2', name)
         name = RE_SPECIAL_CHARS.sub('', name)
         cleaned = ' '.join(name.split()).strip().upper()
-        
         if cleaned.startswith("VV"): cleaned = "VTV" + cleaned[2:]
         return cleaned
 
     def smart_grouping(self, raw_group: str, clean_name: str) -> str:
         g_lower = raw_group.lower() if raw_group else ""
         n_lower = clean_name.lower()
-        
         if RE_INTL.search(n_lower): return 'Quốc Tế'
         if RE_VTV_PRIME.search(n_lower) and RE_VTV_NUM.search(n_lower): return 'VTVPRIME'
         if RE_VTVCAB.search(n_lower) or RE_ON.search(n_lower): return 'VTVCAB / ON'
@@ -118,7 +122,6 @@ class M3UBuilder:
         
         id_match = RE_TVG_ID.search(extinf)
         logo_match = RE_TVG_LOGO.search(extinf)
-
         found_id = id_match.group(1).strip() if id_match else ""
         found_logo = logo_match.group(1).strip() if logo_match else ""
 
@@ -166,8 +169,7 @@ class M3UBuilder:
                 elif not line.startswith("#") and line.startswith("http") and curr_extinf:
                     self.add_channel(curr_extinf, line, curr_grp, extra_tags)
                     curr_extinf = ""
-        except requests.RequestException as e:
-            logger.warning(f"[DIE] Lỗi khi tải nguồn {url}: {e}")
+        except requests.RequestException:
             self.source_status[url] = False
 
     def _fetch_single_epg(self, epg_url):
@@ -175,22 +177,19 @@ class M3UBuilder:
             res = self.session.get(epg_url, timeout=20)
             xml_data = gzip.decompress(res.content) if epg_url.endswith('.gz') else res.content
             root = ET.fromstring(xml_data)
-            
             local_ids = {}
             local_mapping = {}
             for elem in root.findall('channel'):
                 ch_id = elem.get('id')
                 if not ch_id: continue
                 local_ids[ch_id.lower()] = ch_id
-                
                 for dn in elem.findall('display-name'):
                     if dn.text:
                         norm_name = self.normalize_channel_name(dn.text)
                         if norm_name not in local_mapping:
                             local_mapping[norm_name] = ch_id
             return root, local_ids, local_mapping
-        except Exception as e:
-            logger.error(f"Lỗi xử lý EPG từ {epg_url}: {e}")
+        except Exception:
             return None
 
     def fetch_epg_and_map_ids(self):
@@ -198,7 +197,6 @@ class M3UBuilder:
         logger.info("Đang tải và xử lý đa luồng EPG đồng thời...")
         with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
             results = executor.map(self._fetch_single_epg, list(self.epg_urls))
-            
         for res in results:
             if res:
                 root, local_ids, local_mapping = res
@@ -209,22 +207,14 @@ class M3UBuilder:
     def get_best_id_match(self, clean_name, orig_id):
         orig_id_lower = orig_id.lower() if orig_id else ""
         cname_lower = clean_name.lower()
-        
-        # BỘ LỌC ID RÁC: Tránh việc M3U gán nhầm ID ngoại quốc (tv1) cho kênh Việt (VTV1)
-        # Nếu kênh là VTV/HTV nhưng ID lại không chứa VTV/HTV -> Phế bỏ ID rác, ép tìm theo tên
         for brand in ['vtv', 'htv', 'vtc', 'sctv']:
             if brand in cname_lower and brand not in orig_id_lower:
                 orig_id_lower = "" 
                 break
-
-        # 1. Ưu tiên khớp ID chuẩn (Đã loại bỏ ID rác)
         if orig_id_lower and orig_id_lower in self.epg_id_map: 
             return self.epg_id_map[orig_id_lower]
-            
-        # 2. Khớp chính xác 100% theo tên kênh (VTV1 khớp với EPG VTV1)
         if clean_name in self.xml_name_mapping: 
             return self.xml_name_mapping[clean_name]
-            
         return ""
 
     def run(self):
@@ -262,9 +252,6 @@ class M3UBuilder:
         
         self.fetch_epg_and_map_ids()
 
-        # ==========================================
-        # ĐỒNG BỘ KÊNH CHO TIVIMATE / OTT NAVIGATOR
-        # ==========================================
         logger.info("Đang đồng bộ Metadata để gộp nhóm Multi-source...")
         grouped_channels = {}
         for ch in working_links:
@@ -275,35 +262,28 @@ class M3UBuilder:
 
         final_playlist = []
         for cname, links in grouped_channels.items():
-            # 1. Tìm ID EPG chuẩn nhất cho nhóm này
             best_id = ""
             for l in links:
                 pid = self.get_best_id_match(cname, l['tvg_id'])
                 if pid:
                     best_id = pid
                     break
-            
-            # 2. Chọn Logo hiển thị cho nhóm này (lấy logo đầu tiên có)
             best_logo = ""
             for l in links:
                 if l['tvg_logo']:
                     best_logo = l['tvg_logo']
                     break
-            
-            # 3. Đồng bộ hóa ID & Logo cho tất cả các link dự phòng của kênh
             for l in links:
                 l['final_id'] = best_id
                 l['final_logo'] = best_logo
                 if best_id: self.final_used_ids.add(best_id)
                 final_playlist.append(l)
 
-        # Sắp xếp danh sách cuối cùng để in ra
         final_playlist.sort(key=self.get_sort_key)
 
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             f.write('#EXTM3U x-tvg-url="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/light_epg.xml"\n')
             for ch in final_playlist:
-                # In ra file với ID và Logo đã được đồng bộ chuẩn hóa
                 line = f'#EXTINF:-1 tvg-id="{ch["final_id"]}" tvg-name="{ch["name"]}" tvg-logo="{ch["final_logo"]}" group-title="{ch["group"]}",{ch["name"]}'
                 f.write(line + "\n")
                 f.write(f"#EXTGRP:{ch['group']}\n")
@@ -329,7 +309,7 @@ class M3UBuilder:
             ET.indent(tree, space="  ", level=0)
             tree.write(OUTPUT_EPG, encoding='utf-8', xml_declaration=True)
 
-        logger.info("Hệ thống đã loại bỏ ID rác và hỗ trợ gộp Multi-source thành công!")
+        logger.info("Hoàn tất! Hệ thống đã loại bỏ hoàn toàn log rác.")
 
 if __name__ == "__main__":
     M3UBuilder().run()
