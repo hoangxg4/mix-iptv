@@ -6,7 +6,6 @@ import os
 import gzip
 import xml.etree.ElementTree as ET
 import concurrent.futures
-import difflib
 import logging
 
 # Cấu hình Logging tinh gọn
@@ -17,10 +16,9 @@ SOURCE_FILE = "sources.txt"
 OUTPUT_FILE = "playlist.m3u"
 OUTPUT_EPG = "light_epg.xml"
 
-# TỐI ƯU TIMEOUT: Giảm timeout để không bị nghẽn ở các server chết
 TIMEOUT = 10
-STREAM_TIMEOUT = 2  # 2 giây là quá đủ để một link IPTV phản hồi HEAD
-MAX_WORKERS = 64     # Tăng nhẹ số lượng worker để tận dụng tối đa băng thông GitHub Actions
+STREAM_TIMEOUT = 2  
+MAX_WORKERS = 64     
 
 SPAM_KEYWORDS = ['mời quý khán giả', 'thông báo', 'tạm ngưng', 'bảo trì', 'kênh dự phòng', 'test']
 
@@ -29,7 +27,7 @@ GROUP_PRIORITY = {
     'K+': 6, 'THỂ THAO': 7, 'PHIM TRUYỆN': 8, 'QUỐC TẾ': 9, 'ĐỊA PHƯƠNG': 10
 }
 
-# TỐI ƯU REGEX: Biên dịch trước (Pre-compile) tất cả các Regex nặng để tăng tốc độ xử lý chuỗi trong vòng lặp
+# Tiền biên dịch các Regex
 RE_SPLIT_NAME = re.compile(r'[_\|]')
 RE_CLEAN_TAGS = re.compile(r'(?i)[\[\(\-_\.]?\b(fhd|hd|sd|1080p|720p|4k|vn|vie|h264|hevc|clip|tv|fpt|sctv|vtc|local|chính|phụ)\b[\]\)\-_\.]?')
 RE_FIX_BRANDS = re.compile(r'(?i)(vtv|htv|vtc|sctv|vtvcab|k\+)\s+(\d+)')
@@ -55,7 +53,6 @@ class M3UBuilder:
         self.epg_urls = set()
         self.unique_links = {}
         self.available_xml_ids = set()
-        self.xml_name_mapping = {} 
         self.epg_xml_roots = []    
         self.final_used_ids = set()
         self.source_status = {}
@@ -173,7 +170,6 @@ class M3UBuilder:
             logger.warning(f"[DIE] Lỗi khi tải nguồn {url}: {e}")
             self.source_status[url] = False
 
-    # TỐI ƯU EPG WORKER: Hàm xử lý đơn lẻ cho từng file EPG phục vụ cho ThreadPool
     def _fetch_single_epg(self, epg_url):
         try:
             res = self.session.get(epg_url, timeout=20)
@@ -181,18 +177,11 @@ class M3UBuilder:
             root = ET.fromstring(xml_data)
             
             local_ids = set()
-            local_mapping = {}
-            
             for elem in root.findall('channel'):
                 ch_id = elem.get('id')
-                if not ch_id: continue
-                local_ids.add(ch_id)
-                for dn in elem.findall('display-name'):
-                    if dn.text:
-                        norm_name = self.normalize_channel_name(dn.text)
-                        if norm_name not in local_mapping:
-                            local_mapping[norm_name] = ch_id
-            return root, local_ids, local_mapping
+                if ch_id:
+                    local_ids.add(ch_id)
+            return root, local_ids
         except Exception as e:
             logger.error(f"Lỗi xử lý EPG từ {epg_url}: {e}")
             return None
@@ -201,25 +190,14 @@ class M3UBuilder:
         if not self.epg_urls: return
         logger.info("Đang tải và xử lý đa luồng EPG đồng thời...")
         
-        # Sử dụng ThreadPoolExecutor để tải tất cả các file EPG song song cùng một lúc
         with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
             results = executor.map(self._fetch_single_epg, list(self.epg_urls))
             
         for res in results:
             if res:
-                root, local_ids, local_mapping = res
+                root, local_ids = res
                 self.epg_xml_roots.append(root)
                 self.available_xml_ids.update(local_ids)
-                self.xml_name_mapping.update(local_mapping)
-
-    def get_best_id_match(self, clean_name, orig_id):
-        if orig_id in self.available_xml_ids: return orig_id
-        if clean_name in self.xml_name_mapping: return self.xml_name_mapping[clean_name]
-        
-        # TỐI ƯU ĐỘ PHỨC TẠP: Giới hạn tập tìm kiếm difflib để tránh quét thừa bộ nhớ
-        best_matches = difflib.get_close_matches(clean_name, self.xml_name_mapping.keys(), n=1, cutoff=0.80)
-        if best_matches: return self.xml_name_mapping[best_matches[0]]
-        return orig_id
 
     def run(self):
         if not os.path.exists(SOURCE_FILE):
@@ -238,14 +216,13 @@ class M3UBuilder:
             if raw_url.startswith("http") and raw_url not in unique_urls:
                 unique_urls.append(raw_url)
 
-        # TỐI ƯU CÀO NGUỒN: Tải song song danh sách nguồn thay vì tải tuần tự
-        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-            executor.map(self.process_source, unique_urls)
-
         with open(SOURCE_FILE, 'w', encoding='utf-8') as f:
             for url in unique_urls:
                 status_suffix = " [DIE]" if not self.source_status.get(url, True) else ""
                 f.write(f"{url}{status_suffix}\n")
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+            executor.map(self.process_source, unique_urls)
 
         working_links = []
         logger.info("Đang kiểm tra trạng thái các liên kết phát luồng (Stream links)...")
@@ -261,9 +238,12 @@ class M3UBuilder:
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             f.write('#EXTM3U x-tvg-url="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/light_epg.xml"\n')
             for ch in working_links:
-                final_id = self.get_best_id_match(ch['name'], ch['tvg_id'])
+                # GỐC HÓA LOGIC: Chỉ giữ lại tvg-id gốc của list, nếu id đó tồn tại trong dữ liệu EPG thì dùng
+                final_id = ch['tvg_id']
                 if final_id in self.available_xml_ids: 
                     self.final_used_ids.add(final_id)
+                else:
+                    final_id = "" # Nếu EPG không có ID này, thà bỏ trống để đầu phát không hiện sai chương trình ngoại
                 
                 line = f'#EXTINF:-1 tvg-id="{final_id}" tvg-name="{ch["name"]}" tvg-logo="{ch["tvg_logo"]}" group-title="{ch["group"]}",{ch["name"]}'
                 f.write(line + "\n")
@@ -290,7 +270,7 @@ class M3UBuilder:
             ET.indent(tree, space="  ", level=0)
             tree.write(OUTPUT_EPG, encoding='utf-8', xml_declaration=True)
 
-        logger.info("Hệ thống đã tối ưu tốc độ tối đa và cập nhật thành công!")
+        logger.info("Hệ thống đã cập nhật thành công Full EPG chính xác theo bản gốc!")
 
 if __name__ == "__main__":
     M3UBuilder().run()
