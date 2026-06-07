@@ -4,7 +4,7 @@ https://github.com/luongtamlong/DAKLAK_RADIO/raw/refs/heads/main/RadioVietNam.m3
 https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/vmttv
 https://raw.githubusercontent.com/Hannstcott/SunshineTr/refs/heads/main/sunshinetv.m3u
 https://263.org.vn/coban66
-https://vietngatv.short.gy/vietngatv
+https://vietngatv.short.gy/vietngatv [DIE]
 https://hanoiiptv.short.gy/HaNoiIPTV
 https://bit.ly/quidntv
 https://github.com/giangnam0201/All-In-One-IPTV/raw/refs/heads/main/channels.m3u
