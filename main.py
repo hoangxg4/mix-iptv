@@ -289,11 +289,13 @@ class M3UBuilder:
                 if l['tvg_logo']:
                     best_logo = l['tvg_logo']
                     break
-            for l in links:
-                l['final_id'] = best_id
-                l['final_logo'] = best_logo
-                if best_id: self.final_used_ids.add(best_id)
-                final_playlist.append(l)
+            # Gộp tất cả link vào một entry duy nhất để tránh trùng kênh + tự động fallback
+            primary = links[0]
+            primary['final_id'] = best_id
+            primary['final_logo'] = best_logo
+            if best_id: self.final_used_ids.add(best_id)
+            primary['fallback_urls'] = [l['url'] for l in links[1:]]
+            final_playlist.append(primary)
 
         final_playlist.sort(key=self.get_sort_key)
 
@@ -305,6 +307,8 @@ class M3UBuilder:
                 f.write(f"#EXTGRP:{ch['group']}\n")
                 for t in ch['extra_tags']: f.write(t + "\n")
                 f.write(ch['url'] + "\n")
+                for fb_url in ch.get('fallback_urls', []):
+                    f.write(fb_url + "\n")
 
         if self.final_used_ids:
             logger.info("Đang trích xuất cấu trúc EPG tinh gọn...")
