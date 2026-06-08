@@ -123,6 +123,10 @@
     <display-name lang="vi">Đăk Lăk</display-name>
     <icon src="http://trada.info/tv/logos/daklak.jpg" />
   </channel>
+  <channel id="davinci">
+    <display-name lang="vi">DaVinci</display-name>
+    <icon src="http://trada.info/tv/logos/davinci.jpg" />
+  </channel>
   <channel id="dienbien">
     <display-name lang="vi">Điện Biên</display-name>
     <icon src="http://trada.info/tv/logos/dienbien.jpg" />
@@ -151,6 +155,10 @@
     <display-name lang="vi">Đồng Nai 2</display-name>
     <icon src="http://trada.info/tv/logos/dongnai2.jpg" />
   </channel>
+  <channel id="drfithd">
+    <display-name lang="vi">Dr.Fit</display-name>
+    <icon src="http://trada.info/tv/logos/drfithd.jpg" />
+  </channel>
   <channel id="dreamworks">
     <display-name lang="vi">DreamWorks</display-name>
     <icon src="http://trada.info/tv/logos/dreamworks.jpg" />
@@ -166,6 +174,10 @@
   <channel id="france24eng">
     <display-name lang="vi">France 24 English</display-name>
     <icon src="http://trada.info/tv/logos/france24eng.jpg" />
+  </channel>
+  <channel id="hagiang">
+    <display-name lang="vi">Hà Giang</display-name>
+    <icon src="http://trada.info/tv/logos/hagiang.jpg" />
   </channel>
   <channel id="hanoi1">
     <display-name lang="vi">Hà Nội 1</display-name>
@@ -203,9 +215,21 @@
     <display-name lang="vi">History</display-name>
     <url>http://www.dichvu.vtvcab.vn</url>
   </channel>
+  <channel id="htvthethaohd">
+    <display-name lang="vi">HTV Thể Thao</display-name>
+    <icon src="http://trada.info/tv/logos/htvthethaohd.jpg" />
+  </channel>
+  <channel id="htv1">
+    <display-name lang="vi">HTV1</display-name>
+    <icon src="http://trada.info/tv/logos/htv1.jpg" />
+  </channel>
   <channel id="htv2hd">
     <display-name lang="vi">HTV2</display-name>
     <icon src="http://trada.info/tv/logos/htv2hd.jpg" />
+  </channel>
+  <channel id="htv3">
+    <display-name lang="vi">HTV3</display-name>
+    <icon src="http://trada.info/tv/logos/htv3.jpg" />
   </channel>
   <channel id="hungyen">
     <display-name lang="vi">Hưng Yên</display-name>
@@ -218,6 +242,9 @@
   <channel id="kbsworld">
     <display-name lang="vi">KBS World</display-name>
     <icon src="http://trada.info/tv/logos/kbsworld.jpg" />
+  </channel>
+  <channel id="kiengiang">
+    <display-name lang="vi">Kiên Giang</display-name>
   </channel>
   <channel id="kix">
     <display-name lang="en">KIX</display-name>
@@ -233,9 +260,6 @@
   </channel>
   <channel id="musicbox">
     <display-name lang="vi">Music Box</display-name>
-  </channel>
-  <channel id="mov">
-    <display-name lang="vi">MOV</display-name>
   </channel>
   <channel id="ngchd">
     <display-name lang="en">National Geographic Channel</display-name>
@@ -264,8 +288,23 @@
   <channel id="quangninh3">
     <display-name lang="vi">Quảng Ninh 3</display-name>
   </channel>
+  <channel id="quangtri">
+    <display-name lang="vi">Quảng Trị</display-name>
+  </channel>
   <channel id="sctv2hd">
     <display-name lang="vi">SCTV2</display-name>
+    <url>http://www.tv24.vn</url>
+  </channel>
+  <channel id="sctv3hd">
+    <display-name lang="vi">SCTV3</display-name>
+    <url>http://www.tv24.vn</url>
+  </channel>
+  <channel id="sctv4hd">
+    <display-name lang="vi">SCTV4</display-name>
+    <url>http://www.tv24.vn</url>
+  </channel>
+  <channel id="sctv7hd">
+    <display-name lang="vi">SCTV7</display-name>
     <url>http://www.tv24.vn</url>
   </channel>
   <channel id="sctv8hd">
@@ -276,9 +315,43 @@
     <display-name lang="vi">SCTV9</display-name>
     <url>http://www.tv24.vn</url>
   </channel>
+  <channel id="sctv11hd">
+    <display-name lang="vi">SCTV11</display-name>
+    <url>http://www.tv24.vn</url>
+  </channel>
+  <channel id="sctv12hd">
+    <display-name lang="vi">SCTV12</display-name>
+    <url>http://www.tv24.vn</url>
+  </channel>
   <channel id="sctv13hd">
     <display-name lang="vi">SCTV13</display-name>
     <url>http://www.tv24.vn</url>
+  </channel>
+  <channel id="sctv14hd">
+    <display-name lang="vi">SCTV14</display-name>
+    <url>http://www.tv24.vn</url>
+  </channel>
+  <channel id="sctv16hd">
+    <display-name lang="vi">SCTV16</display-name>
+    <url>http://www.tv24.vn</url>
+  </channel>
+  <channel id="sctv18hd">
+    <display-name lang="vi">SCTV18</display-name>
+    <url>http://www.tv24.vn</url>
+  </channel>
+  <channel id="sctv19hd">
+    <display-name lang="vi">SCTV19</display-name>
+    <url>http://www.tv24.vn</url>
+  </channel>
+  <channel id="sctv20hd">
+    <display-name lang="vi">SCTV20</display-name>
+    <url>http://www.tv24.vn</url>
+  </channel>
+  <channel id="sonla">
+    <display-name lang="vi">Sơn La</display-name>
+  </channel>
+  <channel id="thainguyen">
+    <display-name lang="vi">Thái Nguyên</display-name>
   </channel>
   <channel id="thanhhoa">
     <display-name lang="vi">Thanh Hóa</display-name>
@@ -307,29 +380,35 @@
   <channel id="vtv3hd">
     <display-name lang="vi">VTV3</display-name>
   </channel>
+  <channel id="vtv4hd">
+    <display-name lang="vi">VTV4</display-name>
+  </channel>
   <channel id="vtv5hd">
     <display-name lang="vi">VTV5</display-name>
+  </channel>
+  <channel id="vtv5hdtnb">
+    <display-name lang="vi">VTV5 - Tây Nam Bộ</display-name>
+  </channel>
+  <channel id="vtv5hdtn">
+    <display-name lang="vi">VTV5 - Tây Nguyên</display-name>
   </channel>
   <channel id="vtv6hd">
     <display-name lang="vi">VTV6</display-name>
   </channel>
+  <channel id="vtv7hd">
+    <display-name lang="vi">VTV7</display-name>
+  </channel>
+  <channel id="vtv8hd">
+    <display-name lang="vi">VTV8</display-name>
+  </channel>
   <channel id="vtv9hd">
     <display-name lang="vi">VTV9</display-name>
   </channel>
-  <channel id="vtvcab1hd">
-    <display-name lang="vi">VTVCab1 - Vie Giải Trí</display-name>
+  <channel id="vtvcab20hd">
+    <display-name lang="vi">VTVCab20 - V Family</display-name>
   </channel>
-  <channel id="vtvcab8hd">
-    <display-name lang="vi">VTVCab8 - Bibi</display-name>
-  </channel>
-  <channel id="vtvcab9hd">
-    <display-name lang="vi">VTVCab9 - Info TV</display-name>
-  </channel>
-  <channel id="vtvcab15hd">
-    <display-name lang="vi">VTVCab15 - M Channel</display-name>
-  </channel>
-  <channel id="vtvcab19hd">
-    <display-name lang="vi">VTVCab19 - Vie Dramas</display-name>
+  <channel id="vtvcab21hd">
+    <display-name lang="vi">VTVCab21 - Cartoon Kids</display-name>
   </channel>
   <channel id="vtvcab22hd">
     <display-name lang="vi">VTVCab22 - Life TV</display-name>
@@ -4398,6 +4477,90 @@
   </programme>
   <programme start="20260609233600 +0700" stop="20260610010500 +0700" channel="hbohd">
     <title lang="en">A Snow Globe Christmas</title>
+  </programme>
+  <programme start="20260608000000 +0700" stop="20260608003000 +0700" channel="htvthethaohd">
+    <title lang="vi">Thể thao là cuộc sống</title>
+  </programme>
+  <programme start="20260608003000 +0700" stop="20260608023000 +0700" channel="htvthethaohd">
+    <title lang="vi">Câu lạc bộ thể thao: Tường thuật giải bóng đá nữ Châu Á</title>
+  </programme>
+  <programme start="20260608023000 +0700" stop="20260608030000 +0700" channel="htvthethaohd">
+    <title lang="vi">Tiêu điểm thể thao</title>
+  </programme>
+  <programme start="20260608030000 +0700" stop="20260608050000 +0700" channel="htvthethaohd">
+    <title lang="vi">Câu lạc bộ thể thao: Tường thuật giải bóng rổ Đại hội TDTT</title>
+  </programme>
+  <programme start="20260608050000 +0700" stop="20260608053000 +0700" channel="htvthethaohd">
+    <title lang="vi">Thể dục buổi sáng</title>
+  </programme>
+  <programme start="20260608053000 +0700" stop="20260608060000 +0700" channel="htvthethaohd">
+    <title lang="vi">Tạp chí thể thao</title>
+  </programme>
+  <programme start="20260608060000 +0700" stop="20260608083000 +0700" channel="htvthethaohd">
+    <title lang="vi">Câu lạc bộ thể thao: Tường thuật giải võ thuật ONE Championship</title>
+  </programme>
+  <programme start="20260608083000 +0700" stop="20260608090000 +0700" channel="htvthethaohd">
+    <title lang="vi">Muôn màu thể thao</title>
+  </programme>
+  <programme start="20260608090000 +0700" stop="20260608104000 +0700" channel="htvthethaohd">
+    <title lang="vi">Câu lạc bộ thể thao: Tường thuật môn Wushu Đại hội TDTT TPHCM</title>
+  </programme>
+  <programme start="20260608104000 +0700" stop="20260608110000 +0700" channel="htvthethaohd">
+    <title lang="vi">Đi để khỏe</title>
+  </programme>
+  <programme start="20260608110000 +0700" stop="20260608113000 +0700" channel="htvthethaohd">
+    <title lang="vi">Ấn Tượng Cúp Truyền Hình</title>
+  </programme>
+  <programme start="20260608113000 +0700" stop="20260608114500 +0700" channel="htvthethaohd">
+    <title lang="vi">Tạp chí Golf HTV</title>
+  </programme>
+  <programme start="20260608114500 +0700" stop="20260608120000 +0700" channel="htvthethaohd">
+    <title lang="vi">Tạp chí PickleBall vào bếp cùng HTV</title>
+  </programme>
+  <programme start="20260608120000 +0700" stop="20260608120500 +0700" channel="htvthethaohd">
+    <title lang="vi">Bài tập thể dục</title>
+  </programme>
+  <programme start="20260608120500 +0700" stop="20260608143000 +0700" channel="htvthethaohd">
+    <title lang="vi">Câu lạc bộ thể thao: Tường thuật giải võ thuật ONE Championship</title>
+  </programme>
+  <programme start="20260608143000 +0700" stop="20260608150000 +0700" channel="htvthethaohd">
+    <title lang="vi">Phóng sự: Theo dấu Vó Bò</title>
+  </programme>
+  <programme start="20260608150000 +0700" stop="20260608153000 +0700" channel="htvthethaohd">
+    <title lang="vi">Vui cùng bước nhảy</title>
+  </programme>
+  <programme start="20260608153000 +0700" stop="20260608173000 +0700" channel="htvthethaohd">
+    <title lang="vi">Câu lạc bộ thể thao: Tường thuật môn Wushu Đại hội TDTT TPHCM</title>
+  </programme>
+  <programme start="20260608173000 +0700" stop="20260608180000 +0700" channel="htvthethaohd">
+    <title lang="vi">Ấn Tượng Cúp Truyền Hình</title>
+  </programme>
+  <programme start="20260608180000 +0700" stop="20260608183000 +0700" channel="htvthethaohd">
+    <title lang="vi">Tạp chí thể thao</title>
+  </programme>
+  <programme start="20260608183000 +0700" stop="20260608190000 +0700" channel="htvthethaohd">
+    <title lang="vi">Tiêu điểm thể thao</title>
+  </programme>
+  <programme start="20260608190000 +0700" stop="20260608193000 +0700" channel="htvthethaohd">
+    <title lang="vi">Đi để khỏe</title>
+  </programme>
+  <programme start="20260608193000 +0700" stop="20260608194500 +0700" channel="htvthethaohd">
+    <title lang="vi">Tạp chí Golf HTV</title>
+  </programme>
+  <programme start="20260608194500 +0700" stop="20260608200000 +0700" channel="htvthethaohd">
+    <title lang="vi">Tạp chí PickleBall vào bếp cùng HTV</title>
+  </programme>
+  <programme start="20260608200000 +0700" stop="20260608203000 +0700" channel="htvthethaohd">
+    <title lang="vi">Ấn Tượng Cúp Truyền Hình</title>
+  </programme>
+  <programme start="20260608203000 +0700" stop="20260608204500 +0700" channel="htvthethaohd">
+    <title lang="vi">Bản tin 365</title>
+  </programme>
+  <programme start="20260608204500 +0700" stop="20260608231500 +0700" channel="htvthethaohd">
+    <title lang="vi">Câu lạc bộ thể thao: Tường thuật giải võ thuật ONE Championship</title>
+  </programme>
+  <programme start="20260608231500 +0700" stop="20260608233000 +0700" channel="htvthethaohd">
+    <title lang="vi">Bản tin 365</title>
   </programme>
   <programme start="20260608005500 +0700" stop="20260608020500 +0700" channel="kix">
     <title lang="en">Iron Squad W</title>
