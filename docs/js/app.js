@@ -9,6 +9,52 @@ const GROUP_ORDER = [
   'K+', 'THỂ THAO', 'PHIM TRUYỆN', 'QUỐC TẾ', 'ĐỊA PHƯƠNG',
 ];
 
+// ----- Simple IndexedDB Cache -----
+const DB_NAME = 'mix-iptv-cache';
+const DB_VERSION = 1;
+const CACHE_STORE = 'cache';
+
+function openDB() {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open(DB_NAME, DB_VERSION);
+    request.onupgradeneeded = () => {
+      request.result.createObjectStore(CACHE_STORE);
+    };
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
+}
+
+async function cacheGet(key) {
+  try {
+    const db = await openDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(CACHE_STORE, 'readonly');
+      const req = tx.objectStore(CACHE_STORE).get(key);
+      req.onsuccess = () => {
+        const entry = req.result;
+        if (entry && entry.expires > Date.now()) {
+          resolve(entry.data);
+        } else {
+          resolve(null);
+        }
+      };
+      req.onerror = () => resolve(null);
+    });
+  } catch { return null; }
+}
+
+async function cacheSet(key, data, ttlMs = 30 * 60 * 1000) {
+  try {
+    const db = await openDB();
+    const tx = db.transaction(CACHE_STORE, 'readwrite');
+    tx.objectStore(CACHE_STORE).put({ data, expires: Date.now() + ttlMs }, key);
+  } catch { /* silent fail */ }
+}
+
+const CACHE_TTL_CHANNELS = 30 * 60 * 1000;  // 30 min
+const CACHE_TTL_EPG = 30 * 60 * 1000;       // 30 min
+
 // ----- State -----
 const state = {
   groups: [],           // [{id, name, channels[]}] from JSON provider.groups
@@ -23,53 +69,56 @@ const state = {
 
 // ----- Data Loading -----
 async function loadData() {
-  // Start both fetches in parallel
-  const channelsPromise = fetch(BASE_URL + 'channels.json');
-  const epgPromise = fetch(BASE_URL + 'light_epg.xml');
-
-  // Handle channels.json (fatal if fails)
-  try {
-    const channelsRes = await channelsPromise;
-    if (!channelsRes.ok) {
-      throw new Error(`HTTP ${channelsRes.status}`);
-    }
-    const provider = await channelsRes.json();
-    state.groups = provider.groups;
-    state.flatChannels = provider.groups.flatMap(g =>
-      g.channels.map(ch => ({ ...ch, groupName: g.name }))
-    );
-
-    // Sort groups by GROUP_ORDER (known groups first, then alphabetical 'Khác' etc.)
-    sortGroups();
-  } catch (err) {
-    state.error = 'Không thể tải danh sách kênh';
+  // Try IndexedDB cache first
+  const cached = await cacheGet('channels');
+  if (cached) {
+    state.groups = cached.groups;
+    state.flatChannels = cached.flatChannels;
     state.isLoading = false;
-    return;
-  }
-
-  // Handle EPG XML (non-fatal if fails)
-  try {
-    const epgRes = await epgPromise;
-    if (!epgRes.ok) {
-      console.warn('EPG fetch failed:', epgRes.status);
-      state.epgData = [];
-    } else {
-      const xmlText = await epgRes.text();
-      const parser = new DOMParser();
-      const xml = parser.parseFromString(xmlText, 'text/xml');
-      state.epgData = Array.from(xml.querySelectorAll('programme')).map(prog => ({
-        channel: prog.getAttribute('channel'),
-        start: prog.getAttribute('start'),
-        stop: prog.getAttribute('stop'),
-        title: prog.querySelector('title')?.textContent || '',
-      }));
+    renderGroups();
+    selectGroup('all');
+    bindSearch();
+    // Re-fetch in background (stale-while-revalidate)
+    loadChannelsFresh().catch(() => {});
+  } else {
+    // No cache — show loading and fetch
+    try {
+      await loadChannelsFresh();
+    } catch (err) {
+      state.error = 'Không thể tải danh sách kênh';
+      state.isLoading = false;
     }
-  } catch (err) {
-    console.warn('EPG loading failed:', err);
-    state.epgData = [];
   }
+}
 
+async function loadChannelsFresh() {
+  const res = await fetch(BASE_URL + 'channels.json');
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const provider = await res.json();
+  const groups = provider.groups;
+  const flatChannels = provider.groups.flatMap(g =>
+    g.channels.map(ch => ({ ...ch, groupName: g.name }))
+  );
+
+  // Cache in IndexedDB
+  await cacheSet('channels', { groups, flatChannels }, CACHE_TTL_CHANNELS);
+
+  // Update state
+  state.groups = groups;
+  state.flatChannels = flatChannels;
+  sortGroups();
   state.isLoading = false;
+
+  // Re-render if initial render already happened (guard for SSR/test env)
+  const groupList = document.querySelector('#group-list');
+  if (groupList && groupList.children.length > 0) {
+    renderGroups();
+    selectGroup(state.selectedGroup);
+  } else {
+    renderGroups();
+    selectGroup('all');
+    bindSearch();
+  }
 }
 
 // Sort groups: known groups from GROUP_ORDER first (in order), then alphabetical
@@ -300,10 +349,19 @@ function getChannelUrls(channel) {
 }
 
 let hls = null;
+let epgLoaded = false;
 const video = typeof document !== 'undefined' ? document.getElementById('video-player') : null;
 
-function selectChannel(channel) {
+async function selectChannel(channel) {
   state.selectedChannel = channel;
+
+  // Lazy load EPG if not yet loaded
+  if (!epgLoaded) {
+    const epgDiv = document.getElementById('epg-list');
+    if (epgDiv) epgDiv.innerHTML = '<div class="loading-spinner">Đang tải EPG...</div>';
+    await loadEpg();
+    epgLoaded = true;
+  }
 
   // Update active state in channel list
   document.querySelectorAll('.channel-card').forEach(card => {
@@ -324,6 +382,54 @@ function selectChannel(channel) {
 
   playChannel(channel);
   renderEpg(channel.tvg_id || channel.id);
+}
+
+async function loadEpg() {
+  // Try cache first
+  const cached = await cacheGet('epg');
+  if (cached) {
+    state.epgData = cached;
+    // Re-fetch in background
+    loadEpgFresh().catch(() => {});
+    return;
+  }
+  await loadEpgFresh();
+}
+
+async function loadEpgFresh() {
+  const epgDiv = document.getElementById('epg-list');
+
+  try {
+    const res = await fetch(BASE_URL + 'light_epg.xml');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const xmlText = await res.text();
+    const parser = new DOMParser();
+    const xml = parser.parseFromString(xmlText, 'text/xml');
+    const programmes = Array.from(xml.querySelectorAll('programme')).map(prog => ({
+      channel: prog.getAttribute('channel'),
+      start: prog.getAttribute('start'),
+      stop: prog.getAttribute('stop'),
+      title: prog.querySelector('title')?.textContent || '',
+    }));
+
+    state.epgData = programmes;
+    await cacheSet('epg', programmes, CACHE_TTL_EPG);
+
+    // If a channel is already selected, re-render EPG
+    if (state.selectedChannel) {
+      renderEpg(state.selectedChannel.tvg_id || state.selectedChannel.id);
+    }
+  } catch (err) {
+    console.warn('EPG loading failed:', err);
+    if (epgDiv) {
+      epgDiv.innerHTML = '<div class="error-message">Không thể tải lịch EPG</div>';
+    }
+    // Only clear data when called as initial load (no prior data)
+    // When called as background refresh, preserve existing cached data
+    if (state.epgData.length === 0) {
+      state.epgData = [];
+    }
+  }
 }
 
 function playChannel(channel) {
@@ -497,5 +603,13 @@ if (typeof module !== 'undefined' && module.exports) {
     hidePlayerLoading,
     showPlayerError,
     hidePlayerError,
+    openDB,
+    cacheGet,
+    cacheSet,
+    CACHE_TTL_CHANNELS,
+    CACHE_TTL_EPG,
+    loadChannelsFresh,
+    loadEpg,
+    loadEpgFresh,
   };
 }

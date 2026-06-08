@@ -26,6 +26,53 @@ global.fetch = vi.fn();
 global.console.warn = vi.fn();
 global.console.error = vi.fn();
 
+// IndexedDB mock (happy-dom does not support IndexedDB)
+// Use plain functions (not vi.fn()) so resetAllMocks doesn't break the mock
+// All operations resolve synchronously via immediate callbacks
+let mockIdbStore = {};
+const mockIdbCallbacks = { onsuccess: null, onerror: null };
+function fireIdbCallbacks(req) {
+  // Fire synchronously for mock speed/clarity
+  if (typeof req.onsuccess === 'function') req.onsuccess();
+  else if (typeof req.onerror === 'function') req.onerror();
+}
+global.indexedDB = {
+  open(name, version) {
+    const req = {
+      onupgradeneeded: null,
+      onsuccess: null,
+      onerror: null,
+      result: null,
+      transaction(mode) { return tx; },
+    };
+    // Defer so openDB can attach callback
+    Promise.resolve().then(() => {
+      if (!req.result) req.result = {
+        createObjectStore: () => {},
+        transaction: (mode) => ({ objectStore: (name) => store }),
+      };
+      fireIdbCallbacks(req);
+    });
+    return req;
+  },
+};
+const store = {
+  get(key) {
+    const result = mockIdbStore[key] ?? undefined;
+    const req = { onsuccess: null, onerror: null, result };
+    // Defer so caller can attach callback
+    Promise.resolve().then(() => fireIdbCallbacks(req));
+    return req;
+  },
+  put(value, key) {
+    mockIdbStore[key] = value;
+    const req = { onsuccess: null, onerror: null };
+    Promise.resolve().then(() => fireIdbCallbacks(req));
+    return req;
+  },
+};
+const tx = { objectStore: (name) => store };
+
 // Sample test data
 const sampleChannelsJson = {
   groups: [
@@ -65,10 +112,12 @@ const sampleEpgXml = `<?xml version="1.0" encoding="UTF-8"?>
 
 // Load app.js
 let state, BASE_URL, GROUP_ORDER, loadData, initTheme, renderGroups, selectGroup, bindSearch, showError, renderChannels, renderEpg, getLogo, parseEpgTime, selectChannel, getChannelUrls, playChannel, tryPlayUrl, showPlayerLoading, hidePlayerLoading, showPlayerError, hidePlayerError, upgradeUrl;
+let openDB, cacheGet, cacheSet, CACHE_TTL_CHANNELS, CACHE_TTL_EPG, loadChannelsFresh, loadEpg, loadEpgFresh;
 
 beforeEach(async () => {
   vi.resetAllMocks();
   mockLocalStorage.clear();
+  mockIdbStore = {}; // Reset IndexedDB mock store
 
   // Clear module cache and re-import fresh
   vi.resetModules();
@@ -95,6 +144,14 @@ beforeEach(async () => {
   showPlayerError = mod.showPlayerError;
   hidePlayerError = mod.hidePlayerError;
   upgradeUrl = mod.upgradeUrl;
+  openDB = mod.openDB;
+  cacheGet = mod.cacheGet;
+  cacheSet = mod.cacheSet;
+  CACHE_TTL_CHANNELS = mod.CACHE_TTL_CHANNELS;
+  CACHE_TTL_EPG = mod.CACHE_TTL_EPG;
+  loadChannelsFresh = mod.loadChannelsFresh;
+  loadEpg = mod.loadEpg;
+  loadEpgFresh = mod.loadEpgFresh;
 });
 
 // ============================================================
@@ -136,42 +193,32 @@ describe('State Structure', () => {
 // loadData()
 // ============================================================
 describe('loadData()', () => {
-  it('fetches channels.json and light_epg.xml in parallel', async () => {
-    global.fetch
-      .mockResolvedValueOnce({
-        ok: true,
-        json: async () => sampleChannelsJson,
-      })
-      .mockResolvedValueOnce({
-        ok: true,
-        text: async () => sampleEpgXml,
-      });
+  it('fetches channels.json only (EPG is lazy-loaded)', async () => {
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => sampleChannelsJson,
+    });
 
     await loadData();
 
-    // Both URLs were fetched
-    expect(global.fetch).toHaveBeenCalledTimes(2);
+    // Only channels.json fetched during loadData (no light_epg.xml)
+    expect(global.fetch).toHaveBeenCalledTimes(1);
     expect(global.fetch).toHaveBeenCalledWith(BASE_URL + 'channels.json');
-    expect(global.fetch).toHaveBeenCalledWith(BASE_URL + 'light_epg.xml');
 
     // State updated
     expect(state.isLoading).toBe(false);
     expect(state.error).toBeNull();
     expect(state.groups.length).toBe(3);
     expect(state.flatChannels.length).toBe(3);
-    expect(state.epgData.length).toBe(2);
+    // EPG is empty — loaded lazily on first channel select
+    expect(state.epgData).toEqual([]);
   });
 
   it('populates flatChannels with groupName', async () => {
-    global.fetch
-      .mockResolvedValueOnce({
-        ok: true,
-        json: async () => sampleChannelsJson,
-      })
-      .mockResolvedValueOnce({
-        ok: true,
-        text: async () => sampleEpgXml,
-      });
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => sampleChannelsJson,
+    });
 
     await loadData();
 
@@ -185,15 +232,10 @@ describe('loadData()', () => {
   });
 
   it('sorts groups by GROUP_ORDER with extras alphabetically at end', async () => {
-    global.fetch
-      .mockResolvedValueOnce({
-        ok: true,
-        json: async () => sampleChannelsJson,
-      })
-      .mockResolvedValueOnce({
-        ok: true,
-        text: async () => sampleEpgXml,
-      });
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => sampleChannelsJson,
+    });
 
     await loadData();
 
@@ -204,45 +246,12 @@ describe('loadData()', () => {
     expect(state.groups[state.groups.length - 1].name).toBe('Khác');
   });
 
-  it('parses EPG XML correctly', async () => {
-    global.fetch
-      .mockResolvedValueOnce({
-        ok: true,
-        json: async () => sampleChannelsJson,
-      })
-      .mockResolvedValueOnce({
-        ok: true,
-        text: async () => sampleEpgXml,
-      });
-
-    await loadData();
-
-    expect(state.epgData).toHaveLength(2);
-    expect(state.epgData[0]).toEqual({
-      channel: 'vtv1',
-      start: '20240101000000',
-      stop: '20240101010000',
-      title: 'Thời sự',
-    });
-    expect(state.epgData[1]).toEqual({
-      channel: 'htv7',
-      start: '20240101080000',
-      stop: '20240101090000',
-      title: 'Bản tin sáng',
-    });
-  });
-
   it('sets error if channels.json fetch fails', async () => {
-    global.fetch
-      .mockResolvedValueOnce({
-        ok: false,
-        status: 404,
-        statusText: 'Not Found',
-      })
-      .mockResolvedValueOnce({
-        ok: true,
-        text: async () => sampleEpgXml,
-      });
+    global.fetch.mockResolvedValueOnce({
+      ok: false,
+      status: 404,
+      statusText: 'Not Found',
+    });
 
     await loadData();
 
@@ -251,35 +260,11 @@ describe('loadData()', () => {
     expect(state.groups).toEqual([]);
   });
 
-  it('handles EPG failure gracefully (non-fatal)', async () => {
-    global.fetch
-      .mockResolvedValueOnce({
-        ok: true,
-        json: async () => sampleChannelsJson,
-      })
-      .mockRejectedValueOnce(new Error('EPG network error'));
-
-    await loadData();
-
-    // EPG error should not set state.error
-    expect(state.error).toBeNull();
-    expect(state.isLoading).toBe(false);
-    // Console.warn should have been called
-    expect(global.console.warn).toHaveBeenCalled();
-    // EPG data should be empty
-    expect(state.epgData).toEqual([]);
-  });
-
   it('handles JSON parse error in channels', async () => {
-    global.fetch
-      .mockResolvedValueOnce({
-        ok: true,
-        json: async () => { throw new Error('Invalid JSON'); },
-      })
-      .mockResolvedValueOnce({
-        ok: true,
-        text: async () => sampleEpgXml,
-      });
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => { throw new Error('Invalid JSON'); },
+    });
 
     await loadData();
 
@@ -288,18 +273,146 @@ describe('loadData()', () => {
   });
 
   it('sets isLoading to false after loadData completes', async () => {
-    global.fetch
-      .mockResolvedValueOnce({
-        ok: true,
-        json: async () => sampleChannelsJson,
-      })
-      .mockResolvedValueOnce({
-        ok: true,
-        text: async () => sampleEpgXml,
-      });
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => sampleChannelsJson,
+    });
 
     expect(state.isLoading).toBe(true);
     await loadData();
+    expect(state.isLoading).toBe(false);
+  });
+
+  it('uses cached data when available (stale-while-revalidate)', async () => {
+    // Pre-populate IndexedDB cache
+    const cachedGroups = [
+      { id: 'vtv', name: 'VTV', channels: [{ id: 'vtv1', name: 'VTV1', logo: '' }] },
+    ];
+    const cachedFlat = [{ id: 'vtv1', name: 'VTV1', groupName: 'VTV' }];
+    mockIdbStore['channels'] = { data: { groups: cachedGroups, flatChannels: cachedFlat }, expires: Date.now() + 999999 };
+
+    // No fetch mock needed — should use cache
+    await loadData();
+
+    // Data from cache
+    expect(state.groups).toEqual(cachedGroups);
+    expect(state.flatChannels).toEqual(cachedFlat);
+    expect(state.isLoading).toBe(false);
+    expect(state.error).toBeNull();
+
+    // Should have triggered background refresh (one extra fetch)
+    expect(global.fetch).toHaveBeenCalledTimes(1);
+    expect(global.fetch).toHaveBeenCalledWith(BASE_URL + 'channels.json');
+  });
+
+  it('fetches fresh when cache is empty', async () => {
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => sampleChannelsJson,
+    });
+
+    await loadData();
+
+    expect(global.fetch).toHaveBeenCalledTimes(1);
+    expect(state.groups.length).toBe(3);
+    expect(state.flatChannels.length).toBe(3);
+  });
+});
+
+// ============================================================
+// IndexedDB Cache Wrapper
+// ============================================================
+describe('IndexedDB Cache Wrapper', () => {
+  it('openDB is a function', () => {
+    expect(typeof openDB).toBe('function');
+  });
+
+  it('cacheGet is a function', () => {
+    expect(typeof cacheGet).toBe('function');
+  });
+
+  it('cacheSet is a function', () => {
+    expect(typeof cacheSet).toBe('function');
+  });
+
+  it('cacheSet stores data and cacheGet retrieves it', async () => {
+    const key = 'test-key';
+    const data = { foo: 'bar' };
+    await cacheSet(key, data, 999999);
+    const result = await cacheGet(key);
+    expect(result).toEqual(data);
+  });
+
+  it('cacheGet returns null for missing key', async () => {
+    const result = await cacheGet('nonexistent');
+    expect(result).toBeNull();
+  });
+
+  it('cacheGet returns null for expired data', async () => {
+    await cacheSet('expired-key', 'old-data', -1000); // already expired
+    const result = await cacheGet('expired-key');
+    expect(result).toBeNull();
+  });
+});
+
+// ============================================================
+// Cache TTL Constants
+// ============================================================
+describe('Cache TTL Constants', () => {
+  it('CACHE_TTL_CHANNELS is 30 minutes (1800000 ms)', () => {
+    expect(CACHE_TTL_CHANNELS).toBe(1800000);
+  });
+
+  it('CACHE_TTL_EPG is 30 minutes (1800000 ms)', () => {
+    expect(CACHE_TTL_EPG).toBe(1800000);
+  });
+});
+
+// ============================================================
+// loadChannelsFresh()
+// ============================================================
+describe('loadChannelsFresh()', () => {
+  it('fetches channels.json, updates state, and caches data', async () => {
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => sampleChannelsJson,
+    });
+
+    await loadChannelsFresh();
+
+    expect(global.fetch).toHaveBeenCalledWith(BASE_URL + 'channels.json');
+    expect(state.isLoading).toBe(false);
+    expect(state.groups.length).toBe(3);
+    expect(state.flatChannels.length).toBe(3);
+
+    // Data should also be in IndexedDB cache
+    const cached = await cacheGet('channels');
+    expect(cached).toBeDefined();
+    expect(cached.groups.length).toBe(3);
+  });
+
+  it('throws on HTTP error', async () => {
+    global.fetch.mockResolvedValueOnce({
+      ok: false,
+      status: 500,
+    });
+
+    await expect(loadChannelsFresh()).rejects.toThrow('HTTP 500');
+  });
+
+  it('throws on network error', async () => {
+    global.fetch.mockRejectedValueOnce(new Error('Network error'));
+
+    await expect(loadChannelsFresh()).rejects.toThrow('Network error');
+  });
+
+  it('sets state.error on failure in loadData flow', async () => {
+    // loadData calls loadChannelsFresh internally when cache miss
+    global.fetch.mockRejectedValueOnce(new Error('fail'));
+
+    await loadData();
+
+    expect(state.error).toBe('Không thể tải danh sách kênh');
     expect(state.isLoading).toBe(false);
   });
 });
@@ -1133,56 +1246,193 @@ describe('selectChannel()', () => {
     state = mod.state;
     selectChannel = mod.selectChannel;
     renderEpg = mod.renderEpg;
+    loadEpg = mod.loadEpg;
     populateState();
+    // Mock EPG fetch for lazy loading
+    global.fetch.mockResolvedValue({
+      ok: true,
+      text: async () => sampleEpgXml,
+    });
   });
 
-  it('sets state.selectedChannel to the given channel', () => {
+  it('sets state.selectedChannel to the given channel', async () => {
     const channel = state.flatChannels[0];
-    selectChannel(channel);
+    await selectChannel(channel);
     expect(state.selectedChannel).toBe(channel);
   });
 
-  it('adds .selected class to matching channel card', () => {
+  it('adds .selected class to matching channel card', async () => {
     // Setup channel cards with data-channel-id
     document.getElementById('channel-list').innerHTML = `
       <div class="channel-card" data-channel-id="vtv1"></div>
       <div class="channel-card" data-channel-id="htv7"></div>
     `;
-    selectChannel(state.flatChannels[0]);
+    await selectChannel(state.flatChannels[0]);
     const cards = document.querySelectorAll('.channel-card');
     expect(cards[0].classList.contains('selected')).toBe(true);
     expect(cards[1].classList.contains('selected')).toBe(false);
   });
 
-  it('removes .selected from previous card when switching channels', () => {
+  it('removes .selected from previous card when switching channels', async () => {
     document.getElementById('channel-list').innerHTML = `
       <div class="channel-card" data-channel-id="vtv1"></div>
       <div class="channel-card" data-channel-id="htv7"></div>
     `;
-    selectChannel(state.flatChannels[0]);
-    selectChannel(state.flatChannels[1]);
+    await selectChannel(state.flatChannels[0]);
+    await selectChannel(state.flatChannels[1]);
     const cards = document.querySelectorAll('.channel-card');
     expect(cards[0].classList.contains('selected')).toBe(false);
     expect(cards[1].classList.contains('selected')).toBe(true);
   });
 
-  it('hides player-placeholder when channel is selected', () => {
-    selectChannel(state.flatChannels[0]);
+  it('hides player-placeholder when channel is selected', async () => {
+    await selectChannel(state.flatChannels[0]);
     const placeholder = document.getElementById('player-placeholder');
     expect(placeholder.hidden).toBe(true);
   });
 
-  it('shows channel info with name and group', () => {
-    selectChannel(state.flatChannels[0]);
+  it('shows channel info with name and group', async () => {
+    await selectChannel(state.flatChannels[0]);
     const info = document.getElementById('channel-info');
     expect(info.textContent).toContain('VTV1');
     expect(info.textContent).toContain('VTV');
   });
 
-  it('calls renderEpg with channel.tvg_id', () => {
-    selectChannel(state.flatChannels[0]);
+  it('lazy-loads EPG and renders programmes', async () => {
+    await selectChannel(state.flatChannels[0]);
+    // EPG should be loaded and rendered
+    expect(state.epgData.length).toBeGreaterThan(0);
     const items = document.querySelectorAll('#epg-list .epg-item');
     expect(items.length).toBeGreaterThan(0);
+  });
+
+  it('shows loading spinner during EPG fetch', async () => {
+    // Don't resolve fetch immediately to check spinner
+    global.fetch.mockImplementation(() => new Promise(() => {})); // never resolves
+    const promise = selectChannel(state.flatChannels[0]);
+    // Spinner should be visible during fetch
+    const epgDiv = document.getElementById('epg-list');
+    expect(epgDiv.innerHTML).toContain('loading-spinner');
+  });
+
+  it('only loads EPG once (not on subsequent channel selects)', async () => {
+    // First select loads EPG
+    await selectChannel(state.flatChannels[0]);
+    expect(global.fetch).toHaveBeenCalledWith(BASE_URL + 'light_epg.xml');
+
+    // Reset mock calls to track second select
+    global.fetch.mockClear();
+    global.fetch.mockResolvedValue({
+      ok: true,
+      text: async () => sampleEpgXml,
+    });
+
+    // Second select should not re-fetch EPG
+    await selectChannel(state.flatChannels[1]);
+    // fetch should only have been called for playChannel HLS, not EPG
+    const epgCalls = global.fetch.mock.calls.filter(c => c[0] === BASE_URL + 'light_epg.xml');
+    expect(epgCalls.length).toBe(0);
+  });
+});
+
+// ============================================================
+// loadEpg() / loadEpgFresh()
+// ============================================================
+describe('loadEpg() / loadEpgFresh()', () => {
+  beforeEach(async () => {
+    vi.resetAllMocks();
+    vi.resetModules();
+    setupDom();
+    const mod = await import('../app.js');
+    state = mod.state;
+    loadEpg = mod.loadEpg;
+    loadEpgFresh = mod.loadEpgFresh;
+    cacheGet = mod.cacheGet;
+    cacheSet = mod.cacheSet;
+  });
+
+  it('loadEpgFresh fetches and parses EPG XML', async () => {
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      text: async () => sampleEpgXml,
+    });
+
+    await loadEpgFresh();
+
+    expect(global.fetch).toHaveBeenCalledWith(BASE_URL + 'light_epg.xml');
+    expect(state.epgData.length).toBe(2);
+    expect(state.epgData[0].title).toBe('Thời sự');
+    expect(state.epgData[1].title).toBe('Bản tin sáng');
+  });
+
+  it('loadEpgFresh shows error message on fetch failure', async () => {
+    global.fetch.mockRejectedValueOnce(new Error('Network error'));
+
+    await loadEpgFresh();
+
+    expect(state.epgData).toEqual([]);
+    const epgDiv = document.getElementById('epg-list');
+    expect(epgDiv.innerHTML).toContain('error-message');
+  });
+
+  it('loadEpgFresh caches parsed EPG data in IndexedDB', async () => {
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      text: async () => sampleEpgXml,
+    });
+
+    await loadEpgFresh();
+
+    const cached = await cacheGet('epg');
+    expect(cached).toBeDefined();
+    expect(cached.length).toBe(2);
+  });
+
+  it('loadEpg uses cached EPG when available (stale-while-revalidate)', async () => {
+    // Pre-cache EPG data
+    await cacheSet('epg', [
+      { channel: 'vtv1', start: '20240101000000', stop: '20240101010000', title: 'Cached Show' },
+    ], 999999);
+
+    await loadEpg();
+
+    // Should use cached data immediately
+    expect(state.epgData.length).toBe(1);
+    expect(state.epgData[0].title).toBe('Cached Show');
+    // Background refresh (stale-while-revalidate) should be triggered
+    expect(global.fetch).toHaveBeenCalledWith(BASE_URL + 'light_epg.xml');
+  });
+
+  it('loadEpg fetches fresh when cache is empty', async () => {
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      text: async () => sampleEpgXml,
+    });
+
+    await loadEpg();
+
+    expect(global.fetch).toHaveBeenCalledWith(BASE_URL + 'light_epg.xml');
+    expect(state.epgData.length).toBe(2);
+  });
+
+  it('loadEpg re-renders EPG for currently selected channel after fresh fetch', async () => {
+    // Pre-populate state with a selected channel
+    state.selectedChannel = { id: 'vtv1', tvg_id: 'vtv1', name: 'VTV1' };
+    // Setup EPG list DOM
+    document.getElementById('epg-list').innerHTML = '<div class="epg-item">Old</div>';
+
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      text: async () => sampleEpgXml,
+    });
+
+    await loadEpg();
+
+    // EPG should be re-rendered for the selected channel
+    const items = document.querySelectorAll('#epg-list .epg-item');
+    expect(items.length).toBeGreaterThan(0);
+    // Old content should be gone
+    expect(document.getElementById('epg-list').innerHTML).not.toContain('Old');
   });
 });
 
