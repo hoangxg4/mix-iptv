@@ -1,54 +1,208 @@
 <!DOCTYPE html>
-<html lang="vi" data-theme="dark">
+<html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  <title>Mix IPTV</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-  <script src="js/app.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mix IPTV</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0f0f0f;
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+.container { max-width: 700px; width: 100%; }
+h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.25rem; }
+.subtitle { color: #999; font-size: 0.9rem; margin-bottom: 2rem; }
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.stat-card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-align: center;
+}
+.stat-value { font-size: 1.8rem; font-weight: 700; color: #3b82f6; }
+.stat-label { font-size: 0.8rem; color: #999; margin-top: 0.25rem; }
+.links {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+.links h2 { font-size: 1.1rem; margin-bottom: 1rem; color: #ccc; }
+.link-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #222;
+}
+.link-item:last-child { border-bottom: none; }
+.link-name { font-weight: 500; }
+.link-size { color: #666; font-size: 0.85rem; }
+.link-item a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #3b82f6;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+.link-item a:hover { background: #3b82f6; color: #fff; }
+.links-footer { text-align: center; color: #666; font-size: 0.85rem; margin-top: 2rem; }
+.loading { text-align: center; color: #666; padding: 2rem; }
+.error { text-align: center; color: #ef4444; padding: 2rem; }
+.source-bar { margin-bottom: 2rem; }
+.source-bar h2 { font-size: 1.1rem; margin-bottom: 0.75rem; color: #ccc; }
+.source-stats { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.source-tag {
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  background: #1a1a1a;
+  border: 1px solid #333;
+}
+.source-tag.alive { border-color: #22c55e; color: #22c55e; }
+.source-tag.dead { border-color: #ef4444; color: #ef4444; }
+</style>
 </head>
 <body>
-  <div id="app">
-    <header id="header">
-      <button id="menu-toggle" aria-label="Toggle sidebar">☰</button>
-      <h1>Mix IPTV</h1>
-      <div id="header-actions">
-        <input type="search" id="search" placeholder="Tìm kênh...">
-        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+<div class="container">
+  <h1>📺 Mix IPTV</h1>
+  <p class="subtitle">IPTV playlist auto-generated từ nhiều nguồn</p>
+
+  <div id="stats"><div class="loading">Đang tải thống kê...</div></div>
+
+  <div class="links">
+    <h2>📄 Tải xuống</h2>
+    <div class="link-item">
+      <div>
+        <div class="link-name">🎬 Playlist M3U</div>
+        <div class="link-size" id="size-playlist"></div>
       </div>
-    </header>
-    <div id="main">
-      <aside id="groups-panel">
-        <h2>Nhóm</h2>
-        <ul id="group-list"></ul>
-        <div id="loading-groups" class="loading-spinner">Đang tải...</div>
-        <div id="error-groups" class="error-message" hidden></div>
-      </aside>
-      <section id="channels-panel">
-        <h2 id="current-group-title">Kênh</h2>
-        <div id="channel-list"></div>
-        <div id="loading-channels" class="loading-spinner">Đang tải...</div>
-        <div id="error-channels" class="error-message" hidden></div>
-      </section>
-      <main id="player-panel">
-        <div id="video-container">
-          <video id="video-player" controls autoplay playsinline crossorigin="anonymous"></video>
-          <div id="player-placeholder">
-            <div class="spinner"></div>
-            <p>Chọn kênh để xem</p>
-          </div>
-          <div id="player-error" class="error-message" hidden></div>
-        </div>
-        <div id="channel-info"></div>
-        <div id="epg-guide">
-          <h3>📺 Lịch phát sóng</h3>
-          <div id="epg-list"></div>
-          <div id="loading-epg" class="loading-spinner">Đang tải...</div>
-        </div>
-      </main>
+      <a href="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/playlist.m3u" target="_blank">Tải</a>
+    </div>
+    <div class="link-item">
+      <div>
+        <div class="link-name">📋 EPG XML</div>
+        <div class="link-size" id="size-epg"></div>
+      </div>
+      <a href="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/light_epg.xml" target="_blank">Tải</a>
+    </div>
+    <div class="link-item">
+      <div>
+        <div class="link-name">📊 Channels JSON</div>
+        <div class="link-size" id="size-json"></div>
+      </div>
+      <a href="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/channels.json" target="_blank">Tải</a>
     </div>
   </div>
+
+  <p class="links-footer" id="updated"></p>
+</div>
+
+<script>
+const BASE = 'https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/';
+
+function formatSize(bytes) {
+  if (!bytes) return '';
+  bytes = parseInt(bytes);
+  if (bytes < 1024) return bytes + ' B';
+  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+  return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+}
+
+let sourceStats = { total: 0, alive: 0, dead: 0 };
+let fileSizes = {};
+
+async function loadAll() {
+  try {
+    // Fetch everything in parallel
+    const [channelsRes, srcRes] = await Promise.all([
+      fetch(BASE + 'channels.json'),
+      fetch(BASE + 'sources.txt'),
+    ]);
+
+    // File sizes via HEAD
+    Promise.all([
+      fetch(BASE + 'playlist.m3u', { method: 'HEAD' }).then(r => fileSizes.playlist = r.headers.get('Content-Length')),
+      fetch(BASE + 'light_epg.xml', { method: 'HEAD' }).then(r => fileSizes.epg = r.headers.get('Content-Length')),
+      fetch(BASE + 'channels.json', { method: 'HEAD' }).then(r => fileSizes.json = r.headers.get('Content-Length')),
+    ]).then(() => {
+      document.getElementById('size-playlist').textContent = formatSize(fileSizes.playlist);
+      document.getElementById('size-epg').textContent = formatSize(fileSizes.epg);
+      document.getElementById('size-json').textContent = formatSize(fileSizes.json);
+    }).catch(() => {});
+
+    // Parse channels.json
+    if (!channelsRes.ok) throw new Error('HTTP ' + channelsRes.status);
+    const data = await channelsRes.json();
+    const groups = data.groups || [];
+    const totalCh = groups.reduce((s, g) => s + (g.channels || []).length, 0);
+    const totalLinks = groups.reduce((s, g) =>
+      s + (g.channels || []).reduce((s2, ch) =>
+        s2 + (ch.sources?.[0]?.contents?.[0]?.streams?.[0]?.stream_links?.length || 0)
+      , 0)
+    , 0);
+
+    // Parse sources.txt
+    const srcText = await srcRes.text();
+    const srcLines = srcText.split('\n').filter(l => l.trim().startsWith('http'));
+    sourceStats.total = srcLines.length;
+    sourceStats.dead = srcLines.filter(l => l.includes('[DIE]')).length;
+    sourceStats.alive = sourceStats.total - sourceStats.dead;
+    const pct = sourceStats.total > 0 ? Math.round((sourceStats.alive / sourceStats.total) * 100) : 0;
+
+    // Render
+    document.getElementById('stats').innerHTML = `
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">${groups.length}</div>
+          <div class="stat-label">Nhóm kênh</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">${totalCh}</div>
+          <div class="stat-label">Kênh</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">${totalLinks}</div>
+          <div class="stat-label">Stream links</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">${sourceStats.total}</div>
+          <div class="stat-label">Nguồn</div>
+        </div>
+      </div>
+      <div class="source-bar">
+        <h2>🔗 Trạng thái nguồn</h2>
+        <div class="source-stats">
+          <span class="source-tag alive">🟢 ${sourceStats.alive}/${sourceStats.total} sống (${pct}%)</span>
+          <span class="source-tag dead">🔴 ${sourceStats.dead} chết</span>
+        </div>
+      </div>
+    `;
+  } catch (err) {
+    document.getElementById('stats').innerHTML = `<div class="error">⚠️ Không thể tải dữ liệu: ${err.message}</div>`;
+  }
+}
+
+document.getElementById('updated').textContent =
+  'Cập nhật: ' + new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
+
+loadAll();
+</script>
 </body>
 </html>
