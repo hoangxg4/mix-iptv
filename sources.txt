@@ -3,8 +3,8 @@ https://github.com/luongtamlong/DAKLAK_RADIO/raw/refs/heads/main/RadioQuocTe.m3u
 https://github.com/luongtamlong/DAKLAK_RADIO/raw/refs/heads/main/RadioVietNam.m3u
 https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/vmttv
 https://raw.githubusercontent.com/Hannstcott/SunshineTr/refs/heads/main/sunshinetv.m3u
-https://263.org.vn/coban66
-https://vietngatv.short.gy/vietngatv [DIE]
+https://263.org.vn/coban66 [DIE]
+https://vietngatv.short.gy/vietngatv
 https://hanoiiptv.short.gy/HaNoiIPTV
 https://bit.ly/quidntv
 https://github.com/giangnam0201/All-In-One-IPTV/raw/refs/heads/main/channels.m3u
@@ -15,5 +15,5 @@ https://raw.githubusercontent.com/hoiquanclick/hoiquan/refs/heads/main/vip.m3u
 https://raw.githubusercontent.com/tathiquynh1971-oss/vietiptv.live/refs/heads/main/vietiptv.live
 https://gist.githubusercontent.com/vietlubu/692041ad78298d5492e8e8da888135d3/raw/3ecad1956e57080acbc97a0262bb3db9cdfd3c2d/IPTV-FPT.m3u
 https://raw.githubusercontent.com/hayatiptv/iptv/refs/heads/master/Radyo.m3u
-https://github.com/hayatiptv/iptv/raw/refs/heads/master/RadyoSeytan.m3u
+https://github.com/hayatiptv/iptv/raw/refs/heads/master/RadyoSeytan.m3u [DIE]
 http://vinh.cf/radio [DIE]
