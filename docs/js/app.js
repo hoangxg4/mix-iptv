@@ -278,15 +278,166 @@ function showError(message) {
   });
 }
 
-// ----- Stub for future tasks -----
+// ----- HLS Player Functions -----
+
+/**
+ * Navigate channel.sources[0].contents[0].streams[0].stream_links
+ * and return array of {url, name} objects.
+ */
+function getChannelUrls(channel) {
+  if (!channel) return [];
+  const links = channel.sources?.[0]?.contents?.[0]?.streams?.[0]?.stream_links;
+  if (!links) return [];
+  return links.map(l => ({ url: l.url, name: l.name }));
+}
+
+let hls = null;
+const video = typeof document !== 'undefined' ? document.getElementById('video-player') : null;
+
 function selectChannel(channel) {
-  // Will be implemented in video player task
+  state.selectedChannel = channel;
+
+  // Update active state in channel list
+  document.querySelectorAll('.channel-card').forEach(card => {
+    if (card.dataset.channelId === channel.id) {
+      card.classList.add('selected');
+    } else {
+      card.classList.remove('selected');
+    }
+  });
+
+  // Hide placeholder, show video player
+  const placeholder = document.getElementById('player-placeholder');
+  if (placeholder) placeholder.hidden = true;
+
+  // Show channel info: name + group
+  const info = document.getElementById('channel-info');
+  if (info) info.textContent = `${channel.name} - ${channel.groupName}`;
+
+  playChannel(channel);
+  renderEpg(channel.tvg_id || channel.id);
+}
+
+function playChannel(channel) {
+  // Cleanup previous
+  if (hls) { hls.destroy(); hls = null; }
+  if (video) video.removeAttribute('src');
+
+  const links = getChannelUrls(channel);
+  if (links.length === 0) {
+    showPlayerError('Kênh không có link phát');
+    return;
+  }
+
+  hidePlayerError();
+  showPlayerLoading();
+
+  tryPlayUrl(links, 0);
+}
+
+function tryPlayUrl(links, index) {
+  if (index >= links.length) {
+    showPlayerError('Tất cả link đều không hoạt động');
+    return;
+  }
+
+  const url = links[index].url;
+  hidePlayerError();
+
+  if (typeof Hls !== 'undefined' && Hls.isSupported()) {
+    hls = new Hls({
+      enableWorker: true,
+      lowLatencyMode: true,
+    });
+    hls.loadSource(url);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED, () => {
+      hidePlayerLoading();
+      video.play().catch(() => {});
+    });
+    hls.on(Hls.Events.ERROR, (event, data) => {
+      if (data.fatal) {
+        console.warn(`HLS error on ${url}, trying fallback...`);
+        hls.destroy();
+        hls = null;
+        tryPlayUrl(links, index + 1);
+      }
+    });
+  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    // Native HLS (Safari)
+    video.src = url;
+    video.addEventListener('loadedmetadata', () => hidePlayerLoading());
+    video.addEventListener('error', () => tryPlayUrl(links, index + 1));
+  } else {
+    showPlayerError('Trình duyệt không hỗ trợ HLS');
+  }
+}
+
+function showPlayerLoading(msg) {
+  const el = document.getElementById('player-loading');
+  if (!el) return;
+  el.textContent = msg || 'Đang tải...';
+  el.hidden = false;
+}
+
+function hidePlayerLoading() {
+  const el = document.getElementById('player-loading');
+  if (el) el.hidden = true;
+}
+
+function showPlayerError(msg) {
+  const el = document.getElementById('player-error');
+  if (!el) return;
+  el.innerHTML = `${msg} <button class="player-error-retry">Thử lại</button>`;
+  el.hidden = false;
+  const retryBtn = el.querySelector('.player-error-retry');
+  if (retryBtn) {
+    retryBtn.onclick = () => selectChannel(state.selectedChannel);
+  }
+}
+
+function hidePlayerError() {
+  const el = document.getElementById('player-error');
+  if (el) el.hidden = true;
+}
+
+// ----- Keyboard Shortcuts -----
+if (typeof document !== 'undefined') {
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+      const cards = document.querySelectorAll('.channel-card');
+      const activeIdx = Array.from(cards).findIndex(c => c.classList.contains('selected'));
+      let nextIdx;
+      if (e.key === 'ArrowUp') nextIdx = Math.max(0, activeIdx - 1);
+      else nextIdx = Math.min(cards.length - 1, activeIdx + 1);
+      if (nextIdx !== activeIdx && cards[nextIdx]) {
+        cards[nextIdx].click();
+        cards[nextIdx].scrollIntoView({ block: 'nearest' });
+      }
+      e.preventDefault();
+    }
+    if (e.key === ' ' && state.selectedChannel) {
+      e.preventDefault();
+      if (video && video.paused) video.play();
+      else if (video) video.pause();
+    }
+  });
 }
 
 // ----- Init -----
 // Only auto-init in browser environments where document exists
 if (typeof document !== 'undefined') {
   document.addEventListener('DOMContentLoaded', async () => {
+    // Create player-loading element if not present in HTML
+    if (!document.getElementById('player-loading')) {
+      const loading = document.createElement('div');
+      loading.id = 'player-loading';
+      loading.hidden = true;
+      loading.textContent = 'Đang tải...';
+      const container = document.getElementById('video-container');
+      if (container) container.appendChild(loading);
+    }
+
     initTheme();
     await loadData();
     if (!state.error) {
@@ -316,5 +467,12 @@ if (typeof module !== 'undefined' && module.exports) {
     getLogo,
     parseEpgTime,
     selectChannel,
+    getChannelUrls,
+    playChannel,
+    tryPlayUrl,
+    showPlayerLoading,
+    hidePlayerLoading,
+    showPlayerError,
+    hidePlayerError,
   };
 }

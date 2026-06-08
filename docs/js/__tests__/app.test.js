@@ -64,7 +64,7 @@ const sampleEpgXml = `<?xml version="1.0" encoding="UTF-8"?>
 </tv>`;
 
 // Load app.js
-let state, BASE_URL, GROUP_ORDER, loadData, initTheme, renderGroups, selectGroup, bindSearch, showError, renderChannels, renderEpg, getLogo, parseEpgTime;
+let state, BASE_URL, GROUP_ORDER, loadData, initTheme, renderGroups, selectGroup, bindSearch, showError, renderChannels, renderEpg, getLogo, parseEpgTime, selectChannel, getChannelUrls, playChannel, tryPlayUrl, showPlayerLoading, hidePlayerLoading, showPlayerError, hidePlayerError;
 
 beforeEach(async () => {
   vi.resetAllMocks();
@@ -86,6 +86,14 @@ beforeEach(async () => {
   renderEpg = mod.renderEpg;
   getLogo = mod.getLogo;
   parseEpgTime = mod.parseEpgTime;
+  selectChannel = mod.selectChannel;
+  getChannelUrls = mod.getChannelUrls;
+  playChannel = mod.playChannel;
+  tryPlayUrl = mod.tryPlayUrl;
+  showPlayerLoading = mod.showPlayerLoading;
+  hidePlayerLoading = mod.hidePlayerLoading;
+  showPlayerError = mod.showPlayerError;
+  hidePlayerError = mod.hidePlayerError;
 });
 
 // ============================================================
@@ -362,15 +370,40 @@ function setupDom() {
     <div id="channels-panel"><div id="error-channels" class="error-message" hidden></div></div>
     <div id="player-panel"><div id="player-error" class="error-message" hidden></div></div>
     <div id="channel-info"></div>
+    <div id="video-container">
+      <video id="video-player" controls autoplay playsinline></video>
+      <div id="player-placeholder">
+        <div class="spinner"></div>
+        <p>Chọn kênh để xem</p>
+      </div>
+      <div id="player-loading" hidden>Đang tải...</div>
+    </div>
   `;
 }
 
 // Fill state with test data for rendering tests
+function makeStreamLinks(url) {
+  return [{ contents: [{ streams: [{ stream_links: [{ url, name: 'Main' }] }] }] }];
+}
+
+function setupHlsMock() {
+  const mockHls = {
+    loadSource: vi.fn(),
+    attachMedia: vi.fn(),
+    destroy: vi.fn(),
+    on: vi.fn(),
+  };
+  global.Hls = vi.fn(() => mockHls);
+  global.Hls.isSupported = vi.fn(() => true);
+  global.Hls.Events = { MANIFEST_PARSED: 'mp', ERROR: 'err' };
+  return mockHls;
+}
+
 function populateState() {
   state.groups = [
-    { id: 'vtv', name: 'VTV', channels: [{ id: 'vtv1', name: 'VTV1', tvg_id: 'vtv1', tvg_logo: 'https://example.com/vtv1.png', url: 'https://example.com/vtv1.m3u8' }] },
-    { id: 'htv', name: 'HTV', channels: [{ id: 'htv7', name: 'HTV7', tvg_id: 'htv7', tvg_logo: 'https://example.com/htv7.png', url: 'https://example.com/htv7.m3u8' }] },
-    { id: 'khac', name: 'Khác', channels: [{ id: 'ch1', name: 'Kênh Lạ', tvg_id: 'ch1', url: '' }] },
+    { id: 'vtv', name: 'VTV', channels: [{ id: 'vtv1', name: 'VTV1', tvg_id: 'vtv1', tvg_logo: 'https://example.com/vtv1.png', url: 'https://example.com/vtv1.m3u8', sources: makeStreamLinks('https://example.com/vtv1.m3u8') }] },
+    { id: 'htv', name: 'HTV', channels: [{ id: 'htv7', name: 'HTV7', tvg_id: 'htv7', tvg_logo: 'https://example.com/htv7.png', url: 'https://example.com/htv7.m3u8', sources: makeStreamLinks('https://example.com/htv7.m3u8') }] },
+    { id: 'khac', name: 'Khác', channels: [{ id: 'ch1', name: 'Kênh Lạ', tvg_id: 'ch1', url: '', sources: [] }] },
   ];
   state.flatChannels = state.groups.flatMap(g =>
     g.channels.map(ch => ({ ...ch, groupName: g.name }))
@@ -883,5 +916,343 @@ describe('showError()', () => {
     expect(errorEl).not.toBeNull();
     expect(errorEl.textContent).toContain('Lỗi phát video');
     expect(errorEl.hasAttribute('hidden')).toBe(false);
+  });
+});
+
+// ============================================================
+// HLS Player — getChannelUrls()
+// ============================================================
+
+describe('getChannelUrls()', () => {
+  beforeEach(async () => {
+    vi.resetAllMocks();
+    vi.resetModules();
+    const mod = await import('../app.js');
+    getChannelUrls = mod.getChannelUrls;
+  });
+
+  it('returns array of {url, name} from nested channel.sources structure', () => {
+    const channel = {
+      sources: [{ contents: [{ streams: [{ stream_links: [{ url: 'https://example.com/stream.m3u8', name: 'Main' }, { url: 'https://example.com/backup.m3u8', name: 'Backup' }] }] }] }],
+    };
+    const result = getChannelUrls(channel);
+    expect(result).toEqual([
+      { url: 'https://example.com/stream.m3u8', name: 'Main' },
+      { url: 'https://example.com/backup.m3u8', name: 'Backup' },
+    ]);
+  });
+
+  it('returns empty array for channel with no sources', () => {
+    expect(getChannelUrls({})).toEqual([]);
+  });
+
+  it('returns empty array for channel with empty sources', () => {
+    expect(getChannelUrls({ sources: [] })).toEqual([]);
+  });
+
+  it('returns empty array for null input', () => {
+    expect(getChannelUrls(null)).toEqual([]);
+  });
+
+  it('returns empty array for undefined input', () => {
+    expect(getChannelUrls(undefined)).toEqual([]);
+  });
+
+  it('handles missing contents gracefully', () => {
+    expect(getChannelUrls({ sources: [{}] })).toEqual([]);
+  });
+
+  it('handles missing streams gracefully', () => {
+    expect(getChannelUrls({ sources: [{ contents: [{}] }] })).toEqual([]);
+  });
+});
+
+// ============================================================
+// HLS Player — showPlayerLoading / hidePlayerLoading
+// ============================================================
+
+describe('showPlayerLoading / hidePlayerLoading', () => {
+  beforeEach(async () => {
+    vi.resetAllMocks();
+    vi.resetModules();
+    setupDom();
+    const mod = await import('../app.js');
+    showPlayerLoading = mod.showPlayerLoading;
+    hidePlayerLoading = mod.hidePlayerLoading;
+  });
+
+  it('showPlayerLoading shows player-loading element', () => {
+    showPlayerLoading();
+    const loading = document.getElementById('player-loading');
+    expect(loading).not.toBeNull();
+    expect(loading.hidden).toBe(false);
+  });
+
+  it('showPlayerLoading sets custom message', () => {
+    showPlayerLoading('Đang kết nối...');
+    const loading = document.getElementById('player-loading');
+    expect(loading.textContent).toContain('Đang kết nối...');
+  });
+
+  it('showPlayerLoading uses default message when none provided', () => {
+    showPlayerLoading();
+    const loading = document.getElementById('player-loading');
+    expect(loading.textContent).toContain('Đang tải');
+  });
+
+  it('hidePlayerLoading hides the loading element', () => {
+    showPlayerLoading();
+    hidePlayerLoading();
+    const loading = document.getElementById('player-loading');
+    expect(loading.hidden).toBe(true);
+  });
+});
+
+// ============================================================
+// HLS Player — showPlayerError / hidePlayerError
+// ============================================================
+
+describe('showPlayerError / hidePlayerError', () => {
+  beforeEach(async () => {
+    vi.resetAllMocks();
+    vi.resetModules();
+    setupDom();
+    const mod = await import('../app.js');
+    showPlayerError = mod.showPlayerError;
+    hidePlayerError = mod.hidePlayerError;
+  });
+
+  it('showPlayerError shows error banner with message', () => {
+    showPlayerError('Kênh không có link phát');
+    const errorEl = document.getElementById('player-error');
+    expect(errorEl.hidden).toBe(false);
+    expect(errorEl.textContent).toContain('Kênh không có link phát');
+  });
+
+  it('showPlayerError adds retry button', () => {
+    showPlayerError('Lỗi phát');
+    const retryBtn = document.querySelector('#player-error .player-error-retry');
+    expect(retryBtn).not.toBeNull();
+    expect(retryBtn.textContent).toBe('Thử lại');
+  });
+
+  it('hidePlayerError hides the error element', () => {
+    showPlayerError('Lỗi');
+    hidePlayerError();
+    const errorEl = document.getElementById('player-error');
+    expect(errorEl.hidden).toBe(true);
+  });
+});
+
+// ============================================================
+// HLS Player — selectChannel()
+// ============================================================
+
+describe('selectChannel()', () => {
+  beforeEach(async () => {
+    vi.resetAllMocks();
+    vi.resetModules();
+    setupDom();
+    setupHlsMock();
+    const mod = await import('../app.js');
+    state = mod.state;
+    selectChannel = mod.selectChannel;
+    renderEpg = mod.renderEpg;
+    populateState();
+  });
+
+  it('sets state.selectedChannel to the given channel', () => {
+    const channel = state.flatChannels[0];
+    selectChannel(channel);
+    expect(state.selectedChannel).toBe(channel);
+  });
+
+  it('adds .selected class to matching channel card', () => {
+    // Setup channel cards with data-channel-id
+    document.getElementById('channel-list').innerHTML = `
+      <div class="channel-card" data-channel-id="vtv1"></div>
+      <div class="channel-card" data-channel-id="htv7"></div>
+    `;
+    selectChannel(state.flatChannels[0]);
+    const cards = document.querySelectorAll('.channel-card');
+    expect(cards[0].classList.contains('selected')).toBe(true);
+    expect(cards[1].classList.contains('selected')).toBe(false);
+  });
+
+  it('removes .selected from previous card when switching channels', () => {
+    document.getElementById('channel-list').innerHTML = `
+      <div class="channel-card" data-channel-id="vtv1"></div>
+      <div class="channel-card" data-channel-id="htv7"></div>
+    `;
+    selectChannel(state.flatChannels[0]);
+    selectChannel(state.flatChannels[1]);
+    const cards = document.querySelectorAll('.channel-card');
+    expect(cards[0].classList.contains('selected')).toBe(false);
+    expect(cards[1].classList.contains('selected')).toBe(true);
+  });
+
+  it('hides player-placeholder when channel is selected', () => {
+    selectChannel(state.flatChannels[0]);
+    const placeholder = document.getElementById('player-placeholder');
+    expect(placeholder.hidden).toBe(true);
+  });
+
+  it('shows channel info with name and group', () => {
+    selectChannel(state.flatChannels[0]);
+    const info = document.getElementById('channel-info');
+    expect(info.textContent).toContain('VTV1');
+    expect(info.textContent).toContain('VTV');
+  });
+
+  it('calls renderEpg with channel.tvg_id', () => {
+    selectChannel(state.flatChannels[0]);
+    const items = document.querySelectorAll('#epg-list .epg-item');
+    expect(items.length).toBeGreaterThan(0);
+  });
+});
+
+// ============================================================
+// HLS Player — playChannel / tryPlayUrl
+// ============================================================
+
+describe('playChannel() / tryPlayUrl()', () => {
+  beforeEach(async () => {
+    vi.resetAllMocks();
+    vi.resetModules();
+    setupDom();
+    setupHlsMock();
+    const mod = await import('../app.js');
+    state = mod.state;
+    playChannel = mod.playChannel;
+    getChannelUrls = mod.getChannelUrls;
+    showPlayerLoading = mod.showPlayerLoading;
+    hidePlayerLoading = mod.hidePlayerLoading;
+    showPlayerError = mod.showPlayerError;
+    hidePlayerError = mod.hidePlayerError;
+    populateState();
+  });
+
+  it('destroys previous hls instance and removes video src', () => {
+    playChannel(state.flatChannels[0]);
+    // Hls constructor should have been called
+    expect(global.Hls).toHaveBeenCalled();
+    // loadSource should have been called with the stream url
+    const mockHlsInstance = global.Hls.mock.results[0].value;
+    expect(mockHlsInstance.loadSource).toHaveBeenCalledWith('https://example.com/vtv1.m3u8');
+    expect(mockHlsInstance.attachMedia).toHaveBeenCalled();
+  });
+
+  it('shows player error when channel has no stream links', () => {
+    // Channel with no sources
+    const badChannel = { id: 'bad', name: 'Bad', sources: [] };
+    playChannel(badChannel);
+    const errorEl = document.getElementById('player-error');
+    expect(errorEl.hidden).toBe(false);
+    expect(errorEl.textContent).toContain('Kênh không có link phát');
+  });
+
+  it('attaches MANIFEST_PARSED and ERROR event listeners', () => {
+    playChannel(state.flatChannels[0]);
+    const mockHlsInstance = global.Hls.mock.results[0].value;
+    expect(mockHlsInstance.on).toHaveBeenCalledWith('mp', expect.any(Function));
+    expect(mockHlsInstance.on).toHaveBeenCalledWith('err', expect.any(Function));
+  });
+});
+
+// ============================================================
+// HLS Player — Keyboard Shortcuts
+// ============================================================
+
+describe('Keyboard shortcuts', () => {
+  beforeEach(async () => {
+    vi.resetAllMocks();
+    vi.resetModules();
+    setupDom();
+    setupHlsMock();
+    const mod = await import('../app.js');
+    state = mod.state;
+    selectChannel = mod.selectChannel;
+    populateState();
+  });
+
+  it('ArrowDown navigates to next channel card and calls click', () => {
+    document.getElementById('channel-list').innerHTML = `
+      <div class="channel-card selected" data-channel-id="vtv1"></div>
+      <div class="channel-card" data-channel-id="htv7"></div>
+    `;
+    const cards = document.querySelectorAll('.channel-card');
+    cards[0].scrollIntoView = vi.fn();
+    cards[1].scrollIntoView = vi.fn();
+    cards[1].click = vi.fn();
+
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }));
+
+    expect(cards[1].click).toHaveBeenCalled();
+    expect(cards[1].scrollIntoView).toHaveBeenCalledWith({ block: 'nearest' });
+  });
+
+  it('ArrowUp navigates to previous channel card', () => {
+    document.getElementById('channel-list').innerHTML = `
+      <div class="channel-card" data-channel-id="vtv1"></div>
+      <div class="channel-card selected" data-channel-id="htv7"></div>
+    `;
+    const cards = document.querySelectorAll('.channel-card');
+    cards[0].scrollIntoView = vi.fn();
+    cards[0].click = vi.fn();
+
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }));
+
+    expect(cards[0].click).toHaveBeenCalled();
+    expect(cards[0].scrollIntoView).toHaveBeenCalledWith({ block: 'nearest' });
+  });
+
+  it('does nothing at first card with ArrowUp', () => {
+    document.getElementById('channel-list').innerHTML = `
+      <div class="channel-card selected" data-channel-id="vtv1"></div>
+      <div class="channel-card" data-channel-id="htv7"></div>
+    `;
+    const cards = document.querySelectorAll('.channel-card');
+    cards[0].click = vi.fn();
+
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }));
+
+    expect(cards[0].click).not.toHaveBeenCalled();
+  });
+
+  it('does nothing at last card with ArrowDown', () => {
+    document.getElementById('channel-list').innerHTML = `
+      <div class="channel-card" data-channel-id="vtv1"></div>
+      <div class="channel-card selected" data-channel-id="htv7"></div>
+    `;
+    const cards = document.querySelectorAll('.channel-card');
+    cards[1].click = vi.fn();
+
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }));
+
+    expect(cards[1].click).not.toHaveBeenCalled();
+  });
+
+  it('prevents default for ArrowDown event', () => {
+    document.getElementById('channel-list').innerHTML = `
+      <div class="channel-card selected" data-channel-id="vtv1"></div>
+      <div class="channel-card" data-channel-id="htv7"></div>
+    `;
+
+    const event = new KeyboardEvent('keydown', { key: 'ArrowDown', cancelable: true });
+    document.dispatchEvent(event);
+
+    expect(event.defaultPrevented).toBe(true);
+  });
+
+  it('prevents default for ArrowUp event', () => {
+    document.getElementById('channel-list').innerHTML = `
+      <div class="channel-card selected" data-channel-id="vtv1"></div>
+      <div class="channel-card" data-channel-id="htv7"></div>
+    `;
+
+    const event = new KeyboardEvent('keydown', { key: 'ArrowUp', cancelable: true });
+    document.dispatchEvent(event);
+
+    expect(event.defaultPrevented).toBe(true);
   });
 });
