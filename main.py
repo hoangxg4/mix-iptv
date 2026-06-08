@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """IPTV Playlist Generator - Async version with config and caching."""
 import asyncio
+import hashlib
+import json
 import logging
 import os
 import re
@@ -24,6 +26,7 @@ DEFAULT_CONFIG = {
         'source_file': 'sources.txt',
         'output_file': 'playlist.m3u',
         'output_epg': 'light_epg.xml',
+        'output_channels': 'channels.json',
         'timeout': 10,
         'stream_timeout': 3,
         'max_workers': 64,
@@ -105,6 +108,7 @@ class M3UBuilder:
         self.source_file = g['source_file']
         self.output_file = g['output_file']
         self.output_epg = g['output_epg']
+        self.output_channels = g.get('output_channels', 'channels.json')
         self.timeout = g['timeout']
         self.stream_timeout = g['stream_timeout']
         self.max_workers = g['max_workers']
@@ -121,6 +125,7 @@ class M3UBuilder:
         self.epg_xml_roots = []
         self.final_used_ids = set()
         self.source_status = {}
+        self.final_playlist = []
 
         # Async HTTP session (initialized in async context)
         self._session = None
@@ -364,7 +369,10 @@ class M3UBuilder:
                         cache_key = self.cache.make_content_hash_key(epg_url)
                         cached = await self.cache.get(cache_key)
                         if cached:
-                            xml_data = cached.get('body')
+                            xml_str = cached.get('body')
+                            xml_data = xml_str.encode('utf-8')
+                            # Save raw EPG to .cache/epg/
+                            self.save_epg_raw(epg_url, xml_data)
                             return self._parse_epg(xml_data, epg_url)
                         return None
 
@@ -388,6 +396,9 @@ class M3UBuilder:
                         xml_data = gzip.decompress(content)
                     else:
                         xml_data = content
+
+                    # Save raw EPG to .cache/epg/
+                    self.save_epg_raw(epg_url, xml_data)
 
                     # Cache the raw XML data
                     if self.cache_enabled and xml_data:
@@ -420,6 +431,31 @@ class M3UBuilder:
         except ET.ParseError:
             return None
 
+    # -----------------------------------------------------------------------
+    # EPG RAW SAVE
+    # -----------------------------------------------------------------------
+
+    def save_epg_raw(self, url, xml_data):
+        """Save raw EPG XML data to .cache/epg/ directory.
+
+        Args:
+            url: EPG source URL (used to derive filename via SHA-256).
+            xml_data: Raw bytes of the EPG XML.
+
+        Returns:
+            Path to the saved file.
+        """
+        cache_dir = self.config['cache']['dir']
+        epg_dir = os.path.join(cache_dir, 'epg')
+        os.makedirs(epg_dir, exist_ok=True)
+        # Use SHA-256 of URL for deterministic filename
+        safe = hashlib.sha256(url.encode('utf-8')).hexdigest()
+        path = os.path.join(epg_dir, f'{safe}.xml')
+        with open(path, 'wb') as f:
+            f.write(xml_data)
+        logger.debug("Saved raw EPG to %s", path)
+        return path
+
     async def fetch_epg_and_map_ids(self):
         """Fetch all EPG sources asynchronously and build ID maps."""
         if not self.epg_urls:
@@ -434,6 +470,148 @@ class M3UBuilder:
                 self.epg_xml_roots.append(root)
                 self.epg_id_map.update(local_ids)
                 self.xml_name_mapping.update(local_mapping)
+
+    # -----------------------------------------------------------------------
+    # PROGRAMME DEDUP
+    # -----------------------------------------------------------------------
+
+    @staticmethod
+    def _dedup_programmes(programme_elements):
+        """Deduplicate programme entries by (channel, start) tuple.
+
+        Args:
+            programme_elements: List of Element objects for <programme>.
+
+        Returns:
+            Deduplicated list with only the first occurrence of each (channel, start) pair.
+        """
+        seen = set()
+        result = []
+        for prog in programme_elements:
+            ch = prog.get('channel', '')
+            start = prog.get('start', '')
+            key = (ch, start)
+            if key not in seen:
+                seen.add(key)
+                result.append(prog)
+        return result
+
+    # -----------------------------------------------------------------------
+    # CHANNELS JSON OUTPUT (iptvschema.org)
+    # -----------------------------------------------------------------------
+
+    def generate_channels_json(self):
+        """Generate channels.json following iptvschema.org (Provider -> Group -> Channel -> Source -> Stream -> StreamLink).
+
+        Uses self.final_playlist as the source of channel data.
+        """
+
+        # Build groups from final_playlist
+        groups_dict = {}
+        for ch in self.final_playlist:
+            group_name = ch.get('group', 'Khác')
+            if group_name not in groups_dict:
+                groups_dict[group_name] = []
+            groups_dict[group_name].append(ch)
+
+        groups = []
+        for idx, (group_name, channels) in enumerate(groups_dict.items()):
+            group_id = group_name.lower().replace(' ', '-').replace('/', '-')
+            json_channels = []
+            for ch_idx, ch in enumerate(channels):
+                ch_id = ch.get('name', f'ch-{ch_idx}').lower().replace(' ', '-')
+                # Build stream_links: primary + fallbacks
+                stream_links = []
+                primary_url = ch.get('url', '')
+                if primary_url:
+                    stream_links.append({
+                        'id': f'{ch_id}-s1',
+                        'name': 'Server 1',
+                        'url': primary_url,
+                        'type': 'hls' if primary_url.endswith('.m3u8') else 'hls',
+                        'default': True,
+                        'enableP2P': False,
+                        'subtitles': None,
+                        'remote_data': None,
+                        'request_headers': None,
+                        'comments': None,
+                    })
+                for fb_idx, fb_url in enumerate(ch.get('fallback_urls', [])):
+                    stream_links.append({
+                        'id': f'{ch_id}-s{fb_idx + 2}',
+                        'name': f'Server {fb_idx + 2}',
+                        'url': fb_url,
+                        'type': 'hls' if fb_url.endswith('.m3u8') else 'hls',
+                        'default': False,
+                        'enableP2P': False,
+                        'subtitles': None,
+                        'remote_data': None,
+                        'request_headers': None,
+                        'comments': None,
+                    })
+
+                json_channels.append({
+                    'id': ch_id,
+                    'name': ch.get('name', ''),
+                    'description': None,
+                    'label': None,
+                    'image': None,
+                    'display': 'default',
+                    'type': 'single',
+                    'enable_detail': True,
+                    'tvg_id': ch.get('final_id', ch.get('tvg_id', '')),
+                    'tvg_logo': ch.get('final_logo', ch.get('tvg_logo', '')),
+                    'sources': [
+                        {
+                            'id': f'{ch_id}-src-1',
+                            'name': 'Source 1',
+                            'image': None,
+                            'contents': [
+                                {
+                                    'id': f'{ch_id}-content-1',
+                                    'name': 'Content 1',
+                                    'image': None,
+                                    'streams': [
+                                        {
+                                            'id': f'{ch_id}-stream-1',
+                                            'name': 'Main',
+                                            'image': None,
+                                            'stream_links': stream_links,
+                                        }
+                                    ],
+                                }
+                            ],
+                            'remote_data': None,
+                        }
+                    ],
+                })
+
+            groups.append({
+                'id': group_id,
+                'name': group_name,
+                'display': 'vertical',
+                'image': None,
+                'grid_number': idx + 1,
+                'enable_detail': True,
+                'channels': json_channels,
+            })
+
+        provider = {
+            'id': 'mix-iptv',
+            'name': 'Mix IPTV',
+            'description': 'Mixed IPTV playlist auto-generated from multiple sources',
+            'url': None,
+            'color': None,
+            'image': None,
+            'grid_number': 1,
+            'groups': groups,
+        }
+
+        with open(self.output_channels, 'w', encoding='utf-8') as f:
+            json.dump(provider, f, ensure_ascii=False, indent=2)
+
+        logger.info("Đã tạo %s với %d nhóm, %d kênh",
+                    self.output_channels, len(groups), len(self.final_playlist))
 
     # -----------------------------------------------------------------------
     # MAIN RUN LOOP
@@ -489,7 +667,7 @@ class M3UBuilder:
                 grouped_channels[cname] = []
             grouped_channels[cname].append(ch)
 
-        final_playlist = []
+        self.final_playlist = []
         for cname, links in grouped_channels.items():
             best_id = ""
             for l in links:
@@ -508,14 +686,14 @@ class M3UBuilder:
             if best_id:
                 self.final_used_ids.add(best_id)
             primary['fallback_urls'] = [l['url'] for l in links[1:]]
-            final_playlist.append(primary)
+            self.final_playlist.append(primary)
 
-        final_playlist.sort(key=self.get_sort_key)
+        self.final_playlist.sort(key=self.get_sort_key)
 
         # Phase 5: Write output playlist
         with open(self.output_file, 'w', encoding='utf-8') as f:
             f.write('#EXTM3U x-tvg-url="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/light_epg.xml"\n')
-            for ch in final_playlist:
+            for ch in self.final_playlist:
                 line = (
                     f'#EXTINF:-1 tvg-id="{ch["final_id"]}" '
                     f'tvg-name="{ch["name"]}" '
@@ -530,7 +708,7 @@ class M3UBuilder:
                 for fb_url in ch.get('fallback_urls', []):
                     f.write(fb_url + "\n")
 
-        # Phase 6: Write trimmed EPG
+        # Phase 6: Write trimmed EPG with programme dedup
         if self.final_used_ids:
             logger.info("Đang trích xuất cấu trúc EPG tinh gọn...")
             root_out = ET.Element("tv")
@@ -541,14 +719,23 @@ class M3UBuilder:
                     if ch_id in self.final_used_ids and ch_id not in added_ch:
                         root_out.append(elem)
                         added_ch.add(ch_id)
+            # Collect all programme elements and dedup
+            all_programmes = []
             for root_in in self.epg_xml_roots:
                 for elem in root_in.findall('programme'):
                     if elem.get('channel') in added_ch:
-                        root_out.append(elem)
+                        all_programmes.append(elem)
+            deduped = self._dedup_programmes(all_programmes)
+            for prog in deduped:
+                root_out.append(prog)
 
             tree = ET.ElementTree(root_out)
             ET.indent(tree, space="  ", level=0)
             tree.write(self.output_epg, encoding='utf-8', xml_declaration=True)
+
+        # Phase 7: Generate channels.json
+        if self.final_playlist:
+            self.generate_channels_json()
 
         logger.info("Hoàn tất! Đã xử lý playlist thành công.")
         await self.close()
