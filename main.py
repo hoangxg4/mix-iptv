@@ -75,8 +75,7 @@ GROUP_PRIORITY = {
     'K+': 6, 'THỂ THAO': 7, 'PHIM TRUYỆN': 8, 'QUỐC TẾ': 9, 'ĐỊA PHƯƠNG': 10,
 }
 
-# Safety cap to keep EPG at a reasonable size (~120 MB at 200k programmes)
-MAX_EPG_PROGRAMMES = 200000
+# ÈPG only includes programmes for channels in the playlist — no artificial cap needed
 
 RE_SPLIT_NAME = re.compile(r'[_\|]')
 RE_CLEAN_TAGS = re.compile(r'(?i)[\[\(\-_\.]?\b(vn|vie|h264|hevc|clip|tv|fpt|sctv|vtc|local|chính|phụ)\b[\]\)\-_\.]?')
@@ -783,12 +782,6 @@ class M3UBuilder:
                         all_programmes.append(elem)
 
             deduped = self._dedup_programmes(all_programmes)
-
-            # Safety cap to prevent >100 MB EPG even with many matched channels
-            if len(deduped) > MAX_EPG_PROGRAMMES:
-                logger.warning("EPG programme count (%d) exceeds cap (%d), truncating",
-                               len(deduped), MAX_EPG_PROGRAMMES)
-                deduped = deduped[:MAX_EPG_PROGRAMMES]
 
             for prog in deduped:
                 root_out.append(prog)
