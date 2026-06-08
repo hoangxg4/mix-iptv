@@ -47,4 +47,4 @@ jobs:
           commit_message: "🤖 Auto-update playlist, EPG, JSON & source status [skip ci]"
           
           # Theo dõi và cập nhật đồng thời cả 4 file sau khi script Python thực thi xong
-          file_pattern: "playlist.m3u light_epg.xml channels.json sources.txt"
+          file_pattern: "playlist.m3u light_epg.xml channels.json sources.txt docs/"
