@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mix IPTV</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <div id="app">
+    <header id="header">
+      <button id="menu-toggle" aria-label="Toggle sidebar">☰</button>
+      <h1>Mix IPTV</h1>
+      <div id="header-actions">
+        <input type="search" id="search" placeholder="Tìm kênh...">
+        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+    <div id="main">
+      <aside id="groups-panel">
+        <h2>Nhóm</h2>
+        <ul id="group-list"></ul>
+        <div id="loading-groups" class="loading-spinner">Đang tải...</div>
+        <div id="error-groups" class="error-message" hidden></div>
+      </aside>
+      <section id="channels-panel">
+        <h2 id="current-group-title">Kênh</h2>
+        <div id="channel-list"></div>
+        <div id="loading-channels" class="loading-spinner">Đang tải...</div>
+        <div id="error-channels" class="error-message" hidden></div>
+      </section>
+      <main id="player-panel">
+        <div id="video-container">
+          <video id="video-player" controls autoplay playsinline></video>
+          <div id="player-placeholder">
+            <div class="spinner"></div>
+            <p>Chọn kênh để xem</p>
+          </div>
+          <div id="player-error" class="error-message" hidden></div>
+        </div>
+        <div id="channel-info"></div>
+        <div id="epg-guide">
+          <h3>📺 Lịch phát sóng</h3>
+          <div id="epg-list"></div>
+          <div id="loading-epg" class="loading-spinner">Đang tải...</div>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
