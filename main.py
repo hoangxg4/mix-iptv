@@ -74,6 +74,9 @@ GROUP_PRIORITY = {
     'K+': 6, 'THỂ THAO': 7, 'PHIM TRUYỆN': 8, 'QUỐC TẾ': 9, 'ĐỊA PHƯƠNG': 10,
 }
 
+# Safety cap to keep light_epg.xml under GitHub's 100 MB file limit
+MAX_EPG_PROGRAMMES = 200000
+
 RE_SPLIT_NAME = re.compile(r'[_\|]')
 RE_CLEAN_TAGS = re.compile(r'(?i)[\[\(\-_\.]?\b(vn|vie|h264|hevc|clip|tv|fpt|sctv|vtc|local|chính|phụ)\b[\]\)\-_\.]?')
 RE_FIX_BRANDS = re.compile(r'(?i)(vtv|htv|vtc|sctv|vtvcab|k\+)\s+(\d+)')
@@ -190,6 +193,17 @@ class M3UBuilder:
             return 'Thể Thao'
         if RE_MOVIES.search(g_lower) or RE_MOVIES.search(n_lower):
             return 'Phim Truyện'
+        # Check raw_group for known brand patterns before falling through
+        # This prevents "Vtv" / "HTV 🏠" etc. from becoming separate groups
+        if g_lower:
+            if RE_VTV_NUM.search(g_lower):
+                return 'VTV'
+            if RE_HTV_NUM.search(g_lower):
+                return 'HTV'
+            if RE_VTC_NUM.search(g_lower):
+                return 'VTC'
+            if RE_VTVCAB.search(g_lower) or RE_ON.search(g_lower):
+                return 'VTVCAB / ON'
         if raw_group and raw_group.strip() and raw_group.strip().lower() not in ['khác', 'other', 'undefined']:
             return raw_group.strip().title()
         return 'Khác'
@@ -507,12 +521,40 @@ class M3UBuilder:
         """
 
         # Build groups from final_playlist
+        # Merge case-insensitive duplicate group names (safety net for "Vtv" ≠ "VTV")
         groups_dict = {}
+        _group_normalized = {}  # lowercase name -> canonical display name
+        _group_candidates = {}  # lowercase name -> [all case-variants seen]
         for ch in self.final_playlist:
             group_name = ch.get('group', 'Khác')
-            if group_name not in groups_dict:
-                groups_dict[group_name] = []
-            groups_dict[group_name].append(ch)
+            group_lower = group_name.lower()
+            if group_lower in _group_normalized:
+                canonical = _group_normalized[group_lower]
+                groups_dict[canonical].append(ch)
+                # Track candidates for canonical name resolution
+                if group_name not in _group_candidates[group_lower]:
+                    _group_candidates[group_lower].append(group_name)
+            else:
+                _group_normalized[group_lower] = group_name
+                _group_candidates[group_lower] = [group_name]
+                groups_dict[group_name] = [ch]
+
+        # Resolve canonical display names: prefer GROUP_PRIORITY match or uppercase
+        for lower_key, candidates in _group_candidates.items():
+            if len(candidates) > 1:
+                # Pick best: exact priority match > uppercase > first-encountered
+                best = candidates[0]
+                for c in candidates:
+                    if c in GROUP_PRIORITY:
+                        best = c
+                        break
+                    if c == c.upper():
+                        best = c
+                if best != _group_normalized[lower_key]:
+                    # Merge into the better-named group
+                    old_canonical = _group_normalized[lower_key]
+                    groups_dict[best] = groups_dict.pop(old_canonical)
+                    _group_normalized[lower_key] = best
 
         groups = []
         for idx, (group_name, channels) in enumerate(groups_dict.items()):
@@ -708,24 +750,60 @@ class M3UBuilder:
                 for fb_url in ch.get('fallback_urls', []):
                     f.write(fb_url + "\n")
 
-        # Phase 6: Write trimmed EPG with programme dedup
-        if self.final_used_ids:
+        # Phase 6: Write trimmed EPG with programme dedup + size safety cap
+        if self.epg_xml_roots:
             logger.info("Đang trích xuất cấu trúc EPG tinh gọn...")
             root_out = ET.Element("tv")
             added_ch = set()
-            for root_in in self.epg_xml_roots:
-                for elem in root_in.findall('channel'):
-                    ch_id = elem.get('id')
-                    if ch_id in self.final_used_ids and ch_id not in added_ch:
-                        root_out.append(elem)
-                        added_ch.add(ch_id)
-            # Collect all programme elements and dedup
+
+            # --- Channel entries: only include matched channels ---
+            if self.final_used_ids:
+                for root_in in self.epg_xml_roots:
+                    for elem in root_in.findall('channel'):
+                        ch_id = elem.get('id')
+                        if ch_id in self.final_used_ids and ch_id not in added_ch:
+                            root_out.append(elem)
+                            added_ch.add(ch_id)
+
+            # --- Programme entries: use matched channels, fallback to all if too few ---
+            # Strategy:
+            #   Tier 1 – programmes for matched channels (added_ch)
+            #   Tier 2 – if < 10000 programmes, widen to ALL EPG channels (rich fallback)
+            #   Then dedup + cap to stay under GitHub's 100 MB file limit
             all_programmes = []
             for root_in in self.epg_xml_roots:
                 for elem in root_in.findall('programme'):
-                    if elem.get('channel') in added_ch:
+                    ch = elem.get('channel')
+                    if ch in added_ch:
                         all_programmes.append(elem)
+
+            # Tier 2: if not enough matched programmes, include everything
+            if len(all_programmes) < 10000:
+                logger.info("EPG matched programmes thấp (%d), mở rộng sang tất cả nguồn...",
+                            len(all_programmes))
+                # Also add any channels from the broader EPG data
+                for root_in in self.epg_xml_roots:
+                    for elem in root_in.findall('channel'):
+                        ch_id = elem.get('id')
+                        if ch_id not in added_ch:
+                            root_out.append(elem)
+                            added_ch.add(ch_id)
+                # Now collect ALL programmes
+                all_programmes = []
+                for root_in in self.epg_xml_roots:
+                    for elem in root_in.findall('programme'):
+                        ch = elem.get('channel')
+                        if ch in added_ch:
+                            all_programmes.append(elem)
+
             deduped = self._dedup_programmes(all_programmes)
+
+            # Cap to stay under GitHub's 100 MB file limit
+            if len(deduped) > MAX_EPG_PROGRAMMES:
+                logger.warning("Quá nhiều programme entries (%d), giới hạn còn %d",
+                               len(deduped), MAX_EPG_PROGRAMMES)
+                deduped = deduped[:MAX_EPG_PROGRAMMES]
+
             for prog in deduped:
                 root_out.append(prog)
 
