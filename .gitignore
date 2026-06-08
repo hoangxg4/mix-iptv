@@ -1,0 +1,10 @@
+# Cache directory
+.cache/
+
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/

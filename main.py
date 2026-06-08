@@ -1,32 +1,74 @@
-import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
-import re
+#!/usr/bin/env python3
+"""IPTV Playlist Generator - Async version with config and caching."""
+import asyncio
+import logging
 import os
+import re
 import gzip
 import xml.etree.ElementTree as ET
-import concurrent.futures
-import logging
+import yaml
+import aiohttp
+import aiohttp.client_exceptions
+from cache import Cache
 
-# Cấu hình Logging tinh gọn
+# Logging configuration
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
-logging.getLogger("urllib3").setLevel(logging.ERROR)
-logging.getLogger("requests").setLevel(logging.ERROR)
 
-SOURCE_FILE = "sources.txt"
-OUTPUT_FILE = "playlist.m3u"
-OUTPUT_EPG = "light_epg.xml"
+# ---------------------------------------------------------------------------
+# Config loading
+# ---------------------------------------------------------------------------
 
-TIMEOUT = 10
-STREAM_TIMEOUT = 3  # Tăng nhẹ thời gian phản hồi cho luồng trong nước
-MAX_WORKERS = 64     
+DEFAULT_CONFIG = {
+    'general': {
+        'source_file': 'sources.txt',
+        'output_file': 'playlist.m3u',
+        'output_epg': 'light_epg.xml',
+        'timeout': 10,
+        'stream_timeout': 3,
+        'max_workers': 64,
+        'spam_keywords': [
+            'mời quý khán giả', 'thông báo', 'tạm ngưng',
+            'bảo trì', 'kênh dự phòng', 'test',
+        ],
+    },
+    'cache': {
+        'enabled': True,
+        'dir': '.cache',
+        'epg_ttl': 3600,
+        'source_ttl': 300,
+        'link_ttl': 600,
+    },
+}
 
-SPAM_KEYWORDS = ['mời quý khán giả', 'thông báo', 'tạm ngưng', 'bảo trì', 'kênh dự phòng', 'test']
+
+def load_config(path='config.yaml'):
+    """Load YAML config, merging with defaults."""
+    cfg = DEFAULT_CONFIG.copy()
+    if os.path.exists(path):
+        try:
+            with open(path, 'r') as f:
+                overrides = yaml.safe_load(f) or {}
+            # Deep merge
+            for section, values in overrides.items():
+                if section in cfg and isinstance(cfg[section], dict):
+                    cfg[section].update(values)
+                else:
+                    cfg[section] = values
+        except Exception as e:
+            logger.warning("Failed to load config %s: %s", path, e)
+    return cfg
+
+
+# ---------------------------------------------------------------------------
+# Regex patterns (PRESERVED - must not change)
+# ---------------------------------------------------------------------------
+
+SPAM_KEYWORDS = DEFAULT_CONFIG['general']['spam_keywords']
 
 GROUP_PRIORITY = {
-    'VTV': 1, 'HTV': 2, 'VTC': 3, 'VTVCAB / ON': 4, 'VTVPRIME': 5, 
-    'K+': 6, 'THỂ THAO': 7, 'PHIM TRUYỆN': 8, 'QUỐC TẾ': 9, 'ĐỊA PHƯƠNG': 10
+    'VTV': 1, 'HTV': 2, 'VTC': 3, 'VTVCAB / ON': 4, 'VTVPRIME': 5,
+    'K+': 6, 'THỂ THAO': 7, 'PHIM TRUYỆN': 8, 'QUỐC TẾ': 9, 'ĐỊA PHƯƠNG': 10,
 }
 
 RE_SPLIT_NAME = re.compile(r'[_\|]')
@@ -49,46 +91,100 @@ RE_GROUP_TITLE = re.compile(r'group-title="([^"]*)"')
 RE_TVG_URL = re.compile(r'(?:x-tvg-url|url-tvg|tvg-url)=["\']([^"\']+)["\']', re.I)
 RE_NAT_KEY = re.compile(r'(\d+)')
 
+
+# ---------------------------------------------------------------------------
+# M3U Builder
+# ---------------------------------------------------------------------------
+
 class M3UBuilder:
-    def __init__(self):
+    """Builds merged M3U playlist from multiple sources with EPG mapping."""
+
+    def __init__(self, config=None):
+        self.config = config or load_config()
+        g = self.config['general']
+        self.source_file = g['source_file']
+        self.output_file = g['output_file']
+        self.output_epg = g['output_epg']
+        self.timeout = g['timeout']
+        self.stream_timeout = g['stream_timeout']
+        self.max_workers = g['max_workers']
+        self.spam_keywords = g['spam_keywords']
+
+        c = self.config['cache']
+        self.cache = Cache(cache_dir=c['dir'], default_ttl=c['epg_ttl'])
+        self.cache_enabled = c['enabled']
+
         self.epg_urls = set()
         self.unique_links = {}
         self.epg_id_map = {}
-        self.xml_name_mapping = {} 
-        self.epg_xml_roots = []    
+        self.xml_name_mapping = {}
+        self.epg_xml_roots = []
         self.final_used_ids = set()
         self.source_status = {}
-        
-        self.session = requests.Session()
-        retries = Retry(total=2, backoff_factor=0.5, status_forcelist=[500, 502, 503, 504])
-        adapter = HTTPAdapter(max_retries=retries, pool_connections=MAX_WORKERS, pool_maxsize=MAX_WORKERS)
-        self.session.mount('http://', adapter)
-        self.session.mount('https://', adapter)
+
+        # Async HTTP session (initialized in async context)
+        self._session = None
+
+    async def _get_session(self):
+        """Get or create the aiohttp session."""
+        if self._session is None or self._session.closed:
+            connector = aiohttp.TCPConnector(
+                limit=self.max_workers,
+                limit_per_host=10,
+                force_close=False,
+                enable_cleanup_closed=True,
+            )
+            timeout = aiohttp.ClientTimeout(total=self.timeout)
+            self._session = aiohttp.ClientSession(
+                connector=connector,
+                timeout=timeout,
+                headers={'User-Agent': 'Mozilla/5.0'},
+            )
+        return self._session
+
+    async def close(self):
+        """Close the HTTP session."""
+        if self._session and not self._session.closed:
+            await self._session.close()
+
+    # -----------------------------------------------------------------------
+    # PRESERVED METHODS (unchanged logic)
+    # -----------------------------------------------------------------------
 
     def normalize_channel_name(self, name: str) -> str:
         name = RE_SPLIT_NAME.split(name)[0]
-        # SỬA LỖI 2: Xóa triệt để chữ HD/FHD dính liền vào số (Ví dụ: VTV1HD -> VTV1, HTV7FHD -> HTV7)
         name = re.sub(r'(?i)(fhd|hd|sd|1080p|720p|4k|hevc|h264)', ' ', name)
         name = RE_CLEAN_TAGS.sub(' ', name)
         name = RE_FIX_BRANDS.sub(r'\1\2', name)
         name = RE_SPECIAL_CHARS.sub('', name)
         cleaned = ' '.join(name.split()).strip().upper()
-        if cleaned.startswith("VV"): cleaned = "VTV" + cleaned[2:]
+        if cleaned.startswith("VV"):
+            cleaned = "VTV" + cleaned[2:]
         return cleaned
 
     def smart_grouping(self, raw_group: str, clean_name: str) -> str:
         g_lower = raw_group.lower() if raw_group else ""
         n_lower = clean_name.lower()
-        if RE_INTL.search(n_lower): return 'Quốc Tế'
-        if RE_VTV_PRIME.search(n_lower) and RE_VTV_NUM.search(n_lower): return 'VTVPRIME'
-        if RE_VTVCAB.search(n_lower) or RE_ON.search(n_lower): return 'VTVCAB / ON'
-        if RE_VTV_NUM.search(n_lower): return 'VTV'
-        if RE_HTV_NUM.search(n_lower): return 'HTV'
-        if RE_VTC_NUM.search(n_lower): return 'VTC'
-        if 'k+' in n_lower: return 'K+'
-        if RE_LOCAL.search(g_lower) or RE_LOCAL.search(n_lower): return 'Địa Phương'
-        if RE_SPORTS.search(g_lower) or RE_SPORTS.search(n_lower): return 'Thể Thao'
-        if RE_MOVIES.search(g_lower) or RE_MOVIES.search(n_lower): return 'Phim Truyện'
+        if RE_INTL.search(n_lower):
+            return 'Quốc Tế'
+        if RE_VTV_PRIME.search(n_lower) and RE_VTV_NUM.search(n_lower):
+            return 'VTVPRIME'
+        if RE_VTVCAB.search(n_lower) or RE_ON.search(n_lower):
+            return 'VTVCAB / ON'
+        if RE_VTV_NUM.search(n_lower):
+            return 'VTV'
+        if RE_HTV_NUM.search(n_lower):
+            return 'HTV'
+        if RE_VTC_NUM.search(n_lower):
+            return 'VTC'
+        if 'k+' in n_lower:
+            return 'K+'
+        if RE_LOCAL.search(g_lower) or RE_LOCAL.search(n_lower):
+            return 'Địa Phương'
+        if RE_SPORTS.search(g_lower) or RE_SPORTS.search(n_lower):
+            return 'Thể Thao'
+        if RE_MOVIES.search(g_lower) or RE_MOVIES.search(n_lower):
+            return 'Phim Truyện'
         if raw_group and raw_group.strip() and raw_group.strip().lower() not in ['khác', 'other', 'undefined']:
             return raw_group.strip().title()
         return 'Khác'
@@ -112,11 +208,47 @@ class M3UBuilder:
                     headers[k.strip()] = v.strip()
         return clean_url, headers
 
+    def get_best_id_match(self, clean_name, orig_id):
+        orig_id_lower = orig_id.lower() if orig_id else ""
+        cname_lower = clean_name.lower()
+
+        for brand in ['vtv', 'htv', 'vtc', 'sctv']:
+            if brand in cname_lower and brand not in orig_id_lower:
+                orig_id_lower = ""
+                break
+
+        # TẦNG 1: Khớp ID gốc chuẩn trực tiếp trong EPG
+        if orig_id_lower and orig_id_lower in self.epg_id_map:
+            return self.epg_id_map[orig_id_lower]
+
+        # TẦNG 2: Khớp chính xác 100% theo tên đã chuẩn hóa
+        if clean_name in self.xml_name_mapping:
+            return self.xml_name_mapping[clean_name]
+
+        # TẦNG 3: Dò tìm Fuzzy theo ID chứa tên kênh
+        if any(b in cname_lower for b in ['vtv', 'htv', 'vtc', 'sctv', 'k+']):
+            for epg_id_low, actual_id in self.epg_id_map.items():
+                if (epg_id_low == cname_lower
+                        or epg_id_low.startswith(cname_lower + ".")
+                        or epg_id_low == cname_lower + "hd"
+                        or epg_id_low == cname_lower + "_hd"):
+                    return actual_id
+            for x_name, ch_id in self.xml_name_mapping.items():
+                if cname_lower in x_name.lower() or x_name.lower() in cname_lower:
+                    return ch_id
+
+        return ""
+
+    # -----------------------------------------------------------------------
+    # CHANNEL PROCESSING (unchanged logic, no I/O)
+    # -----------------------------------------------------------------------
+
     def add_channel(self, extinf: str, url: str, raw_group: str, extra_tags: list):
         raw_name = extinf.split(',')[-1].strip()
         clean_name = self.normalize_channel_name(raw_name)
-        if len(clean_name) < 2 or any(spam in clean_name.lower() for spam in SPAM_KEYWORDS): return
-        
+        if len(clean_name) < 2 or any(spam in clean_name.lower() for spam in self.spam_keywords):
+            return
+
         id_match = RE_TVG_ID.search(extinf)
         logo_match = RE_TVG_LOGO.search(extinf)
         found_id = id_match.group(1).strip() if id_match else ""
@@ -129,58 +261,155 @@ class M3UBuilder:
                 'group': self.smart_grouping(raw_group, clean_name),
                 'tvg_id': found_id,
                 'tvg_logo': found_logo,
-                'extra_tags': extra_tags
+                'extra_tags': extra_tags,
             }
 
-    def check_single_link(self, data):
-        clean_url, headers = self.parse_url_headers(data['url'])
-        try:
-            # SỬA LỖI 1: Thay HEAD bằng GET + stream=True để "cứu" các link chặn HEAD từ nhà đài VN
-            with self.session.get(clean_url, headers=headers, timeout=STREAM_TIMEOUT, allow_redirects=True, stream=True) as res:
-                if res.status_code < 400: 
-                    return data
-        except requests.RequestException:
-            pass
-        return None
+    # -----------------------------------------------------------------------
+    # ASYNC I/O OPERATIONS
+    # -----------------------------------------------------------------------
 
-    def process_source(self, url):
-        try:
-            res = self.session.get(url, timeout=TIMEOUT)
-            res.raise_for_status()
-            self.source_status[url] = True
-            curr_extinf = ""
-            curr_grp = ""
-            extra_tags = []
-            for line in res.text.splitlines():
-                line = line.strip()
-                if line.startswith("#EXTINF"):
-                    curr_extinf = line
-                    m = RE_GROUP_TITLE.search(line)
-                    curr_grp = m.group(1) if m else ""
-                    extra_tags = []
-                elif line.startswith("#EXTM3U"):
-                    m = RE_TVG_URL.search(line)
-                    if m:
-                        for e in m.group(1).split(','):
-                            if e.strip(): self.epg_urls.add(e.strip())
-                elif line.startswith("#") and curr_extinf: 
-                    extra_tags.append(line)
-                elif not line.startswith("#") and line.startswith("http") and curr_extinf:
-                    self.add_channel(curr_extinf, line, curr_grp, extra_tags)
-                    curr_extinf = ""
-        except requests.RequestException:
-            self.source_status[url] = False
+    async def process_source(self, url, semaphore):
+        """Fetch and parse a source M3U playlist asynchronously."""
+        async with semaphore:
+            clean_url, headers = self.parse_url_headers(url)
+            try:
+                session = await self._get_session()
 
-    def _fetch_single_epg(self, epg_url):
+                # Check content-hash cache for source data
+                cache_key = self.cache.make_content_hash_key(clean_url)
+                cached_data = None
+                if self.cache_enabled:
+                    cached_data = await self.cache.get(cache_key)
+
+                text = None
+                if cached_data is not None:
+                    text = cached_data.get('body')
+                    self.source_status[url] = True
+                else:
+                    async with session.get(clean_url, headers=headers,
+                                           timeout=aiohttp.ClientTimeout(total=self.timeout)) as res:
+                        if res.status < 400:
+                            text = await res.text()
+                            self.source_status[url] = True
+                            if self.cache_enabled and text:
+                                source_ttl = self.config['cache'].get('source_ttl', 300)
+                                await self.cache.set(cache_key, {'body': text},
+                                                     ttl=source_ttl)
+                        else:
+                            self.source_status[url] = False
+
+                if text is None:
+                    self.source_status[url] = False
+                    return
+
+                curr_extinf = ""
+                curr_grp = ""
+                extra_tags = []
+                for line in text.splitlines():
+                    line = line.strip()
+                    if line.startswith("#EXTINF"):
+                        curr_extinf = line
+                        m = RE_GROUP_TITLE.search(line)
+                        curr_grp = m.group(1) if m else ""
+                        extra_tags = []
+                    elif line.startswith("#EXTM3U"):
+                        m = RE_TVG_URL.search(line)
+                        if m:
+                            for e in m.group(1).split(','):
+                                if e.strip():
+                                    self.epg_urls.add(e.strip())
+                    elif line.startswith("#") and curr_extinf:
+                        extra_tags.append(line)
+                    elif not line.startswith("#") and line.startswith("http") and curr_extinf:
+                        self.add_channel(curr_extinf, line, curr_grp, extra_tags)
+                        curr_extinf = ""
+
+            except (aiohttp.ClientError, asyncio.TimeoutError, Exception):
+                self.source_status[url] = False
+
+    async def check_single_link(self, data, semaphore):
+        """Check if a stream link is alive (GET with stream=True, check status < 400)."""
+        async with semaphore:
+            clean_url, headers = self.parse_url_headers(data['url'])
+            try:
+                session = await self._get_session()
+                async with session.get(clean_url, headers=headers,
+                                       timeout=aiohttp.ClientTimeout(total=self.stream_timeout),
+                                       allow_redirects=True) as res:
+                    if res.status < 400:
+                        return data
+            except (aiohttp.ClientError, asyncio.TimeoutError, Exception):
+                pass
+            return None
+
+    async def _fetch_single_epg(self, epg_url, semaphore):
+        """Fetch and parse a single EPG XML source asynchronously with ETag caching."""
+        async with semaphore:
+            try:
+                session = await self._get_session()
+                headers = {'User-Agent': 'Mozilla/5.0'}
+
+                # Add conditional headers from cache
+                if self.cache_enabled:
+                    cached_headers = await self.cache.get_headers(epg_url)
+                    if cached_headers.get('etag'):
+                        headers['If-None-Match'] = cached_headers['etag']
+                    if cached_headers.get('last-modified'):
+                        headers['If-Modified-Since'] = cached_headers['last-modified']
+
+                async with session.get(epg_url, headers=headers,
+                                       timeout=aiohttp.ClientTimeout(total=20)) as res:
+                    if res.status == 304:
+                        # Not modified — use cached XML data
+                        cache_key = self.cache.make_content_hash_key(epg_url)
+                        cached = await self.cache.get(cache_key)
+                        if cached:
+                            xml_data = cached.get('body')
+                            return self._parse_epg(xml_data, epg_url)
+                        return None
+
+                    if res.status >= 400:
+                        return None
+
+                    content = await res.read()
+
+                    # Store ETag/Last-Modified from response
+                    if self.cache_enabled:
+                        new_headers = {}
+                        if 'ETag' in res.headers:
+                            new_headers['etag'] = res.headers['ETag']
+                        if 'Last-Modified' in res.headers:
+                            new_headers['last-modified'] = res.headers['Last-Modified']
+                        if new_headers:
+                            await self.cache.store_headers(epg_url, new_headers)
+
+                    # Decompress if gzipped
+                    if epg_url.endswith('.gz') or res.headers.get('Content-Encoding') == 'gzip':
+                        xml_data = gzip.decompress(content)
+                    else:
+                        xml_data = content
+
+                    # Cache the raw XML data
+                    if self.cache_enabled and xml_data:
+                        cache_key = self.cache.make_content_hash_key(epg_url)
+                        await self.cache.set(cache_key, {'body': xml_data.decode('utf-8', errors='replace')},
+                                             ttl=self.config['cache'].get('epg_ttl', 3600))
+
+                    return self._parse_epg(xml_data, epg_url)
+
+            except Exception:
+                return None
+
+    def _parse_epg(self, xml_data, epg_url):
+        """Parse EPG XML bytes into (root, local_ids, local_mapping)."""
         try:
-            res = self.session.get(epg_url, timeout=20)
-            xml_data = gzip.decompress(res.content) if epg_url.endswith('.gz') else res.content
             root = ET.fromstring(xml_data)
             local_ids = {}
             local_mapping = {}
             for elem in root.findall('channel'):
                 ch_id = elem.get('id')
-                if not ch_id: continue
+                if not ch_id:
+                    continue
                 local_ids[ch_id.lower()] = ch_id
                 for dn in elem.findall('display-name'):
                     if dn.text:
@@ -188,14 +417,17 @@ class M3UBuilder:
                         if norm_name not in local_mapping:
                             local_mapping[norm_name] = ch_id
             return root, local_ids, local_mapping
-        except Exception:
+        except ET.ParseError:
             return None
 
-    def fetch_epg_and_map_ids(self):
-        if not self.epg_urls: return
-        logger.info("Đang tải và xử lý đa luồng EPG đồng thời...")
-        with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
-            results = executor.map(self._fetch_single_epg, list(self.epg_urls))
+    async def fetch_epg_and_map_ids(self):
+        """Fetch all EPG sources asynchronously and build ID maps."""
+        if not self.epg_urls:
+            return
+        logger.info("Đang tải và xử lý EPG đồng thời...")
+        semaphore = asyncio.Semaphore(8)
+        tasks = [self._fetch_single_epg(url, semaphore) for url in list(self.epg_urls)]
+        results = await asyncio.gather(*tasks)
         for res in results:
             if res:
                 root, local_ids, local_mapping = res
@@ -203,71 +435,52 @@ class M3UBuilder:
                 self.epg_id_map.update(local_ids)
                 self.xml_name_mapping.update(local_mapping)
 
-    def get_best_id_match(self, clean_name, orig_id):
-        orig_id_lower = orig_id.lower() if orig_id else ""
-        cname_lower = clean_name.lower()
-        
-        for brand in ['vtv', 'htv', 'vtc', 'sctv']:
-            if brand in cname_lower and brand not in orig_id_lower:
-                orig_id_lower = "" 
-                break
+    # -----------------------------------------------------------------------
+    # MAIN RUN LOOP
+    # -----------------------------------------------------------------------
 
-        # TẦNG 1: Khớp ID gốc chuẩn trực tiếp trong EPG
-        if orig_id_lower and orig_id_lower in self.epg_id_map: 
-            return self.epg_id_map[orig_id_lower]
-            
-        # TẦNG 2: Khớp chính xác 100% theo tên đã chuẩn hóa
-        if clean_name in self.xml_name_mapping: 
-            return self.xml_name_mapping[clean_name]
-            
-        # TẦNG 3 (MỚI - SỬA LỖI 3): Dò tìm Fuzzy theo ID chứa tên kênh (cho đài trong nước)
-        if any(b in cname_lower for b in ['vtv', 'htv', 'vtc', 'sctv', 'k+']):
-            # Thử tìm xem có EPG ID nào khớp dạng: vtv1.vn, vtv1hd, vtv1_hd không
-            for epg_id_low, actual_id in self.epg_id_map.items():
-                if epg_id_low == cname_lower or epg_id_low.startswith(cname_lower + ".") or epg_id_low == cname_lower + "hd" or epg_id_low == cname_lower + "_hd":
-                    return actual_id
-            # Dò ngược trong danh sách Display-Name gốc của EPG
-            for x_name, ch_id in self.xml_name_mapping.items():
-                if cname_lower in x_name.lower() or x_name.lower() in cname_lower:
-                    return ch_id
-                    
-        return ""
-
-    def run(self):
-        if not os.path.exists(SOURCE_FILE):
-            logger.error(f"Không tìm thấy file nguồn: {SOURCE_FILE}")
+    async def run(self):
+        """Main entry point: read sources, fetch playlists, check links, build output."""
+        if not os.path.exists(self.source_file):
+            logger.error("Không tìm thấy file nguồn: %s", self.source_file)
             return
-            
+
         logger.info("Đang xử lý và dọn dẹp các liên kết trong sources.txt...")
-        with open(SOURCE_FILE, 'r', encoding='utf-8') as f:
+        with open(self.source_file, 'r', encoding='utf-8') as f:
             lines = f.readlines()
-            
+
         unique_urls = []
         for line in lines:
             line = line.strip()
-            if not line: continue
+            if not line:
+                continue
             raw_url = line.replace('[DIE]', '').strip()
             if raw_url.startswith("http") and raw_url not in unique_urls:
                 unique_urls.append(raw_url)
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-            executor.map(self.process_source, unique_urls)
+        # Phase 1: Fetch all sources concurrently
+        source_sem = asyncio.Semaphore(10)
+        source_tasks = [self.process_source(url, source_sem) for url in unique_urls]
+        await asyncio.gather(*source_tasks)
 
-        with open(SOURCE_FILE, 'w', encoding='utf-8') as f:
+        # Update source status file
+        with open(self.source_file, 'w', encoding='utf-8') as f:
             for url in unique_urls:
                 status_suffix = " [DIE]" if not self.source_status.get(url, True) else ""
                 f.write(f"{url}{status_suffix}\n")
 
+        # Phase 2: Check stream links
         working_links = []
         logger.info("Đang kiểm tra trạng thái stream links...")
-        with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-            futures = [executor.submit(self.check_single_link, d) for d in self.unique_links.values()]
-            for f in concurrent.futures.as_completed(futures):
-                res = f.result()
-                if res: working_links.append(res)
-        
-        self.fetch_epg_and_map_ids()
+        link_sem = asyncio.Semaphore(self.max_workers)
+        check_tasks = [self.check_single_link(d, link_sem) for d in self.unique_links.values()]
+        results = await asyncio.gather(*check_tasks)
+        working_links = [r for r in results if r is not None]
 
+        # Phase 3: Fetch EPG and build ID maps
+        await self.fetch_epg_and_map_ids()
+
+        # Phase 4: Group channels and build final playlist
         logger.info("Đang đồng bộ Metadata để gộp nhóm Multi-source...")
         grouped_channels = {}
         for ch in working_links:
@@ -289,27 +502,35 @@ class M3UBuilder:
                 if l['tvg_logo']:
                     best_logo = l['tvg_logo']
                     break
-            # Gộp tất cả link vào một entry duy nhất để tránh trùng kênh + tự động fallback
             primary = links[0]
             primary['final_id'] = best_id
             primary['final_logo'] = best_logo
-            if best_id: self.final_used_ids.add(best_id)
+            if best_id:
+                self.final_used_ids.add(best_id)
             primary['fallback_urls'] = [l['url'] for l in links[1:]]
             final_playlist.append(primary)
 
         final_playlist.sort(key=self.get_sort_key)
 
-        with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+        # Phase 5: Write output playlist
+        with open(self.output_file, 'w', encoding='utf-8') as f:
             f.write('#EXTM3U x-tvg-url="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/light_epg.xml"\n')
             for ch in final_playlist:
-                line = f'#EXTINF:-1 tvg-id="{ch["final_id"]}" tvg-name="{ch["name"]}" tvg-logo="{ch["final_logo"]}" group-title="{ch["group"]}",{ch["name"]}'
+                line = (
+                    f'#EXTINF:-1 tvg-id="{ch["final_id"]}" '
+                    f'tvg-name="{ch["name"]}" '
+                    f'tvg-logo="{ch["final_logo"]}" '
+                    f'group-title="{ch["group"]}",{ch["name"]}'
+                )
                 f.write(line + "\n")
                 f.write(f"#EXTGRP:{ch['group']}\n")
-                for t in ch['extra_tags']: f.write(t + "\n")
+                for t in ch['extra_tags']:
+                    f.write(t + "\n")
                 f.write(ch['url'] + "\n")
                 for fb_url in ch.get('fallback_urls', []):
                     f.write(fb_url + "\n")
 
+        # Phase 6: Write trimmed EPG
         if self.final_used_ids:
             logger.info("Đang trích xuất cấu trúc EPG tinh gọn...")
             root_out = ET.Element("tv")
@@ -324,12 +545,25 @@ class M3UBuilder:
                 for elem in root_in.findall('programme'):
                     if elem.get('channel') in added_ch:
                         root_out.append(elem)
-                        
+
             tree = ET.ElementTree(root_out)
             ET.indent(tree, space="  ", level=0)
-            tree.write(OUTPUT_EPG, encoding='utf-8', xml_declaration=True)
+            tree.write(self.output_epg, encoding='utf-8', xml_declaration=True)
 
-        logger.info("Hoàn tất! Đã sửa xong toàn bộ lỗi mất EPG đài trong nước.")
+        logger.info("Hoàn tất! Đã xử lý playlist thành công.")
+        await self.close()
+
+
+# ---------------------------------------------------------------------------
+# Entry point
+# ---------------------------------------------------------------------------
+
+async def main():
+    """Async entry point."""
+    config = load_config()
+    builder = M3UBuilder(config)
+    await builder.run()
+
 
 if __name__ == "__main__":
-    M3UBuilder().run()
+    asyncio.run(main())
