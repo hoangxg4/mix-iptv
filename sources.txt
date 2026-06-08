@@ -17,3 +17,7 @@ https://gist.githubusercontent.com/vietlubu/692041ad78298d5492e8e8da888135d3/raw
 https://raw.githubusercontent.com/hayatiptv/iptv/refs/heads/master/Radyo.m3u
 https://github.com/hayatiptv/iptv/raw/refs/heads/master/RadyoSeytan.m3u [DIE]
 http://vinh.cf/radio [DIE]
+https://github.com/vietng228/ximaotv/raw/refs/heads/main/vietxiaomi.m3u
+https://github.com/vietng228/m3u/raw/refs/heads/main/Japan.m3u
+https://github.com/vietng228/m3u/raw/refs/heads/main/m3u.m3u
+https://github.com/vietng228/m3u/raw/refs/heads/main/new.m3u
