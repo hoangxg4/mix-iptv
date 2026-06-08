@@ -766,36 +766,14 @@ class M3UBuilder:
                             root_out.append(elem)
                             added_ch.add(ch_id)
 
-            # --- Programme entries: use matched channels, fallback to all if too few ---
-            # Strategy:
-            #   Tier 1 – programmes for matched channels (added_ch)
-            #   Tier 2 – if < 10000 programmes, widen to ALL EPG channels (rich fallback)
-            #   Then dedup + cap to stay under GitHub's 100 MB file limit
+            # --- Programme entries: only for matched channels ---
+            # Collect programmes for channels that exist in the final playlist
             all_programmes = []
             for root_in in self.epg_xml_roots:
                 for elem in root_in.findall('programme'):
                     ch = elem.get('channel')
                     if ch in added_ch:
                         all_programmes.append(elem)
-
-            # Tier 2: if not enough matched programmes, include everything
-            if len(all_programmes) < 10000:
-                logger.info("EPG matched programmes thấp (%d), mở rộng sang tất cả nguồn...",
-                            len(all_programmes))
-                # Also add any channels from the broader EPG data
-                for root_in in self.epg_xml_roots:
-                    for elem in root_in.findall('channel'):
-                        ch_id = elem.get('id')
-                        if ch_id not in added_ch:
-                            root_out.append(elem)
-                            added_ch.add(ch_id)
-                # Now collect ALL programmes
-                all_programmes = []
-                for root_in in self.epg_xml_roots:
-                    for elem in root_in.findall('programme'):
-                        ch = elem.get('channel')
-                        if ch in added_ch:
-                            all_programmes.append(elem)
 
             deduped = self._dedup_programmes(all_programmes)
 

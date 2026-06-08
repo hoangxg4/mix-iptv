@@ -1,5 +1,9 @@
 # Cache directory
-.cache/
+.cache
+playlist.m3u
+light_epg.xml
+channels.json
+.hive/
 
 # Virtual environment
 .venv/
