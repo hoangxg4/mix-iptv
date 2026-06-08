@@ -35,16 +35,16 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests
+          pip install aiohttp pyyaml
 
-      - name: Run merge and EPG trim script
+      - name: Run merge, EPG trim, and JSON export
         run: python main.py
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           # Thẻ [skip ci] cực kỳ quan trọng để tránh tạo vòng lặp chạy vô tận khi bot commit sources.txt
-          commit_message: "🤖 Auto-update playlist, EPG & update source status [skip ci]"
+          commit_message: "🤖 Auto-update playlist, EPG, JSON & source status [skip ci]"
           
-          # Theo dõi và cập nhật đồng thời cả 3 file sau khi script Python thực thi xong
-          file_pattern: "playlist.m3u light_epg.xml sources.txt"
+          # Theo dõi và cập nhật đồng thời cả 4 file sau khi script Python thực thi xong
+          file_pattern: "playlist.m3u light_epg.xml channels.json sources.txt"
