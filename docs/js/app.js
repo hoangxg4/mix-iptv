@@ -107,11 +107,19 @@ function initTheme() {
 // ----- Helper Functions -----
 
 /**
+ * Upgrade a URL from http:// to https://. Leaves other URLs unchanged.
+ */
+function upgradeUrl(url) {
+  if (!url) return url;
+  return url.replace(/^http:\/\//i, 'https://');
+}
+
+/**
  * Return logo HTML: <img> if channel has tvg_logo, otherwise a colored circle with first letter.
  */
 function getLogo(channel) {
   if (channel.tvg_logo) {
-    return `<img src="${channel.tvg_logo}" alt="${channel.name}">`;
+    return `<img src="${upgradeUrl(channel.tvg_logo)}" alt="${channel.name}">`;
   }
   const letter = channel.name ? channel.name.charAt(0).toUpperCase() : '?';
   return `<span class="letter-logo">${letter}</span>`;
@@ -288,7 +296,7 @@ function getChannelUrls(channel) {
   if (!channel) return [];
   const links = channel.sources?.[0]?.contents?.[0]?.streams?.[0]?.stream_links;
   if (!links) return [];
-  return links.map(l => ({ url: l.url, name: l.name }));
+  return links.map(l => ({ url: upgradeUrl(l.url), name: l.name }));
 }
 
 let hls = null;
@@ -344,6 +352,20 @@ function tryPlayUrl(links, index) {
   const url = links[index].url;
   hidePlayerError();
 
+  // For HTTPS URLs, prepare HTTP fallback to try if HTTPS fails
+  const httpFallbackUrl = url.startsWith('https://') ? url.replace(/^https:\/\//i, 'http://') : null;
+
+  function tryNext() {
+    // Insert HTTP fallback as next to try before moving to the next link
+    if (httpFallbackUrl) {
+      const newLinks = [...links];
+      newLinks.splice(index + 1, 0, { url: httpFallbackUrl, name: links[index].name + ' (HTTP)' });
+      tryPlayUrl(newLinks, index + 1);
+    } else {
+      tryPlayUrl(links, index + 1);
+    }
+  }
+
   if (typeof Hls !== 'undefined' && Hls.isSupported()) {
     hls = new Hls({
       enableWorker: true,
@@ -360,14 +382,14 @@ function tryPlayUrl(links, index) {
         console.warn(`HLS error on ${url}, trying fallback...`);
         hls.destroy();
         hls = null;
-        tryPlayUrl(links, index + 1);
+        tryNext();
       }
     });
   } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
     // Native HLS (Safari)
     video.src = url;
     video.addEventListener('loadedmetadata', () => hidePlayerLoading());
-    video.addEventListener('error', () => tryPlayUrl(links, index + 1));
+    video.addEventListener('error', () => tryNext());
   } else {
     showPlayerError('Trình duyệt không hỗ trợ HLS');
   }
@@ -453,6 +475,7 @@ if (typeof document !== 'undefined') {
 // ----- Exports for testing -----
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
+    upgradeUrl,
     state,
     BASE_URL,
     GROUP_ORDER,

@@ -64,7 +64,7 @@ const sampleEpgXml = `<?xml version="1.0" encoding="UTF-8"?>
 </tv>`;
 
 // Load app.js
-let state, BASE_URL, GROUP_ORDER, loadData, initTheme, renderGroups, selectGroup, bindSearch, showError, renderChannels, renderEpg, getLogo, parseEpgTime, selectChannel, getChannelUrls, playChannel, tryPlayUrl, showPlayerLoading, hidePlayerLoading, showPlayerError, hidePlayerError;
+let state, BASE_URL, GROUP_ORDER, loadData, initTheme, renderGroups, selectGroup, bindSearch, showError, renderChannels, renderEpg, getLogo, parseEpgTime, selectChannel, getChannelUrls, playChannel, tryPlayUrl, showPlayerLoading, hidePlayerLoading, showPlayerError, hidePlayerError, upgradeUrl;
 
 beforeEach(async () => {
   vi.resetAllMocks();
@@ -94,6 +94,7 @@ beforeEach(async () => {
   hidePlayerLoading = mod.hidePlayerLoading;
   showPlayerError = mod.showPlayerError;
   hidePlayerError = mod.hidePlayerError;
+  upgradeUrl = mod.upgradeUrl;
 });
 
 // ============================================================
@@ -447,6 +448,20 @@ describe('getLogo()', () => {
     expect(result).toContain('T');
     expect(result).toContain('class="letter-logo"');
   });
+
+  it('upgrades http:// logo URL to https://', async () => {
+    const mod = await import('../app.js');
+    const channel = { id: 'vtv1', name: 'VTV1', tvg_logo: 'http://example.com/vtv1.png' };
+    const result = mod.getLogo(channel);
+    expect(result).toContain('src="https://example.com/vtv1.png"');
+  });
+
+  it('keeps https:// logo URL unchanged', async () => {
+    const mod = await import('../app.js');
+    const channel = { id: 'vtv1', name: 'VTV1', tvg_logo: 'https://example.com/vtv1.png' };
+    const result = mod.getLogo(channel);
+    expect(result).toContain('src="https://example.com/vtv1.png"');
+  });
 });
 
 // ============================================================
@@ -484,6 +499,50 @@ describe('parseEpgTime()', () => {
     expect(mod.parseEpgTime('')).toBeNull();
     expect(mod.parseEpgTime('abc')).toBeNull();
     expect(mod.parseEpgTime('2024')).toBeNull();
+  });
+});
+
+// ============================================================
+// upgradeUrl()
+// ============================================================
+describe('upgradeUrl()', () => {
+  beforeEach(async () => {
+    vi.resetModules();
+  });
+
+  it('upgrades http:// URL to https://', async () => {
+    const mod = await import('../app.js');
+    expect(mod.upgradeUrl('http://example.com/stream.m3u8')).toBe('https://example.com/stream.m3u8');
+  });
+
+  it('leaves https:// URL unchanged', async () => {
+    const mod = await import('../app.js');
+    expect(mod.upgradeUrl('https://example.com/stream.m3u8')).toBe('https://example.com/stream.m3u8');
+  });
+
+  it('returns null for null input', async () => {
+    const mod = await import('../app.js');
+    expect(mod.upgradeUrl(null)).toBeNull();
+  });
+
+  it('returns undefined for undefined input', async () => {
+    const mod = await import('../app.js');
+    expect(mod.upgradeUrl(undefined)).toBeUndefined();
+  });
+
+  it('returns empty string for empty input', async () => {
+    const mod = await import('../app.js');
+    expect(mod.upgradeUrl('')).toBe('');
+  });
+
+  it('leaves non-http URLs unchanged', async () => {
+    const mod = await import('../app.js');
+    expect(mod.upgradeUrl('ftp://example.com/file')).toBe('ftp://example.com/file');
+  });
+
+  it('handles uppercase HTTP:// prefix', async () => {
+    const mod = await import('../app.js');
+    expect(mod.upgradeUrl('HTTP://example.com/stream.m3u8')).toBe('https://example.com/stream.m3u8');
   });
 });
 
@@ -965,6 +1024,22 @@ describe('getChannelUrls()', () => {
   it('handles missing streams gracefully', () => {
     expect(getChannelUrls({ sources: [{ contents: [{}] }] })).toEqual([]);
   });
+
+  it('upgrades http:// stream URL to https://', () => {
+    const channel = {
+      sources: [{ contents: [{ streams: [{ stream_links: [{ url: 'http://example.com/stream.m3u8', name: 'Main' }] }] }] }],
+    };
+    const result = getChannelUrls(channel);
+    expect(result[0].url).toBe('https://example.com/stream.m3u8');
+  });
+
+  it('keeps https:// stream URL unchanged', () => {
+    const channel = {
+      sources: [{ contents: [{ streams: [{ stream_links: [{ url: 'https://example.com/stream.m3u8', name: 'Main' }] }] }] }],
+    };
+    const result = getChannelUrls(channel);
+    expect(result[0].url).toBe('https://example.com/stream.m3u8');
+  });
 });
 
 // ============================================================
@@ -1156,6 +1231,32 @@ describe('playChannel() / tryPlayUrl()', () => {
     const mockHlsInstance = global.Hls.mock.results[0].value;
     expect(mockHlsInstance.on).toHaveBeenCalledWith('mp', expect.any(Function));
     expect(mockHlsInstance.on).toHaveBeenCalledWith('err', expect.any(Function));
+  });
+
+  it('tries HTTP fallback when HTTPS URL fails with fatal error', () => {
+    // Use a channel with HTTP URL to test upgrade + fallback
+    const channel = {
+      id: 'test1',
+      name: 'Test',
+      groupName: 'VTV',
+      sources: [{ contents: [{ streams: [{ stream_links: [{ url: 'http://example.com/stream.m3u8', name: 'Main' }] }] }] }],
+    };
+    const mockHls = setupHlsMock();
+    state.flatChannels = [channel];
+
+    playChannel(channel);
+
+    // getChannelUrls upgrades http:// to https://, so first try is HTTPS
+    const firstHls = global.Hls.mock.results[0].value;
+    expect(firstHls.loadSource).toHaveBeenCalledWith('https://example.com/stream.m3u8');
+
+    // Find and trigger the ERROR handler
+    const errorHandler = firstHls.on.mock.calls.find(call => call[0] === 'err')[1];
+    errorHandler(null, { fatal: true });
+
+    // After HTTPS fails, it should try HTTP fallback
+    const secondHls = global.Hls.mock.results[1].value;
+    expect(secondHls.loadSource).toHaveBeenCalledWith('http://example.com/stream.m3u8');
   });
 });
 
