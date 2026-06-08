@@ -27,6 +27,7 @@ DEFAULT_CONFIG = {
         'output_file': 'playlist.m3u',
         'output_epg': 'light_epg.xml',
         'output_channels': 'channels.json',
+        'epg_base_url': 'https://github.com/hoangxg4/mix-iptv/releases/latest/download',
         'timeout': 10,
         'stream_timeout': 3,
         'max_workers': 64,
@@ -74,8 +75,7 @@ GROUP_PRIORITY = {
     'K+': 6, 'THỂ THAO': 7, 'PHIM TRUYỆN': 8, 'QUỐC TẾ': 9, 'ĐỊA PHƯƠNG': 10,
 }
 
-# Safety cap to keep light_epg.xml under GitHub's 100 MB file limit
-MAX_EPG_PROGRAMMES = 200000
+# No cap — GitHub Releases supports up to 2 GB per file
 
 RE_SPLIT_NAME = re.compile(r'[_\|]')
 RE_CLEAN_TAGS = re.compile(r'(?i)[\[\(\-_\.]?\b(vn|vie|h264|hevc|clip|tv|fpt|sctv|vtc|local|chính|phụ)\b[\]\)\-_\.]?')
@@ -116,6 +116,7 @@ class M3UBuilder:
         self.stream_timeout = g['stream_timeout']
         self.max_workers = g['max_workers']
         self.spam_keywords = g['spam_keywords']
+        self.epg_base_url = g.get('epg_base_url', 'https://github.com/hoangxg4/mix-iptv/releases/latest/download')
 
         c = self.config['cache']
         self.cache = Cache(cache_dir=c['dir'], default_ttl=c['epg_ttl'])
@@ -734,7 +735,7 @@ class M3UBuilder:
 
         # Phase 5: Write output playlist
         with open(self.output_file, 'w', encoding='utf-8') as f:
-            f.write('#EXTM3U x-tvg-url="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/light_epg.xml"\n')
+            f.write(f'#EXTM3U x-tvg-url="{self.epg_base_url}/{self.output_epg}"\n')
             for ch in self.final_playlist:
                 line = (
                     f'#EXTINF:-1 tvg-id="{ch["final_id"]}" '
@@ -797,12 +798,6 @@ class M3UBuilder:
                             all_programmes.append(elem)
 
             deduped = self._dedup_programmes(all_programmes)
-
-            # Cap to stay under GitHub's 100 MB file limit
-            if len(deduped) > MAX_EPG_PROGRAMMES:
-                logger.warning("Quá nhiều programme entries (%d), giới hạn còn %d",
-                               len(deduped), MAX_EPG_PROGRAMMES)
-                deduped = deduped[:MAX_EPG_PROGRAMMES]
 
             for prog in deduped:
                 root_out.append(prog)

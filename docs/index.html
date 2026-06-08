@@ -93,21 +93,21 @@ h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.25rem; }
         <div class="link-name">🎬 Playlist M3U</div>
         <div class="link-size" id="size-playlist"></div>
       </div>
-      <a href="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/playlist.m3u" target="_blank">Tải</a>
+      <a href="https://github.com/hoangxg4/mix-iptv/releases/latest/download/playlist.m3u" target="_blank">Tải</a>
     </div>
     <div class="link-item">
       <div>
         <div class="link-name">📋 EPG XML</div>
         <div class="link-size" id="size-epg"></div>
       </div>
-      <a href="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/light_epg.xml" target="_blank">Tải</a>
+      <a href="https://github.com/hoangxg4/mix-iptv/releases/latest/download/light_epg.xml" target="_blank">Tải</a>
     </div>
     <div class="link-item">
       <div>
         <div class="link-name">📊 Channels JSON</div>
         <div class="link-size" id="size-json"></div>
       </div>
-      <a href="https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/channels.json" target="_blank">Tải</a>
+      <a href="https://github.com/hoangxg4/mix-iptv/releases/latest/download/channels.json" target="_blank">Tải</a>
     </div>
   </div>
 
@@ -115,7 +115,7 @@ h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.25rem; }
 </div>
 
 <script>
-const BASE = 'https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/';
+const BASE = 'https://github.com/hoangxg4/mix-iptv/releases/latest/download/';
 
 function formatSize(bytes) {
   if (!bytes) return '';
@@ -133,7 +133,7 @@ async function loadAll() {
     // Fetch everything in parallel
     const [channelsRes, srcRes] = await Promise.all([
       fetch(BASE + 'channels.json'),
-      fetch(BASE + 'sources.txt'),
+      fetch('https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/sources.txt'),
     ]);
 
     // File sizes via HEAD
