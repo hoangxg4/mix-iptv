@@ -75,7 +75,8 @@ GROUP_PRIORITY = {
     'K+': 6, 'THỂ THAO': 7, 'PHIM TRUYỆN': 8, 'QUỐC TẾ': 9, 'ĐỊA PHƯƠNG': 10,
 }
 
-# No cap — GitHub Releases supports up to 2 GB per file
+# Safety cap to keep EPG at a reasonable size (~120 MB at 200k programmes)
+MAX_EPG_PROGRAMMES = 200000
 
 RE_SPLIT_NAME = re.compile(r'[_\|]')
 RE_CLEAN_TAGS = re.compile(r'(?i)[\[\(\-_\.]?\b(vn|vie|h264|hevc|clip|tv|fpt|sctv|vtc|local|chính|phụ)\b[\]\)\-_\.]?')
@@ -166,6 +167,12 @@ class M3UBuilder:
         name = RE_CLEAN_TAGS.sub(' ', name)
         name = RE_FIX_BRANDS.sub(r'\1\2', name)
         name = RE_SPECIAL_CHARS.sub('', name)
+        # Strip source-identifier suffixes so channels from different providers merge
+        name = re.sub(r'(?i)\s+vtvgo$', '', name)
+        name = re.sub(r'(?i)\s+tv360$', '', name)
+        name = re.sub(r'(?i)\s+đài ptth thành phố hồ chí minh$', '', name)
+        name = re.sub(r'(?i)\s+channel$', '', name)
+        name = re.sub(r'(?i)\s+orig$', '', name)
         cleaned = ' '.join(name.split()).strip().upper()
         if cleaned.startswith("VV"):
             cleaned = "VTV" + cleaned[2:]
@@ -776,6 +783,12 @@ class M3UBuilder:
                         all_programmes.append(elem)
 
             deduped = self._dedup_programmes(all_programmes)
+
+            # Safety cap to prevent >100 MB EPG even with many matched channels
+            if len(deduped) > MAX_EPG_PROGRAMMES:
+                logger.warning("EPG programme count (%d) exceeds cap (%d), truncating",
+                               len(deduped), MAX_EPG_PROGRAMMES)
+                deduped = deduped[:MAX_EPG_PROGRAMMES]
 
             for prog in deduped:
                 root_out.append(prog)

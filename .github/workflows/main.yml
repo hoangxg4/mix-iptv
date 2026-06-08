@@ -51,7 +51,7 @@ jobs:
 
       - name: Upload large files to Release
         run: |
-          RELEASE_TAG="latest-iptv"
+          RELEASE_TAG="latest"
           # Xoá release cũ (nếu có) — --cleanup-tag xoá luôn tag
           gh release delete "$RELEASE_TAG" --yes --cleanup-tag 2>/dev/null || true
           # Tạo release mới với assets là các file lớn
