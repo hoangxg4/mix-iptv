@@ -130,6 +130,8 @@ class M3UBuilder:
         self.final_used_ids = set()
         self.source_status = {}
         self.final_playlist = []
+        # Track (channel_name, url_base) for per-channel URL dedup
+        self._seen_url_bases = set()
 
         # Async HTTP session (initialized in async context)
         self._session = None
@@ -279,6 +281,14 @@ class M3UBuilder:
         # Skip garbage: too short, too long (>40 chars = junk with embedded ads), or spam
         if len(clean_name) < 2 or len(clean_name) > 40 or any(spam in clean_name.lower() for spam in self.spam_keywords):
             return
+
+        # Per-channel base-URL dedup: same scheme+host+path (without query params)
+        # counts as duplicate within the same channel.
+        url_base = re.split(r'[?#]', url)[0]
+        dedup_key = (clean_name, url_base)
+        if dedup_key in self._seen_url_bases:
+            return
+        self._seen_url_bases.add(dedup_key)
 
         id_match = RE_TVG_ID.search(extinf)
         logo_match = RE_TVG_LOGO.search(extinf)
