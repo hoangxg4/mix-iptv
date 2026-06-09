@@ -200,21 +200,18 @@ class M3UBuilder:
             return 'Thể Thao'
         if RE_MOVIES.search(g_lower) or RE_MOVIES.search(n_lower):
             return 'Phim Truyện'
-        # Normalize raw_group to canonical brand ONLY when raw_group IS that brand
-        # (after stripping special chars). This prevents foreign channels in a
-        # source's "VTV" group-title from being wrongly assigned to VTV.
-        if g_lower:
-            g_stripped = re.sub(r'[^a-z0-9]', '', g_lower)
-            if g_stripped == 'vtv':
-                return 'VTV'
-            if g_stripped == 'htv':
-                return 'HTV'
-            if g_stripped == 'vtc':
-                return 'VTC'
-            if g_stripped in ('vtvcab', 'cab', 'on', 'vtvcabon', 'onvtvcab'):
-                return 'VTVCAB / ON'
-        if raw_group and raw_group.strip() and raw_group.strip().lower() not in ['khác', 'other', 'undefined']:
-            return raw_group.strip().title()
+        # Fallback: use raw_group, but don't pollute known brand groups
+        # with channels that don't match by name (e.g. SPOTV2 in a "VTV"
+        # group-title should NOT end up in VTV group).
+        if raw_group and raw_group.strip():
+            grp = raw_group.strip()
+            # Check if raw_group is essentially a known brand group
+            grp_clean = re.sub(r'[^a-z0-9]', '', grp.lower())
+            if grp_clean in ('vtv', 'htv', 'vtc', 'vtvcab', 'k'):
+                return 'Khác'
+            if grp.lower() not in ['khác', 'other', 'undefined']:
+                # Normalize group name: capitalize first letter of each word
+                return grp.title()
         return 'Khác'
 
     def get_sort_key(self, channel):
