@@ -356,6 +356,29 @@ class M3UBuilder:
             except (aiohttp.ClientError, asyncio.TimeoutError, Exception):
                 self.source_status[url] = False
 
+    async def check_single_link(self, data, semaphore):
+        """Lenient stream link check: only filter out connection-level failures.
+
+        Accepts any HTTP response (even 403/404/521) to avoid false
+        positives from geo-blocking or transient server issues.
+        Only removes links that can't be reached at all (timeout,
+        DNS failure, connection refused, SSL error).
+        """
+        async with semaphore:
+            clean_url, headers = self.parse_url_headers(data['url'])
+            try:
+                session = await self._get_session()
+                async with session.get(clean_url, headers=headers,
+                                       timeout=aiohttp.ClientTimeout(total=self.stream_timeout),
+                                       allow_redirects=True) as res:
+                    # Any HTTP response → keep the link (even 403/404/521)
+                    return data
+            except (asyncio.TimeoutError, aiohttp.ClientConnectorError):
+                pass  # truly unreachable → filter out
+            except Exception:
+                pass  # any other error → filter out
+            return None
+
     async def _fetch_single_epg(self, epg_url, semaphore):
         """Fetch and parse a single EPG XML source asynchronously with ETag caching."""
         async with semaphore:
@@ -684,9 +707,15 @@ class M3UBuilder:
                 status_suffix = " [DIE]" if not self.source_status.get(url, True) else ""
                 f.write(f"{url}{status_suffix}\n")
 
-        # Phase 2: Skip link checking — tất cả link đều được giữ lại
-        # (tránh mất kênh do block IP theo quốc gia)
-        working_links = list(self.unique_links.values())
+        # Phase 2: Lenient stream link check
+        # Only filters out unreachable links (timeout/DNS/connection refused).
+        # Accepts any HTTP response (403/521 etc.) to avoid geo-blocking false positives.
+        working_links = []
+        logger.info("Đang kiểm tra sơ bộ stream links (lỏng)...")
+        link_sem = asyncio.Semaphore(self.max_workers)
+        check_tasks = [self.check_single_link(d, link_sem) for d in self.unique_links.values()]
+        results = await asyncio.gather(*check_tasks)
+        working_links = [r for r in results if r is not None]
 
         # Phase 3: Fetch EPG and build ID maps
         await self.fetch_epg_and_map_ids()
