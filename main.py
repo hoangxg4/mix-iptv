@@ -413,13 +413,9 @@ class M3UBuilder:
                 if not isinstance(u, dict):
                     continue
                 stream_url = (u.get('url') or '').strip()
-                provider = (u.get('provider') or '').strip().lower()
-                # Skip non-direct stream URLs (webview/json/flow providers
-                # need client-side processing)
-                if provider and provider not in ('', 'direct'):
-                    continue
                 if not stream_url.startswith('http'):
                     continue
+                # Include all provider types (direct/webview/json/flow/parser)
 
                 extinf = (
                     f'#EXTINF:-1 tvg-id="{tvg_id}" '
