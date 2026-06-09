@@ -356,21 +356,6 @@ class M3UBuilder:
             except (aiohttp.ClientError, asyncio.TimeoutError, Exception):
                 self.source_status[url] = False
 
-    async def check_single_link(self, data, semaphore):
-        """Check if a stream link is alive (GET with stream=True, check status < 400)."""
-        async with semaphore:
-            clean_url, headers = self.parse_url_headers(data['url'])
-            try:
-                session = await self._get_session()
-                async with session.get(clean_url, headers=headers,
-                                       timeout=aiohttp.ClientTimeout(total=self.stream_timeout),
-                                       allow_redirects=True) as res:
-                    if res.status < 400:
-                        return data
-            except (aiohttp.ClientError, asyncio.TimeoutError, Exception):
-                pass
-            return None
-
     async def _fetch_single_epg(self, epg_url, semaphore):
         """Fetch and parse a single EPG XML source asynchronously with ETag caching."""
         async with semaphore:
@@ -699,13 +684,9 @@ class M3UBuilder:
                 status_suffix = " [DIE]" if not self.source_status.get(url, True) else ""
                 f.write(f"{url}{status_suffix}\n")
 
-        # Phase 2: Check stream links
-        working_links = []
-        logger.info("Đang kiểm tra trạng thái stream links...")
-        link_sem = asyncio.Semaphore(self.max_workers)
-        check_tasks = [self.check_single_link(d, link_sem) for d in self.unique_links.values()]
-        results = await asyncio.gather(*check_tasks)
-        working_links = [r for r in results if r is not None]
+        # Phase 2: Skip link checking — tất cả link đều được giữ lại
+        # (tránh mất kênh do block IP theo quốc gia)
+        working_links = list(self.unique_links.values())
 
         # Phase 3: Fetch EPG and build ID maps
         await self.fetch_epg_and_map_ids()
