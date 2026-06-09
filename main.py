@@ -333,6 +333,17 @@ class M3UBuilder:
                     self.source_status[url] = False
                     return
 
+                # Auto-detect JSON source format (e.g. freem3u.xyz)
+                if text.strip().startswith('{'):
+                    try:
+                        import json
+                        data = json.loads(text)
+                        if isinstance(data, dict) and 'channels' in data:
+                            await self._process_json_source(data, url)
+                            return
+                    except (json.JSONDecodeError, Exception):
+                        pass
+
                 curr_extinf = ""
                 curr_grp = ""
                 extra_tags = []
@@ -357,6 +368,65 @@ class M3UBuilder:
 
             except (aiohttp.ClientError, asyncio.TimeoutError, Exception):
                 self.source_status[url] = False
+
+    async def _process_json_source(self, data, url):
+        """Parse a JSON source in freem3u.xyz format.
+
+        Expected structure:
+        {
+            "epgList": ["https://..."],
+            "channels": [
+                {
+                    "id": "vtv1",
+                    "title": "VTV1",
+                    "tvgId": "vtv1hd.VN",
+                    "urls": [{"url": "https://..."}, ...],
+                    "thumbnail": "https://...",
+                    "group": ["VTV", "Tin Tức"],
+                    "channelIndex": 1
+                }
+            ]
+        }
+        """
+        # Extract EPG URLs from this source
+        for epg_url in data.get('epgList', []):
+            if isinstance(epg_url, str) and epg_url.strip():
+                self.epg_urls.add(epg_url.strip())
+
+        import json as _json  # already imported at top
+
+        for ch in data.get('channels', []):
+            title = (ch.get('title') or '').strip()
+            if not title:
+                continue
+            tvg_id = ch.get('tvgId') or ''
+            tvg_logo = ch.get('thumbnail') or ''
+            groups = ch.get('group', [])
+            if isinstance(groups, list) and groups:
+                raw_group = str(groups[0])
+            elif isinstance(groups, str):
+                raw_group = groups
+            else:
+                raw_group = ''
+
+            for u in ch.get('urls', []):
+                if not isinstance(u, dict):
+                    continue
+                stream_url = (u.get('url') or '').strip()
+                provider = (u.get('provider') or '').strip().lower()
+                # Skip non-direct stream URLs (webview/json/flow providers
+                # need client-side processing)
+                if provider and provider not in ('', 'direct'):
+                    continue
+                if not stream_url.startswith('http'):
+                    continue
+
+                extinf = (
+                    f'#EXTINF:-1 tvg-id="{tvg_id}" '
+                    f'tvg-logo="{tvg_logo}" '
+                    f'group-title="{raw_group}",{title}'
+                )
+                self.add_channel(extinf, stream_url, raw_group, extra_tags=[])
 
     async def check_single_link(self, data, semaphore):
         """Lenient stream link check: only filter out connection-level failures.
