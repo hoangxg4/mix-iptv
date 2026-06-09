@@ -200,16 +200,18 @@ class M3UBuilder:
             return 'Thể Thao'
         if RE_MOVIES.search(g_lower) or RE_MOVIES.search(n_lower):
             return 'Phim Truyện'
-        # Check raw_group for known brand patterns before falling through
-        # This prevents "Vtv" / "HTV 🏠" etc. from becoming separate groups
+        # Normalize raw_group to canonical brand ONLY when raw_group IS that brand
+        # (after stripping special chars). This prevents foreign channels in a
+        # source's "VTV" group-title from being wrongly assigned to VTV.
         if g_lower:
-            if RE_VTV_NUM.search(g_lower):
+            g_stripped = re.sub(r'[^a-z0-9]', '', g_lower)
+            if g_stripped == 'vtv':
                 return 'VTV'
-            if RE_HTV_NUM.search(g_lower):
+            if g_stripped == 'htv':
                 return 'HTV'
-            if RE_VTC_NUM.search(g_lower):
+            if g_stripped == 'vtc':
                 return 'VTC'
-            if RE_VTVCAB.search(g_lower) or RE_ON.search(g_lower):
+            if g_stripped in ('vtvcab', 'cab', 'on', 'vtvcabon', 'onvtvcab'):
                 return 'VTVCAB / ON'
         if raw_group and raw_group.strip() and raw_group.strip().lower() not in ['khác', 'other', 'undefined']:
             return raw_group.strip().title()
@@ -219,8 +221,10 @@ class M3UBuilder:
         group = channel['group'].upper()
         priority = GROUP_PRIORITY.get(group, 99)
         name = channel['name']
+        # Channels with numbers (e.g. VTV1, HTV2) sort before non-numbered
+        has_number = 0 if any(c.isdigit() for c in name) else 1
         nat_key = [int(c) if c.isdigit() else c.lower() for c in RE_NAT_KEY.split(name)]
-        return (priority, group, nat_key)
+        return (priority, group, has_number, nat_key)
 
     def parse_url_headers(self, url: str):
         headers = {'User-Agent': 'Mozilla/5.0'}
@@ -275,7 +279,8 @@ class M3UBuilder:
         if re.match(r'^https?://', raw_name, re.IGNORECASE):
             return
         clean_name = self.normalize_channel_name(raw_name)
-        if len(clean_name) < 2 or any(spam in clean_name.lower() for spam in self.spam_keywords):
+        # Skip garbage: too short, too long (>40 chars = junk with embedded ads), or spam
+        if len(clean_name) < 2 or len(clean_name) > 40 or any(spam in clean_name.lower() for spam in self.spam_keywords):
             return
 
         id_match = RE_TVG_ID.search(extinf)
