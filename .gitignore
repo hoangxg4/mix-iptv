@@ -3,6 +3,7 @@
 playlist.m3u
 light_epg.xml
 channels.json
+!docs/channels.json
 .hive/
 
 # Virtual environment

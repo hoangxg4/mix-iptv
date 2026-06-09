@@ -271,6 +271,9 @@ class M3UBuilder:
 
     def add_channel(self, extinf: str, url: str, raw_group: str, extra_tags: list):
         raw_name = extinf.split(',')[-1].strip()
+        # Skip channels whose name looks like a URL (garbage data from malformed sources)
+        if re.match(r'^https?://', raw_name, re.IGNORECASE):
+            return
         clean_name = self.normalize_channel_name(raw_name)
         if len(clean_name) < 2 or any(spam in clean_name.lower() for spam in self.spam_keywords):
             return

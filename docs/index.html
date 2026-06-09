@@ -115,8 +115,6 @@ h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.25rem; }
 </div>
 
 <script>
-const BASE = 'https://github.com/hoangxg4/mix-iptv/releases/latest/download/';
-
 function formatSize(bytes) {
   if (!bytes) return '';
   bytes = parseInt(bytes);
@@ -130,21 +128,23 @@ let fileSizes = {};
 
 async function loadAll() {
   try {
-    // Fetch everything in parallel
+    // Fetch channels.json từ cùng origin (GitHub Pages, không CORS)
     const [channelsRes, srcRes] = await Promise.all([
-      fetch(BASE + 'channels.json'),
+      fetch('./channels.json'),
       fetch('https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/sources.txt'),
     ]);
 
-    // File sizes via HEAD
+    // File sizes: channels.json từ response (cùng origin), playlist/EPG từ release (CORS fallback)
+    fileSizes.json = channelsRes.headers.get('Content-Length');
+    document.getElementById('size-json').textContent = formatSize(fileSizes.json);
     Promise.all([
-      fetch(BASE + 'playlist.m3u', { method: 'HEAD' }).then(r => fileSizes.playlist = r.headers.get('Content-Length')),
-      fetch(BASE + 'light_epg.xml', { method: 'HEAD' }).then(r => fileSizes.epg = r.headers.get('Content-Length')),
-      fetch(BASE + 'channels.json', { method: 'HEAD' }).then(r => fileSizes.json = r.headers.get('Content-Length')),
+      fetch('https://github.com/hoangxg4/mix-iptv/releases/latest/download/playlist.m3u', { method: 'HEAD' })
+        .then(r => { fileSizes.playlist = r.headers.get('Content-Length'); }),
+      fetch('https://github.com/hoangxg4/mix-iptv/releases/latest/download/light_epg.xml', { method: 'HEAD' })
+        .then(r => { fileSizes.epg = r.headers.get('Content-Length'); }),
     ]).then(() => {
       document.getElementById('size-playlist').textContent = formatSize(fileSizes.playlist);
       document.getElementById('size-epg').textContent = formatSize(fileSizes.epg);
-      document.getElementById('size-json').textContent = formatSize(fileSizes.json);
     }).catch(() => {});
 
     // Parse channels.json
