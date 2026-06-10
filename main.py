@@ -492,50 +492,69 @@ class M3UBuilder:
                 )
                 self.add_channel(extinf, stream_url, raw_group, extra_tags=[])
 
-    async def check_single_link(self, data, semaphore):
-        """Stream link check: keep reachable links with valid responses.
+    async def _try_link_once(self, data, clean_url, headers, use_proxy=False):
+        """Try fetching a stream URL once. Returns (data_or_None, retryable_bool).
 
-        Uses SOCKS5 proxy (if configured) to bypass geo-blocking for
-        region-restricted streams. Filters out:
-        - 404 (not found), 521 (server down)
-        - Connection failures (timeout, DNS, refused)
-        - Truncated/invalid HLS playlists (if the URL ends in .m3u8, verify
-          the first 512 bytes contain #EXTM3U or #EXT-X- to detect error pages
-          served with HTTP 200)
+        retryable=True means the failure *might* be geo-blocking and worth
+        retrying via proxy. 404/521 are fatal (never retry).
+        """
+        try:
+            if use_proxy:
+                session = await self._get_proxy_session()
+            else:
+                session = await self._get_session()
+            async with session.get(clean_url, headers=headers,
+                                   timeout=aiohttp.ClientTimeout(total=self.stream_timeout),
+                                   allow_redirects=True) as res:
+                if res.status in (404, 521):
+                    return None, False  # Fatal: not found / server down
+
+                # For HLS URLs that return 200, validate content is a real playlist
+                if res.status == 200 and clean_url.lower().endswith('.m3u8'):
+                    try:
+                        chunk = await res.content.read(512)
+                        chunk_str = chunk.strip().lower()
+                        if not (chunk_str.startswith(b'#extm3u') or chunk_str.startswith(b'#ext-x-')):
+                            return None, True  # Bad content, might be geo-block HTML
+                    except Exception:
+                        pass  # Can't peek, assume valid
+
+                return data, False  # Success
+        except (asyncio.TimeoutError, aiohttp.ClientConnectorError):
+            return None, True  # Network error, could be geo-block
+        except Exception:
+            return None, True  # Any other error, could be geo-block
+
+    async def check_single_link(self, data, semaphore):
+        """Stream link check: try direct first, retry via proxy on geo-block.
+
+        - 404/521 → immediately dropped (no retry)
+        - Connection failures / 403 / bad content → retry via proxy once
+        - Success → kept
         """
         async with semaphore:
             clean_url, headers = self.parse_url_headers(data['url'])
-            try:
-                session = await self._get_proxy_session()
-                async with session.get(clean_url, headers=headers,
-                                       timeout=aiohttp.ClientTimeout(total=self.stream_timeout),
-                                       allow_redirects=True) as res:
-                    if res.status in (404, 521):
-                        return None  # Dead link: not found or server down
 
-                    # For HLS URLs that return 200, validate content is a real playlist
-                    # (catches proxies that return HTML error pages with 200 status)
-                    if res.status == 200 and clean_url.lower().endswith('.m3u8'):
-                        try:
-                            chunk = await res.content.read(512)
-                            chunk_str = chunk.strip().lower()
-                            if not (chunk_str.startswith(b'#extm3u') or chunk_str.startswith(b'#ext-x-')):
-                                return None  # Not a valid HLS playlist → dead link
-                        except Exception:
-                            pass  # Can't peek, assume valid
+            # 1) Try direct (fast path)
+            result, retryable = await self._try_link_once(data, clean_url, headers, use_proxy=False)
+            if result is not None:
+                return result
 
-                    return data  # Keep valid responses
-            except (asyncio.TimeoutError, aiohttp.ClientConnectorError):
-                pass  # truly unreachable → filter out
-            except Exception:
-                pass  # any other error → filter out
+            # 2) Retry via proxy if failure could be geo-blocking
+            if retryable and self.proxy_enabled and self.proxy_socks5:
+                result, _ = await self._try_link_once(data, clean_url, headers, use_proxy=True)
+                return result
+
             return None
 
-    async def _fetch_single_epg(self, epg_url, semaphore):
-        """Fetch and parse a single EPG XML source asynchronously with ETag caching."""
+    async def _try_fetch_epg_once(self, epg_url, semaphore, use_proxy=False):
+        """Try fetching and parsing a single EPG source. Returns parsed root or None."""
         async with semaphore:
             try:
-                session = await self._get_session()
+                if use_proxy:
+                    session = await self._get_proxy_session()
+                else:
+                    session = await self._get_session()
                 headers = {'User-Agent': 'Mozilla/5.0'}
 
                 # Add conditional headers from cache
@@ -555,7 +574,6 @@ class M3UBuilder:
                         if cached:
                             xml_str = cached.get('body')
                             xml_data = xml_str.encode('utf-8')
-                            # Save raw EPG to .cache/epg/
                             self.save_epg_raw(epg_url, xml_data)
                             return self._parse_epg(xml_data, epg_url)
                         return None
@@ -581,7 +599,6 @@ class M3UBuilder:
                     else:
                         xml_data = content
 
-                    # Save raw EPG to .cache/epg/
                     self.save_epg_raw(epg_url, xml_data)
 
                     # Cache the raw XML data
@@ -594,6 +611,24 @@ class M3UBuilder:
 
             except Exception:
                 return None
+
+    async def _fetch_single_epg(self, epg_url, semaphore):
+        """Fetch EPG: try direct first, retry via proxy on geo-block.
+
+        403/connection errors are retried via proxy once (common for
+        region-restricted EPG sources like vnepg.site).
+        """
+        # 1) Try direct (fast path)
+        result = await self._try_fetch_epg_once(epg_url, semaphore, use_proxy=False)
+        if result is not None:
+            return result
+
+        # 2) Retry via proxy if configured
+        if self.proxy_enabled and self.proxy_socks5:
+            result = await self._try_fetch_epg_once(epg_url, semaphore, use_proxy=True)
+            return result
+
+        return None
 
     def _parse_epg(self, xml_data, epg_url):
         """Parse EPG XML bytes into (root, local_ids, local_mapping)."""
