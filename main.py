@@ -461,13 +461,15 @@ class M3UBuilder:
     async def check_single_link(self, data, semaphore):
         """Stream link check: keep reachable links with valid responses.
 
-        Keeps HTTP 200-399 (success + redirect), plus 403 (geo-blocking) IF
-        the response body contains valid media content (not an HTML error page).
-        Filters out:
+        This check runs on the build server which may be geo-blocked from
+        certain streams. We keep any reachable HTTP response (200-399 + 403)
+        because geo-blocked but otherwise valid streams work for users in the
+        correct region. Only filter out:
         - 404 (not found), 521 (server down)
         - Connection failures (timeout, DNS, refused)
-        - HTML error pages (any status returning <html>/<!DOCTYPE)
-        - Non-media responses (detected by content-type or body peek)
+        - Truncated/invalid HLS playlists (if the URL ends in .m3u8, verify
+          the first 512 bytes contain #EXTM3U or #EXT-X- to detect error pages
+          served with HTTP 200)
         """
         async with semaphore:
             clean_url, headers = self.parse_url_headers(data['url'])
@@ -479,19 +481,18 @@ class M3UBuilder:
                     if res.status in (404, 521):
                         return None  # Dead link: not found or server down
 
-                    # Peek at response body to detect HTML error pages
-                    # Some servers return 403 with an HTML error (access denied)
-                    # instead of valid media content. These are dead links.
-                    try:
-                        chunk = await res.content.read(512)
-                        # If body starts with HTML, it's an error page, not media
-                        stripped = chunk.strip().lower()
-                        if stripped.startswith(b'<html') or stripped.startswith(b'<!doctype'):
-                            return None
-                    except Exception:
-                        pass  # Can't peek, assume it's valid
+                    # For HLS URLs that return 200, validate content is a real playlist
+                    # (catches proxies that return HTML error pages with 200 status)
+                    if res.status == 200 and clean_url.lower().endswith('.m3u8'):
+                        try:
+                            chunk = await res.content.read(512)
+                            chunk_str = chunk.strip().lower()
+                            if not (chunk_str.startswith(b'#extm3u') or chunk_str.startswith(b'#ext-x-')):
+                                return None  # Not a valid HLS playlist → dead link
+                        except Exception:
+                            pass  # Can't peek, assume valid
 
-                    return data  # Keep valid media responses
+                    return data  # Keep valid responses
             except (asyncio.TimeoutError, aiohttp.ClientConnectorError):
                 pass  # truly unreachable → filter out
             except Exception:
