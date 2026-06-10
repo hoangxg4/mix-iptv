@@ -12,6 +12,7 @@ import yaml
 import aiohttp
 import aiohttp.client_exceptions
 from urllib.parse import urlparse
+from datetime import datetime, timedelta, timezone
 from aiohttp_socks import ProxyConnector
 from cache import Cache
 
@@ -36,7 +37,9 @@ DEFAULT_CONFIG = {
         'spam_keywords': [
             'mời quý khán giả', 'thông báo', 'tạm ngưng',
             'bảo trì', 'kênh dự phòng', 'test',
+            'audio',
         ],
+        'epg_trim_days': 7,
     },
     'cache': {
         'enabled': True,
@@ -123,6 +126,7 @@ class M3UBuilder:
         self.max_workers = g['max_workers']
         self.spam_keywords = g['spam_keywords']
         self.epg_base_url = g.get('epg_base_url', 'https://github.com/hoangxg4/mix-iptv/releases/latest/download')
+        self.epg_trim_days = g.get('epg_trim_days', 7)
 
         c = self.config['cache']
         self.cache = Cache(cache_dir=c['dir'], default_ttl=c['epg_ttl'])
@@ -691,8 +695,62 @@ class M3UBuilder:
                 self.xml_name_mapping.update(local_mapping)
 
     # -----------------------------------------------------------------------
-    # PROGRAMME DEDUP
+    # PROGRAMME FILTERING & DEDUP
     # -----------------------------------------------------------------------
+
+    @staticmethod
+    def _parse_xmltv_datetime(dt_str):
+        """Parse XMLTV date format (YYYYMMDDHHMMSS ±HHMM) into a datetime.
+
+        Also handles YYYYMMDDHHMMSS without timezone, or shorter variants
+        (YYYYMMDDHHMM). Returns None on failure.
+        """
+        if not dt_str:
+            return None
+        dt_str = dt_str.strip()
+        # Strip timezone suffix (±HHMM) for parsing, save tz
+        tz = None
+        tz_match = re.search(r'([+-]\d{4})$', dt_str)
+        if tz_match:
+            tz_str = tz_match.group(1)
+            dt_str = dt_str[:tz_match.start()].strip()
+            # Convert ±HHMM to timedelta
+            try:
+                tz_hours = int(tz_str[1:3])
+                tz_mins = int(tz_str[3:5])
+                tz_delta = timedelta(hours=tz_hours, minutes=tz_mins)
+                if tz_str[0] == '-':
+                    tz_delta = -tz_delta
+                tz = timezone(tz_delta)
+            except (ValueError, IndexError):
+                pass
+
+        # Pad with trailing zeros if shorter
+        dt_str = dt_str.ljust(14, '0')
+        try:
+            dt = datetime.strptime(dt_str[:14], '%Y%m%d%H%M%S')
+            if tz:
+                dt = dt.replace(tzinfo=tz)
+            return dt
+        except ValueError:
+            return None
+
+    @staticmethod
+    def _programme_in_window(prog, window_start, window_end):
+        """Check if a programme's start time falls within the given window.
+
+        Args:
+            prog: XML <programme> element.
+            window_start: datetime (naive or aware).
+            window_end: datetime (naive or aware).
+        """
+        start_str = prog.get('start', '')
+        dt = M3UBuilder._parse_xmltv_datetime(start_str)
+        if dt is None:
+            # Can't parse date — keep programme (safe default)
+            return True
+        # Make both sides naive for comparison if needed
+        return window_start <= dt <= window_end
 
     @staticmethod
     def _dedup_programmes(programme_elements):
@@ -972,14 +1030,23 @@ class M3UBuilder:
                             root_out.append(elem)
                             added_ch.add(ch_id)
 
-            # --- Programme entries: only for matched channels ---
-            # Collect programmes for channels that exist in the final playlist
+            # --- Programme entries: only for matched channels + date-window ---
+            # Collect programmes for channels in the final playlist
+            now = datetime.now(timezone.utc)
+            window_start = now - timedelta(days=1)   # 1 day history
+            window_end = now + timedelta(days=self.epg_trim_days)
+
             all_programmes = []
             for root_in in self.epg_xml_roots:
                 for elem in root_in.findall('programme'):
                     ch = elem.get('channel')
-                    if ch in added_ch:
+                    if ch in added_ch and self._programme_in_window(elem, window_start, window_end):
                         all_programmes.append(elem)
+
+            logger.info(
+                "EPG time window: [now - 1d, now + %dd] — collecting programmes...",
+                self.epg_trim_days,
+            )
 
             deduped = self._dedup_programmes(all_programmes)
 
