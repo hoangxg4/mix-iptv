@@ -12,6 +12,7 @@ import yaml
 import aiohttp
 import aiohttp.client_exceptions
 from urllib.parse import urlparse
+from aiohttp_socks import ProxyConnector
 from cache import Cache
 
 # Logging configuration
@@ -43,6 +44,10 @@ DEFAULT_CONFIG = {
         'epg_ttl': 3600,
         'source_ttl': 300,
         'link_ttl': 600,
+    },
+    'proxy': {
+        'enabled': True,
+        'socks5': '',
     },
 }
 
@@ -123,6 +128,11 @@ class M3UBuilder:
         self.cache = Cache(cache_dir=c['dir'], default_ttl=c['epg_ttl'])
         self.cache_enabled = c['enabled']
 
+        p = self.config.get('proxy', {})
+        self.proxy_enabled = p.get('enabled', False)
+        self.proxy_socks5 = p.get('socks5', '')
+        self._proxy_session = None
+
         self.epg_urls = set()
         self.unique_links = {}
         self.epg_id_map = {}
@@ -152,8 +162,32 @@ class M3UBuilder:
             )
         return self._session
 
+    async def _get_proxy_session(self):
+        """Get or create an aiohttp session routed through the SOCKS5 proxy.
+
+        Used for link checking geo-blocked streams. Falls back to direct
+        connection if proxy is not configured or fails.
+        """
+        if not self.proxy_enabled or not self.proxy_socks5:
+            return await self._get_session()
+        if self._proxy_session is None or self._proxy_session.closed:
+            try:
+                connector = ProxyConnector.from_url(self.proxy_socks5)
+                timeout = aiohttp.ClientTimeout(total=self.stream_timeout)
+                self._proxy_session = aiohttp.ClientSession(
+                    connector=connector,
+                    timeout=timeout,
+                    headers={'User-Agent': 'Mozilla/5.0'},
+                )
+            except Exception:
+                logger.warning("Failed to create proxy session, falling back to direct")
+                return await self._get_session()
+        return self._proxy_session
+
     async def close(self):
-        """Close the HTTP session."""
+        """Close both HTTP sessions."""
+        if self._proxy_session and not self._proxy_session.closed:
+            await self._proxy_session.close()
         if self._session and not self._session.closed:
             await self._session.close()
 
@@ -173,7 +207,6 @@ class M3UBuilder:
         name = re.sub(r'(?i)\s+đài ptth thành phố hồ chí minh$', '', name)
         name = re.sub(r'(?i)\s+channel$', '', name)
         name = re.sub(r'(?i)\s+orig$', '', name)
-        name = re.sub(r'(?i)\s+audio$', '', name)
         cleaned = ' '.join(name.split()).strip().upper()
         if cleaned.startswith("VV"):
             cleaned = "VTV" + cleaned[2:]
@@ -462,10 +495,8 @@ class M3UBuilder:
     async def check_single_link(self, data, semaphore):
         """Stream link check: keep reachable links with valid responses.
 
-        This check runs on the build server which may be geo-blocked from
-        certain streams. We keep any reachable HTTP response (200-399 + 403)
-        because geo-blocked but otherwise valid streams work for users in the
-        correct region. Only filter out:
+        Uses SOCKS5 proxy (if configured) to bypass geo-blocking for
+        region-restricted streams. Filters out:
         - 404 (not found), 521 (server down)
         - Connection failures (timeout, DNS, refused)
         - Truncated/invalid HLS playlists (if the URL ends in .m3u8, verify
@@ -475,7 +506,7 @@ class M3UBuilder:
         async with semaphore:
             clean_url, headers = self.parse_url_headers(data['url'])
             try:
-                session = await self._get_session()
+                session = await self._get_proxy_session()
                 async with session.get(clean_url, headers=headers,
                                        timeout=aiohttp.ClientTimeout(total=self.stream_timeout),
                                        allow_redirects=True) as res:
@@ -875,10 +906,7 @@ class M3UBuilder:
 
         # Phase 5: Write output playlist
         with open(self.output_file, 'w', encoding='utf-8') as f:
-            our_epg = f"{self.epg_base_url}/{self.output_epg}"
-            vnepg_fallback = "https://vnepg.site/epg.xml"
-            epg_urls = f"{vnepg_fallback},{our_epg}"
-            f.write(f'#EXTM3U url-tvg="{epg_urls}" x-tvg-url="{epg_urls}"\n')
+            f.write(f'#EXTM3U url-tvg="{self.epg_base_url}/{self.output_epg}" x-tvg-url="{self.epg_base_url}/{self.output_epg}"\n')
             for ch in self.final_playlist:
                 line = (
                     f'#EXTINF:-1 tvg-id="{ch["final_id"]}" '

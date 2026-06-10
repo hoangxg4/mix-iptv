@@ -23,9 +23,6 @@ class TestNormalizeChannelName:
     def test_strip_sd_suffix(self, builder):
         assert builder.normalize_channel_name("VTV3SD") == "VTV3"
 
-    def test_strip_audio_suffix(self, builder):
-        assert builder.normalize_channel_name("VTV1 AUDIO") == "VTV1"
-
     def test_split_on_pipe(self, builder):
         assert builder.normalize_channel_name("VTV1|1080p") == "VTV1"
 

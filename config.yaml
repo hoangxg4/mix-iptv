@@ -21,3 +21,7 @@ cache:
   epg_ttl: 3600
   source_ttl: 300
   link_ttl: 600
+
+proxy:
+  enabled: true
+  socks5: socks5://proxy:999999@tele1gbps.90s.one:9999
