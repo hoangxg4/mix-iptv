@@ -252,12 +252,12 @@ class M3UBuilder:
             return self.epg_id_map[orig_id_lower]
 
         # TẦNG 2: Khớp chính xác 100% theo tên đã chuẩn hóa
+        numeric_fallback = None
         if clean_name in self.xml_name_mapping:
             ch_id = self.xml_name_mapping[clean_name]
-            # Prefer non-numeric IDs (vtv1hd > 4037) for app EPG compatibility
             if not ch_id.isdigit():
-                return ch_id
-            # Numeric ID: fall through to fuzzy matching for a better (branded) ID
+                return ch_id  # Non-numeric ID (vtv1hd > 4037) — ưu tiên
+            numeric_fallback = ch_id  # Giữ numeric ID làm fallback
 
         # TẦNG 3: Dò tìm Fuzzy theo ID chứa tên kênh
         if any(b in cname_lower for b in ['vtv', 'htv', 'vtc', 'sctv', 'k+']):
@@ -269,8 +269,12 @@ class M3UBuilder:
                     return actual_id
             for x_name, ch_id in self.xml_name_mapping.items():
                 if cname_lower in x_name.lower() or x_name.lower() in cname_lower:
-                    return ch_id
+                    if not ch_id.isdigit():
+                        return ch_id
 
+        # Fallback: numeric ID nếu không tìm thấy text ID
+        if numeric_fallback:
+            return numeric_fallback
         return ""
 
     # -----------------------------------------------------------------------
@@ -829,7 +833,7 @@ class M3UBuilder:
 
         # Phase 5: Write output playlist
         with open(self.output_file, 'w', encoding='utf-8') as f:
-            f.write(f'#EXTM3U url-tvg="https://vnepg.site/epg.xml.gz" x-tvg-url="{self.epg_base_url}/{self.output_epg}"\n')
+            f.write(f'#EXTM3U url-tvg="{self.epg_base_url}/{self.output_epg}" x-tvg-url="{self.epg_base_url}/{self.output_epg}"\n')
             for ch in self.final_playlist:
                 line = (
                     f'#EXTINF:-1 tvg-id="{ch["final_id"]}" '
