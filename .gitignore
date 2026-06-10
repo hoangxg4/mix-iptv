@@ -2,6 +2,7 @@
 .cache
 playlist.m3u
 epg.xml
+epg.xml.gz
 channels.json
 !docs/channels.json
 .hive/

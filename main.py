@@ -25,7 +25,7 @@ DEFAULT_CONFIG = {
     'general': {
         'source_file': 'sources.txt',
         'output_file': 'playlist.m3u',
-        'output_epg': 'epg.xml',
+        'output_epg': 'epg.xml.gz',
         'output_channels': 'channels.json',
         'epg_base_url': 'https://github.com/hoangxg4/mix-iptv/releases/latest/download',
         'timeout': 10,
@@ -880,7 +880,11 @@ class M3UBuilder:
 
             tree = ET.ElementTree(root_out)
             ET.indent(tree, space="  ", level=0)
-            tree.write(self.output_epg, encoding='utf-8', xml_declaration=True)
+            if self.output_epg.endswith('.gz'):
+                with gzip.open(self.output_epg, 'wb') as f:
+                    tree.write(f, encoding='utf-8', xml_declaration=True)
+            else:
+                tree.write(self.output_epg, encoding='utf-8', xml_declaration=True)
 
         # Phase 7: Generate channels.json
         if self.final_playlist:

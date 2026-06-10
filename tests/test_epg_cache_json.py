@@ -233,7 +233,7 @@ def builder():
         'general': {
             'source_file': 'sources.txt',
             'output_file': 'playlist.m3u',
-            'output_epg': 'epg.xml',
+            'output_epg': 'epg.xml.gz',
             'output_channels': 'channels.json',
             'timeout': 10,
             'stream_timeout': 3,

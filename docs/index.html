@@ -100,7 +100,7 @@ h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.25rem; }
         <div class="link-name">📋 EPG XML</div>
         <div class="link-size" id="size-epg"></div>
       </div>
-      <a href="https://github.com/hoangxg4/mix-iptv/releases/latest/download/epg.xml" target="_blank">Tải</a>
+      <a href="https://github.com/hoangxg4/mix-iptv/releases/latest/download/epg.xml.gz" target="_blank">Tải</a>
     </div>
     <div class="link-item">
       <div>
@@ -140,7 +140,7 @@ async function loadAll() {
     Promise.all([
       fetch('https://github.com/hoangxg4/mix-iptv/releases/latest/download/playlist.m3u', { method: 'HEAD' })
         .then(r => { fileSizes.playlist = r.headers.get('Content-Length'); }),
-      fetch('https://github.com/hoangxg4/mix-iptv/releases/latest/download/epg.xml', { method: 'HEAD' })
+      fetch('https://github.com/hoangxg4/mix-iptv/releases/latest/download/epg.xml.gz', { method: 'HEAD' })
         .then(r => { fileSizes.epg = r.headers.get('Content-Length'); }),
     ]).then(() => {
       document.getElementById('size-playlist').textContent = formatSize(fileSizes.playlist);
