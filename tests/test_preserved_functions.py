@@ -139,3 +139,27 @@ class TestGetBestIdMatch:
 
     def test_no_match_returns_empty(self, builder_with_epg):
         assert builder_with_epg.get_best_id_match("XYZ", "") == ""
+
+    def test_prefer_branded_id_over_wrong_non_numeric(self, builder):
+        """VTV1 should match 'vtv1hd' (brand-aware) not 'TV1' (wrong brand)."""
+        builder.epg_id_map = {
+            "vtv1hd": "vtv1hd",
+            "tv1": "TV1",
+        }
+        builder.xml_name_mapping = {
+            "VTV1": "TV1",  # Korean EPG: name=VTV1 → id=TV1
+            "VTV1 HD": "vtv1hd",  # vnepg.site: name=VTV1 HD → id=vtv1hd
+        }
+        # Tier 2: "VTV1" in xml_name_mapping → "TV1" (non-numeric, no brand) → text_fallback
+        # Tier 3: "vtv1hd" in epg_id_map matches "vtv1" + "hd" → return "vtv1hd"
+        result = builder.get_best_id_match("VTV1", "vtv1hd.VN")
+        assert result == "vtv1hd", f"Expected vtv1hd, got {result}"
+
+    def test_wrong_brand_non_numeric_fallback(self, builder):
+        """When no branded EPG ID exists, non-numeric wrong-brand is still better than numeric."""
+        builder.epg_id_map = {}
+        builder.xml_name_mapping = {
+            "VTV1": "TV1",
+        }
+        result = builder.get_best_id_match("VTV1", "")
+        assert result == "TV1", f"Expected TV1 (non-numeric fallback), got {result}"

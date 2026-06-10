@@ -11,6 +11,7 @@ import xml.etree.ElementTree as ET
 import yaml
 import aiohttp
 import aiohttp.client_exceptions
+from urllib.parse import urlparse
 from cache import Cache
 
 # Logging configuration
@@ -251,13 +252,25 @@ class M3UBuilder:
         if orig_id_lower and orig_id_lower in self.epg_id_map:
             return self.epg_id_map[orig_id_lower]
 
+        # Helper: tìm brand (vtv/htv/vtc/...) trong tên kênh
+        cname_brand = None
+        for b in ['vtv', 'htv', 'vtc', 'sctv', 'k+']:
+            if b in cname_lower:
+                cname_brand = b
+                break
+
         # TẦNG 2: Khớp chính xác 100% theo tên đã chuẩn hóa
         numeric_fallback = None
+        text_fallback = None
         if clean_name in self.xml_name_mapping:
             ch_id = self.xml_name_mapping[clean_name]
             if not ch_id.isdigit():
-                return ch_id  # Non-numeric ID (vtv1hd > 4037) — ưu tiên
-            numeric_fallback = ch_id  # Giữ numeric ID làm fallback
+                # Ưu tiên ID có chứa brand (vtv1hd > TV1 cho kênh VTV)
+                if cname_brand and cname_brand in ch_id.lower():
+                    return ch_id
+                text_fallback = ch_id  # Non-numeric, sai brand → fallback
+            else:
+                numeric_fallback = ch_id
 
         # TẦNG 3: Dò tìm Fuzzy theo ID chứa tên kênh
         if any(b in cname_lower for b in ['vtv', 'htv', 'vtc', 'sctv', 'k+']):
@@ -270,9 +283,14 @@ class M3UBuilder:
             for x_name, ch_id in self.xml_name_mapping.items():
                 if cname_lower in x_name.lower() or x_name.lower() in cname_lower:
                     if not ch_id.isdigit():
-                        return ch_id
+                        if cname_brand and cname_brand in ch_id.lower():
+                            return ch_id
+                        if text_fallback is None:
+                            text_fallback = ch_id
 
-        # Fallback: numeric ID nếu không tìm thấy text ID
+        # Fallback: ưu tiên text (dù sai brand), cuối cùng numeric
+        if text_fallback:
+            return text_fallback
         if numeric_fallback:
             return numeric_fallback
         return ""
@@ -426,7 +444,12 @@ class M3UBuilder:
                 stream_url = (u.get('url') or '').strip()
                 if not stream_url.startswith('http'):
                     continue
-                # Include all provider types (direct/webview/json/flow/parser)
+                # Only keep direct stream URLs (.m3u8, .mpd, .ts)
+                # Filter out: webview (shaka.html), JSON API, parser/flow URLs
+                parsed = urlparse(stream_url)
+                path = parsed.path.lower()
+                if not (path.endswith('.m3u8') or path.endswith('.mpd') or path.endswith('.ts')):
+                    continue
 
                 extinf = (
                     f'#EXTINF:-1 tvg-id="{tvg_id}" '
@@ -438,9 +461,13 @@ class M3UBuilder:
     async def check_single_link(self, data, semaphore):
         """Stream link check: keep reachable links with valid responses.
 
-        Keeps HTTP 200-399 (success + redirect), plus 403 (geo-blocking).
-        Filters out 404 (not found), 521 (server down), and connection
-        failures (timeout, DNS, refused).
+        Keeps HTTP 200-399 (success + redirect), plus 403 (geo-blocking) IF
+        the response body contains valid media content (not an HTML error page).
+        Filters out:
+        - 404 (not found), 521 (server down)
+        - Connection failures (timeout, DNS, refused)
+        - HTML error pages (any status returning <html>/<!DOCTYPE)
+        - Non-media responses (detected by content-type or body peek)
         """
         async with semaphore:
             clean_url, headers = self.parse_url_headers(data['url'])
@@ -451,7 +478,20 @@ class M3UBuilder:
                                        allow_redirects=True) as res:
                     if res.status in (404, 521):
                         return None  # Dead link: not found or server down
-                    return data  # Keep any other response (200-399, 403, etc.)
+
+                    # Peek at response body to detect HTML error pages
+                    # Some servers return 403 with an HTML error (access denied)
+                    # instead of valid media content. These are dead links.
+                    try:
+                        chunk = await res.content.read(512)
+                        # If body starts with HTML, it's an error page, not media
+                        stripped = chunk.strip().lower()
+                        if stripped.startswith(b'<html') or stripped.startswith(b'<!doctype'):
+                            return None
+                    except Exception:
+                        pass  # Can't peek, assume it's valid
+
+                    return data  # Keep valid media responses
             except (asyncio.TimeoutError, aiohttp.ClientConnectorError):
                 pass  # truly unreachable → filter out
             except Exception:
