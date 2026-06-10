@@ -436,12 +436,11 @@ class M3UBuilder:
                 self.add_channel(extinf, stream_url, raw_group, extra_tags=[])
 
     async def check_single_link(self, data, semaphore):
-        """Lenient stream link check: only filter out connection-level failures.
+        """Stream link check: keep reachable links with valid responses.
 
-        Accepts any HTTP response (even 403/404/521) to avoid false
-        positives from geo-blocking or transient server issues.
-        Only removes links that can't be reached at all (timeout,
-        DNS failure, connection refused, SSL error).
+        Keeps HTTP 200-399 (success + redirect), plus 403 (geo-blocking).
+        Filters out 404 (not found), 521 (server down), and connection
+        failures (timeout, DNS, refused).
         """
         async with semaphore:
             clean_url, headers = self.parse_url_headers(data['url'])
@@ -450,8 +449,9 @@ class M3UBuilder:
                 async with session.get(clean_url, headers=headers,
                                        timeout=aiohttp.ClientTimeout(total=self.stream_timeout),
                                        allow_redirects=True) as res:
-                    # Any HTTP response → keep the link (even 403/404/521)
-                    return data
+                    if res.status in (404, 521):
+                        return None  # Dead link: not found or server down
+                    return data  # Keep any other response (200-399, 403, etc.)
             except (asyncio.TimeoutError, aiohttp.ClientConnectorError):
                 pass  # truly unreachable → filter out
             except Exception:
