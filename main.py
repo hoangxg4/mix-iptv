@@ -25,7 +25,7 @@ DEFAULT_CONFIG = {
     'general': {
         'source_file': 'sources.txt',
         'output_file': 'playlist.m3u',
-        'output_epg': 'light_epg.xml',
+        'output_epg': 'epg.xml',
         'output_channels': 'channels.json',
         'epg_base_url': 'https://github.com/hoangxg4/mix-iptv/releases/latest/download',
         'timeout': 10,

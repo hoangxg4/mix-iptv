@@ -9,7 +9,7 @@ DEFAULT_CONFIG = {
     'general': {
         'source_file': 'sources.txt',
         'output_file': 'playlist.m3u',
-        'output_epg': 'light_epg.xml',
+        'output_epg': 'epg.xml',
         'timeout': 10,
         'stream_timeout': 3,
         'max_workers': 64,
