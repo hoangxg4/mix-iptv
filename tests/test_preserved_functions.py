@@ -105,6 +105,10 @@ class TestSmartGrouping:
     def test_fallback_to_khac(self, builder):
         assert builder.smart_grouping("", "UNKNOWN") == "Khác"
 
+    def test_vietnam_today_in_vtv(self, builder):
+        assert builder.smart_grouping("", "VIETNAM TODAY") == "VTV"
+        assert builder.smart_grouping("", "VIET NAM TODAY") == "VTV"
+
 
 class TestGetBestIdMatch:
     """Must preserve exactly the original EPG ID matching logic."""

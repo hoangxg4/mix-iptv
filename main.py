@@ -180,6 +180,9 @@ class M3UBuilder:
     def smart_grouping(self, raw_group: str, clean_name: str) -> str:
         g_lower = raw_group.lower() if raw_group else ""
         n_lower = clean_name.lower()
+        # Vietnam Today goes to VTV group (cuối danh sách)
+        if re.search(r'\bviet\s*nam\s*today\b', n_lower):
+            return 'VTV'
         if RE_INTL.search(n_lower):
             return 'Quốc Tế'
         if RE_VTV_PRIME.search(n_lower) and RE_VTV_NUM.search(n_lower):
@@ -250,7 +253,11 @@ class M3UBuilder:
 
         # TẦNG 2: Khớp chính xác 100% theo tên đã chuẩn hóa
         if clean_name in self.xml_name_mapping:
-            return self.xml_name_mapping[clean_name]
+            ch_id = self.xml_name_mapping[clean_name]
+            # Prefer non-numeric IDs (vtv1hd > 4037) for app EPG compatibility
+            if not ch_id.isdigit():
+                return ch_id
+            # Numeric ID: fall through to fuzzy matching for a better (branded) ID
 
         # TẦNG 3: Dò tìm Fuzzy theo ID chứa tên kênh
         if any(b in cname_lower for b in ['vtv', 'htv', 'vtc', 'sctv', 'k+']):
@@ -822,7 +829,7 @@ class M3UBuilder:
 
         # Phase 5: Write output playlist
         with open(self.output_file, 'w', encoding='utf-8') as f:
-            f.write(f'#EXTM3U x-tvg-url="{self.epg_base_url}/{self.output_epg}"\n')
+            f.write(f'#EXTM3U url-tvg="https://vnepg.site/epg.xml.gz" x-tvg-url="{self.epg_base_url}/{self.output_epg}"\n')
             for ch in self.final_playlist:
                 line = (
                     f'#EXTINF:-1 tvg-id="{ch["final_id"]}" '
