@@ -173,6 +173,7 @@ class M3UBuilder:
         name = re.sub(r'(?i)\s+đài ptth thành phố hồ chí minh$', '', name)
         name = re.sub(r'(?i)\s+channel$', '', name)
         name = re.sub(r'(?i)\s+orig$', '', name)
+        name = re.sub(r'(?i)\s+audio$', '', name)
         cleaned = ' '.join(name.split()).strip().upper()
         if cleaned.startswith("VV"):
             cleaned = "VTV" + cleaned[2:]
@@ -874,7 +875,10 @@ class M3UBuilder:
 
         # Phase 5: Write output playlist
         with open(self.output_file, 'w', encoding='utf-8') as f:
-            f.write(f'#EXTM3U url-tvg="{self.epg_base_url}/{self.output_epg}" x-tvg-url="{self.epg_base_url}/{self.output_epg}"\n')
+            our_epg = f"{self.epg_base_url}/{self.output_epg}"
+            vnepg_fallback = "https://vnepg.site/epg.xml"
+            epg_urls = f"{vnepg_fallback},{our_epg}"
+            f.write(f'#EXTM3U url-tvg="{epg_urls}" x-tvg-url="{epg_urls}"\n')
             for ch in self.final_playlist:
                 line = (
                     f'#EXTINF:-1 tvg-id="{ch["final_id"]}" '
