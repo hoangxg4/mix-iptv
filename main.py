@@ -7,7 +7,6 @@ import logging
 import os
 import re
 import gzip
-from urllib.parse import urlparse
 import xml.etree.ElementTree as ET
 import yaml
 import aiohttp
@@ -131,8 +130,6 @@ class M3UBuilder:
         self.final_used_ids = set()
         self.source_status = {}
         self.final_playlist = []
-        # Track (channel_name, url_base) for per-channel URL dedup
-        self._seen_url_bases = set()
 
         # Async HTTP session (initialized in async context)
         self._session = None
@@ -273,39 +270,6 @@ class M3UBuilder:
     # CHANNEL PROCESSING (unchanged logic, no I/O)
     # -----------------------------------------------------------------------
 
-    @staticmethod
-    def _url_dedup_key(url):
-        """Normalize a stream URL to group variants of the same stream.
-
-        Normalizations:
-        1. Strip query params and fragments
-        2. Normalize subdomain: 'live-a' → 'live', 'cdn-01' → 'cdn'
-        3. For .m3u8/.mpd: use parent directory (variant playlists are
-        the same stream)
-        """
-        url_base = re.split(r'[?#]', url)[0]
-        parsed = urlparse(url_base)
-        host = parsed.hostname or ''
-
-        # Normalize subdomain (live-a.fptplay53.net → live.fptplay53.net)
-        parts = host.split('.')
-        if len(parts) > 2:
-            first = parts[0]
-            if '-' in first:
-                first = first.split('-')[0]
-            host = '.'.join([first] + parts[1:])
-
-        # For streaming URLs, strip the filename and compare by directory
-        path = parsed.path
-        if path.endswith('.m3u8') or path.endswith('.mpd'):
-            parent = '/'.join(path.rstrip('/').split('/')[:-1])
-            if parent:
-                path = parent + '/'
-            else:
-                path = '/'
-
-        return f'{parsed.scheme}://{host}{path}'
-
     def add_channel(self, extinf: str, url: str, raw_group: str, extra_tags: list):
         raw_name = extinf.split(',')[-1].strip()
         # Skip channels whose name looks like a URL (garbage data from malformed sources)
@@ -315,13 +279,6 @@ class M3UBuilder:
         # Skip garbage: too short, too long (>40 chars = junk with embedded ads), or spam
         if len(clean_name) < 2 or len(clean_name) > 40 or any(spam in clean_name.lower() for spam in self.spam_keywords):
             return
-
-        # Per-channel base-URL dedup: group stream variants by normalized key
-        # (same scheme+host+directory for .m3u8/.mpd, normalized subdomain).
-        dedup_key = (clean_name, self._url_dedup_key(url))
-        if dedup_key in self._seen_url_bases:
-            return
-        self._seen_url_bases.add(dedup_key)
 
         id_match = RE_TVG_ID.search(extinf)
         logo_match = RE_TVG_LOGO.search(extinf)
