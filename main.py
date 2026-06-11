@@ -546,24 +546,30 @@ class M3UBuilder:
             async with session.get(clean_url, headers=headers,
                                    timeout=aiohttp.ClientTimeout(total=self.stream_timeout),
                                    allow_redirects=True) as res:
-                if res.status in (404, 521):
-                    return None, False  # Fatal: not found / server down
-
-                # For HLS URLs that return 200, validate content + segments
-                if res.status == 200 and clean_url.lower().endswith('.m3u8'):
+                # For HLS URLs, validate content + (if 200) deep-check segments
+                if clean_url.lower().endswith('.m3u8'):
                     try:
                         chunk = await res.content.read(4096)
                         text = chunk.decode('utf-8', errors='replace')
                         lines = text.split('\n')
 
-                        # 1) Validate it's real HLS content (EXTM3U header)
+                        # Validate it's real HLS content (EXTM3U header)
                         header = chunk.strip().lower()
                         if not (header.startswith(b'#extm3u') or header.startswith(b'#ext-x-')):
-                            return None, True  # Bad content (e.g. geo-block HTML)
+                            # Not HLS content (e.g. geo-block HTML, 403 page)
+                            if res.status in (404, 521):
+                                return None, False  # Fatal
+                            return None, True  # Retry via proxy
 
-                        # 2) Deep check: verify at least one segment exists
-                        #    Detects "undead" streams: playlist 200, segments 404
-                        #    (VTV1 AUDIO: chunklist.m3u8 200, but segments 404)
+                        # Status-based filtering for HLS
+                        if res.status in (404, 521):
+                            return None, False  # Fatal
+                        if res.status != 200:
+                            return None, True  # Non-success (e.g. 403) → retry via proxy
+
+                        # Deep check: verify at least one segment exists
+                        # Detects "undead" streams: playlist 200, segments 404
+                        # (VTV1 AUDIO: chunklist.m3u8 200, but segments 404)
                         has_segments = any(l.strip().lower().startswith('#extinf') for l in lines)
                         has_variants = any('#ext-x-stream-inf' in l.lower() for l in lines)
                         base_url = str(res.url)
@@ -594,6 +600,10 @@ class M3UBuilder:
                                 break
                     except Exception:
                         pass  # Can't deep-check, assume valid
+
+                # Non-HLS URLs: fatal on 404/521, pass through everything else
+                elif res.status in (404, 521):
+                    return None, False
 
                 return data, False  # Success
         except (asyncio.TimeoutError, aiohttp.ClientConnectorError):
