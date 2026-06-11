@@ -13,6 +13,7 @@ import aiohttp
 import aiohttp.client_exceptions
 from urllib.parse import urlparse, urljoin
 from datetime import datetime, timedelta, timezone
+import unicodedata
 from aiohttp_socks import ProxyConnector
 from cache import Cache
 
@@ -199,6 +200,8 @@ class M3UBuilder:
     # -----------------------------------------------------------------------
 
     def normalize_channel_name(self, name: str) -> str:
+        # Normalize Unicode (NFC) so decomposed characters like Ô+̣→Ộ merge correctly
+        name = unicodedata.normalize('NFC', name)
         name = RE_SPLIT_NAME.split(name)[0]
         name = re.sub(r'(?i)(fhd|hd|sd|1080p|720p|4k|hevc|h264)', ' ', name)
         name = RE_CLEAN_TAGS.sub(' ', name)
