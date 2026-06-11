@@ -11,7 +11,7 @@ import xml.etree.ElementTree as ET
 import yaml
 import aiohttp
 import aiohttp.client_exceptions
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
 from datetime import datetime, timedelta, timezone
 from aiohttp_socks import ProxyConnector
 from cache import Cache
@@ -37,7 +37,6 @@ DEFAULT_CONFIG = {
         'spam_keywords': [
             'mời quý khán giả', 'thông báo', 'tạm ngưng',
             'bảo trì', 'kênh dự phòng', 'test',
-            'audio',
         ],
         'epg_trim_days': 7,
     },
@@ -496,11 +495,48 @@ class M3UBuilder:
                 )
                 self.add_channel(extinf, stream_url, raw_group, extra_tags=[])
 
+    async def _deep_check_segment(self, session, seg_url, headers):
+        """HEAD a segment URL — returns False if 404/521 (dead segment)."""
+        try:
+            async with session.head(seg_url,
+                                    timeout=aiohttp.ClientTimeout(total=3),
+                                    headers=headers) as hresp:
+                return hresp.status not in (404, 521)
+        except Exception:
+            return True  # Network error on HEAD is non-fatal
+
+    async def _deep_check_variant(self, session, var_url, headers, seg_headers):
+        """Fetch a variant playlist and HEAD its first segment.
+
+        Returns False if variant itself is 404/521.
+        """
+        try:
+            async with session.get(var_url,
+                                    timeout=aiohttp.ClientTimeout(total=5),
+                                    headers=headers) as vresp:
+                if vresp.status in (404, 521):
+                    return False
+                if vresp.status == 200:
+                    vchunk = await vresp.content.read(4096)
+                    vtext = vchunk.decode('utf-8', errors='replace')
+                    for line in vtext.split('\n'):
+                        stripped = line.strip()
+                        if stripped and not stripped.startswith('#'):
+                            seg_url = urljoin(str(vresp.url), stripped)
+                            return await self._deep_check_segment(session, seg_url, seg_headers)
+                return True
+        except Exception:
+            return True
+
     async def _try_link_once(self, data, clean_url, headers, use_proxy=False):
         """Try fetching a stream URL once. Returns (data_or_None, retryable_bool).
 
         retryable=True means the failure *might* be geo-blocking and worth
         retrying via proxy. 404/521 are fatal (never retry).
+
+        After basic HTTP check, also validates HLS content and verifies
+        at least one segment exists (catches undead streams where
+        playlists respond 200 but media segments return 404).
         """
         try:
             if use_proxy:
@@ -513,15 +549,51 @@ class M3UBuilder:
                 if res.status in (404, 521):
                     return None, False  # Fatal: not found / server down
 
-                # For HLS URLs that return 200, validate content is a real playlist
+                # For HLS URLs that return 200, validate content + segments
                 if res.status == 200 and clean_url.lower().endswith('.m3u8'):
                     try:
-                        chunk = await res.content.read(512)
-                        chunk_str = chunk.strip().lower()
-                        if not (chunk_str.startswith(b'#extm3u') or chunk_str.startswith(b'#ext-x-')):
-                            return None, True  # Bad content, might be geo-block HTML
+                        chunk = await res.content.read(4096)
+                        text = chunk.decode('utf-8', errors='replace')
+                        lines = text.split('\n')
+
+                        # 1) Validate it's real HLS content (EXTM3U header)
+                        header = chunk.strip().lower()
+                        if not (header.startswith(b'#extm3u') or header.startswith(b'#ext-x-')):
+                            return None, True  # Bad content (e.g. geo-block HTML)
+
+                        # 2) Deep check: verify at least one segment exists
+                        #    Detects "undead" streams: playlist 200, segments 404
+                        #    (VTV1 AUDIO: chunklist.m3u8 200, but segments 404)
+                        has_segments = any(l.strip().lower().startswith('#extinf') for l in lines)
+                        has_variants = any('#ext-x-stream-inf' in l.lower() for l in lines)
+                        base_url = str(res.url)
+
+                        if has_segments:
+                            # Variant playlist: HEAD first segment
+                            for line in lines:
+                                stripped = line.strip()
+                                if stripped and not stripped.startswith('#'):
+                                    seg_url = urljoin(base_url, stripped)
+                                    ok = await self._deep_check_segment(session, seg_url, headers)
+                                    if not ok:
+                                        return None, True
+                                    break
+                        elif has_variants:
+                            # Master playlist: follow first variant, then HEAD its segment
+                            for line in lines:
+                                stripped = line.strip()
+                                # Skip comments, attribute lines (URI="..."), non-URL lines
+                                if not stripped or stripped.startswith('#'):
+                                    continue
+                                if '=' in stripped:
+                                    continue  # Attribute line, not a bare URL
+                                var_url = urljoin(base_url, stripped)
+                                ok = await self._deep_check_variant(session, var_url, headers, headers)
+                                if not ok:
+                                    return None, True
+                                break
                     except Exception:
-                        pass  # Can't peek, assume valid
+                        pass  # Can't deep-check, assume valid
 
                 return data, False  # Success
         except (asyncio.TimeoutError, aiohttp.ClientConnectorError):

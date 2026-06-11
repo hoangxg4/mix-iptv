@@ -15,7 +15,6 @@ general:
     - "bảo trì"
     - "kênh dự phòng"
     - "test"
-    - "audio"
 
 cache:
   enabled: true
