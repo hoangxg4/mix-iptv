@@ -8,13 +8,7 @@ general:
   stream_timeout: 3
   max_workers: 64
   epg_trim_days: 7
-  spam_keywords:
-    - "mời quý khán giả"
-    - "thông báo"
-    - "tạm ngưng"
-    - "bảo trì"
-    - "kênh dự phòng"
-    - "test"
+  spam_keywords: []
 
 cache:
   enabled: true

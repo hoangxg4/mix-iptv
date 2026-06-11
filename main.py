@@ -35,10 +35,7 @@ DEFAULT_CONFIG = {
         'timeout': 10,
         'stream_timeout': 3,
         'max_workers': 64,
-        'spam_keywords': [
-            'mời quý khán giả', 'thông báo', 'tạm ngưng',
-            'bảo trì', 'kênh dự phòng', 'test',
-        ],
+        'spam_keywords': [],
         'epg_trim_days': 7,
     },
     'cache': {

@@ -13,10 +13,7 @@ DEFAULT_CONFIG = {
         'timeout': 10,
         'stream_timeout': 3,
         'max_workers': 64,
-        'spam_keywords': [
-            'mời quý khán giả', 'thông báo', 'tạm ngưng',
-            'bảo trì', 'kênh dự phòng', 'test',
-        ],
+        'spam_keywords': [],
     },
     'cache': {
         'enabled': True,
@@ -34,7 +31,7 @@ def test_config_defaults_match_expected():
     assert 'cache' in DEFAULT_CONFIG
     assert 'source_file' in DEFAULT_CONFIG['general']
     assert 'spam_keywords' in DEFAULT_CONFIG['general']
-    assert len(DEFAULT_CONFIG['general']['spam_keywords']) == 6
+    assert len(DEFAULT_CONFIG['general']['spam_keywords']) == 0
     assert DEFAULT_CONFIG['cache']['epg_ttl'] == 3600
 
 

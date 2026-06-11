@@ -54,11 +54,10 @@ class TestNormalizeChannelName:
         result = builder.normalize_channel_name("VTV1!!!")
         assert result == "VTV1"
 
-    def test_spam_keywords_matches_lower(self, builder):
-        # normalize_channel_name doesn't filter spam (add_channel does)
-        # But spam keywords exist in the class/settings scope
+    def test_spam_keywords_empty(self, builder):
+        # spam_keywords is empty — filtering relies on content validation
         from main import SPAM_KEYWORDS
-        assert "test" in [s.lower() for s in SPAM_KEYWORDS]
+        assert len(SPAM_KEYWORDS) == 0
 
 
 class TestSmartGrouping:
