@@ -31,6 +31,6 @@ https://raw.githubusercontent.com/ngvhiem/IPTV/refs/heads/main/IPTV.m3u
 https://raw.githubusercontent.com/ngvhiem/IPTV/refs/heads/main/IPTV-FPT.m3u
 https://github.com/DinhLap96/ListTivi/raw/refs/heads/main/ListTiVi/dltivi_v2.ndl
 https://github.com/leeshin5757/cloudstream-plugin-vn/raw/refs/heads/main/public/iptv.m3u
-https://github.com/blvbatman/iptv/raw/refs/heads/main/iptv.m3u [DIE]
+https://github.com/blvbatman/iptv/raw/refs/heads/main/iptv.m3u
 https://github.com/zaltvvn/live/raw/refs/heads/main/DAKLAKIPTV_BASIC
 https://sm-vn.vercel.app/api/tructiep
