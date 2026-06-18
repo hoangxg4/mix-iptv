@@ -34,3 +34,10 @@ https://github.com/leeshin5757/cloudstream-plugin-vn/raw/refs/heads/main/public/
 https://github.com/blvbatman/iptv/raw/refs/heads/main/iptv.m3u
 https://github.com/zaltvvn/live/raw/refs/heads/main/DAKLAKIPTV_BASIC
 https://sm-vn.vercel.app/api/tructiep
+https://github.com/thoike84/iptv-vn/raw/refs/heads/main/phattai84.txt
+https://github.com/utnhan-maker/iptv-list/raw/refs/heads/main/utnhan-iptv
+https://github.com/ZXArkin/my-personal-iptv/raw/refs/heads/iptv-radio/ZXIPTV.m3u
+https://github.com/ZXArkin/my-personal-iptv/raw/refs/heads/iptv-radio/Japan.m3u
+https://github.com/Love4vn/Test/raw/refs/heads/main/IPTV.m3u
+https://github.com/dovietsy/acestreamfb/raw/refs/heads/main/acestreamfb.txt
+https://github.com/mranhtu/viettv/raw/refs/heads/master/IPTV_ALL.m3u
