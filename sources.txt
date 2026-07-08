@@ -10,7 +10,7 @@ https://bit.ly/quidntv
 https://github.com/giangnam0201/All-In-One-IPTV/raw/refs/heads/main/channels.m3u
 https://livesport.io.vn/easport [DIE]
 https://tinyurl.com/deki2610 [DIE]
-https://raw.githubusercontent.com/hoiquanclick/hoiquan/refs/heads/main/free.m3u [DIE]
+https://raw.githubusercontent.com/hoiquanclick/hoiquan/refs/heads/main/free.m3u
 https://raw.githubusercontent.com/hoiquanclick/hoiquan/refs/heads/main/vip.m3u
 https://raw.githubusercontent.com/tathiquynh1971-oss/vietiptv.live/refs/heads/main/vietiptv.live
 https://gist.githubusercontent.com/vietlubu/692041ad78298d5492e8e8da888135d3/raw/3ecad1956e57080acbc97a0262bb3db9cdfd3c2d/IPTV-FPT.m3u
