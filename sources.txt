@@ -10,8 +10,8 @@ https://bit.ly/quidntv
 https://github.com/giangnam0201/All-In-One-IPTV/raw/refs/heads/main/channels.m3u
 https://livesport.io.vn/easport [DIE]
 https://tinyurl.com/deki2610 [DIE]
-https://raw.githubusercontent.com/hoiquanclick/hoiquan/refs/heads/main/free.m3u [DIE]
-https://raw.githubusercontent.com/hoiquanclick/hoiquan/refs/heads/main/vip.m3u [DIE]
+https://raw.githubusercontent.com/hoiquanclick/hoiquan/refs/heads/main/free.m3u
+https://raw.githubusercontent.com/hoiquanclick/hoiquan/refs/heads/main/vip.m3u
 https://raw.githubusercontent.com/tathiquynh1971-oss/vietiptv.live/refs/heads/main/vietiptv.live
 https://gist.githubusercontent.com/vietlubu/692041ad78298d5492e8e8da888135d3/raw/3ecad1956e57080acbc97a0262bb3db9cdfd3c2d/IPTV-FPT.m3u
 https://raw.githubusercontent.com/hayatiptv/iptv/refs/heads/master/Radyo.m3u
@@ -20,16 +20,16 @@ http://vinh.cf/radio [DIE]
 https://github.com/vietng228/ximaotv/raw/refs/heads/main/vietxiaomi.m3u
 https://github.com/vietng228/m3u/raw/refs/heads/main/Japan.m3u
 https://github.com/vietng228/m3u/raw/refs/heads/main/m3u.m3u
-https://github.com/vietng228/m3u/raw/refs/heads/main/new.m3u [DIE]
+https://github.com/vietng228/m3u/raw/refs/heads/main/new.m3u
 https://github.com/lockerzlong/androidtv_ltl/raw/refs/heads/playlists/all.m3u [DIE]
 https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv
-https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv2 [DIE]
+https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv2
 https://github.com/thung65/Iptv-vietnam/raw/refs/heads/main/tvvn
-https://github.com/evafourbasri-afk/streamedsu-autoscraper/raw/refs/heads/main/Branch/all.m3u [DIE]
+https://github.com/evafourbasri-afk/streamedsu-autoscraper/raw/refs/heads/main/Branch/all.m3u
 https://freem3u.xyz/api/channels/x_1.0.1/app.json|User-Agent=okhttp/4.12.0
 https://raw.githubusercontent.com/ngvhiem/IPTV/refs/heads/main/IPTV.m3u
 https://raw.githubusercontent.com/ngvhiem/IPTV/refs/heads/main/IPTV-FPT.m3u
-https://github.com/DinhLap96/ListTivi/raw/refs/heads/main/ListTiVi/dltivi_v2.ndl [DIE]
+https://github.com/DinhLap96/ListTivi/raw/refs/heads/main/ListTiVi/dltivi_v2.ndl
 https://github.com/leeshin5757/cloudstream-plugin-vn/raw/refs/heads/main/public/iptv.m3u
 https://github.com/blvbatman/iptv/raw/refs/heads/main/iptv.m3u [DIE]
 https://github.com/zaltvvn/live/raw/refs/heads/main/DAKLAKIPTV_BASIC
