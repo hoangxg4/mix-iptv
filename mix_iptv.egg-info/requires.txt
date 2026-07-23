@@ -1,0 +1,9 @@
+aiohttp
+pyyaml
+aiohttp-socks
+pytest
+pytest-asyncio
+
+[dev]
+pytest
+pytest-asyncio

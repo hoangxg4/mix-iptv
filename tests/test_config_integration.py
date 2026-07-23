@@ -24,7 +24,7 @@ def test_config_yaml_is_valid():
 
 def test_load_config_function():
     """load_config returns defaults when no config file exists."""
-    from main import load_config, DEFAULT_CONFIG
+    from config import load_config, DEFAULT_CONFIG
     # Temporarily hide config.yaml
     with tempfile.NamedTemporaryFile() as tmp:
         # Rename config out of the way
@@ -42,6 +42,6 @@ def test_load_config_function():
 
 def test_config_spam_keywords_inherited():
     """SPAM_KEYWORDS module constant matches config."""
-    from main import SPAM_KEYWORDS, load_config
+    from config import SPAM_KEYWORDS, load_config
     cfg = load_config()
     assert SPAM_KEYWORDS == cfg['general']['spam_keywords']

@@ -60,7 +60,7 @@ class TestNormalizeChannelName:
 
     def test_spam_keywords_empty(self, builder):
         # spam_keywords is empty — filtering relies on content validation
-        from main import SPAM_KEYWORDS
+        from config import SPAM_KEYWORDS
         assert len(SPAM_KEYWORDS) == 0
 
 

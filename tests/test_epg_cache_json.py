@@ -211,7 +211,7 @@ class TestChannelsJsonConfig:
 
     def test_default_config_has_output_channels(self):
         """DEFAULT_CONFIG should include output_channels setting."""
-        from main import DEFAULT_CONFIG
+        from config import DEFAULT_CONFIG
         assert 'output_channels' in DEFAULT_CONFIG['general']
         assert DEFAULT_CONFIG['general']['output_channels'] == 'channels.json'
 

@@ -3,26 +3,13 @@ import os
 import tempfile
 import yaml
 import pytest
+from config import DEFAULT_CONFIG
 
 
-DEFAULT_CONFIG = {
-    'general': {
-        'source_file': 'sources.txt',
-        'output_file': 'playlist.m3u',
-        'output_epg': 'epg.xml.gz',
-        'timeout': 10,
-        'stream_timeout': 3,
-        'max_workers': 64,
-        'spam_keywords': [],
-    },
-    'cache': {
-        'enabled': True,
-        'dir': '.cache',
-        'epg_ttl': 3600,
-        'source_ttl': 300,
-        'link_ttl': 600,
-    },
-}
+def test_default_config_has_output_channels():
+    """DEFAULT_CONFIG should include output_channels setting."""
+    assert 'output_channels' in DEFAULT_CONFIG['general']
+    assert DEFAULT_CONFIG['general']['output_channels'] == 'channels.json'
 
 
 def test_config_defaults_match_expected():
