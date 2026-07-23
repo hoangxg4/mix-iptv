@@ -1,0 +1,21 @@
+[project]
+name = "mix-iptv"
+version = "1.0.0"
+requires-python = ">=3.10"
+dependencies = [
+    "aiohttp",
+    "pyyaml",
+    "aiohttp-socks",
+    "pytest",
+    "pytest-asyncio",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
