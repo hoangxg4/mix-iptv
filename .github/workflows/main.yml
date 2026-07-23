@@ -44,16 +44,12 @@ jobs:
       - name: Run merge, EPG trim, and JSON export
         run: python main.py
 
-      - name: Copy channels.json to docs/ for GitHub Pages
-        run: cp channels.json docs/channels.json
-
-      - name: Commit sources.txt + docs/ to repo
+      - name: Commit sources.txt to repo
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # Chỉ commit file nhỏ: sources.txt (track alive/dead) + docs/ (web page)
-          git add sources.txt docs/
-          git diff --staged --quiet || git commit -m "🤖 Auto-update source status & docs [skip ci]"
+          git add sources.txt
+          git diff --staged --quiet || git commit -m "🤖 Auto-update source status [skip ci]"
           git push
 
       - name: Upload large files to Release

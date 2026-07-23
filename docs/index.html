@@ -128,26 +128,32 @@ let fileSizes = {};
 
 async function loadAll() {
   try {
-    // Fetch channels.json từ cùng origin (GitHub Pages, không CORS)
-    const [channelsRes, srcRes] = await Promise.all([
-      fetch('./channels.json'),
+    // Fetch release info + sources.txt qua GitHub API (CORS-enabled)
+    const [releaseRes, srcRes] = await Promise.all([
+      fetch('https://api.github.com/repos/hoangxg4/mix-iptv/releases/latest'),
       fetch('https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/sources.txt'),
     ]);
 
-    // File sizes: channels.json từ response (cùng origin), playlist/EPG từ release (CORS fallback)
-    fileSizes.json = channelsRes.headers.get('Content-Length');
-    document.getElementById('size-json').textContent = formatSize(fileSizes.json);
-    Promise.all([
-      fetch('https://github.com/hoangxg4/mix-iptv/releases/latest/download/playlist.m3u', { method: 'HEAD' })
-        .then(r => { fileSizes.playlist = r.headers.get('Content-Length'); }),
-      fetch('https://github.com/hoangxg4/mix-iptv/releases/latest/download/epg.xml.gz', { method: 'HEAD' })
-        .then(r => { fileSizes.epg = r.headers.get('Content-Length'); }),
-    ]).then(() => {
-      document.getElementById('size-playlist').textContent = formatSize(fileSizes.playlist);
-      document.getElementById('size-epg').textContent = formatSize(fileSizes.epg);
-    }).catch(() => {});
+    if (!releaseRes.ok) throw new Error('Release API: HTTP ' + releaseRes.status);
+    const release = await releaseRes.json();
+    const assets = release.assets || [];
 
-    // Parse channels.json
+    // Map asset names → download URLs + sizes
+    const assetMap = {};
+    assets.forEach(a => { assetMap[a.name] = { url: a.browser_download_url, size: a.size }; });
+
+    // Show file sizes from API metadata
+    ['playlist.m3u', 'epg.xml.gz', 'channels.json'].forEach(name => {
+      const el = document.getElementById('size-' + ({
+        'playlist.m3u': 'playlist', 'epg.xml.gz': 'epg', 'channels.json': 'json'
+      }[name]));
+      if (el && assetMap[name]) el.textContent = formatSize(assetMap[name].size);
+    });
+
+    // Fetch channels.json từ Release asset URL
+    const jsonAsset = assetMap['channels.json'];
+    if (!jsonAsset) throw new Error('channels.json not found in release');
+    const channelsRes = await fetch(jsonAsset.url);
     if (!channelsRes.ok) throw new Error('HTTP ' + channelsRes.status);
     const data = await channelsRes.json();
     const groups = data.groups || [];
