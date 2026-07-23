@@ -128,9 +128,9 @@ let fileSizes = {};
 
 async function loadAll() {
   try {
-    // Fetch channels.json từ cùng origin (GitHub Pages, không CORS)
+    // Fetch channels.json từ GitHub Release (CORS-enabled)
     const [channelsRes, srcRes] = await Promise.all([
-      fetch('./channels.json'),
+      fetch('https://github.com/hoangxg4/mix-iptv/releases/latest/download/channels.json'),
       fetch('https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/sources.txt'),
     ]);
 
