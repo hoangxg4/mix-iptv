@@ -57,6 +57,7 @@ class TestProgrammeDedup:
 
     def test_dedup_same_channel_start(self, builder):
         """Programmes with same channel and start are deduped (only first kept)."""
+        from epg import dedup_programmes
         prog1 = ET.fromstring(
             '<programme channel="vtv1" start="20260101000000 +0300" stop="20260101010000 +0300">'
             '<title lang="en">News</title></programme>'
@@ -70,7 +71,7 @@ class TestProgrammeDedup:
             '<title lang="en">Movie</title></programme>'
         )
 
-        result = builder._dedup_programmes([prog1, prog2, prog3])
+        result = dedup_programmes([prog1, prog2, prog3])
         assert len(result) == 2, f"Expected 2 unique programmes, got {len(result)}"
         # prog1 (first occurrence) should be kept
         titles = [p.findtext('title') for p in result]
@@ -79,23 +80,25 @@ class TestProgrammeDedup:
 
     def test_dedup_no_duplicates(self, builder):
         """All unique programmes are kept."""
+        from epg import dedup_programmes
         progs = [
             ET.fromstring(f'<programme channel="ch{i}" start="20260101000000 +0300" '
                           f'stop="20260101010000 +0300"><title>Prog {i}</title></programme>')
             for i in range(5)
         ]
-        result = builder._dedup_programmes(progs)
+        result = dedup_programmes(progs)
         assert len(result) == 5
 
     def test_dedup_same_channel_different_start(self, builder):
         """Same channel but different start times are all kept."""
+        from epg import dedup_programmes
         progs = [
             ET.fromstring('<programme channel="vtv1" start="20260101000000 +0300" '
                           'stop="20260101010000 +0300"><title>Prog 1</title></programme>'),
             ET.fromstring('<programme channel="vtv1" start="20260101010000 +0300" '
                           'stop="20260101020000 +0300"><title>Prog 2</title></programme>'),
         ]
-        result = builder._dedup_programmes(progs)
+        result = dedup_programmes(progs)
         assert len(result) == 2
 
 
@@ -109,7 +112,8 @@ class TestChannelsJson:
 
     def test_generate_channels_json_basic_structure(self, builder_with_channels):
         """channels.json should have Provider > Groups > Channels structure."""
-        builder_with_channels.generate_channels_json()
+        from output import generate_channels_json
+        generate_channels_json(builder_with_channels.final_playlist, builder_with_channels.output_channels)
         assert os.path.exists('channels.json'), "channels.json not created"
         with open('channels.json', 'r') as f:
             data = json.load(f)
@@ -122,7 +126,8 @@ class TestChannelsJson:
 
     def test_generate_channels_json_groups(self, builder_with_channels):
         """Channels should be grouped correctly by their group attribute."""
-        builder_with_channels.generate_channels_json()
+        from output import generate_channels_json
+        generate_channels_json(builder_with_channels.final_playlist, builder_with_channels.output_channels)
         with open('channels.json', 'r') as f:
             data = json.load(f)
 
@@ -132,7 +137,8 @@ class TestChannelsJson:
 
     def test_generate_channels_json_channel_structure(self, builder_with_channels):
         """Each channel should have id, name, sources."""
-        builder_with_channels.generate_channels_json()
+        from output import generate_channels_json
+        generate_channels_json(builder_with_channels.final_playlist, builder_with_channels.output_channels)
         with open('channels.json', 'r') as f:
             data = json.load(f)
 
@@ -146,7 +152,8 @@ class TestChannelsJson:
 
     def test_generate_channels_json_source_structure(self, builder_with_channels):
         """Each source should have contents with streams and stream_links."""
-        builder_with_channels.generate_channels_json()
+        from output import generate_channels_json
+        generate_channels_json(builder_with_channels.final_playlist, builder_with_channels.output_channels)
         with open('channels.json', 'r') as f:
             data = json.load(f)
 
@@ -164,7 +171,8 @@ class TestChannelsJson:
 
     def test_generate_channels_json_stream_links(self, builder_with_channels):
         """Stream links should contain url and type."""
-        builder_with_channels.generate_channels_json()
+        from output import generate_channels_json
+        generate_channels_json(builder_with_channels.final_playlist, builder_with_channels.output_channels)
         with open('channels.json', 'r') as f:
             data = json.load(f)
 
@@ -177,7 +185,8 @@ class TestChannelsJson:
 
     def test_generate_channels_json_fallback_urls(self, builder_with_fallbacks):
         """Channels with fallback URLs should have multiple stream_links."""
-        builder_with_fallbacks.generate_channels_json()
+        from output import generate_channels_json
+        generate_channels_json(builder_with_fallbacks.final_playlist, builder_with_fallbacks.output_channels)
         with open('channels.json', 'r') as f:
             data = json.load(f)
 
@@ -191,7 +200,8 @@ class TestChannelsJson:
 
     def test_generate_channels_json_tvg_metadata(self, builder_with_channels):
         """Channel should include tvg_id and tvg_logo in extras."""
-        builder_with_channels.generate_channels_json()
+        from output import generate_channels_json
+        generate_channels_json(builder_with_channels.final_playlist, builder_with_channels.output_channels)
         with open('channels.json', 'r') as f:
             data = json.load(f)
 
