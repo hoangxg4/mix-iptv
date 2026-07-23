@@ -65,6 +65,7 @@ jobs:
           gh release create "$RELEASE_TAG" \
             playlist.m3u epg.xml.gz channels.json \
             --title "🤖 IPTV Auto-Update" \
-            --notes "Tự động cập nhật: $(date -u '+%Y-%m-%d %H:%M UTC')"
+            --notes "Tự động cập nhật: $(date -u '+%Y-%m-%d %H:%M UTC')" \
+            --draft=false
         env:
           GH_TOKEN: ${{ github.token }}
