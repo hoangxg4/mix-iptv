@@ -1,6 +1,9 @@
 cache.py
 config.py
+epg.py
+m3u_builder.py
 main.py
+output.py
 pyproject.toml
 mix_iptv.egg-info/PKG-INFO
 mix_iptv.egg-info/SOURCES.txt

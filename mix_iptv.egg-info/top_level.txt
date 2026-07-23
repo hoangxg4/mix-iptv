@@ -1,3 +1,6 @@
 cache
 config
+epg
+m3u_builder
 main
+output
