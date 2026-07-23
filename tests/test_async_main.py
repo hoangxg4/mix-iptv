@@ -7,7 +7,7 @@ import pytest
 @pytest.mark.asyncio
 async def test_m3ubuilder_initializes():
     """M3UBuilder can be instantiated (eventually async)."""
-    from main import M3UBuilder
+    from m3u_builder import M3UBuilder
     builder = M3UBuilder()
     assert builder.epg_urls == set()
     assert builder.unique_links == {}
@@ -18,7 +18,7 @@ async def test_m3ubuilder_initializes():
 @pytest.mark.asyncio
 async def test_parse_url_headers_simple():
     """parse_url_headers returns clean URL with default headers."""
-    from main import M3UBuilder
+    from m3u_builder import M3UBuilder
     builder = M3UBuilder()
     url, headers = builder.parse_url_headers("https://example.com/stream")
     assert url == "https://example.com/stream"
@@ -28,7 +28,7 @@ async def test_parse_url_headers_simple():
 @pytest.mark.asyncio
 async def test_parse_url_headers_with_params():
     """parse_url_headers extracts custom headers from URL."""
-    from main import M3UBuilder
+    from m3u_builder import M3UBuilder
     builder = M3UBuilder()
     url, headers = builder.parse_url_headers(
         "https://example.com/stream|User-Agent=Custom|Referer=https://x.com"

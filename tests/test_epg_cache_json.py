@@ -238,7 +238,7 @@ class TestChannelsJsonConfig:
 @pytest.fixture
 def builder():
     """Create M3UBuilder with temp cache dir."""
-    from main import M3UBuilder
+    from m3u_builder import M3UBuilder
     cfg = {
         'general': {
             'source_file': 'sources.txt',

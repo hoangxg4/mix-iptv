@@ -1,6 +1,6 @@
 """Tests that preserve normalize_channel_name, smart_grouping, get_best_id_match logic."""
 import pytest
-from main import M3UBuilder
+from m3u_builder import M3UBuilder
 
 
 @pytest.fixture
