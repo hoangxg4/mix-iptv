@@ -199,6 +199,7 @@ class M3UBuilder:
     def normalize_channel_name(self, name: str) -> str:
         # Normalize Unicode (NFC) so decomposed characters like Ô+̣→Ộ merge correctly
         name = unicodedata.normalize('NFC', name)
+        name = name.replace('VIET NAM', 'VIETNAM')
         name = RE_SPLIT_NAME.split(name)[0]
         name = re.sub(r'(?i)(fhd|hd|sd|1080p|720p|4k|hevc|h264)', ' ', name)
         name = RE_CLEAN_TAGS.sub(' ', name)
@@ -215,11 +216,13 @@ class M3UBuilder:
             cleaned = "VTV" + cleaned[2:]
         return cleaned
 
-    def smart_grouping(self, raw_group: str, clean_name: str) -> str:
+    def smart_grouping(self, raw_group: str, clean_name: str, flags: dict = None) -> str:
         g_lower = raw_group.lower() if raw_group else ""
         n_lower = clean_name.lower()
         # Vietnam Today goes to VTV group (cuối danh sách)
         if re.search(r'\bviet\s*nam\s*today\b', n_lower):
+            if flags is not None:
+                flags['_vietnam_today'] = True
             return 'VTV'
         if RE_INTL.search(n_lower):
             return 'Quốc Tế'
@@ -259,8 +262,14 @@ class M3UBuilder:
         group = channel['group'].upper()
         priority = GROUP_PRIORITY.get(group, 99)
         name = channel['name']
+        # Vietnam Today always sorts last within its group
+        if channel.get('_vietnam_today'):
+            has_number = 2
         # Channels with numbers (e.g. VTV1, HTV2) sort before non-numbered
-        has_number = 0 if any(c.isdigit() for c in name) else 1
+        elif any(c.isdigit() for c in name):
+            has_number = 0
+        else:
+            has_number = 1
         nat_key = [int(c) if c.isdigit() else c.lower() for c in RE_NAT_KEY.split(name)]
         return (priority, group, has_number, nat_key)
 
@@ -352,13 +361,16 @@ class M3UBuilder:
         found_logo = logo_match.group(1).strip() if logo_match else ""
 
         if url not in self.unique_links:
+            flags = {}
+            group = self.smart_grouping(raw_group, clean_name, flags)
             self.unique_links[url] = {
                 'url': url,
                 'name': clean_name,
-                'group': self.smart_grouping(raw_group, clean_name),
+                'group': group,
                 'tvg_id': found_id,
                 'tvg_logo': found_logo,
                 'extra_tags': extra_tags,
+                **flags,
             }
 
     # -----------------------------------------------------------------------

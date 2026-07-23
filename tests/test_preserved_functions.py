@@ -54,6 +54,10 @@ class TestNormalizeChannelName:
         result = builder.normalize_channel_name("VTV1!!!")
         assert result == "VTV1"
 
+    def test_normalize_vietnam_today_merge_space(self, builder):
+        assert builder.normalize_channel_name("VIET NAM TODAY") == builder.normalize_channel_name("VIETNAM TODAY")
+        assert builder.normalize_channel_name("VIET NAM TODAY") == "VIETNAM TODAY"
+
     def test_spam_keywords_empty(self, builder):
         # spam_keywords is empty — filtering relies on content validation
         from main import SPAM_KEYWORDS
@@ -107,6 +111,17 @@ class TestSmartGrouping:
     def test_vietnam_today_in_vtv(self, builder):
         assert builder.smart_grouping("", "VIETNAM TODAY") == "VTV"
         assert builder.smart_grouping("", "VIET NAM TODAY") == "VTV"
+
+    def test_vietnam_today_sort_order(self, builder):
+        vtv1 = {'name': 'VTV1', 'group': 'VTV'}
+        vtv_today = {'name': 'VIETNAM TODAY', 'group': 'VTV', '_vietnam_today': True}
+
+        vtv1_key = builder.get_sort_key(vtv1)
+        vtv_today_key = builder.get_sort_key(vtv_today)
+
+        assert vtv1_key[2] == 0, f"VTV1 should have has_number=0, got {vtv1_key[2]}"
+        assert vtv_today_key[2] == 2, f"Vietnam Today should have has_number=2, got {vtv_today_key[2]}"
+        assert vtv1_key < vtv_today_key, "VTV1 should sort before Vietnam Today"
 
 
 class TestGetBestIdMatch:
