@@ -184,6 +184,9 @@ def write_stats_json(final_playlist, path='docs/stats.json', logger=None):
     if logger:
         logger.info("Đã tạo %s: %d nhóm, %d kênh, %d links",
                     path, stats['groups'], stats['channels'], stats['links'])
+
+
+def write_m3u_playlist(final_playlist, output_file, epg_base_url, output_epg):
     """Write the final M3U playlist to disk.
 
     Args:
