@@ -4,6 +4,7 @@ playlist.m3u
 epg.xml
 epg.xml.gz
 channels.json
+!docs/stats.json
 .hive/
 
 # Virtual environment

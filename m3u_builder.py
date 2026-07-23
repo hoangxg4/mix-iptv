@@ -21,7 +21,7 @@ from config import RE_INTL, RE_VTV_PRIME, RE_VTV_NUM, RE_HTV_NUM, RE_VTC_NUM
 from config import RE_VTVCAB, RE_ON, RE_LOCAL, RE_SPORTS, RE_MOVIES
 from config import RE_TVG_ID, RE_TVG_LOGO, RE_GROUP_TITLE, RE_TVG_URL, RE_NAT_KEY
 from epg import parse_xmltv_datetime, programme_in_window, dedup_programmes
-from output import generate_channels_json, write_m3u_playlist
+from output import generate_channels_json, write_m3u_playlist, write_stats_json
 
 # Logging configuration
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -840,9 +840,10 @@ class M3UBuilder:
             else:
                 tree.write(self.output_epg, encoding='utf-8', xml_declaration=True)
 
-        # Phase 7: Generate channels.json
+        # Phase 7: Generate channels.json + stats.json
         if self.final_playlist:
             generate_channels_json(self.final_playlist, self.output_channels, logger)
+            write_stats_json(self.final_playlist, 'docs/stats.json', logger)
 
         logger.info("Hoàn tất! Đã xử lý playlist thành công.")
         await self.close()

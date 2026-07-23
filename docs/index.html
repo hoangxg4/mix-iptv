@@ -128,41 +128,29 @@ let fileSizes = {};
 
 async function loadAll() {
   try {
-    // Fetch release info + sources.txt qua GitHub API (CORS-enabled)
-    const [releaseRes, srcRes] = await Promise.all([
+    // Fetch stats.json (local, no CORS) + release info (file sizes) + sources.txt
+    const [statsRes, releaseRes, srcRes] = await Promise.all([
+      fetch('./stats.json'),
       fetch('https://api.github.com/repos/hoangxg4/mix-iptv/releases/latest'),
       fetch('https://raw.githubusercontent.com/hoangxg4/mix-iptv/main/sources.txt'),
     ]);
 
-    if (!releaseRes.ok) throw new Error('Release API: HTTP ' + releaseRes.status);
-    const release = await releaseRes.json();
-    const assets = release.assets || [];
+    // Parse stats.json (tiny local file, always works)
+    if (!statsRes.ok) throw new Error('stats HTTP ' + statsRes.status);
+    const stats = await statsRes.json();
+    document.getElementById('updated').textContent =
+      'Cập nhật: ' + new Date(stats.updated).toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
 
-    // Map asset names → download URLs + sizes
-    const assetMap = {};
-    assets.forEach(a => { assetMap[a.name] = { url: a.browser_download_url, size: a.size }; });
-
-    // Show file sizes from API metadata
-    ['playlist.m3u', 'epg.xml.gz', 'channels.json'].forEach(name => {
-      const el = document.getElementById('size-' + ({
-        'playlist.m3u': 'playlist', 'epg.xml.gz': 'epg', 'channels.json': 'json'
-      }[name]));
-      if (el && assetMap[name]) el.textContent = formatSize(assetMap[name].size);
-    });
-
-    // Fetch channels.json từ Release asset URL
-    const jsonAsset = assetMap['channels.json'];
-    if (!jsonAsset) throw new Error('channels.json not found in release');
-    const channelsRes = await fetch(jsonAsset.url);
-    if (!channelsRes.ok) throw new Error('HTTP ' + channelsRes.status);
-    const data = await channelsRes.json();
-    const groups = data.groups || [];
-    const totalCh = groups.reduce((s, g) => s + (g.channels || []).length, 0);
-    const totalLinks = groups.reduce((s, g) =>
-      s + (g.channels || []).reduce((s2, ch) =>
-        s2 + (ch.sources?.[0]?.contents?.[0]?.streams?.[0]?.stream_links?.length || 0)
-      , 0)
-    , 0);
+    // File sizes from GitHub API
+    if (releaseRes.ok) {
+      const release = await releaseRes.json();
+      (release.assets || []).forEach(a => {
+        const key = { 'playlist.m3u': 'playlist', 'epg.xml.gz': 'epg', 'channels.json': 'json' }[a.name];
+        if (key) {
+          document.getElementById('size-' + key).textContent = formatSize(a.size);
+        }
+      });
+    }
 
     // Parse sources.txt
     const srcText = await srcRes.text();
@@ -176,15 +164,15 @@ async function loadAll() {
     document.getElementById('stats').innerHTML = `
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-value">${groups.length}</div>
+          <div class="stat-value">${stats.groups}</div>
           <div class="stat-label">Nhóm kênh</div>
         </div>
         <div class="stat-card">
-          <div class="stat-value">${totalCh}</div>
+          <div class="stat-value">${stats.channels}</div>
           <div class="stat-label">Kênh</div>
         </div>
         <div class="stat-card">
-          <div class="stat-value">${totalLinks}</div>
+          <div class="stat-value">${stats.links}</div>
           <div class="stat-label">Stream links</div>
         </div>
         <div class="stat-card">
@@ -204,9 +192,6 @@ async function loadAll() {
     document.getElementById('stats').innerHTML = `<div class="error">⚠️ Không thể tải dữ liệu: ${err.message}</div>`;
   }
 }
-
-document.getElementById('updated').textContent =
-  'Cập nhật: ' + new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
 
 loadAll();
 </script>

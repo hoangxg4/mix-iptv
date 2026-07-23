@@ -148,7 +148,42 @@ def generate_channels_json(final_playlist, output_channels, logger=None):
                     output_channels, len(groups), len(final_playlist))
 
 
-def write_m3u_playlist(final_playlist, output_file, epg_base_url, output_epg):
+def write_stats_json(final_playlist, path='docs/stats.json', logger=None):
+    """Write a tiny stats.json for the web UI (local, no CORS needed).
+
+    Args:
+        final_playlist: List of channel dicts from M3UBuilder.
+        path: Output path for stats.json.
+        logger: Optional logger.
+    """
+    from datetime import datetime, timezone
+
+    groups = {}
+    for ch in final_playlist:
+        g = ch.get('group', 'Khác')
+        groups.setdefault(g, {})[ch['name']] = ch
+
+    total_links = sum(
+        len(ch.get('fallback_urls', [])) + 1
+        for ch in final_playlist
+    )
+
+    import os
+    os.makedirs(os.path.dirname(path) or '.', exist_ok=True)
+
+    stats = {
+        'groups': len(groups),
+        'channels': len(final_playlist),
+        'links': total_links,
+        'updated': datetime.now(timezone.utc).isoformat(),
+    }
+
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(stats, f, ensure_ascii=False)
+
+    if logger:
+        logger.info("Đã tạo %s: %d nhóm, %d kênh, %d links",
+                    path, stats['groups'], stats['channels'], stats['links'])
     """Write the final M3U playlist to disk.
 
     Args:
