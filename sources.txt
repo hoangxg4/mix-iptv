@@ -20,7 +20,7 @@ http://vinh.cf/radio [DIE]
 https://github.com/vietng228/ximaotv/raw/refs/heads/main/vietxiaomi.m3u
 https://github.com/vietng228/m3u/raw/refs/heads/main/Japan.m3u
 https://github.com/vietng228/m3u/raw/refs/heads/main/m3u.m3u
-https://github.com/vietng228/m3u/raw/refs/heads/main/new.m3u
+https://github.com/vietng228/m3u/raw/refs/heads/main/new.m3u [DIE]
 https://github.com/lockerzlong/androidtv_ltl/raw/refs/heads/playlists/all.m3u [DIE]
 https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv
 https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv2
@@ -43,9 +43,9 @@ https://github.com/dovietsy/acestreamfb/raw/refs/heads/main/acestreamfb.txt
 https://github.com/mranhtu/viettv/raw/refs/heads/master/IPTV_ALL.m3u
 https://tinhlagi.pro/s.m3u
 https://github.com/ZXArkin/my-personal-iptv/raw/refs/heads/iptv-radio/Radio%20FM%20(Rajio%20FM).m3u
-https://github.com/niuinyang/niuin_iptv/raw/refs/heads/main/output/sjmz.m3u [DIE]
+https://github.com/niuinyang/niuin_iptv/raw/refs/heads/main/output/sjmz.m3u
 https://github.com/niuinyang/niuin_iptv/raw/refs/heads/main/output/dxl.m3u
-https://github.com/AeonCoreX-Lab/streamx-iptv-data/raw/refs/heads/main/playlists/all_channels.m3u [DIE]
+https://github.com/AeonCoreX-Lab/streamx-iptv-data/raw/refs/heads/main/playlists/all_channels.m3u
 https://github.com/gtoomanyrequtus-oss/Javascpirt.m3u/raw/refs/heads/main/g.m3u
 https://github.com/SajadTroy/openstream/raw/refs/heads/main/index.m3u
 https://github.com/quanlehong539/TVPub/raw/refs/heads/main/TVPub%20IPTV
