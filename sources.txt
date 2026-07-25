@@ -20,7 +20,7 @@ http://vinh.cf/radio [DIE]
 https://github.com/vietng228/ximaotv/raw/refs/heads/main/vietxiaomi.m3u
 https://github.com/vietng228/m3u/raw/refs/heads/main/Japan.m3u
 https://github.com/vietng228/m3u/raw/refs/heads/main/m3u.m3u
-https://github.com/vietng228/m3u/raw/refs/heads/main/new.m3u [DIE]
+https://github.com/vietng228/m3u/raw/refs/heads/main/new.m3u
 https://github.com/lockerzlong/androidtv_ltl/raw/refs/heads/playlists/all.m3u [DIE]
 https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv
 https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv2
