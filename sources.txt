@@ -53,3 +53,4 @@ https://cdn.iptvmate.net [DIE]
 https://github.com/abusaeeidx/CrestSport-IPTV-Collection/raw/refs/heads/main/default.m3u
 https://github.com/vanba1504/3SportTV/raw/refs/heads/main/ba30072026.m3u
 https://github.com/vanba1504/4kTV/raw/refs/heads/main/ba30072026.m3u
+https://github.com/Mr-DS-ML-85/IPTV-98/raw/refs/heads/main/playlist/playtv.m3u
