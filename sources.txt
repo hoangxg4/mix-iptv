@@ -51,3 +51,6 @@ https://github.com/SajadTroy/openstream/raw/refs/heads/main/index.m3u
 https://github.com/quanlehong539/TVPub/raw/refs/heads/main/TVPub%20IPTV
 https://cdn.iptvmate.net [DIE]
 https://github.com/abusaeeidx/CrestSport-IPTV-Collection/raw/refs/heads/main/default.m3u
+https://github.com/vanba1504/3SportTV/raw/refs/heads/main/ba30072026.m3u
+https://github.com/vanba1504/4kTV/raw/refs/heads/main/ba30072026.m3u
+
