@@ -6,7 +6,7 @@ https://raw.githubusercontent.com/Hannstcott/SunshineTr/refs/heads/main/sunshine
 https://263.org.vn/coban66
 https://vietngatv.short.gy/vietngatv
 https://hanoiiptv.short.gy/HaNoiIPTV
-https://bit.ly/quidntv
+https://bit.ly/quidntv [DIE]
 https://github.com/giangnam0201/All-In-One-IPTV/raw/refs/heads/main/channels.m3u
 https://livesport.io.vn/easport [DIE]
 https://tinyurl.com/deki2610 [DIE]
@@ -33,7 +33,7 @@ https://github.com/DinhLap96/ListTivi/raw/refs/heads/main/ListTiVi/dltivi_v2.ndl
 https://github.com/leeshin5757/cloudstream-plugin-vn/raw/refs/heads/main/public/iptv.m3u
 https://github.com/blvbatman/iptv/raw/refs/heads/main/iptv.m3u [DIE]
 https://github.com/zaltvvn/live/raw/refs/heads/main/DAKLAKIPTV_BASIC
-https://sm-vn.vercel.app/api/tructiep
+https://sm-vn.vercel.app/api/tructiep [DIE]
 https://github.com/thoike84/iptv-vn/raw/refs/heads/main/phattai84.txt
 https://github.com/utnhan-maker/iptv-list/raw/refs/heads/main/utnhan-iptv [DIE]
 https://github.com/ZXArkin/my-personal-iptv/raw/refs/heads/iptv-radio/ZXIPTV.m3u
