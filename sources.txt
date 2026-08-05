@@ -1,6 +1,6 @@
 https://github.com/luongtamlong/DAKLAK_RADIO/raw/refs/heads/main/DAKLAKIPTV [DIE]
-https://github.com/luongtamlong/DAKLAK_RADIO/raw/refs/heads/main/RadioQuocTe.m3u
-https://github.com/luongtamlong/DAKLAK_RADIO/raw/refs/heads/main/RadioVietNam.m3u
+https://github.com/luongtamlong/DAKLAK_RADIO/raw/refs/heads/main/RadioQuocTe.m3u [DIE]
+https://github.com/luongtamlong/DAKLAK_RADIO/raw/refs/heads/main/RadioVietNam.m3u [DIE]
 https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/vmttv
 https://raw.githubusercontent.com/Hannstcott/SunshineTr/refs/heads/main/sunshinetv.m3u
 https://263.org.vn/coban66
@@ -47,7 +47,7 @@ https://github.com/niuinyang/niuin_iptv/raw/refs/heads/main/output/sjmz.m3u
 https://github.com/niuinyang/niuin_iptv/raw/refs/heads/main/output/dxl.m3u
 https://github.com/AeonCoreX-Lab/streamx-iptv-data/raw/refs/heads/main/playlists/all_channels.m3u
 https://github.com/gtoomanyrequtus-oss/Javascpirt.m3u/raw/refs/heads/main/g.m3u
-https://github.com/SajadTroy/openstream/raw/refs/heads/main/index.m3u [DIE]
+https://github.com/SajadTroy/openstream/raw/refs/heads/main/index.m3u
 https://github.com/quanlehong539/TVPub/raw/refs/heads/main/TVPub%20IPTV
 https://cdn.iptvmate.net [DIE]
 https://github.com/abusaeeidx/CrestSport-IPTV-Collection/raw/refs/heads/main/default.m3u
