@@ -6,9 +6,9 @@ https://raw.githubusercontent.com/Hannstcott/SunshineTr/refs/heads/main/sunshine
 https://263.org.vn/coban66
 https://vietngatv.short.gy/vietngatv
 https://hanoiiptv.short.gy/HaNoiIPTV
-https://bit.ly/quidntv [DIE]
+https://bit.ly/quidntv
 https://github.com/giangnam0201/All-In-One-IPTV/raw/refs/heads/main/channels.m3u
-https://livesport.io.vn/easport
+https://livesport.io.vn/easport [DIE]
 https://tinyurl.com/deki2610 [DIE]
 https://raw.githubusercontent.com/hoiquanclick/hoiquan/refs/heads/main/free.m3u
 https://raw.githubusercontent.com/hoiquanclick/hoiquan/refs/heads/main/vip.m3u
@@ -57,4 +57,4 @@ https://github.com/Mr-DS-ML-85/IPTV-98/raw/refs/heads/main/playlist/playtv.m3u
 https://github.com/LITUATUI/M3UPT/raw/refs/heads/main/M3U/M3UPT.m3u
 https://github.com/HerbertHe/iptv-sources/raw/refs/heads/gh-pages/all.m3u
 https://romaxa55.github.io/world_ip_tv/output/index.m3u
-https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv.m3u
+https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv.m3u [DIE]
