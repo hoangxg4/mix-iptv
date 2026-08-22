@@ -58,3 +58,4 @@ https://github.com/LITUATUI/M3UPT/raw/refs/heads/main/M3U/M3UPT.m3u
 https://github.com/HerbertHe/iptv-sources/raw/refs/heads/gh-pages/all.m3u
 https://romaxa55.github.io/world_ip_tv/output/index.m3u
 https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv.m3u
+https://code.juton.llc/lewa/files/raw/branch/main/SPORT.m3u
