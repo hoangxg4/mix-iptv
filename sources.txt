@@ -59,3 +59,5 @@ https://github.com/HerbertHe/iptv-sources/raw/refs/heads/gh-pages/all.m3u
 https://romaxa55.github.io/world_ip_tv/output/index.m3u
 https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv.m3u
 https://code.juton.llc/lewa/files/raw/branch/main/SPORT.m3u
+Https://tinyurl.com/kenhtv5
+https://code.juton.llc/lewa/files/raw/branch/main/live.m3u
