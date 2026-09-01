@@ -54,7 +54,7 @@ https://github.com/abusaeeidx/CrestSport-IPTV-Collection/raw/refs/heads/main/def
 https://github.com/vanba1504/3SportTV/raw/refs/heads/main/ba30072026.m3u [DIE]
 https://github.com/vanba1504/4kTV/raw/refs/heads/main/ba30072026.m3u
 https://github.com/Mr-DS-ML-85/IPTV-98/raw/refs/heads/main/playlist/playtv.m3u
-https://github.com/LITUATUI/M3UPT/raw/refs/heads/main/M3U/M3UPT.m3u
+https://github.com/LITUATUI/M3UPT/raw/refs/heads/main/M3U/M3UPT.m3u [DIE]
 https://github.com/HerbertHe/iptv-sources/raw/refs/heads/gh-pages/all.m3u
 https://romaxa55.github.io/world_ip_tv/output/index.m3u
 https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv.m3u
