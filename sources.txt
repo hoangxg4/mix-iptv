@@ -67,3 +67,4 @@ https://gist.github.com/mritsurgeon/d6f9d772966e4ead4aac90331c6a6d9c/raw/e324bd6
 https://gist.github.com/Mkzlivetv/1ec58a12c04a5ee12d681485f79abac0/raw/b615c8399b5d4d3c852ce3a4786f6b29edf2fc56/playlist.m3u
 https://gist.github.com/NanoBotAgent/03fef0c54e9f7c1f20e257e99128d2ed/raw/569139d38d5d5344077e7bd751a607852b3a3923/dutch-channels.m3u
 https://gist.github.com/farhat7/9eea9b0a32c580dbf06346cddff7184e/raw/b33500b83f91ad0e858aa06470a468b1acd3230f/line_zux_sports.m3u
+https://gist.github.com/stevndrz/8249817782d5a3c659f963f565916243/raw/8591ec832c3a5a04c311439cdcb82e6460a21f91/gistfile1.txt
