@@ -60,3 +60,4 @@ https://romaxa55.github.io/world_ip_tv/output/index.m3u
 https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv.m3u
 https://code.juton.llc/lewa/files/raw/branch/main/SPORT.m3u
 https://code.juton.llc/lewa/files/raw/branch/main/live.m3u
+https://gist.github.com/thanhnguyenkgbt/8b8ebbd3fdf11987ed8f77308774ec33/raw/88b60db91211976bad3582190a5a0f74f4795481/phimtruyen.m3u
