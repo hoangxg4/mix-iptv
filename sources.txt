@@ -55,12 +55,12 @@ https://github.com/vanba1504/3SportTV/raw/refs/heads/main/ba30072026.m3u [DIE]
 https://github.com/vanba1504/4kTV/raw/refs/heads/main/ba30072026.m3u
 https://github.com/Mr-DS-ML-85/IPTV-98/raw/refs/heads/main/playlist/playtv.m3u
 https://github.com/LITUATUI/M3UPT/raw/refs/heads/main/M3U/M3UPT.m3u
-https://github.com/HerbertHe/iptv-sources/raw/refs/heads/gh-pages/all.m3u
+https://github.com/HerbertHe/iptv-sources/raw/refs/heads/gh-pages/all.m3u [DIE]
 https://romaxa55.github.io/world_ip_tv/output/index.m3u
 https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv.m3u
 https://code.juton.llc/lewa/files/raw/branch/main/SPORT.m3u
 https://code.juton.llc/lewa/files/raw/branch/main/live.m3u
-https://gist.github.com/thanhnguyenkgbt/8b8ebbd3fdf11987ed8f77308774ec33/raw/88b60db91211976bad3582190a5a0f74f4795481/phimtruyen.m3u
+https://gist.github.com/thanhnguyenkgbt/8b8ebbd3fdf11987ed8f77308774ec33/raw/88b60db91211976bad3582190a5a0f74f4795481/phimtruyen.m3u [DIE]
 https://gist.github.com/YusoffRohaidee2/d469103713cfaec1b423a1db4fedfe26/raw/feec0613e22a8fc4ece8f7b3a4348fab474063e2/PrivateHotel.m3u8
 https://gist.github.com/Guja771/f51e337ea9aaa6dac9fc9cfed578a14f/raw/f6b7ced220da2878b9b730037a2b0813e3832064/playlist.m3u
 https://gist.github.com/mritsurgeon/d6f9d772966e4ead4aac90331c6a6d9c/raw/e324bd6199d85eced429326236e2c858e13c1dae/sports.m3u
