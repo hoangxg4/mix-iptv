@@ -64,3 +64,4 @@ https://gist.github.com/thanhnguyenkgbt/8b8ebbd3fdf11987ed8f77308774ec33/raw/88b
 https://gist.github.com/YusoffRohaidee2/d469103713cfaec1b423a1db4fedfe26/raw/feec0613e22a8fc4ece8f7b3a4348fab474063e2/PrivateHotel.m3u8
 https://gist.github.com/Guja771/f51e337ea9aaa6dac9fc9cfed578a14f/raw/f6b7ced220da2878b9b730037a2b0813e3832064/playlist.m3u
 https://gist.github.com/mritsurgeon/d6f9d772966e4ead4aac90331c6a6d9c/raw/e324bd6199d85eced429326236e2c858e13c1dae/sports.m3u
+https://gist.github.com/Mkzlivetv/1ec58a12c04a5ee12d681485f79abac0/raw/b615c8399b5d4d3c852ce3a4786f6b29edf2fc56/playlist.m3u
