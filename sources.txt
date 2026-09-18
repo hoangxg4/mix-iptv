@@ -6,7 +6,7 @@ https://raw.githubusercontent.com/Hannstcott/SunshineTr/refs/heads/main/sunshine
 https://263.org.vn/coban66 [DIE]
 https://vietngatv.short.gy/vietngatv
 https://hanoiiptv.short.gy/HaNoiIPTV
-https://bit.ly/quidntv [DIE]
+https://bit.ly/quidntv
 https://github.com/giangnam0201/All-In-One-IPTV/raw/refs/heads/main/channels.m3u
 https://livesport.io.vn/easport [DIE]
 https://tinyurl.com/deki2610 [DIE]
@@ -26,7 +26,7 @@ https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv
 https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv2
 https://github.com/thung65/Iptv-vietnam/raw/refs/heads/main/tvvn
 https://github.com/evafourbasri-afk/streamedsu-autoscraper/raw/refs/heads/main/Branch/all.m3u
-https://freem3u.xyz/api/channels/x_1.0.1/app.json|User-Agent=okhttp/4.12.0
+https://freem3u.xyz/api/channels/x_1.0.1/app.json|User-Agent=okhttp/4.12.0 [DIE]
 https://raw.githubusercontent.com/ngvhiem/IPTV/refs/heads/main/IPTV.m3u
 https://raw.githubusercontent.com/ngvhiem/IPTV/refs/heads/main/IPTV-FPT.m3u
 https://github.com/DinhLap96/ListTivi/raw/refs/heads/main/ListTiVi/dltivi_v2.ndl
@@ -61,7 +61,7 @@ https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv.m3u
 https://code.juton.llc/lewa/files/raw/branch/main/SPORT.m3u
 https://code.juton.llc/lewa/files/raw/branch/main/live.m3u
 https://gist.github.com/thanhnguyenkgbt/8b8ebbd3fdf11987ed8f77308774ec33/raw/88b60db91211976bad3582190a5a0f74f4795481/phimtruyen.m3u [DIE]
-https://gist.github.com/YusoffRohaidee2/d469103713cfaec1b423a1db4fedfe26/raw/feec0613e22a8fc4ece8f7b3a4348fab474063e2/PrivateHotel.m3u8 [DIE]
+https://gist.github.com/YusoffRohaidee2/d469103713cfaec1b423a1db4fedfe26/raw/feec0613e22a8fc4ece8f7b3a4348fab474063e2/PrivateHotel.m3u8
 https://gist.github.com/Guja771/f51e337ea9aaa6dac9fc9cfed578a14f/raw/f6b7ced220da2878b9b730037a2b0813e3832064/playlist.m3u
 https://gist.github.com/mritsurgeon/d6f9d772966e4ead4aac90331c6a6d9c/raw/e324bd6199d85eced429326236e2c858e13c1dae/sports.m3u
 https://gist.github.com/Mkzlivetv/1ec58a12c04a5ee12d681485f79abac0/raw/b615c8399b5d4d3c852ce3a4786f6b29edf2fc56/playlist.m3u
