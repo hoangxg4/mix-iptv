@@ -7,7 +7,7 @@ https://263.org.vn/coban66
 https://vietngatv.short.gy/vietngatv
 https://hanoiiptv.short.gy/HaNoiIPTV
 https://bit.ly/quidntv
-https://github.com/giangnam0201/All-In-One-IPTV/raw/refs/heads/main/channels.m3u [DIE]
+https://github.com/giangnam0201/All-In-One-IPTV/raw/refs/heads/main/channels.m3u
 https://livesport.io.vn/easport [DIE]
 https://tinyurl.com/deki2610 [DIE]
 https://raw.githubusercontent.com/hoiquanclick/hoiquan/refs/heads/main/free.m3u
@@ -17,47 +17,47 @@ https://gist.githubusercontent.com/vietlubu/692041ad78298d5492e8e8da888135d3/raw
 https://raw.githubusercontent.com/hayatiptv/iptv/refs/heads/master/Radyo.m3u
 https://github.com/hayatiptv/iptv/raw/refs/heads/master/RadyoSeytan.m3u [DIE]
 http://vinh.cf/radio [DIE]
-https://github.com/vietng228/ximaotv/raw/refs/heads/main/vietxiaomi.m3u [DIE]
+https://github.com/vietng228/ximaotv/raw/refs/heads/main/vietxiaomi.m3u
 https://github.com/vietng228/m3u/raw/refs/heads/main/Japan.m3u [DIE]
-https://github.com/vietng228/m3u/raw/refs/heads/main/m3u.m3u [DIE]
-https://github.com/vietng228/m3u/raw/refs/heads/main/new.m3u [DIE]
+https://github.com/vietng228/m3u/raw/refs/heads/main/m3u.m3u
+https://github.com/vietng228/m3u/raw/refs/heads/main/new.m3u
 https://github.com/lockerzlong/androidtv_ltl/raw/refs/heads/playlists/all.m3u [DIE]
-https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv [DIE]
-https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv2 [DIE]
-https://github.com/thung65/Iptv-vietnam/raw/refs/heads/main/tvvn [DIE]
-https://github.com/evafourbasri-afk/streamedsu-autoscraper/raw/refs/heads/main/Branch/all.m3u [DIE]
+https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv
+https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv2
+https://github.com/thung65/Iptv-vietnam/raw/refs/heads/main/tvvn
+https://github.com/evafourbasri-afk/streamedsu-autoscraper/raw/refs/heads/main/Branch/all.m3u
 https://freem3u.xyz/api/channels/x_1.0.1/app.json|User-Agent=okhttp/4.12.0
 https://raw.githubusercontent.com/ngvhiem/IPTV/refs/heads/main/IPTV.m3u
 https://raw.githubusercontent.com/ngvhiem/IPTV/refs/heads/main/IPTV-FPT.m3u
-https://github.com/DinhLap96/ListTivi/raw/refs/heads/main/ListTiVi/dltivi_v2.ndl [DIE]
-https://github.com/leeshin5757/cloudstream-plugin-vn/raw/refs/heads/main/public/iptv.m3u [DIE]
+https://github.com/DinhLap96/ListTivi/raw/refs/heads/main/ListTiVi/dltivi_v2.ndl
+https://github.com/leeshin5757/cloudstream-plugin-vn/raw/refs/heads/main/public/iptv.m3u
 https://github.com/blvbatman/iptv/raw/refs/heads/main/iptv.m3u [DIE]
-https://github.com/zaltvvn/live/raw/refs/heads/main/DAKLAKIPTV_BASIC [DIE]
+https://github.com/zaltvvn/live/raw/refs/heads/main/DAKLAKIPTV_BASIC
 https://sm-vn.vercel.app/api/tructiep
-https://github.com/thoike84/iptv-vn/raw/refs/heads/main/phattai84.txt [DIE]
+https://github.com/thoike84/iptv-vn/raw/refs/heads/main/phattai84.txt
 https://github.com/utnhan-maker/iptv-list/raw/refs/heads/main/utnhan-iptv [DIE]
-https://github.com/ZXArkin/my-personal-iptv/raw/refs/heads/iptv-radio/ZXIPTV.m3u [DIE]
+https://github.com/ZXArkin/my-personal-iptv/raw/refs/heads/iptv-radio/ZXIPTV.m3u
 https://github.com/ZXArkin/my-personal-iptv/raw/refs/heads/iptv-radio/Japan.m3u [DIE]
-https://github.com/Love4vn/Test/raw/refs/heads/main/IPTV.m3u [DIE]
-https://github.com/dovietsy/acestreamfb/raw/refs/heads/main/acestreamfb.txt [DIE]
-https://github.com/mranhtu/viettv/raw/refs/heads/master/IPTV_ALL.m3u [DIE]
+https://github.com/Love4vn/Test/raw/refs/heads/main/IPTV.m3u
+https://github.com/dovietsy/acestreamfb/raw/refs/heads/main/acestreamfb.txt
+https://github.com/mranhtu/viettv/raw/refs/heads/master/IPTV_ALL.m3u
 https://tinhlagi.pro/s.m3u [DIE]
-https://github.com/ZXArkin/my-personal-iptv/raw/refs/heads/iptv-radio/Radio%20FM%20(Rajio%20FM).m3u [DIE]
-https://github.com/niuinyang/niuin_iptv/raw/refs/heads/main/output/sjmz.m3u [DIE]
-https://github.com/niuinyang/niuin_iptv/raw/refs/heads/main/output/dxl.m3u [DIE]
-https://github.com/AeonCoreX-Lab/streamx-iptv-data/raw/refs/heads/main/playlists/all_channels.m3u [DIE]
-https://github.com/gtoomanyrequtus-oss/Javascpirt.m3u/raw/refs/heads/main/g.m3u [DIE]
-https://github.com/SajadTroy/openstream/raw/refs/heads/main/index.m3u [DIE]
-https://github.com/quanlehong539/TVPub/raw/refs/heads/main/TVPub%20IPTV [DIE]
+https://github.com/ZXArkin/my-personal-iptv/raw/refs/heads/iptv-radio/Radio%20FM%20(Rajio%20FM).m3u
+https://github.com/niuinyang/niuin_iptv/raw/refs/heads/main/output/sjmz.m3u
+https://github.com/niuinyang/niuin_iptv/raw/refs/heads/main/output/dxl.m3u
+https://github.com/AeonCoreX-Lab/streamx-iptv-data/raw/refs/heads/main/playlists/all_channels.m3u
+https://github.com/gtoomanyrequtus-oss/Javascpirt.m3u/raw/refs/heads/main/g.m3u
+https://github.com/SajadTroy/openstream/raw/refs/heads/main/index.m3u
+https://github.com/quanlehong539/TVPub/raw/refs/heads/main/TVPub%20IPTV
 https://cdn.iptvmate.net [DIE]
-https://github.com/abusaeeidx/CrestSport-IPTV-Collection/raw/refs/heads/main/default.m3u [DIE]
+https://github.com/abusaeeidx/CrestSport-IPTV-Collection/raw/refs/heads/main/default.m3u
 https://github.com/vanba1504/3SportTV/raw/refs/heads/main/ba30072026.m3u [DIE]
 https://github.com/vanba1504/4kTV/raw/refs/heads/main/ba30072026.m3u [DIE]
-https://github.com/Mr-DS-ML-85/IPTV-98/raw/refs/heads/main/playlist/playtv.m3u [DIE]
-https://github.com/LITUATUI/M3UPT/raw/refs/heads/main/M3U/M3UPT.m3u [DIE]
-https://github.com/HerbertHe/iptv-sources/raw/refs/heads/gh-pages/all.m3u [DIE]
+https://github.com/Mr-DS-ML-85/IPTV-98/raw/refs/heads/main/playlist/playtv.m3u
+https://github.com/LITUATUI/M3UPT/raw/refs/heads/main/M3U/M3UPT.m3u
+https://github.com/HerbertHe/iptv-sources/raw/refs/heads/gh-pages/all.m3u
 https://romaxa55.github.io/world_ip_tv/output/index.m3u
-https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv.m3u
+https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv.m3u [DIE]
 https://code.juton.llc/lewa/files/raw/branch/main/SPORT.m3u [DIE]
 https://code.juton.llc/lewa/files/raw/branch/main/live.m3u [DIE]
 https://gist.github.com/thanhnguyenkgbt/8b8ebbd3fdf11987ed8f77308774ec33/raw/88b60db91211976bad3582190a5a0f74f4795481/phimtruyen.m3u [DIE]
@@ -66,7 +66,7 @@ https://gist.github.com/Guja771/f51e337ea9aaa6dac9fc9cfed578a14f/raw/f6b7ced220d
 https://gist.github.com/mritsurgeon/d6f9d772966e4ead4aac90331c6a6d9c/raw/e324bd6199d85eced429326236e2c858e13c1dae/sports.m3u
 https://gist.github.com/Mkzlivetv/1ec58a12c04a5ee12d681485f79abac0/raw/b615c8399b5d4d3c852ce3a4786f6b29edf2fc56/playlist.m3u
 https://gist.github.com/NanoBotAgent/03fef0c54e9f7c1f20e257e99128d2ed/raw/569139d38d5d5344077e7bd751a607852b3a3923/dutch-channels.m3u
-https://gist.github.com/farhat7/9eea9b0a32c580dbf06346cddff7184e/raw/b33500b83f91ad0e858aa06470a468b1acd3230f/line_zux_sports.m3u
+https://gist.github.com/farhat7/9eea9b0a32c580dbf06346cddff7184e/raw/b33500b83f91ad0e858aa06470a468b1acd3230f/line_zux_sports.m3u [DIE]
 https://gist.github.com/stevndrz/8249817782d5a3c659f963f565916243/raw/8591ec832c3a5a04c311439cdcb82e6460a21f91/gistfile1.txt
 https://gist.github.com/bdrajgaming654-byte/44ec62f426e46882c7d9f0de12b78775/raw/4065c0c4448168da5ef00285c74c19a5a1ed53df/BDLoVe244.m3u
 https://gist.github.com/fathalwi/8c2cf8c090da71fd5866a287736ef3b7/raw/b63216bf0554993ca6e4953ef4c9b1ce95f1ff66/fathtv.m3u
