@@ -6,7 +6,7 @@ https://raw.githubusercontent.com/Hannstcott/SunshineTr/refs/heads/main/sunshine
 https://263.org.vn/coban66
 https://vietngatv.short.gy/vietngatv
 https://hanoiiptv.short.gy/HaNoiIPTV
-https://bit.ly/quidntv
+https://bit.ly/quidntv [DIE]
 https://github.com/giangnam0201/All-In-One-IPTV/raw/refs/heads/main/channels.m3u
 https://livesport.io.vn/easport [DIE]
 https://tinyurl.com/deki2610 [DIE]
@@ -36,13 +36,13 @@ https://github.com/zaltvvn/live/raw/refs/heads/main/DAKLAKIPTV_BASIC
 https://sm-vn.vercel.app/api/tructiep
 https://github.com/thoike84/iptv-vn/raw/refs/heads/main/phattai84.txt
 https://github.com/utnhan-maker/iptv-list/raw/refs/heads/main/utnhan-iptv [DIE]
-https://github.com/ZXArkin/my-personal-iptv/raw/refs/heads/iptv-radio/ZXIPTV.m3u
+https://github.com/ZXArkin/my-personal-iptv/raw/refs/heads/iptv-radio/ZXIPTV.m3u [DIE]
 https://github.com/ZXArkin/my-personal-iptv/raw/refs/heads/iptv-radio/Japan.m3u [DIE]
 https://github.com/Love4vn/Test/raw/refs/heads/main/IPTV.m3u
 https://github.com/dovietsy/acestreamfb/raw/refs/heads/main/acestreamfb.txt
 https://github.com/mranhtu/viettv/raw/refs/heads/master/IPTV_ALL.m3u
 https://tinhlagi.pro/s.m3u [DIE]
-https://github.com/ZXArkin/my-personal-iptv/raw/refs/heads/iptv-radio/Radio%20FM%20(Rajio%20FM).m3u
+https://github.com/ZXArkin/my-personal-iptv/raw/refs/heads/iptv-radio/Radio%20FM%20(Rajio%20FM).m3u [DIE]
 https://github.com/niuinyang/niuin_iptv/raw/refs/heads/main/output/sjmz.m3u
 https://github.com/niuinyang/niuin_iptv/raw/refs/heads/main/output/dxl.m3u
 https://github.com/AeonCoreX-Lab/streamx-iptv-data/raw/refs/heads/main/playlists/all_channels.m3u
