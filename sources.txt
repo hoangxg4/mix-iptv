@@ -26,7 +26,7 @@ https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv
 https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv2
 https://github.com/thung65/Iptv-vietnam/raw/refs/heads/main/tvvn
 https://github.com/evafourbasri-afk/streamedsu-autoscraper/raw/refs/heads/main/Branch/all.m3u
-https://freem3u.xyz/api/channels/x_1.0.1/app.json|User-Agent=okhttp/4.12.0
+https://freem3u.xyz/api/channels/x_1.0.1/app.json|User-Agent=okhttp/4.12.0 [DIE]
 https://raw.githubusercontent.com/ngvhiem/IPTV/refs/heads/main/IPTV.m3u
 https://raw.githubusercontent.com/ngvhiem/IPTV/refs/heads/main/IPTV-FPT.m3u
 https://github.com/DinhLap96/ListTivi/raw/refs/heads/main/ListTiVi/dltivi_v2.ndl
