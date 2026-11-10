@@ -22,8 +22,8 @@ https://github.com/vietng228/m3u/raw/refs/heads/main/Japan.m3u [DIE]
 https://github.com/vietng228/m3u/raw/refs/heads/main/m3u.m3u
 https://github.com/vietng228/m3u/raw/refs/heads/main/new.m3u
 https://github.com/lockerzlong/androidtv_ltl/raw/refs/heads/playlists/all.m3u [DIE]
-https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv
-https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv2
+https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv [DIE]
+https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv2 [DIE]
 https://github.com/thung65/Iptv-vietnam/raw/refs/heads/main/tvvn
 https://github.com/evafourbasri-afk/streamedsu-autoscraper/raw/refs/heads/main/Branch/all.m3u
 https://freem3u.xyz/api/channels/x_1.0.1/app.json|User-Agent=okhttp/4.12.0
@@ -55,7 +55,7 @@ https://github.com/vanba1504/3SportTV/raw/refs/heads/main/ba30072026.m3u [DIE]
 https://github.com/vanba1504/4kTV/raw/refs/heads/main/ba30072026.m3u [DIE]
 https://github.com/Mr-DS-ML-85/IPTV-98/raw/refs/heads/main/playlist/playtv.m3u [DIE]
 https://github.com/LITUATUI/M3UPT/raw/refs/heads/main/M3U/M3UPT.m3u
-https://github.com/HerbertHe/iptv-sources/raw/refs/heads/gh-pages/all.m3u [DIE]
+https://github.com/HerbertHe/iptv-sources/raw/refs/heads/gh-pages/all.m3u
 https://romaxa55.github.io/world_ip_tv/output/index.m3u
 https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv.m3u
 https://code.juton.llc/lewa/files/raw/branch/main/SPORT.m3u [DIE]
