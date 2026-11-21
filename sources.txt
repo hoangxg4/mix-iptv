@@ -26,7 +26,7 @@ https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv [DIE]
 https://github.com/thangmath/thangmath.github.io/raw/refs/heads/_/tv2 [DIE]
 https://github.com/thung65/Iptv-vietnam/raw/refs/heads/main/tvvn
 https://github.com/evafourbasri-afk/streamedsu-autoscraper/raw/refs/heads/main/Branch/all.m3u
-https://freem3u.xyz/api/channels/x_1.0.1/app.json|User-Agent=okhttp/4.12.0 [DIE]
+https://freem3u.xyz/api/channels/x_1.0.1/app.json|User-Agent=okhttp/4.12.0
 https://raw.githubusercontent.com/ngvhiem/IPTV/refs/heads/main/IPTV.m3u
 https://raw.githubusercontent.com/ngvhiem/IPTV/refs/heads/main/IPTV-FPT.m3u
 https://github.com/DinhLap96/ListTivi/raw/refs/heads/main/ListTiVi/dltivi_v2.ndl
@@ -36,13 +36,13 @@ https://github.com/zaltvvn/live/raw/refs/heads/main/DAKLAKIPTV_BASIC
 https://sm-vn.vercel.app/api/tructiep
 https://github.com/thoike84/iptv-vn/raw/refs/heads/main/phattai84.txt
 https://github.com/utnhan-maker/iptv-list/raw/refs/heads/main/utnhan-iptv [DIE]
-https://github.com/ZXArkin/my-personal-iptv/raw/refs/heads/iptv-radio/ZXIPTV.m3u [DIE]
+https://github.com/ZXArkin/my-personal-iptv/raw/refs/heads/iptv-radio/ZXIPTV.m3u
 https://github.com/ZXArkin/my-personal-iptv/raw/refs/heads/iptv-radio/Japan.m3u [DIE]
 https://github.com/Love4vn/Test/raw/refs/heads/main/IPTV.m3u
 https://github.com/dovietsy/acestreamfb/raw/refs/heads/main/acestreamfb.txt
 https://github.com/mranhtu/viettv/raw/refs/heads/master/IPTV_ALL.m3u
 https://tinhlagi.pro/s.m3u [DIE]
-https://github.com/ZXArkin/my-personal-iptv/raw/refs/heads/iptv-radio/Radio%20FM%20(Rajio%20FM).m3u [DIE]
+https://github.com/ZXArkin/my-personal-iptv/raw/refs/heads/iptv-radio/Radio%20FM%20(Rajio%20FM).m3u
 https://github.com/niuinyang/niuin_iptv/raw/refs/heads/main/output/sjmz.m3u
 https://github.com/niuinyang/niuin_iptv/raw/refs/heads/main/output/dxl.m3u
 https://github.com/AeonCoreX-Lab/streamx-iptv-data/raw/refs/heads/main/playlists/all_channels.m3u
